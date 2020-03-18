@@ -39,57 +39,68 @@
                     <span>บัญชีผู้ใช้</span>
                 </a>
             </li>
-
             <li class='nav-item'>
-                <a class='nav-link collapsed' href="../../views/agreement/agreement.php" data-toggle='collapse' data-target='#link' aria-expanded='true' aria-controls='link-2'>
-                    <i class="fas fa-users"></i>
+                <a class='nav-link' href='../../logout.php'>
+                    <i class="fas fa-users-cog"></i>
                     <span>การจัดการผู้ใช้</span>
                 </a>
-                <div id='link' class='collapse' aria-labelledby='headingTwo' data-parent='#accordionSidebar'>
+            </li>
+            <li class='nav-item'>
+                <a class='nav-link collapsed' href="../../views/profile/profile.php" data-toggle='collapse' data-target='#link2' aria-expanded='true' aria-controls=''>
+                    <i class="fas fa-desktop"></i>
+                    <span>การจัดการอุปกรณ์</span>
+                </a>
+                <div id='link2' class='collapse' aria-labelledby='headingTwo' data-parent='#accordionSidebar'>
                     <div class=' py-2 collapse-inner rounded' style='border-left: 2px solid white; border-radius: 0% !important;'>
                         <div class="background-color-sideber" style="background-color: #bf4040" id="accordionSidebar">
-                            <a class='nav-link' href="../../views/agreement/agreement.php">การจัดการผู้เช่า</a>
-                            <a class='nav-link' href='../../views/agreement/adminRead.php'>การจัดการผู้ดูแล</a>
+                            <a class='nav-link' href="../../views/agreement/agreement.php">หมวดหมู่อุปกรณ์</a>
+                            <a class='nav-link' href="../../views/agreement/agreement.php">รายการอุปกรณ์</a>
                         </div>
                     </div>
                 </div>
             </li>
-
             <li class='nav-item'>
-                <a class='nav-link collapsed' href="../../views/config/config.php" data-toggle='' data-target='' aria-expanded='true' aria-controls=''>
-                    <i class="fas fa-wrench"></i>
-                    <span>การจัดการหอพัก</span>
+                <a class='nav-link collapsed' href="../../views/agreement/agreement.php" data-toggle='collapse' data-target='#link3' aria-expanded='true' aria-controls='link-2'>
+                    <i class="fas fa-tasks"></i>
+                    <span>การยืม-คืนอุปกรณ์</span>
                 </a>
+                <div id='link3' class='collapse' aria-labelledby='headingTwo' data-parent='#accordionSidebar'>
+                    <div class=' py-2 collapse-inner rounded' style='border-left: 2px solid white; border-radius: 0% !important;'>
+                        <div class="background-color-sideber" style="background-color: #bf4040" id="accordionSidebar">
+                            <a class='nav-link' href="../../views/agreement/agreement.php">การยืมอุปกรณ์</a>
+                            <a class='nav-link' href='../../views/agreement/adminRead.php'>การรับอุปกรณ์</a>
+                            <a class='nav-link' href='../../views/agreement/adminRead.php'>การคืนอุปกรณ์</a>
+                            <a class='nav-link' href='../../views/agreement/adminRead.php'>การจัดการคำร้อง</a>
+                        </div>
+                    </div>
+                </div>
             </li>
             <li class='nav-item'>
-                <a class='nav-link collapsed' href="../../views/room/room.php" data-toggle='' data-target='' aria-expanded='true' aria-controls=''>
-                    <i class="fas fa-key"></i>
-                    <span>การจัดการห้อง</span>
-                </a>
-            </li>
-            <li class='nav-item'>
-                <a class='nav-link collapsed' href="../../views/payment/payment.php" data-toggle='' data-target='' aria-expanded='true' aria-controls=''>
-                    <i class="fas fa-coins"></i>
-
-                    <span>การจัดการชำระค่าเช่ารายเดือน</span>
-                </a>
-            </li>
-            <li class='nav-item'>
-                <a class='nav-link collapsed' href="../../views/inform/showinform.php" data-toggle='' data-target='' aria-expanded='true' aria-controls=''>
-                    <i class="fas fa-comment-dots"></i>
-                    <span>แสดงคำร้อง</span>
+                <a class='nav-link' href='../../logout.php'>
+                    <i class="fas fa-chart-bar"></i>
+                    <span>สถิติการยืมอุปกรณ์</span>
                 </a>
             </li>
             <li class='nav-item'>
                 <a class='nav-link' href='../../logout.php'>
-                    <i class='material-icons'>meeting_room</i>
+                    <i class="fas fa-wrench"></i>
+                    <span>ตั้งค่าระบบ</span>
+                </a>
+            </li>
+            <li class='nav-item'>
+                <a class='nav-link' href='../../logout.php'>
+                    <i class="fas fa-comment-dots"></i>
+                    <span>ข้อเสนอแนะ</span>
+                </a>
+            </li>
+            <li class='nav-item'>
+                <a class='nav-link' href='../../logout.php'>
+                    <i class="fas fa-sign-out-alt"></i>
                     <span>ออกจากระบบ</span>
                 </a>
             </li>
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
-
-
         </ul>
 
         <!-- End of Sidebar -->

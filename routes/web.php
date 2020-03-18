@@ -34,3 +34,18 @@ Route::get('/readComments', function () {
 Route::get('/detailEquipment', function () {
     return view('detailEquipment');
 });
+Route::get('listEquipment', function () {
+    return view('listEquipment');
+});
+Route::get('userManagement', function () {
+    return view('userManagement');
+});
+Route::get('layoutAdmin', function () {
+    return view('layoutAdmin');
+});
+Route::get('receiveEquipment', function () {
+    return view('receiveEquipment');
+});
+Route::get('approveRequest', function () {
+    return view('approveRequest');
+});
