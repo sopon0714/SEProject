@@ -118,78 +118,78 @@
         </div> --}}
         <div class="card-body" style="height: 300px">
             <div class="col-sm-12" id="historyRequirements" style="overflow-y:auto;">
-                    <table class="table table-bordered" id="historyRequirementsTable" style="text-align:center;"  swidth="100%"  cellspacing="0">
-                                        <thead>
-                                            <tr role="row" >
-                                                <th rowspan="1" colspan="1">ลำดับ</th>
-                                                <th rowspan="1" colspan="1">ชื่ออุปกรณ์</th>
-                                                <th rowspan="1" colspan="1">หมวดหมู่อุปกรณ์</th>
-                                                <th rowspan="1" colspan="1">จำนวนทั้งหมด</th>
-                                                <th rowspan="1" colspan="1">จำนวนที่ยืมได้</th>
-                                                <th rowspan="1" colspan="1">รายละเอียด</th>
-                                                <th rowspan="1" colspan="1">จัดการ</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr role="row" >
-                                                <td rowspan="1" colspan="1">1</td>
-                                                <td rowspan="1" colspan="1">มัลติมิเตอร์แบบดิจิตอล</td>
-                                                <td rowspan="1" colspan="1">อุปกรณ์อิเล็กทรอนิกส์</td>
-                                                <td rowspan="1" colspan="1">50</td>
-                                                <td rowspan="1" colspan="1">42</td>
-                                                {{-- <td style="text-align:center;">
-                                                    <button type="button" class="btn btn-outline-dark tt " data-toggle="tooltip" title="" data-original-title="รายละเอียด" onclick="showHint(<?php echo $order->OID; ?>)"><i class="fas fa-file-alt"></i></button>
-                                                </td> --}}
-                                                <td rowspan="1" colspan="1">
-                                                    <button type="button" class="btn btn-info btn-sm tt" title='รายละเอียดรายการอุปกรณ์'>
-                                                        <i class="fas fa-file-alt"></i>
-                                                    </button>
-                                                </td>
-                                                <td rowspan="1" colspan="1">
-                                                    <button type="button" class="btn btn-warning btn-sm tt" data-toggle="tooltip" title="แก้ไขรายการอุปกรณ์" data-original-title="แก้ไข"><i class="fas fa-pencil-alt"></i></button>
-                                                    <button type="button" class="btn btn-danger btn-sm tt" data-toggle="tooltip" title="ลบรายการอุปกรณ์" data-original-title="ลบ"><i class="far fa-trash-alt" aria-hidden="true" onclick=""></i></button>
-                                                </td>
-                                            </tr>
-                                            <tr role="row" >
-                                                <td rowspan="1" colspan="1">2</td>
-                                                <td rowspan="1" colspan="1">กุญแจทองเหลืองสามห่วง</td>
-                                                <td rowspan="1" colspan="1">อุปกรณ์ทั่วไป</td>
-                                                <td rowspan="1" colspan="1">40</td>
-                                                <td rowspan="1" colspan="1">40</td>
-                                                {{-- <td style="text-align:center;">
-                                                    <button type="button" class="btn btn-outline-dark tt " data-toggle="tooltip" title="" data-original-title="รายละเอียด" onclick="showHint(<?php echo $order->OID; ?>)"><i class="fas fa-file-alt"></i></button>
-                                                </td> --}}
-                                                <td rowspan="1" colspan="1">
-                                                    <button type="button" class="btn btn-info btn-sm tt" title='รายละเอียดรายการอุปกรณ์'>
-                                                        <i class="fas fa-file-alt"></i>
-                                                    </button>
-                                                </td>
-                                                <td rowspan="1" colspan="1">
-                                                    <button type="button" class="btn btn-warning btn-sm tt" data-toggle="tooltip" title="แก้ไขรายการอุปกรณ์" data-original-title="แก้ไข"><i class="fas fa-pencil-alt"></i></button>
-                                                    <button type="button" class="btn btn-danger btn-sm tt" data-toggle="tooltip" title="ลบรายการอุปกรณ์" data-original-title="ลบ"><i class="far fa-trash-alt" aria-hidden="true" onclick=""></i></button>
-                                                </td>
-                                            </tr>
-                                            <tr role="row" >
-                                                <td rowspan="1" colspan="1">3</td>
-                                                <td rowspan="1" colspan="1">เมาส์</td>
-                                                <td rowspan="1" colspan="1">อุปกรณ์คอมพิวเตอร์</td>
-                                                <td rowspan="1" colspan="1">60</td>
-                                                <td rowspan="1" colspan="1">58</td>
-                                                {{-- <td style="text-align:center;">
-                                                    <button type="button" class="btn btn-outline-dark tt " data-toggle="tooltip" title="" data-original-title="รายละเอียด" onclick="showHint(<?php echo $order->OID; ?>)"><i class="fas fa-file-alt"></i></button>
-                                                </td> --}}
-                                                <td rowspan="1" colspan="1">
-                                                    <button type="button" class="btn btn-info btn-sm tt" title='รายละเอียดรายการอุปกรณ์'>
-                                                        <i class="fas fa-file-alt"></i>
-                                                    </button>
-                                                </td>
-                                                <td rowspan="1" colspan="1">
-                                                    <button type="button" class="btn btn-warning btn-sm tt" data-toggle="tooltip" title="แก้ไขรายการอุปกรณ์" data-original-title="แก้ไข"><i class="fas fa-pencil-alt"></i></button>
-                                                    <button type="button" class="btn btn-danger btn-sm tt" data-toggle="tooltip" title="ลบรายการอุปกรณ์" data-original-title="ลบ"><i class="far fa-trash-alt" aria-hidden="true" onclick=""></i></button>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                    </table>
+                <table class="table table-bordered" id="historyRequirementsTable " style="text-align:center;"  swidth="100%"  cellspacing="0">
+                    <thead>
+                        <tr role="row" >
+                            <th rowspan="1" colspan="1">ลำดับ</th>
+                            <th rowspan="1" colspan="1">ชื่ออุปกรณ์</th>
+                            <th rowspan="1" colspan="1">หมวดหมู่อุปกรณ์</th>
+                            <th rowspan="1" colspan="1">จำนวนทั้งหมด</th>
+                            <th rowspan="1" colspan="1">จำนวนที่ยืมได้</th>
+                            <th rowspan="1" colspan="1">รายละเอียด</th>
+                            <th rowspan="1" colspan="1">จัดการ</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr role="row" >
+                            <td rowspan="1" colspan="1">1</td>
+                            <td rowspan="1" colspan="1">มัลติมิเตอร์แบบดิจิตอล</td>
+                            <td rowspan="1" colspan="1">อุปกรณ์อิเล็กทรอนิกส์</td>
+                            <td rowspan="1" colspan="1">50</td>
+                            <td rowspan="1" colspan="1">42</td>
+                            {{-- <td style="text-align:center;">
+                                <button type="button" class="btn btn-outline-dark tt " data-toggle="tooltip" title="" data-original-title="รายละเอียด" onclick="showHint(<?php echo $order->OID; ?>)"><i class="fas fa-file-alt"></i></button>
+                            </td> --}}
+                            <td rowspan="1" colspan="1">
+                                <button type="button" class="btn btn-info btn-sm tt" title='รายละเอียดการยืม'>
+                                    <i class="fas fa-file-alt"></i>
+                                </button>
+                            </td>
+                            <td rowspan="1" colspan="1">
+                                <button type="button" class="btn btn-warning btn-sm tt" data-toggle="tooltip" title="แก้ไขรายการอุปกรณ์" data-original-title="แก้ไข"><i class="fas fa-pencil-alt"></i></button>
+                                <button type="button" class="btn btn-danger btn-sm tt delbtn" data-toggle="tooltip" title="ลบรายการอุปกรณ์" nameitem ="มัลติมิเตอร์แบบดิจิตอล" data-original-title="ลบ"><i class="far fa-trash-alt" aria-hidden="true" onclick=""></i></button>
+                            </td>
+                        </tr>
+                        <tr role="row" >
+                            <td rowspan="1" colspan="1">1</td>
+                            <td rowspan="1" colspan="1">กุญแจทองเหลืองสามห่วง</td>
+                            <td rowspan="1" colspan="1">อุปกรณ์ทั่วไป</td>
+                            <td rowspan="1" colspan="1">40</td>
+                            <td rowspan="1" colspan="1">40</td>
+                            {{-- <td style="text-align:center;">
+                                <button type="button" class="btn btn-outline-dark tt " data-toggle="tooltip" title="" data-original-title="รายละเอียด" onclick="showHint(<?php echo $order->OID; ?>)"><i class="fas fa-file-alt"></i></button>
+                            </td> --}}
+                            <td rowspan="1" colspan="1">
+                                <button type="button" class="btn btn-info btn-sm tt" title='รายละเอียดการยืม'>
+                                    <i class="fas fa-file-alt"></i>
+                                </button>
+                            </td>
+                            <td rowspan="1" colspan="1">
+                                <button type="button" class="btn btn-warning btn-sm tt" data-toggle="tooltip" title="แก้ไขรายการอุปกรณ์" data-original-title="แก้ไข"><i class="fas fa-pencil-alt"></i></button>
+                                <button type="button" class="btn btn-danger btn-sm tt delbtn" data-toggle="tooltip" title="ลบรายการอุปกรณ์" nameitem ="กุญแจทองเหลืองสามห่วง" data-original-title="ลบ"><i class="far fa-trash-alt" aria-hidden="true" ></i></button>
+                            </td>
+                        </tr>
+                        <tr role="row" >
+                            <td rowspan="1" colspan="1">1</td>
+                            <td rowspan="1" colspan="1">เมาส์</td>
+                            <td rowspan="1" colspan="1">อุปกรณ์คอมพิวเตอร์</td>
+                            <td rowspan="1" colspan="1">60</td>
+                            <td rowspan="1" colspan="1">58</td>
+                            {{-- <td style="text-align:center;">
+                                <button type="button" class="btn btn-outline-dark tt " data-toggle="tooltip" title="" data-original-title="รายละเอียด" onclick="showHint(<?php echo $order->OID; ?>)"><i class="fas fa-file-alt"></i></button>
+                            </td> --}}
+                            <td rowspan="1" colspan="1">
+                                <button type="button" class="btn btn-info btn-sm tt" title='รายละเอียดการยืม'>
+                                    <i class="fas fa-file-alt"></i>
+                                </button>
+                            </td>
+                            <td rowspan="1" colspan="1">
+                                <button type="button" class="btn btn-warning btn-sm tt" data-toggle="tooltip" title="แก้ไขรายการอุปกรณ์" data-original-title="แก้ไข"><i class="fas fa-pencil-alt"></i></button>
+                                <button type="button" class="btn btn-danger btn-sm tt delbtn" data-toggle="tooltip" title="ลบรายการอุปกรณ์"  nameitem ="เมาส์" data-original-title="ลบ"><i class="far fa-trash-alt" aria-hidden="true" onclick=""></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
@@ -199,4 +199,41 @@
 
 @section('modal')
 
+@endsection
+@section('Javascript')
+<script>
+     $(document).ready(function() {
+        $(".delbtn").click(function() {
+            var nameitem = $(this).attr('nameitem');
+            swal({
+                title: "คุณต้องการลบ",
+                text: nameitem+" หรือไม่ ?",
+                icon: "warning",
+                buttons: true,
+                buttons: ["ยกเลิก", "ยืนยัน"],
+                dangerMode: true,
+            })
+            .then((willDelete) => {
+                if (willDelete) {
+                    swal("ลบรายการสำเร็จเรียบร้อยแล้ว", {
+                        icon: "success",
+                        buttons: false
+                    });
+                    //delete_1(uid);
+                    setTimeout(function() {
+                        location.reload();
+                    }, 1500);
+                } else {
+                    swal("การลบไม่สำเร็จ ",{
+                        icon: "error",
+                        buttons: false
+                    });
+                    setTimeout(function() {
+                        swal.close();
+                    }, 1500);
+                }
+            });
+        });
+    });
+</script>
 @endsection
