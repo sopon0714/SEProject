@@ -28,3 +28,6 @@ Route::get('listEquipment', function () {
 Route::get('userManagement', function () {
     return view('userManagement');
 });
+Route::get('layoutAdmin', function () {
+    return view('layoutAdmin');
+});
