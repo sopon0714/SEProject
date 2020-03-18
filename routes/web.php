@@ -49,3 +49,10 @@ Route::get('receiveEquipment', function () {
 Route::get('approveRequest', function () {
     return view('approveRequest');
 });
+Route::get('comment', function () {
+    return view('comment');
+});
+Route::get('returnEquipment', function () {
+    return view('returnEquipment');
+});
+
