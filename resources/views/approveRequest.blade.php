@@ -78,7 +78,7 @@
                                 <td style="text-align: center">15/2/2020</td>
                                 <td>นายโสภณ โตใหญ่</td>
                                 <td style="text-align: center">
-                                    <button type="button" class="btn btn-info btn-sm tt" title='รายละเอียดการยืนยันคำร้อง'><i class="fas fa-file-alt"></i></button>
+                                    <button type="button" class="btn btn-info btn-sm tt btninfoapprove" title='รายละเอียดการยืนยันคำร้อง'><i class="fas fa-file-alt"></i></button>
                                     <button type="button" class="btn btn-danger btn-sm tt" data-toggle="tooltip" title="ยกเลิกการอนุมัติ" data-original-title="ลบ"><i class="far fa-trash-alt" aria-hidden="true" onclick=""></i></button>
                                 </td>
                             </tbody>
@@ -88,4 +88,102 @@
             </div>
         </div>
     </div>
+@endsection
+@section('modal')
+{{-- modal แสดงรายละเอียดการการยืนยันคำร้อง --}}
+<div class="modal fade" id="infoapproveModal" name="infoapproveModal" tabindex="-1" role="dialog" >
+    <div class="modal-dialog modal-lg" role="document" style="width: 50%">
+        <div class="modal-content">
+            <form method="post" id="info" name="info" action="manage.php">
+                <div class="info" style="font-size: 17px">
+                    <div class="modal-header header-modal" style="background-color: #66b3ff;">
+                        <h4 class="modal-title" style="color: white">รายละเอียดการการยืนยันคำร้อง</h4>
+                    </div>
+                    <div class="modal-body" id="ChangeModalBody">
+                        <div class="container">
+                            <div class="row mb-4">
+                                <div class="col-xl-6 col-2 text-right">
+                                    <span>หมายเลขคำร้อง :</span>
+                                </div>
+                                <div class="col-xl-6 col-6 ">
+                                    <span>R00002</span>
+                                </div>
+                            </div>
+                            <div class="row mb-4">
+                                <div class="col-xl-6 col-2 text-right">
+                                    <span>วันที่ยื่นคำร้อง :</span>
+                                </div>
+                                <div class="col-xl-6 col-6 ">
+                                    <span>15/02/2020</span>
+                                </div>
+                            </div>
+                            <div class="row mb-4">
+                                <div class="col-xl-6 col-2 text-right">
+                                    <span>ผู้ยื่นคำร้อง :</span>
+                                </div>
+                                <div class="col-xl-6 col-6 ">
+                                    <span>นายโสภณ โตใหญ่</span>
+                                </div>
+                            </div>
+                            <div class="row mb-4">
+                                <div class="col-xl-6 col-2 text-right">
+                                    <span>อาจารย์ที่รับผิดชอบ :</span>
+                                </div>
+                                <div class="col-xl-6 col-6 ">
+                                    <span>นางสาว นุชนาฎ สัตยากวี</span>
+                                </div>
+                            </div>
+                            <div class="row mb-4">
+                                <div class="col-xl-6 col-2 text-left">
+                                    <span>รายการอุปกรณ์ที่ยืม :</span>
+                                </div>
+                            </div>
+                            <div class="row mb-4">
+                                <div class="col-xl-12 col-2 text-right">
+                                    <table class="table table-bordered" id="historyRequirementsTable" style="text-align:center;font-size: 14px"  swidth="100%"  cellspacing="0">
+                                        <thead>
+                                            <tr role="row">
+                                                <th rowspan="1" colspan="1">ลำดับ</th>
+                                                <th rowspan="1" colspan="1">รายการอุปกรณ์</th>
+                                                <th rowspan="1" colspan="1">จำนวน(ชิ้น)</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr role="row" >
+                                                <td rowspan="1" colspan="1">1</td>
+                                                <td rowspan="1" colspan="1">เมาส์</td>
+                                                <td rowspan="1" colspan="1">2</td>
+                                            </tr>
+                                            <tr role="row" >
+                                                <td rowspan="1" colspan="1">2</td>
+                                                <td rowspan="1" colspan="1">จอคอมพิวเตอร์</td>
+                                                <td rowspan="1" colspan="1">2</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success cancel" id="a_cancelInfo" data-dismiss="modal">ยกเลิก</button>
+                        <button type="button" class="btn btn-danger cancel" id="a_cancelInfo" data-dismiss="modal">ยกเลิก</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+@endsection
+{{-- Javascript --}}
+@section('Javascript')
+<script>
+    $(document).ready(function() {
+       $('.btninfoapprove').click(function() {
+        // alert("5555");
+            $("#infoapproveModal").modal();
+       });
+    });
+</script>
 @endsection
