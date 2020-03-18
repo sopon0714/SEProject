@@ -78,8 +78,8 @@
                                 <td style="text-align: center">15/2/2020</td>
                                 <td>นายโสภณ โตใหญ่</td>
                                 <td style="text-align: center">
-                                    <button type="button" class="btn btn-info btn-xl tt" title='รายละเอียดการยืนยันคำร้อง'><i class="fas fa-file-alt"></i></button>
-                                    <button type="button" class="btn btn-danger btn-xl tt" data-toggle="tooltip" title="ยกเลิกการอนุมัติ" data-original-title="ลบ"><i class="far fa-trash-alt" aria-hidden="true" onclick=""></i></button>
+                                    <button type="button" class="btn btn-info btn-sm tt" title='รายละเอียดการยืนยันคำร้อง'><i class="fas fa-file-alt"></i></button>
+                                    <button type="button" class="btn btn-danger btn-sm tt" data-toggle="tooltip" title="ยกเลิกการอนุมัติ" data-original-title="ลบ"><i class="far fa-trash-alt" aria-hidden="true" onclick=""></i></button>
                                 </td>
                             </tbody>
                         </table>

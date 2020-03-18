@@ -50,14 +50,14 @@
 
     <div class="col-xl-3 col-12 mb-4">
         <a style="text-decoration: none">
-        <div class="card border-left-primary card-color-add shadow h-100 py-2" id="addsub" style="cursor:pointer;">
+        <div class="card border-left-primary card-color-add shadow h-100 py-2" id="add" style="cursor:pointer;">
             <div class="card-body">
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="h5 mb-0 font-weight-bold text-xl text-info">เพิ่มรายการอุปกรณ์</div>
                     </div>
                     <div class="col-auto">
-                        <button class="btn btn-warning" onclick="listEquipment()"><i class="fas fa-plus"></i></button>
+                        <button class="btn btn-warning " onclick=""><i class="fas fa-plus"></i></button>
                     </div>
                 </div>
             </div>
@@ -198,7 +198,61 @@
 @endsection
 
 @section('modal')
-{{-- modal แสดงรรายละเอียดการยืม --}}
+{{-- modal แสดงการเพิ่มอุปกรณ์ --}}
+<div class="modal fade" id="addModal" name="addModal" tabindex="-1" role="dialog" >
+    <div class="modal-dialog modal-lg" role="document" style="width: 50%">
+        <div class="modal-content">
+            <form method="post" id="info" name="info" action="manage.php">
+                <div class="info" style="font-size: 20px">
+                    <div class="modal-header header-modal" style="background-color: #66b3ff;">
+                        <h4 class="modal-title" style="color: white">เพิ่มรายการอุปกรณ์</h4>
+                    </div>
+                    <div class="modal-body" id="ChangeModalBody">
+                        <div class="container">
+                            <div class="col-xl-15 col-15 mb-4">
+                                <div class="card"  style="height: 400px">
+                                    {{-- <div class="card-header card-bg " style="background-color: #bf4040">
+                                        <span class="link-active " style="font-size: 15px; color:white;">ค้นหา</span>
+                                    </div> --}}
+                                    <div class="card-body" style="height: 150px">
+                                        <div class="col-sm-12" id="historyRequirements" style="overflow-y:auto;">
+                                            <label style="font-size: 18px">ชื่ออุปกรณ์ : </label>
+                                            <input type="text" name="note"><br />
+                                            <label style="font-size: 18px">ยี่ห้ออุปกรณ์ : </label>
+                                            <input type="text" name="note"><br />
+                                            <label style="font-size: 18px">รายละเอียด : </label>
+                                            <input type="text" name="note"><br />
+                                            <label style="font-size: 18px">หมวดหมู่อุปกรณ์ : </label>
+                                            <input type="text" name="note"><br />
+
+                                            <label for="category" style="font-size: 18px">สถานะอุปกรณ์ : </label>
+                                            <input type="radio" name="gender" value="female"> ยืมได้
+                                            <input type="radio" name="gender" value="other"> ยืมไม่ได้
+                                            <br />
+                                            <label for="category" style="font-size: 18px">สิทธิ์การยืมอุปกรณ์ : </label>
+                                            <input type="radio" name="gender" value="female"> เจ้าหน้าที่
+                                            <input type="radio" name="gender" value="other"> อาจารย์
+                                            <input type="radio" name="gender" value="other"> นิสิต
+                                            <br />
+                                            <label for="category" style="font-size: 18px">เลขครุภัณฑ์ : </label>
+                                            <input type="radio" name="gender" value="female"> มี
+                                            <input type="radio" name="gender" value="other"> ไม่มี
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger ok" id="a_okInfo" data-dismiss="modal">ยืนยัน</button>
+                        <button type="button" class="btn btn-danger cancel" id="a_cancelInfo" data-dismiss="modal">ปิด</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{{-- modal แสดงรายละเอียดรายการอุปกรณ์ --}}
 <div class="modal fade" id="infoModal" name="infoModal" tabindex="-1" role="dialog" >
     <div class="modal-dialog modal-lg" role="document" style="width: 50%">
         <div class="modal-content">
@@ -262,9 +316,21 @@
         </div>
     </div>
 </div>
+
+
+
 @endsection
 @section('Javascript')
 <script>
+// # หมายถึง อ้างจาก id      $('#add').click(function()
+// . หมายถึง อ้างจาก class   $('.btninfo').click(function()
+    $(document).ready(function() {
+       $('#add').click(function() {
+            //alert("5555");
+            $("#addModal").modal();
+       });
+    });
+
     $(document).ready(function() {
        $('.btninfo').click(function() {
             //alert("5555");
