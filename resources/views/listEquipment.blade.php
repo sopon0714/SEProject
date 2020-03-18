@@ -229,7 +229,7 @@
                         buttons: false
                     });
                     setTimeout(function() {
-                        location.reload();
+                        swal.close();
                     }, 1500);
                 }
             });
