@@ -119,7 +119,7 @@
 @section('Javascript')
 <script>
 
-<script>
+</script>
 @endsection
 @section('modal')
 
