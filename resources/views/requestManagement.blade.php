@@ -395,7 +395,7 @@
                         </div>
                     </div>
                     <div class="row mb-4">
-                        <div class="col-xl-5 col-2 text-right">
+                        <div class="col-xl-6 col-2 text-right">
                             <span>อาจารย์ที่รับผิดชอบ: </span>
                         </div>
                         <div class="col-xl-6 col-6 ">
@@ -403,7 +403,7 @@
                         </div>
                     </div>
                     <div class="row mb-4">
-                        <div class="col-xl-5 col-2 text-right">
+                        <div class="col-xl-6 col-2 text-right">
                             <span>วันเวลาที่อนุมัติการยืม: </span>
                         </div>
                         <div class="col-xl-6 col-6 ">
