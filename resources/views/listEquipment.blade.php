@@ -91,9 +91,9 @@
 
                         <br>
                         <label for="category" style="font-size: 18px">สถานะอุปกรณ์ : </label>
-                        <input type="radio" name="gender" value="male" checked> Male
-                        <input type="radio" name="gender" value="female"> Female
-                        <input type="radio" name="gender" value="other"> Other
+                        <input type="radio" name="gender" value="male" checked> ทั้งหมด
+                        <input type="radio" name="gender" value="female"> ยืมได้
+                        <input type="radio" name="gender" value="other"> ยืมไม่ได้
 
                         <br>
                         {{-- <span>

@@ -1,5 +1,5 @@
 @extends('./layoutAdmin')
-@section('title',"listEquipment")
+@section('title',"userManagement")
 @section('Content')
 
 
@@ -107,10 +107,10 @@
                                                 <td rowspan="1" colspan="1">เจ้าหน้าที่</td>
                                                 <td rowspan="1" colspan="1">2</td>
                                                 <td rowspan="1" colspan="1">
-                                                    <button type="button" class="btn btn-info btn-sm tt" title='รายละเอียดการยืม'>
+                                                    <button type="button" class="btn btn-info btn-sm tt" title='รายละเอียด'>
                                                         <i class="fas fa-file-alt"></i>
                                                     </button>
-                                                    <button type="button" class="btn btn-danger btn-sm tt" data-toggle="tooltip" title="ลบรายการอุปกรณ์" data-original-title="ลบ"><i class="far fa-trash-alt" aria-hidden="true" onclick=""></i></button>
+                                                    <button type="button" class="btn btn-danger btn-sm tt" data-toggle="tooltip" title="ลบเจ้าหน้าที่" data-original-title="ลบ"><i class="far fa-trash-alt" aria-hidden="true" onclick=""></i></button>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -146,7 +146,7 @@
                                                 <td rowspan="1" colspan="1">นิสิต</td>
                                                 <td rowspan="1" colspan="1">2</td>
                                                 <td rowspan="1" colspan="1">
-                                                    <button type="button" class="btn btn-info btn-sm tt" title='รายละเอียดการยืม'>
+                                                    <button type="button" class="btn btn-info btn-sm tt" title='รายละเอียด'>
                                                         <i class="fas fa-file-alt"></i>
                                                     </button>
                                                 </td>
@@ -157,7 +157,7 @@
                                                 <td rowspan="1" colspan="1">อาจารย์</td>
                                                 <td rowspan="1" colspan="1">1</td>
                                                 <td rowspan="1" colspan="1">
-                                                    <button type="button" class="btn btn-info btn-sm tt" title='รายละเอียดการยืม'>
+                                                    <button type="button" class="btn btn-info btn-sm tt" title='รายละเอียด'>
                                                         <i class="fas fa-file-alt"></i>
                                                     </button>
                                                 </td>
