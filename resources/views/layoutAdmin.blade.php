@@ -137,10 +137,10 @@
                 <div class="container">
                     @yield('Content')
                 </div>
-
             </div>
         </div>
     </div>
+    @yield('modal')
 </body>
 </html>
 <script src="{{asset('vendor/jquery/jquery.min.js')}}"></script>
