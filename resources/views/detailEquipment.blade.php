@@ -214,7 +214,7 @@
 <div class="modal fade" id="addDE" name="addDE" tabindex="-1" role="dialog" >
     <div class="modal-dialog modal-lg" role="document" style="width: 50%">
         <div class="modal-content">
-            <form method="post" id="add_DE" name="add_DE" action="./equipment">
+            <form method="post" id="add_DE" name="add_DE" action="./detailEquipment">
                 <div class="info" style="font-size: 20px">
                     <div class="modal-header header-modal" style="background-color: #66b3ff;">
                         <h4 class="modal-title" style="color: white">เพิ่มอุปกรณ์</h4>
@@ -243,12 +243,11 @@
         </div>
     </div>
 </div>
-
 {{-- modal แสดงรายละเอียดอุปกรณ์ --}}
 <div class="modal fade" id="detailDE" name="detailDE" tabindex="-1" role="dialog" >
     <div class="modal-dialog modal-lg" role="document" style="width: 50%">
         <div class="modal-content">
-            <form method="post" id="detail_DE" name="detail_DE" action="manage.php">
+            <form method="post" id="detail_RM" name="detail_DE" action="manage.php">
                 <div class="info" style="font-size: 20px">
                     <div class="modal-header header-modal" style="background-color: #66b3ff;">
                         <h4 class="modal-title" style="color: white">รายละเอียดอุปกรณ์ </h4>
@@ -256,92 +255,58 @@
                     <div class="modal-body" id="DetailDEBody">
                         <div class="container">
                             <div class="row mb-4">
-                                <div class="col-xl-6 col-2 text-right">
-                                    <span>ชื่อ:</span>
+                                <div class="col-xl-5 col-2 text-right">
+                                    <br><span>ชื่อ: </span>
                                 </div>
                                 <div class="col-xl-6 col-6 ">
-                                    <span>เมาส์</span>
+                                    <br><span>เมาส์</span>
                                 </div>
                             </div>
                             <div class="row mb-4">
-                                <div class="col-xl-6 col-2 text-right">
-                                    <span>ชื่อ-นามสกุลผู้ยืม:</span>
+                                <div class="col-xl-5 col-2 text-right">
+                                    <span>เลขครุภัณฑ์: </span>
                                 </div>
-                                <div class="col-xl-6 col-6 ">
-                                    <span>นายโสภณ โตใหญ่</span>
-                                </div>
-                            </div>
-                            <div class="row mb-4">
-                                <div class="col-xl-6 col-2 text-right">
-                                    <span>ผู้รับผิดชอบการยืม:</span>
-                                </div>
-                                <div class="col-xl-6 col-6 ">
-                                    <span>นางสาว นุชนาฎ สัตยากวี</span>
+                                <div class="col-xl-5 col-6 ">
+                                    <span>xxxxxxxxxxx-xxxxxxx/60</span>
                                 </div>
                             </div>
                             <div class="row mb-4">
-                                <div class="col-xl-6 col-2 text-right">
-                                    <span>วันเวลาที่รับอุปกรณ์:</span>
+                                <div class="col-xl-5 col-2 text-right">
+                                    <span>ยี่ห้อ: </span>
                                 </div>
                                 <div class="col-xl-6 col-6 ">
-                                    <span>15:10:41  11/03/2019</span>
+                                    <span>logitech</span>
                                 </div>
                             </div>
                             <div class="row mb-4">
-                                <div class="col-xl-6 col-2 text-right">
-                                    <span>เจ้าหน้าที่ที่มอบอุปกรณ์:</span>
+                                <div class="col-xl-5 col-2 text-right">
+                                    <span>รายละเอียด: </span>
                                 </div>
                                 <div class="col-xl-6 col-6 ">
-                                    <span>นางสาว พิมพิลา ทองแท้</span>
+                                    <input type="search" class="form-control form-control-sm-5" style="height:120px"  aria-controls="dataTable"
+                                        value="xxxxxxxxxxxxxxxxxx" disabled>
                                 </div>
                             </div>
-                            <div class="row mb-4">
-                                <div class="col-xl-6 col-2 text-right">
-                                    <span>วันเวลาที่คืนอุปกรณ์:</span>
-                                </div>
-                                <div class="col-xl-6 col-6 ">
-                                    <span>-</span>
-                                </div>
-                            </div>
-                            <div class="row mb-4">
-                                <div class="col-xl-6 col-2 text-right">
-                                    <span>เจ้าหน้าที่ที่รับอุปกรณ์:</span>
-                                </div>
-                                <div class="col-xl-6 col-6 ">
-                                    <span>-</span>
-                                </div>
-                            </div>
-                            <div class="row mb-4">
-                                <div class="col-xl-4 col-2 ">
-                                    <span>รายการอุปกรณ์</span>
-                                </div>
-                            </div>
+
                             <div class="row mb-4">
                                 <div class="col-xl-12 col-2 text-right">
-                                    <table class="table table-bordered" id="historyRequirementsTable" style="text-align:center;font-size: 14px"  swidth="100%"  cellspacing="0">
+                                    <table class="table table-bordered" id="HistoryRequireMentsTable" style="text-align:center;font-size: 14px"  swidth="100%"  cellspacing="0">
                                         <thead>
                                             <tr role="row">
-                                                <th rowspan="1" colspan="1">ลำดับ</th>
-                                                <th rowspan="1" colspan="1">รายการอุปกรณ์</th>
-                                                <th rowspan="1" colspan="1">เลขครุภัณฑ์</th>
+                                                <th rowspan="1" colspan="1">วันที่ยืม</th>
+                                                <th rowspan="1" colspan="1">หมายเลยคำร้อง</th>
+                                                <th rowspan="1" colspan="1">ผู้ยืม</th>
+                                                <th rowspan="1" colspan="1">สถานะ</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr role="row" >
-                                                <td rowspan="1" colspan="1">1</td>
-                                                <td rowspan="1" colspan="1">เมาส์</td>
-                                                <td rowspan="1" colspan="1">602050-14442/60</td>
+                                                <td rowspan="1" colspan="1">15/02/2020</td>
+                                                <td rowspan="1" colspan="1">R00001</td>
+                                                <td rowspan="1" colspan="1">นายโสภณ โตใหญ่</td>
+                                                <td rowspan="1" colspan="1">ยืนยันแล้ว</td>
                                             </tr>
-                                            <tr role="row" >
-                                                <td rowspan="1" colspan="1">2</td>
-                                                <td rowspan="1" colspan="1">เมาส์</td>
-                                                <td rowspan="1" colspan="1">602050-14443/60</td>
-                                            </tr>
-                                            <tr role="row" >
-                                                <td rowspan="1" colspan="1">3</td>
-                                                <td rowspan="1" colspan="1">จอคอมพิวเตอร์</td>
-                                                <td rowspan="1" colspan="1">602051-14441/60</td>
-                                            </tr>
+
                                         </tbody>
                                     </table>
                                 </div>
@@ -357,5 +322,9 @@
             </form>
         </div>
     </div>
+</div>
+
+
+
 </div>
 @endsection

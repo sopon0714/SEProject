@@ -22,9 +22,7 @@ Route::get('/', function () {
 Route::get('/userProfile', function () {
     return view('userProfile');
 });
-Route::get('/catagory', function () {
-    return view('catagory');
-});
+Route::get('/category', 'CategoryController@indexpageCategory');
 Route::get('/requestManagement', function () {
     return view('requestManagement');
 });
@@ -58,4 +56,3 @@ Route::get('returnEquipment', function () {
 Route::get('setting', function () {
     return view('setting');
 });
-

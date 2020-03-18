@@ -29,7 +29,7 @@
                                 <br>
                                 <div class="row mb-4">
                                     <div class="col-xl-5 col-2 text-right">
-                                        <label>จำนวนวันในการยกเลิกคำร้องหลังมีการอนุมัติ</label>
+                                        <label>จำนวนวันในการยกเลิกคำร้องหลังมีการอนุมัติ :</label>
                                     </div>
                                     <div class="col-xl-5 col-5 text-center">
                                         <input type="text" class="form-control" id="day" value="3" disabled>
@@ -37,7 +37,7 @@
                                 </div>
                                 <div class="row mb-4">
                                     <div class="col-xl-5 col-2 text-right">
-                                        <label>เบอร์โทรติดต่อ</label>
+                                        <label>เบอร์โทรติดต่อ :</label>
                                     </div>
                                     <div class="col-xl-5 col-5 text-center">
                                         <input type="text" class="form-control" id="tel" value="08x-xxx-xxxx" disabled>
@@ -45,7 +45,7 @@
                                 </div>
                                 <div class="row mb-4">
                                     <div class="col-xl-5 col-2 text-right">
-                                        <label>E-mail ของระบบ</label>
+                                        <label>E-mail ของระบบ :</label>
                                     </div>
                                     <div class="col-xl-5 col-5 text-center">
                                         <input type="text" class="form-control" id="email" value="se62_08@gmail.com" disabled>
@@ -53,7 +53,7 @@
                                 </div>
                                 <div class="row mb-4">
                                     <div class="col-xl-5 col-2 text-right">
-                                        <label>เวลาตรวจสอบคำร้องที่เกินระยะเวลา</label>
+                                        <label>เวลาตรวจสอบคำร้องที่เกินระยะเวลา :</label>
                                     </div>
                                     <div class="col-xl-5 col-5 text-center">
                                         <input type="text" class="form-control" id="time" value="03.00" น. disabled>

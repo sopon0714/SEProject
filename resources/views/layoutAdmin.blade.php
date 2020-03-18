@@ -53,7 +53,7 @@
                 <div id='link2' class='collapse' aria-labelledby='headingTwo' data-parent='#accordionSidebar'>
                     <div class=' py-2 collapse-inner rounded' style='border-left: 2px solid white; border-radius: 0% !important;'>
                         <div class="background-color-sideber" style="background-color: #bf4040" id="accordionSidebar">
-                            <a class='nav-link' href="../../equipment">หมวดหมู่อุปกรณ์</a>
+                            <a class='nav-link' href="../../category">หมวดหมู่อุปกรณ์</a>
                             <a class='nav-link' href="../../listEquipment">รายการอุปกรณ์</a>
                         </div>
                     </div>
@@ -83,7 +83,7 @@
                 </a>
             </li>
             <li class='nav-item'>
-                <a class='nav-link' href='../../logout.php'>
+                <a class='nav-link' href='../../setting'>
                     <i class="fas fa-wrench"></i>
                     <span>ตั้งค่าระบบ</span>
                 </a>

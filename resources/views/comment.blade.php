@@ -33,18 +33,17 @@
         </div>
 @endsection
 @section('modal')
-{{-- modal ส่งข้อความสำเร็จ --}}
 <div class="modal fade" id="sendModal" name="sendModal" tabindex="-1" role="dialog" >
-    <div class="modal-dialog modal-lg" role="document" style="width: 50%">
+    <div class="modal-dialog modal-lg" role="document" style="width: 30%">
         <div class="modal-content">
+            <form method="post" id="info" name="info" action="manage.php">
                 <div class="info" style="font-size: 20px">
                     <div class="modal-body" id="ChangeModalBody">
                         <div class="container">
-                            <div class="row mb-12">
-                                <div align="center">
-                                    <img src="https://cdn.pixabay.com/photo/2017/04/08/18/17/correct-2214020_960_720.png" width="250" >
+                            <div class="row mb-4">
+                                <div class="col-xl-12 col-2 text-center">
+                                    <img src="https://lh3.googleusercontent.com/proxy/YA66_7schs3qTv8LbQdrWTSEHbzr8c01IUvpwK0HS762JLcszFMNSsR47PcFApVLehfyRPVGsYBKxUhvgd9amm9hTJuMtI_jI1yCnhte-Ir7fiOvraWGVDjJ" width="300">
                                 </div>
-
                             </div>
                         </div>
                     </div>
