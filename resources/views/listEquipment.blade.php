@@ -151,7 +151,7 @@
                                                 </td>
                                             </tr>
                                             <tr role="row" >
-                                                <td rowspan="1" colspan="1">1</td>
+                                                <td rowspan="1" colspan="1">2</td>
                                                 <td rowspan="1" colspan="1">กุญแจทองเหลืองสามห่วง</td>
                                                 <td rowspan="1" colspan="1">อุปกรณ์ทั่วไป</td>
                                                 <td rowspan="1" colspan="1">40</td>
@@ -170,7 +170,7 @@
                                                 </td>
                                             </tr>
                                             <tr role="row" >
-                                                <td rowspan="1" colspan="1">1</td>
+                                                <td rowspan="1" colspan="1">3</td>
                                                 <td rowspan="1" colspan="1">เมาส์</td>
                                                 <td rowspan="1" colspan="1">อุปกรณ์คอมพิวเตอร์</td>
                                                 <td rowspan="1" colspan="1">60</td>
