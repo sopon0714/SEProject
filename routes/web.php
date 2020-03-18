@@ -55,4 +55,7 @@ Route::get('comment', function () {
 Route::get('returnEquipment', function () {
     return view('returnEquipment');
 });
+Route::get('setting', function () {
+    return view('setting');
+});
 
