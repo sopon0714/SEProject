@@ -91,9 +91,9 @@
 
                         <br>
                         <label for="category" style="font-size: 18px">สถานะอุปกรณ์ : </label>
-                        <input type="radio" name="gender" value="male" checked> Male
-                        <input type="radio" name="gender" value="female"> Female
-                        <input type="radio" name="gender" value="other"> Other
+                        <input type="radio" name="gender" value="male" checked> ทั้งหมด
+                        <input type="radio" name="gender" value="female"> ยืมได้
+                        <input type="radio" name="gender" value="other"> ยืมไม่ได้
 
                         <br>
                         {{-- <span>
@@ -141,7 +141,7 @@
                                                     <button type="button" class="btn btn-outline-dark tt " data-toggle="tooltip" title="" data-original-title="รายละเอียด" onclick="showHint(<?php echo $order->OID; ?>)"><i class="fas fa-file-alt"></i></button>
                                                 </td> --}}
                                                 <td rowspan="1" colspan="1">
-                                                    <button type="button" class="btn btn-info btn-sm tt" title='รายละเอียดการยืม'>
+                                                    <button type="button" class="btn btn-info btn-sm tt" title='รายละเอียดรายการอุปกรณ์'>
                                                         <i class="fas fa-file-alt"></i>
                                                     </button>
                                                 </td>
@@ -151,7 +151,7 @@
                                                 </td>
                                             </tr>
                                             <tr role="row" >
-                                                <td rowspan="1" colspan="1">1</td>
+                                                <td rowspan="1" colspan="1">2</td>
                                                 <td rowspan="1" colspan="1">กุญแจทองเหลืองสามห่วง</td>
                                                 <td rowspan="1" colspan="1">อุปกรณ์ทั่วไป</td>
                                                 <td rowspan="1" colspan="1">40</td>
@@ -160,7 +160,7 @@
                                                     <button type="button" class="btn btn-outline-dark tt " data-toggle="tooltip" title="" data-original-title="รายละเอียด" onclick="showHint(<?php echo $order->OID; ?>)"><i class="fas fa-file-alt"></i></button>
                                                 </td> --}}
                                                 <td rowspan="1" colspan="1">
-                                                    <button type="button" class="btn btn-info btn-sm tt" title='รายละเอียดการยืม'>
+                                                    <button type="button" class="btn btn-info btn-sm tt" title='รายละเอียดรายการอุปกรณ์'>
                                                         <i class="fas fa-file-alt"></i>
                                                     </button>
                                                 </td>
@@ -170,7 +170,7 @@
                                                 </td>
                                             </tr>
                                             <tr role="row" >
-                                                <td rowspan="1" colspan="1">1</td>
+                                                <td rowspan="1" colspan="1">3</td>
                                                 <td rowspan="1" colspan="1">เมาส์</td>
                                                 <td rowspan="1" colspan="1">อุปกรณ์คอมพิวเตอร์</td>
                                                 <td rowspan="1" colspan="1">60</td>
@@ -179,7 +179,7 @@
                                                     <button type="button" class="btn btn-outline-dark tt " data-toggle="tooltip" title="" data-original-title="รายละเอียด" onclick="showHint(<?php echo $order->OID; ?>)"><i class="fas fa-file-alt"></i></button>
                                                 </td> --}}
                                                 <td rowspan="1" colspan="1">
-                                                    <button type="button" class="btn btn-info btn-sm tt" title='รายละเอียดการยืม'>
+                                                    <button type="button" class="btn btn-info btn-sm tt" title='รายละเอียดรายการอุปกรณ์'>
                                                         <i class="fas fa-file-alt"></i>
                                                     </button>
                                                 </td>

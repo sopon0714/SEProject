@@ -144,7 +144,7 @@
                                                     <td rowspan="1" colspan="1">-</td>
                                                     <td rowspan="1" colspan="1">รับอุปกรณ์แล้ว</td>
                                                     <td rowspan="1" colspan="1">
-                                                        <button type="button" class="btn btn-info btn-sm tt" title='รายละเอียดการยืม'>
+                                                        <button type="button" class="btn btn-info btn-sm tt btninfo" title='รายละเอียดการยืม'>
                                                             <i class="fas fa-file-alt"></i>
                                                         </button>
                                                     </td>
@@ -181,7 +181,7 @@
                                                     <td rowspan="1" colspan="1">นายโสภณ โตใหญ่</td>
                                                     <td rowspan="1" colspan="1">รับอุปกรณ์แล้ว</td>
                                                     <td rowspan="1" colspan="1">
-                                                            <button type="button" class="btn btn-info btn-sm tt" title='รายละเอียดการยืม'>
+                                                            <button type="button" class="btn btn-info btn-sm tt btninfo"  title='รายละเอียดการยืม'>
                                                                 <i class="fas fa-file-alt"></i>
                                                             </button>
                                                     </td>
@@ -197,5 +197,130 @@
             </div>
         </div>
     </div>
+@endsection
+@section('modal')
+{{-- modal แสดงรรายละเอียดการยืม --}}
+<div class="modal fade" id="infoModal" name="infoModal" tabindex="-1" role="dialog" >
+    <div class="modal-dialog modal-lg" role="document" style="width: 50%">
+        <div class="modal-content">
+            <form method="post" id="info" name="info" action="manage.php">
+                <div class="info" style="font-size: 20px">
+                    <div class="modal-header header-modal" style="background-color: #66b3ff;">
+                        <h4 class="modal-title" style="color: white">รายละเอียดการยืมอุปกรณ์ </h4>
+                    </div>
+                    <div class="modal-body" id="ChangeModalBody">
+                        <div class="container">
+                            <div class="row mb-4">
+                                <div class="col-xl-6 col-2 text-right">
+                                    <span>หมายเลขคำร้อง:</span>
+                                </div>
+                                <div class="col-xl-6 col-6 ">
+                                    <span>R00001</span>
+                                </div>
+                            </div>
+                            <div class="row mb-4">
+                                <div class="col-xl-6 col-2 text-right">
+                                    <span>ชื่อ-นามสกุลผู้ยืม:</span>
+                                </div>
+                                <div class="col-xl-6 col-6 ">
+                                    <span>นายโสภณ โตใหญ่</span>
+                                </div>
+                            </div>
+                            <div class="row mb-4">
+                                <div class="col-xl-6 col-2 text-right">
+                                    <span>ผู้รับผิดชอบการยืม:</span>
+                                </div>
+                                <div class="col-xl-6 col-6 ">
+                                    <span>นางสาว นุชนาฎ สัตยากวี</span>
+                                </div>
+                            </div>
+                            <div class="row mb-4">
+                                <div class="col-xl-6 col-2 text-right">
+                                    <span>วันเวลาที่รับอุปกรณ์:</span>
+                                </div>
+                                <div class="col-xl-6 col-6 ">
+                                    <span>15:10:41  11/03/2019</span>
+                                </div>
+                            </div>
+                            <div class="row mb-4">
+                                <div class="col-xl-6 col-2 text-right">
+                                    <span>เจ้าหน้าที่ที่มอบอุปกรณ์:</span>
+                                </div>
+                                <div class="col-xl-6 col-6 ">
+                                    <span>นางสาว พิมพิลา ทองแท้</span>
+                                </div>
+                            </div>
+                            <div class="row mb-4">
+                                <div class="col-xl-6 col-2 text-right">
+                                    <span>วันเวลาที่คืนอุปกรณ์:</span>
+                                </div>
+                                <div class="col-xl-6 col-6 ">
+                                    <span>-</span>
+                                </div>
+                            </div>
+                            <div class="row mb-4">
+                                <div class="col-xl-6 col-2 text-right">
+                                    <span>เจ้าหน้าที่ที่รับอุปกรณ์:</span>
+                                </div>
+                                <div class="col-xl-6 col-6 ">
+                                    <span>-</span>
+                                </div>
+                            </div>
+                            <div class="row mb-4">
+                                <div class="col-xl-4 col-2 ">
+                                    <span>รายการอุปกรณ์</span>
+                                </div>
+                            </div>
+                            <div class="row mb-4">
+                                <div class="col-xl-12 col-2 text-right">
+                                    <table class="table table-bordered" id="historyRequirementsTable" style="text-align:center;font-size: 14px"  swidth="100%"  cellspacing="0">
+                                        <thead>
+                                            <tr role="row">
+                                                <th rowspan="1" colspan="1">ลำดับ</th>
+                                                <th rowspan="1" colspan="1">รายการอุปกรณ์</th>
+                                                <th rowspan="1" colspan="1">เลขครุภัณฑ์</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr role="row" >
+                                                <td rowspan="1" colspan="1">1</td>
+                                                <td rowspan="1" colspan="1">เมาส์</td>
+                                                <td rowspan="1" colspan="1">602050-14442/60</td>
+                                            </tr>
+                                            <tr role="row" >
+                                                <td rowspan="1" colspan="1">2</td>
+                                                <td rowspan="1" colspan="1">เมาส์</td>
+                                                <td rowspan="1" colspan="1">602050-14443/60</td>
+                                            </tr>
+                                            <tr role="row" >
+                                                <td rowspan="1" colspan="1">3</td>
+                                                <td rowspan="1" colspan="1">จอคอมพิวเตอร์</td>
+                                                <td rowspan="1" colspan="1">602051-14441/60</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+
+                        <button type="button" class="btn btn-danger cancel" id="a_cancelInfo" data-dismiss="modal">ปิด</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+@endsection
+@section('Javascript')
+<script>
+    $(document).ready(function() {
+       $('.btninfo').click(function() {
+            $("#infoModal").modal();
+       });
+    });
+</script>
 @endsection
 
