@@ -1,11 +1,12 @@
 @extends('./layoutAdmin')
-@section('title',"Catagory")
+@section('title',"Category")
 @section('CSS')
 <style>
 
 </style>
 @endsection
 @section('Content')
+<div><?php print_r($TableCategorys) ?></div>
 <div class="row">
     <div class="col-xl-12 col-12 mb-4">
         <div class="card">
@@ -23,15 +24,15 @@
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="font-weight-bold  text-uppercase  mb-1">จำนวนหมวดหมู่อุปกรณ์ทั้งหมด</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">xxxx หมวดหมู่</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{$amount[0]->amount }} หมวดหมู่</div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <div class="col-xl-3 col-12 mb-4">
-        <div class="card border-left-warning card-color-four shadow h-100 py-2"
-            data-toggle="modal" data-target="#modal-1" >
+        <div class="card border-left-warning card-color-four shadow h-100 py-2 btnadd"
+            data-toggle="modal" data-target="#modal-1"  style="cursor:pointer;">
             <div class="card-body">
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
@@ -39,7 +40,7 @@
                         <div class="h5 mb-0 font-weight-bold text-gray-800">+1 หมวดหมู่</div>
                     </div>
                     <div class="col-auto">
-                        <button class="btn btn-primary btnadd" ><i class="fas fa-plus"></i></button>
+                        <button class="btn btn-primary " ><i class="fas fa-plus"></i></button>
                     </div>
                 </div>
             </div>
@@ -63,11 +64,10 @@
                 <div class="table-responsive">
                     <table class="table table-bordered" id="Table_E" width="100%" cellspacing="0" style="width: 90%" align="center">
                         <colgroup>
-                            <col width="100">
-                            <col width="100">
-                            <col width="100">
-                            <col width="100">
-
+                            <col width="20%">
+                            <col width="40%">
+                            <col width="20%">
+                            <col width="20%">
                         </colgroup>
                         <!-- หัวตาราง -->
                         <thead class="text-center">
@@ -80,13 +80,18 @@
                         </thead>
                         <!-- บอดี้ตาราง -->
                         <tbody>
-                            <td class="text-center">1</td>
-                            <td>คอมพิวเตอร์</td>
-                            <td class="text-center">5</td>
-                            <td class="text-center">
-                                <button type="button" class="btn btn-warning btn-sm tt mr-sm-1 btndetail" data-toggle="tooltip" title="แก้ไขหมวดหมู่อุปกรณ์" data-original-title="แก้ไข"><i class="fas fa-pencil-alt"></i></button>
-                                <button type="button" class="btn btn-danger btn-sm tt btndelete" nameitem ="คอมพิวเตอร์" data-toggle="tooltip" title="ลบหมวดหมู่อุปกรณ์" data-original-title="ลบ"><i class="far fa-trash-alt"></i></button>
-                            </td>
+                            @for ($i = 0; $i < count($TableCategorys); $i++)
+                            <tr>
+                                <td class="text-center">{{$i+1}}</td>
+                                <td>{{$TableCategorys[$i]->CName}}</td>
+                                <td class="text-center">{{$TableCategorys[$i]->amount}}</td>
+                                <td class="text-center">
+                                    <button type="button" class="btn btn-warning btn-sm tt mr-sm-1 btndetail" data-toggle="tooltip" title="แก้ไขหมวดหมู่อุปกรณ์" data-original-title="แก้ไข"><i class="fas fa-pencil-alt"></i></button>
+                                    <button type="button" class="btn btn-danger btn-sm tt btndelete" nameitem ="{{$TableCategorys[$i]->CName}}" data-toggle="tooltip" title="ลบหมวดหมู่อุปกรณ์" data-original-title="ลบ"><i class="far fa-trash-alt"></i></button>
+                                </td>
+                            </tr>
+                            @endfor
+
                         </tbody>
                     </table>
                 </div>
