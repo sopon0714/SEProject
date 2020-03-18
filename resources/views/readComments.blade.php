@@ -67,9 +67,9 @@
                             <td class="text-center">20/03/2020</td>
                             <td >นาย โสภณ โตใหญ่</td>
                             <td class="text-center">
-                                <button type="button" class="btn btn-info btn-sm tt mr-sm-1" title='รายละเอียดข้อเสนอแนะ'>
+                                <button type="button" class="btn btn-info btn-sm tt mr-sm-1 btndetail" title='รายละเอียดข้อเสนอแนะ'>
                                 <i class="fas fa-file-alt"></i></button>
-                                <button type="button" class="btn btn-danger btn-sm tt" data-toggle="tooltip" title="ลบข้อเสนอแนะ" data-original-title="ลบ">
+                                <button type="button" class="btn btn-danger btn-sm tt btndelete" data-toggle="tooltip" title="ลบข้อเสนอแนะ" data-original-title="ลบ">
                                 <i class="far fa-trash-alt" ></i></button>
                             </td>
                         </tbody>
@@ -83,8 +83,63 @@
 @section('Javascript')
 <script>
 
-<script>
+$(document).ready(function() {
+
+       $('.btndetail').click(function() {
+
+            $("#detailRC").modal();
+       });
+       $('.btndelete').click(function() {
+            $("#deleteRC").modal();
+       });
+    });
+</script>
 @endsection
 @section('modal')
+<div class="modal fade" id="detailRC" name="detailRC" tabindex="-1" role="dialog" >
+    <div class="modal-dialog modal-lg" role="document" style="width: 50%">
+        <div class="modal-content">
+            <form method="post" id="detail_RC" name="detail_RC" action="manage.php">
+                <div class="info" style="font-size: 20px">
+                    <div class="modal-header header-modal" style="background-color: #66b3ff;">
+                        <h4 class="modal-title" style="color: white">ข้อเสนอแนะ</h4>
+                    </div>
+                    <div class="modal-body" id="DetailRCBody">
+                        <div class="container">
+                            <div class="row mb-4">
+                                <div class="col-xl-5 col-2 text-right">
+                                    <span>ชื่อผู้ส่ง:</span>
+                                </div>
+                                <div class="col-xl-6 col-6 ">
+                                    <span>นายโสภณ โตใหญ่</span>
+                                </div>
+                            </div>
+                            <div class="row mb-4">
+                                <div class="col-xl-5 col-2 text-right">
+                                    <span>วันที่ส่ง:</span>
+                                </div>
+                                <div class="col-xl-6 col-6 ">
+                                    <span>20/03/2020</span>
+                                </div>
+                            </div>
+                            <div class="row mb-4">
+                                <div class="col-xl-5 col-2 text-right">
+                                    <span>รายละเอียด:</span>
+                                </div>
+                                <div class="col-xl-6 col-6 ">
+                                    <span>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span>
+                                </div>
+                            </div>
 
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+
+                        <button type="button" class="btn btn-danger cancel" id="detailRC_cancel" data-dismiss="modal">ปิด</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 @endsection

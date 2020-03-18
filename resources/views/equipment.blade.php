@@ -100,7 +100,7 @@
     function addEquipment() {
     $("#addequipment").modal('show');
   }
-<script>
+</script>
 @endsection
 @section('modal')
 
