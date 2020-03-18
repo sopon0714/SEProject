@@ -31,3 +31,6 @@ Route::get('userManagement', function () {
 Route::get('layoutAdmin', function () {
     return view('layoutAdmin');
 });
+Route::get('receiveEquipment', function () {
+    return view('receiveEquipment');
+});
