@@ -19,8 +19,20 @@ Route::get('/test', function () {
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('userProfile', function () {
+Route::get('/userProfile', function () {
     return view('userProfile');
+});
+Route::get('/equipment', function () {
+    return view('equipment');
+});
+Route::get('/requestManagement', function () {
+    return view('requestManagement');
+});
+Route::get('/readComments', function () {
+    return view('readComments');
+});
+Route::get('/detailEquipment', function () {
+    return view('detailEquipment');
 });
 Route::get('listEquipment', function () {
     return view('listEquipment');
