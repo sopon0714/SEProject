@@ -225,14 +225,12 @@
 <script>
 // # หมายถึง อ้างจาก id      $('#add').click(function()
 // . หมายถึง อ้างจาก class   $('.btninfo').click(function()
+
     $(document).ready(function() {
-       $('#add').click(function() {
+        $('#add').click(function() {
             //alert("5555");
             $("#addModal").modal();
        });
-    });
-
-    $(document).ready(function() {
         $(".delbtn").click(function() {
             //alert("5555");
             var nameitem = $(this).attr('nameitem');
