@@ -150,10 +150,10 @@
                 <div class="container">
                     @yield('Content')
                 </div>
-
             </div>
         </div>
     </div>
+    @yield('modal')
 </body>
 </html>
 <script src="{{asset('vendor/jquery/jquery.min.js')}}"></script>
@@ -165,4 +165,11 @@
 <script src="{{asset('vendor/datatables/jquery.dataTables.min.js')}}"></script>
 <script src="{{asset('vendor/datatables/dataTables.bootstrap4.min.js')}}"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('.tt').tooltip({
+            trigger: "hover"
+        });
+    });
+</script>
 @yield('Javascript')
