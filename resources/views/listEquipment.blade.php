@@ -225,6 +225,7 @@
                     }, 1500);
                 } else {
                     swal("การลบไม่สำเร็จ ",{
+                        icon: "error",
                         buttons: false
                     });
                     setTimeout(function() {
