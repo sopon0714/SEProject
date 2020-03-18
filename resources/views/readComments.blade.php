@@ -93,7 +93,7 @@ $(document).ready(function() {
             var nameitem = $(this).attr('nameitem');
             swal({
                 title: "คุณต้องการลบ",
-                text: nameitem+" หรือไม่ ?",
+                text: "ข้อเสนอแนะ: "+nameitem+" หรือไม่ ?",
                 icon: "warning",
                 buttons: true,
                 buttons: ["ยกเลิก", "ยืนยัน"],
@@ -139,7 +139,7 @@ $(document).ready(function() {
                                     <span>ชื่อผู้ส่ง:</span>
                                 </div>
                                 <div class="col-xl-6 col-6 ">
-                                    <span>นายโสภณ โตใหญ่</span>
+                                    <span style="font-size: 18px">นายโสภณ โตใหญ่</span>
                                 </div>
                             </div>
                             <div class="row mb-4">
@@ -147,7 +147,7 @@ $(document).ready(function() {
                                     <span>วันที่ส่ง:</span>
                                 </div>
                                 <div class="col-xl-6 col-6 ">
-                                    <span>20/03/2020</span>
+                                    <span style="font-size: 17px">20/03/2020</span>
                                 </div>
                             </div>
                             <div class="row mb-4">
@@ -156,7 +156,7 @@ $(document).ready(function() {
                                 </div>
                                 <div class="col-xl-6 col-6 ">
 
-                                        <input type="search" class="form-control form-control-sm-5" style="height:200px"  aria-controls="dataTable"
+                                        <input  type="text" class="form-control form-control-sm-5" style="height:200px"  aria-controls="dataTable"
                                         value="xxxxxxxxxxxxxxxxxx" disabled>
 
                                 </div>
@@ -165,7 +165,7 @@ $(document).ready(function() {
                     </div>
                     <div class="modal-footer">
 
-                        <button type="button" class="btn btn-danger cancel" id="detailRC_cancel" data-dismiss="modal">ปิด</button>
+                        <button type="button" class="btn btn-danger cancel" id="detailRC_cancel" >ปิด</button>
                     </div>
                 </div>
             </form>
