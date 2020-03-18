@@ -22,3 +22,9 @@ Route::get('/', function () {
 Route::get('userProfile', function () {
     return view('userProfile');
 });
+Route::get('listEquipment', function () {
+    return view('listEquipment');
+});
+Route::get('userManagement', function () {
+    return view('userManagement');
+});
