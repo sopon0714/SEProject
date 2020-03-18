@@ -37,3 +37,7 @@ Route::get('receiveEquipment', function () {
 Route::get('approveRequest', function () {
     return view('approveRequest');
 });
+Route::get('returnEquipment', function () {
+    return view('returnEquipment');
+});
+
