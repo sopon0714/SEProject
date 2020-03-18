@@ -23,6 +23,7 @@ Route::get('/userProfile', function () {
     return view('userProfile');
 });
 Route::get('/category', 'CategoryController@indexpageCategory');
+Route::post('/category', 'CategoryController@insertCategory');
 Route::get('/requestManagement', function () {
     return view('requestManagement');
 });

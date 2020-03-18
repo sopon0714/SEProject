@@ -6,7 +6,6 @@
 </style>
 @endsection
 @section('Content')
-<div><?php print_r($TableCategorys) ?></div>
 <div class="row">
     <div class="col-xl-12 col-12 mb-4">
         <div class="card">
@@ -149,26 +148,27 @@ $(document).ready(function() {
 <div class="modal fade" id="addE" name="addE" tabindex="-1" role="dialog" >
     <div class="modal-dialog modal-lg" role="document" style="width: 50%">
         <div class="modal-content">
-            <form method="post" id="add_E" name="add_E" action="./equipment">
+            <form method="post" id="add_E" name="add_E" action="../../category">
                 <div class="info" style="font-size: 20px">
                     <div class="modal-header header-modal" style="background-color: #66b3ff;">
                         <h4 class="modal-title" style="color: white">เพิ่มหมวดหมู่อุปกรณ์</h4>
                     </div>
                     <div class="modal-body" id="AddEBody">
                         <div class="container">
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             <div class="row mb-0">
                                 <div class="col-xl-5 col-2 text-right">
                                     <br><span>ชื่อหมวดหมู่อุปกรณ์:</span>
                                 </div>
                                 <div class="col-xl-6 col-6 ">
-                                    <br><input type="search" class="form-control form-control-sm-5"  aria-controls="dataTable">
+                                    <br><input type="text" class="form-control form-control-sm-5" name ="nameCategory">
                                     <br>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-success submit" id="addE_submit" data-dismiss="modal">ยืนยัน</button>
+                        <button type="submit" class="btn btn-success submit" id="addE_submit" >ยืนยัน</button>
                         <button type="button" class="btn btn-danger cancel" id="addE_cancel" data-dismiss="modal">ยกเลิก</button>
                     </div>
                 </div>
