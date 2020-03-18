@@ -251,16 +251,16 @@
             <form method="post" id="detail_DE" name="detail_DE" action="manage.php">
                 <div class="info" style="font-size: 20px">
                     <div class="modal-header header-modal" style="background-color: #66b3ff;">
-                        <h4 class="modal-title" style="color: white">รายละเอียดการยืมอุปกรณ์ </h4>
+                        <h4 class="modal-title" style="color: white">รายละเอียดอุปกรณ์ </h4>
                     </div>
                     <div class="modal-body" id="DetailDEBody">
                         <div class="container">
                             <div class="row mb-4">
                                 <div class="col-xl-6 col-2 text-right">
-                                    <span>หมายเลขคำร้อง:</span>
+                                    <span>ชื่อ:</span>
                                 </div>
                                 <div class="col-xl-6 col-6 ">
-                                    <span>R00001</span>
+                                    <span>เมาส์</span>
                                 </div>
                             </div>
                             <div class="row mb-4">

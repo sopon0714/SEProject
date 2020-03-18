@@ -22,8 +22,8 @@ Route::get('/', function () {
 Route::get('/userProfile', function () {
     return view('userProfile');
 });
-Route::get('/equipment', function () {
-    return view('equipment');
+Route::get('/catagory', function () {
+    return view('catagory');
 });
 Route::get('/requestManagement', function () {
     return view('requestManagement');
@@ -55,4 +55,3 @@ Route::get('comment', function () {
 Route::get('returnEquipment', function () {
     return view('returnEquipment');
 });
-

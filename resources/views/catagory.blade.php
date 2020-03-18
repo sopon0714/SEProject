@@ -1,5 +1,5 @@
 @extends('./layoutAdmin')
-@section('title',"Equiment")
+@section('title',"Catagory")
 @section('CSS')
 <style>
 
