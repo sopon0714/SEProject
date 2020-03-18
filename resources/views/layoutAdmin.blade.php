@@ -83,7 +83,7 @@
                 </a>
             </li>
             <li class='nav-item'>
-                <a class='nav-link' href='../../logout.php'>
+                <a class='nav-link' href='../../setting'>
                     <i class="fas fa-wrench"></i>
                     <span>ตั้งค่าระบบ</span>
                 </a>
