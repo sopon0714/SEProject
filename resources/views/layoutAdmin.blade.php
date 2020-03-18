@@ -101,8 +101,6 @@
             </li>
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
-
-
         </ul>
 
         <!-- End of Sidebar -->

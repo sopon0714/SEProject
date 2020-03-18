@@ -25,3 +25,6 @@ Route::get('userProfile', function () {
 Route::get('layoutAdmin', function () {
     return view('layoutAdmin');
 });
+Route::get('approveRequest', function () {
+    return view('approveRequest');
+});
