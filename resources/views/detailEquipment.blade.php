@@ -201,7 +201,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-success submit" id="editDE_submit" data-dismiss="modal">ยืนยัน</button>
+                        <button type="submit" class="btn btn-success submit" id="editDE_submit">ยืนยัน</button>
                         <button type="button" class="btn btn-danger cancel" id="editDE_cancel" data-dismiss="modal">ยกเลิก</button>
                     </div>
                 </div>
@@ -235,7 +235,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-success submit" id="addDE_submit" data-dismiss="modal">ยืนยัน</button>
+                        <button type="submit" class="btn btn-success submit" id="addDE_submit" >ยืนยัน</button>
                         <button type="button" class="btn btn-danger cancel" id="addDE_cancel" data-dismiss="modal">ยกเลิก</button>
                     </div>
                 </div>
@@ -283,7 +283,7 @@
                                     <span>รายละเอียด: </span>
                                 </div>
                                 <div class="col-xl-6 col-6 ">
-                                    <input type="search" class="form-control form-control-sm-5" style="height:120px"  aria-controls="dataTable"
+                                    <input type="text" class="form-control form-control-sm-5" style="height:120px"  aria-controls="dataTable"
                                         value="xxxxxxxxxxxxxxxxxx" disabled>
                                 </div>
                             </div>

@@ -86,7 +86,7 @@
                                 <td>{{$TableCategorys[$i]->CName}}</td>
                                 <td class="text-center">{{$TableCategorys[$i]->amount}}</td>
                                 <td class="text-center">
-                                    <button type="button" class="btn btn-warning btn-sm tt mr-sm-1 btndetail" data-toggle="tooltip" title="แก้ไขหมวดหมู่อุปกรณ์" data-original-title="แก้ไข"><i class="fas fa-pencil-alt"></i></button>
+                                    <button type="button" class="btn btn-warning btn-sm tt mr-sm-1 btnedit" data-toggle="tooltip" title="แก้ไขหมวดหมู่อุปกรณ์" data-original-title="แก้ไข"><i class="fas fa-pencil-alt"></i></button>
                                     <button type="button" class="btn btn-danger btn-sm tt btndelete" nameitem ="{{$TableCategorys[$i]->CName}}" data-toggle="tooltip" title="ลบหมวดหมู่อุปกรณ์" data-original-title="ลบ"><i class="far fa-trash-alt"></i></button>
                                 </td>
                             </tr>
@@ -177,7 +177,7 @@ $(document).ready(function() {
     </div>
 </div>
 
-{{-- modal แก้ไข้หมวดหมู่อุปกรณ์ --}}
+{{-- modal แก้ไขหมวดหมู่อุปกรณ์ --}}
 <div class="modal fade" id="editE" name="editE" tabindex="-1" role="dialog" >
     <div class="modal-dialog modal-lg" role="document" style="width: 50%">
         <div class="modal-content">
