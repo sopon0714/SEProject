@@ -71,7 +71,7 @@
                         <div class="h5 mb-0 font-weight-bold text-gray-800">+1 อุปกรณ์</div>
                     </div>
                     <div class="col-auto">
-                        <button class="btn btn-primary" ><i class="fas fa-plus"></i></button>
+                        <button class="btn btn-primary btnadd" ><i class="fas fa-plus"></i></button>
                     </div>
                 </div>
             </div>
@@ -116,11 +116,11 @@
                             <td class="text-center">
                                 <button type="button" class="btn btn-success btn-sm tt mr-sm-1" title='เปิด-ปิด สถานะการยืม'>
                                 <i class="fas fa-ban"></i></button>
-                                <button type="button" class="btn btn-info btn-sm tt mr-sm-1" title='รายละเอียดอุปกรณ์'>
+                                <button type="button" class="btn btn-info btn-sm tt mr-sm-1 btndetail" title='รายละเอียดอุปกรณ์'>
                                 <i class="fas fa-file-alt"></i></button>
-                                <button type="button" class="btn btn-warning btn-sm tt mr-sm-1" data-toggle="tooltip" title="แก้ไขข้อมูลอุปกรณ์" data-original-title="แก้ไข">
+                                <button type="button" class="btn btn-warning btn-sm tt mr-sm-1 btnedit" data-toggle="tooltip" title="แก้ไขข้อมูลอุปกรณ์" data-original-title="แก้ไข">
                                 <i class="fas fa-pencil-alt"></i></button>
-                                <button type="button" class="btn btn-danger btn-sm tt" data-toggle="tooltip" title="ลบอุปกรณ์" data-original-title="ลบ">
+                                <button type="button" class="btn btn-danger btn-sm tt btndelete" nameitem ="xxxxxxxxxxx-xxxxxxx/60" data-toggle="tooltip" title="ลบอุปกรณ์" data-original-title="ลบ">
                                 <i class="far fa-trash-alt" ></i></button>
                             </td>
                         </tbody>
@@ -133,9 +133,229 @@
 @endsection
 @section('Javascript')
 <script>
-
+    $('.btnadd').click(function() {
+        $("#addDE").modal();
+    });
+    $('.btndetail').click(function() {
+        $("#detailDE").modal();
+    });
+    $('.btnedit').click(function() {
+        $("#editDE").modal();
+    });
+    $(".btndelete").click(function() {
+            var nameitem = $(this).attr('nameitem');
+            swal({
+                title: "คุณต้องการลบ",
+                text: "เลขครุภัณฑ์: "+nameitem+" หรือไม่ ?",
+                icon: "warning",
+                buttons: true,
+                buttons: ["ยกเลิก", "ยืนยัน"],
+                dangerMode: true,
+            })
+            .then((willDelete) => {
+                if (willDelete) {
+                    swal("ลบรายการสำเร็จเรียบร้อยแล้ว", {
+                        icon: "success",
+                        buttons: false
+                    });
+                    //delete_1(uid);
+                    setTimeout(function() {
+                        location.reload();
+                    }, 1500);
+                } else {
+                    swal("การลบไม่สำเร็จ ",{
+                        icon: "error",
+                        buttons: false
+                    });
+                    setTimeout(function() {
+                        swal.close();
+                    }, 1500);
+                }
+            });
+    });
 </script>
 @endsection
 @section('modal')
+{{-- modal แก้ไขข้อมูลอุปกรณ์ --}}
+<div class="modal fade" id="editDE" name="editDE" tabindex="-1" role="dialog" >
+    <div class="modal-dialog modal-lg" role="document" style="width: 50%">
+        <div class="modal-content">
+            <form method="post" id="edit_DE" name="edit_DE" action="./equipment">
+                <div class="info" style="font-size: 20px">
+                    <div class="modal-header header-modal" style="background-color: #66b3ff;">
+                        <h4 class="modal-title" style="color: white">แก้ไขข้อมูลอุปกรณ์</h4>
+                    </div>
+                    <div class="modal-body" id="EditDEBody">
+                        <div class="container">
+                            <div class="row mb-0">
+                                <div class="col-xl-5 col-2 text-right">
+                                    <br><span>เลขครุภัณฑ์:</span>
+                                </div>
+                                <div class="col-xl-6 col-6 ">
+                                    <br><input type="search" class="form-control form-control-sm-5"  aria-controls="dataTable">
+                                </div>
+                                <div class="col-xl-12 col-12 text-center">
+                                    <br><span class="text-danger" style="font-size: 16px" >*หากไม่มีเลขครุภัณฑ์ กด ยืนยันเพื่อเพิ่มได้ทันที</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success submit" id="editDE_submit" data-dismiss="modal">ยืนยัน</button>
+                        <button type="button" class="btn btn-danger cancel" id="editDE_cancel" data-dismiss="modal">ยกเลิก</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 
+{{-- modal เพิ่มอุปกรณ์ --}}
+<div class="modal fade" id="addDE" name="addDE" tabindex="-1" role="dialog" >
+    <div class="modal-dialog modal-lg" role="document" style="width: 50%">
+        <div class="modal-content">
+            <form method="post" id="add_DE" name="add_DE" action="./equipment">
+                <div class="info" style="font-size: 20px">
+                    <div class="modal-header header-modal" style="background-color: #66b3ff;">
+                        <h4 class="modal-title" style="color: white">เพิ่มอุปกรณ์</h4>
+                    </div>
+                    <div class="modal-body" id="AddDEBody">
+                        <div class="container">
+                            <div class="row mb-0">
+                                <div class="col-xl-5 col-2 text-right">
+                                    <br><span>เลขครุภัณฑ์:</span>
+                                </div>
+                                <div class="col-xl-6 col-6 ">
+                                    <br><input type="search" class="form-control form-control-sm-5"  aria-controls="dataTable">
+                                </div>
+                                <div class="col-xl-12 col-12 text-center">
+                                    <br><span class="text-danger" style="font-size: 16px" >*หากไม่มีเลขครุภัณฑ์ กด ยืนยันเพื่อเพิ่มได้ทันที</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success submit" id="addDE_submit" data-dismiss="modal">ยืนยัน</button>
+                        <button type="button" class="btn btn-danger cancel" id="addDE_cancel" data-dismiss="modal">ยกเลิก</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{{-- modal แสดงรายละเอียดอุปกรณ์ --}}
+<div class="modal fade" id="detailDE" name="detailDE" tabindex="-1" role="dialog" >
+    <div class="modal-dialog modal-lg" role="document" style="width: 50%">
+        <div class="modal-content">
+            <form method="post" id="detail_DE" name="detail_DE" action="manage.php">
+                <div class="info" style="font-size: 20px">
+                    <div class="modal-header header-modal" style="background-color: #66b3ff;">
+                        <h4 class="modal-title" style="color: white">รายละเอียดการยืมอุปกรณ์ </h4>
+                    </div>
+                    <div class="modal-body" id="DetailDEBody">
+                        <div class="container">
+                            <div class="row mb-4">
+                                <div class="col-xl-6 col-2 text-right">
+                                    <span>หมายเลขคำร้อง:</span>
+                                </div>
+                                <div class="col-xl-6 col-6 ">
+                                    <span>R00001</span>
+                                </div>
+                            </div>
+                            <div class="row mb-4">
+                                <div class="col-xl-6 col-2 text-right">
+                                    <span>ชื่อ-นามสกุลผู้ยืม:</span>
+                                </div>
+                                <div class="col-xl-6 col-6 ">
+                                    <span>นายโสภณ โตใหญ่</span>
+                                </div>
+                            </div>
+                            <div class="row mb-4">
+                                <div class="col-xl-6 col-2 text-right">
+                                    <span>ผู้รับผิดชอบการยืม:</span>
+                                </div>
+                                <div class="col-xl-6 col-6 ">
+                                    <span>นางสาว นุชนาฎ สัตยากวี</span>
+                                </div>
+                            </div>
+                            <div class="row mb-4">
+                                <div class="col-xl-6 col-2 text-right">
+                                    <span>วันเวลาที่รับอุปกรณ์:</span>
+                                </div>
+                                <div class="col-xl-6 col-6 ">
+                                    <span>15:10:41  11/03/2019</span>
+                                </div>
+                            </div>
+                            <div class="row mb-4">
+                                <div class="col-xl-6 col-2 text-right">
+                                    <span>เจ้าหน้าที่ที่มอบอุปกรณ์:</span>
+                                </div>
+                                <div class="col-xl-6 col-6 ">
+                                    <span>นางสาว พิมพิลา ทองแท้</span>
+                                </div>
+                            </div>
+                            <div class="row mb-4">
+                                <div class="col-xl-6 col-2 text-right">
+                                    <span>วันเวลาที่คืนอุปกรณ์:</span>
+                                </div>
+                                <div class="col-xl-6 col-6 ">
+                                    <span>-</span>
+                                </div>
+                            </div>
+                            <div class="row mb-4">
+                                <div class="col-xl-6 col-2 text-right">
+                                    <span>เจ้าหน้าที่ที่รับอุปกรณ์:</span>
+                                </div>
+                                <div class="col-xl-6 col-6 ">
+                                    <span>-</span>
+                                </div>
+                            </div>
+                            <div class="row mb-4">
+                                <div class="col-xl-4 col-2 ">
+                                    <span>รายการอุปกรณ์</span>
+                                </div>
+                            </div>
+                            <div class="row mb-4">
+                                <div class="col-xl-12 col-2 text-right">
+                                    <table class="table table-bordered" id="historyRequirementsTable" style="text-align:center;font-size: 14px"  swidth="100%"  cellspacing="0">
+                                        <thead>
+                                            <tr role="row">
+                                                <th rowspan="1" colspan="1">ลำดับ</th>
+                                                <th rowspan="1" colspan="1">รายการอุปกรณ์</th>
+                                                <th rowspan="1" colspan="1">เลขครุภัณฑ์</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr role="row" >
+                                                <td rowspan="1" colspan="1">1</td>
+                                                <td rowspan="1" colspan="1">เมาส์</td>
+                                                <td rowspan="1" colspan="1">602050-14442/60</td>
+                                            </tr>
+                                            <tr role="row" >
+                                                <td rowspan="1" colspan="1">2</td>
+                                                <td rowspan="1" colspan="1">เมาส์</td>
+                                                <td rowspan="1" colspan="1">602050-14443/60</td>
+                                            </tr>
+                                            <tr role="row" >
+                                                <td rowspan="1" colspan="1">3</td>
+                                                <td rowspan="1" colspan="1">จอคอมพิวเตอร์</td>
+                                                <td rowspan="1" colspan="1">602051-14441/60</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+
+                        <button type="button" class="btn btn-danger cancel" id="detailDE_cancel" data-dismiss="modal">ปิด</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 @endsection

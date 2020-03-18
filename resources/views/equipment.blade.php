@@ -85,7 +85,7 @@
                             <td class="text-center">5</td>
                             <td class="text-center">
                                 <button type="button" class="btn btn-warning btn-sm tt mr-sm-1 btndetail" data-toggle="tooltip" title="แก้ไขหมวดหมู่อุปกรณ์" data-original-title="แก้ไข"><i class="fas fa-pencil-alt"></i></button>
-                                <button type="button" class="btn btn-danger btn-sm tt btndelete" data-toggle="tooltip" title="ลบหมวดหมู่อุปกรณ์" data-original-title="ลบ"><i class="far fa-trash-alt"></i></button>
+                                <button type="button" class="btn btn-danger btn-sm tt btndelete" nameitem ="คอมพิวเตอร์" data-toggle="tooltip" title="ลบหมวดหมู่อุปกรณ์" data-original-title="ลบ"><i class="far fa-trash-alt"></i></button>
                             </td>
                         </tbody>
                     </table>
@@ -102,16 +102,45 @@ $(document).ready(function() {
     $('.btnadd').click(function() {
         $("#addE").modal();
     });
-    $('.btndetail').click(function() {
-        $("#detailE").modal();
+    $('.btnedit').click(function() {
+        $("#editE").modal();
     });
-    $('.btndelete').click(function() {
-        $("#deleteE").modal();
-});
+    $(".btndelete").click(function() {
+            var nameitem = $(this).attr('nameitem');
+            swal({
+                title: "คุณต้องการลบ",
+                text: nameitem+" หรือไม่ ?",
+                icon: "warning",
+                buttons: true,
+                buttons: ["ยกเลิก", "ยืนยัน"],
+                dangerMode: true,
+            })
+            .then((willDelete) => {
+                if (willDelete) {
+                    swal("ลบรายการสำเร็จเรียบร้อยแล้ว", {
+                        icon: "success",
+                        buttons: false
+                    });
+                    //delete_1(uid);
+                    setTimeout(function() {
+                        location.reload();
+                    }, 1500);
+                } else {
+                    swal("การลบไม่สำเร็จ ",{
+                        icon: "error",
+                        buttons: false
+                    });
+                    setTimeout(function() {
+                        swal.close();
+                    }, 1500);
+                }
+            });
+    });
 });
 </script>
 @endsection
 @section('modal')
+{{-- modal เพิ่มหมวดหมู่อุปกรณ์ --}}
 <div class="modal fade" id="addE" name="addE" tabindex="-1" role="dialog" >
     <div class="modal-dialog modal-lg" role="document" style="width: 50%">
         <div class="modal-content">
@@ -143,15 +172,16 @@ $(document).ready(function() {
     </div>
 </div>
 
-<div class="modal fade" id="detailE" name="detailE" tabindex="-1" role="dialog" >
+{{-- modal แก้ไข้หมวดหมู่อุปกรณ์ --}}
+<div class="modal fade" id="editE" name="editE" tabindex="-1" role="dialog" >
     <div class="modal-dialog modal-lg" role="document" style="width: 50%">
         <div class="modal-content">
-            <form method="post" id="detail_E" name="detail_E" action="./equipment">
+            <form method="post" id="edit_E" name="edit_E" action="./equipment">
                 <div class="info" style="font-size: 20px">
                     <div class="modal-header header-modal" style="background-color: #66b3ff;">
                         <h4 class="modal-title" style="color: white">แก้ไข้หมวดหมู่อุปกรณ์</h4>
                     </div>
-                    <div class="modal-body" id="DetailEBody">
+                    <div class="modal-body" id="EditEBody">
                         <div class="container">
                             <div class="row mb-0">
                                 <div class="col-xl-5 col-2 text-right">
@@ -165,8 +195,8 @@ $(document).ready(function() {
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-success submit" id="detailE_submit" data-dismiss="modal">ยืนยัน</button>
-                        <button type="button" class="btn btn-danger cancel" id="detailE_cancel" data-dismiss="modal">ยกเลิก</button>
+                        <button type="button" class="btn btn-success submit" id="editE_submit" data-dismiss="modal">ยืนยัน</button>
+                        <button type="button" class="btn btn-danger cancel" id="editE_cancel" data-dismiss="modal">ยกเลิก</button>
                     </div>
                 </div>
             </form>

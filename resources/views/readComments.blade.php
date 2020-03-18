@@ -69,7 +69,7 @@
                             <td class="text-center">
                                 <button type="button" class="btn btn-info btn-sm tt mr-sm-1 btndetail" title='รายละเอียดข้อเสนอแนะ'>
                                 <i class="fas fa-file-alt"></i></button>
-                                <button type="button" class="btn btn-danger btn-sm tt btndelete" data-toggle="tooltip" title="ลบข้อเสนอแนะ" data-original-title="ลบ">
+                                <button type="button" class="btn btn-danger btn-sm tt btndelete" nameitem ="IDxxxx" data-toggle="tooltip" title="ลบข้อเสนอแนะ" data-original-title="ลบ">
                                 <i class="far fa-trash-alt" ></i></button>
                             </td>
                         </tbody>
@@ -89,9 +89,37 @@ $(document).ready(function() {
 
             $("#detailRC").modal();
        });
-       $('.btndelete').click(function() {
-            $("#deleteRC").modal();
-       });
+       $(".btndelete").click(function() {
+            var nameitem = $(this).attr('nameitem');
+            swal({
+                title: "คุณต้องการลบ",
+                text: nameitem+" หรือไม่ ?",
+                icon: "warning",
+                buttons: true,
+                buttons: ["ยกเลิก", "ยืนยัน"],
+                dangerMode: true,
+            })
+            .then((willDelete) => {
+                if (willDelete) {
+                    swal("ลบรายการสำเร็จเรียบร้อยแล้ว", {
+                        icon: "success",
+                        buttons: false
+                    });
+                    //delete_1(uid);
+                    setTimeout(function() {
+                        location.reload();
+                    }, 1500);
+                } else {
+                    swal("การลบไม่สำเร็จ ",{
+                        icon: "error",
+                        buttons: false
+                    });
+                    setTimeout(function() {
+                        swal.close();
+                    }, 1500);
+                }
+            });
+    });
     });
 </script>
 @endsection
@@ -128,8 +156,8 @@ $(document).ready(function() {
                                 </div>
                                 <div class="col-xl-6 col-6 ">
 
-                                        <input type="search" class="form-control form-control-sm-5" style="height:150px"  aria-controls="dataTable"
-                                        value="xxxxxxxxxxxxxxxxxx" disabled><br>
+                                        <input type="search" class="form-control form-control-sm-5" style="height:200px"  aria-controls="dataTable"
+                                        value="xxxxxxxxxxxxxxxxxx" disabled>
 
                                 </div>
                             </div>
