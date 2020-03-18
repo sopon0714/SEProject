@@ -127,10 +127,12 @@ $(document).ready(function() {
                                     <span>รายละเอียด:</span>
                                 </div>
                                 <div class="col-xl-6 col-6 ">
-                                    <span>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span>
+
+                                        <input type="search" class="form-control form-control-sm-5" style="height:150px"  aria-controls="dataTable"
+                                        value="xxxxxxxxxxxxxxxxxx" disabled><br>
+
                                 </div>
                             </div>
-
                         </div>
                     </div>
                     <div class="modal-footer">
