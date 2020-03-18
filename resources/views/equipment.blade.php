@@ -39,7 +39,7 @@
                         <div class="h5 mb-0 font-weight-bold text-gray-800">+1 หมวดหมู่</div>
                     </div>
                     <div class="col-auto">
-                        <button class="btn btn-primary" onclick="addEquipment()"><i class="fas fa-plus"></i></button>
+                        <button class="btn btn-primary btnadd" ><i class="fas fa-plus"></i></button>
                     </div>
                 </div>
             </div>
@@ -84,8 +84,8 @@
                             <td>คอมพิวเตอร์</td>
                             <td class="text-center">5</td>
                             <td class="text-center">
-                                <button type="button" class="btn btn-warning btn-sm tt mr-sm-1" data-toggle="tooltip" title="แก้ไขข้อมูลหมวดหมู่อุปกรณ์" data-original-title="แก้ไข"><i class="fas fa-pencil-alt"></i></button>
-                                <button type="button" class="btn btn-danger btn-sm tt" data-toggle="tooltip" title="ลบหมวดหมู่อุปกรณ์" data-original-title="ลบ"><i class="far fa-trash-alt"></i></button>
+                                <button type="button" class="btn btn-warning btn-sm tt mr-sm-1 btndetail" data-toggle="tooltip" title="แก้ไขหมวดหมู่อุปกรณ์" data-original-title="แก้ไข"><i class="fas fa-pencil-alt"></i></button>
+                                <button type="button" class="btn btn-danger btn-sm tt btndelete" data-toggle="tooltip" title="ลบหมวดหมู่อุปกรณ์" data-original-title="ลบ"><i class="far fa-trash-alt"></i></button>
                             </td>
                         </tbody>
                     </table>
@@ -97,11 +97,80 @@
 @endsection
 @section('Javascript')
 <script>
-    function addEquipment() {
-    $("#addequipment").modal('show');
-  }
+$(document).ready(function() {
+
+    $('.btnadd').click(function() {
+        $("#addE").modal();
+    });
+    $('.btndetail').click(function() {
+        $("#detailE").modal();
+    });
+    $('.btndelete').click(function() {
+        $("#deleteE").modal();
+});
+});
 </script>
 @endsection
 @section('modal')
+<div class="modal fade" id="addE" name="addE" tabindex="-1" role="dialog" >
+    <div class="modal-dialog modal-lg" role="document" style="width: 50%">
+        <div class="modal-content">
+            <form method="post" id="add_E" name="add_E" action="./equipment">
+                <div class="info" style="font-size: 20px">
+                    <div class="modal-header header-modal" style="background-color: #66b3ff;">
+                        <h4 class="modal-title" style="color: white">เพิ่มหมวดหมู่อุปกรณ์</h4>
+                    </div>
+                    <div class="modal-body" id="AddEBody">
+                        <div class="container">
+                            <div class="row mb-0">
+                                <div class="col-xl-5 col-2 text-right">
+                                    <br><span>ชื่อหมวดหมู่อุปกรณ์:</span>
+                                </div>
+                                <div class="col-xl-6 col-6 ">
+                                    <br><input type="search" class="form-control form-control-sm-5"  aria-controls="dataTable">
+                                    <br>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success submit" id="addE_submit" data-dismiss="modal">ยืนยัน</button>
+                        <button type="button" class="btn btn-danger cancel" id="addE_cancel" data-dismiss="modal">ยกเลิก</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 
+<div class="modal fade" id="detailE" name="detailE" tabindex="-1" role="dialog" >
+    <div class="modal-dialog modal-lg" role="document" style="width: 50%">
+        <div class="modal-content">
+            <form method="post" id="detail_E" name="detail_E" action="./equipment">
+                <div class="info" style="font-size: 20px">
+                    <div class="modal-header header-modal" style="background-color: #66b3ff;">
+                        <h4 class="modal-title" style="color: white">แก้ไข้หมวดหมู่อุปกรณ์</h4>
+                    </div>
+                    <div class="modal-body" id="DetailEBody">
+                        <div class="container">
+                            <div class="row mb-0">
+                                <div class="col-xl-5 col-2 text-right">
+                                    <br><span>ชื่อหมวดหมู่อุปกรณ์:</span>
+                                </div>
+                                <div class="col-xl-6 col-6 ">
+                                    <br><input type="search" class="form-control form-control-sm-5"  aria-controls="dataTable">
+                                    <br>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success submit" id="detailE_submit" data-dismiss="modal">ยืนยัน</button>
+                        <button type="button" class="btn btn-danger cancel" id="detailE_cancel" data-dismiss="modal">ยกเลิก</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 @endsection
