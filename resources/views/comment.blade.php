@@ -16,6 +16,7 @@
         </div>
     </div>
     {{-- ปิดแสดงความคิดเห็น --}}
+    {{-- เปิด txt --}}
     <div class="card shadow mb-4">
         <div class="card-header py-3">
             <h6 class="h5 m-0 font-weight-bold text-dark">ข้อเสนอแนะ</h6>
@@ -23,16 +24,19 @@
         <div class="card-body">
             <div class="col-sm-12 col-md-12">
                 <div>
-                    <input type="search" class="form-control form-control-sm-5" style="height:200px" placeholder="" aria-controls="dataTable"><br>
+                    <textarea rows="6" cols="50" name="comment" class="form-control form-control-sm-5"></textarea><br>
                 </div>
             </div>
+            {{-- ปุ่มส่ง --}}
             {{-- style="text-align:right" --}}
             <div style="margin-left:93%">
                 <button type="button" class="btn btn-info btn-xl tt btnsend" title='ส่งข้อเสนอแนะ'><i class="fas fa-paper-plane" onclick="<?php echo "aaa"?>"></i> ส่ง</button>
             </div>
         </div>
+    </div>
+    {{-- ปิด txt --}}
 @endsection
-@section('modal')
+{{-- @section('modal')
 <div class="modal fade" id="sendModal" name="sendModal" tabindex="-1" role="dialog" >
     <div class="modal-dialog modal-lg" role="document" style="width: 30%">
         <div class="modal-content">
@@ -55,13 +59,43 @@
         </div>
     </div>
 </div>
-@endsection
+@endsection --}}
 @section('Javascript')
 <script>
     $(document).ready(function() {
-       $('.btnsend').click(function() {
-            $("#sendModal").modal();
-       });
+    //    $('.btnsend').click(function() {
+    //         $("#sendModal").modal();
+    //    });
+       $(".btnsend").click(function() {
+            var nameitem = $(this).attr('nameitem');
+                swal({
+                    title: "คุณต้องการส่งข้อเสนอแนะหรือไม่?",
+                    icon: "warning",
+                    buttons: true,
+                    buttons: ["ยกเลิก", "ยืนยัน"],
+                    dangerMode: true,
+                })
+            .then((willDelete) => {
+                if (willDelete) {
+                    swal("ส่งข้อความสำเร็จ", {
+                        icon: "success",
+                        buttons: false
+                    });
+                    //delete_1(uid);
+                    setTimeout(function() {
+                        location.reload();
+                    }, 1500);
+                } else {
+                    swal("ส่งข้อความไม่สำเร็จ",{
+                        icon: "error",
+                        buttons: false
+                    });
+                    setTimeout(function() {
+                        swal.close();
+                    }, 1500);
+                }
+            });
+        });
     });
 </script>
 @endsection
