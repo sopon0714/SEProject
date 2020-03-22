@@ -22,8 +22,18 @@ Route::get('/', function () {
 Route::get('/userProfile', function () {
     return view('userProfile');
 });
-Route::get('/category', 'CategoryController@indexpageCategory');
-Route::post('/category', 'CategoryController@insertCategory');
+
+
+
+// category  Route
+Route::prefix('category')->group(function () {
+    Route::get('', 'CategoryController@indexpageCategory');
+    Route::post('', 'CategoryController@insertCategory');
+    Route::put('', 'CategoryController@updateCategory');
+    Route::delete('', 'CategoryController@deleteCategory');
+});
+
+
 Route::get('/requestManagement', function () {
     return view('requestManagement');
 });

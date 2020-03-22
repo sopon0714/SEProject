@@ -169,6 +169,9 @@
         $('.tt').tooltip({
             trigger: "hover"
         });
+        $('.modal').on('hidden.bs.modal', function() {
+            $(this).find('form').trigger('reset');
+        })
     });
 </script>
 @yield('Javascript')
