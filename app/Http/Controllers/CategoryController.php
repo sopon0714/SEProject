@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
+
     public function indexpageCategory()
     {
         $Categorys = DB::select("SELECT `category`.`CID`,`category`.`CName`,COUNT(`equipmentlist`.`CID`) AS amount FROM `category`
@@ -22,6 +23,23 @@ class CategoryController extends Controller
         DB::table('category')->insert(
             ['CName' => $nameCategory, 'isDelete' => 0]
         );
-        CategoryController::indexpageCategory();
+        return $this->indexpageCategory();
+    }
+    public function updateCategory(Request $req)
+    {
+        $nameCategory = $req->get('nameCategory');
+        $CID = $req->get('idCategory');
+        DB::table('category')
+            ->where('CID', $CID)
+            ->update(['CName' => $nameCategory]);
+        return $this->indexpageCategory();
+    }
+    public function deleteCategory(Request $req)
+    {
+        $CID = $req->get('CID');
+        DB::table('category')
+            ->where('CID', $CID)
+            ->update(['isDelete' => 1]);
+        return $this->indexpageCategory();
     }
 }

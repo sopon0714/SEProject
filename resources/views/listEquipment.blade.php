@@ -360,9 +360,6 @@
                                     </div>
                                 </div>
                             </div>
-
-
-
                             <div class="row mb-4">
                                 <div class="col-xl-12 col-2 text-right">
                                     <div class="modal-header header-modal" style="background-color: #66b3ff;">
@@ -390,7 +387,6 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-
                         <button type="button" class="btn btn-danger cancel" id="a_cancelInfo" data-dismiss="modal">ปิด</button>
                     </div>
                 </div>

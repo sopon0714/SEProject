@@ -40,24 +40,10 @@
                 </a>
             </li>
             <li class='nav-item'>
-                <a class='nav-link' href='../../userManagement'>
-                    <i class="fas fa-users-cog"></i>
-                    <span>การจัดการผู้ใช้</span>
-                </a>
-            </li>
-            <li class='nav-item'>
-                <a class='nav-link collapsed' href="../../views/profile/profile.php" data-toggle='collapse' data-target='#link2' aria-expanded='true' aria-controls=''>
+                <a class='nav-link collapsed' href="../../listEquipment" data-toggle='' data-target='' aria-expanded='true' aria-controls=''>
                     <i class="fas fa-desktop"></i>
-                    <span>การจัดการอุปกรณ์</span>
+                    <span>รายการอุปกรณ์</span>
                 </a>
-                <div id='link2' class='collapse' aria-labelledby='headingTwo' data-parent='#accordionSidebar'>
-                    <div class=' py-2 collapse-inner rounded' style='border-left: 2px solid white; border-radius: 0% !important;'>
-                        <div class="background-color-sideber" style="background-color: #bf4040" id="accordionSidebar">
-                            <a class='nav-link' href="../../category">หมวดหมู่อุปกรณ์</a>
-                            <a class='nav-link' href="../../listEquipment">รายการอุปกรณ์</a>
-                        </div>
-                    </div>
-                </div>
             </li>
             <li class='nav-item'>
                 <a class='nav-link collapsed' href="../../views/agreement/agreement.php" data-toggle='collapse' data-target='#link3' aria-expanded='true' aria-controls='link-2'>
@@ -69,29 +55,14 @@
                         <div class="background-color-sideber" style="background-color: #bf4040" id="accordionSidebar">
                             <a class='nav-link' href="../../requestManagement">การจัดการคำร้อง</a>
                             <a class='nav-link' href='../../approveRequest'>การอนุมัติคำร้อง</a>
-                            <a class='nav-link' href='../../receiveEquipment'>การรับอุปกรณ์</a>
-                            <a class='nav-link' href='../../returnEquipment'>การคืนอุปกรณ์</a>
-
                         </div>
                     </div>
                 </div>
             </li>
             <li class='nav-item'>
-                <a class='nav-link' href='../../logout.php'>
-                    <i class="fas fa-chart-bar"></i>
-                    <span>สถิติการยืมอุปกรณ์</span>
-                </a>
-            </li>
-            <li class='nav-item'>
-                <a class='nav-link' href='../../setting'>
-                    <i class="fas fa-wrench"></i>
-                    <span>ตั้งค่าระบบ</span>
-                </a>
-            </li>
-            <li class='nav-item'>
-                <a class='nav-link' href='../../readComments'>
+                <a class='nav-link' href='../../comment'>
                     <i class="fas fa-comment-dots"></i>
-                    <span>ข้อเสนอแนะ</span>
+                    <span>แสดงความคิดเห็น</span>
                 </a>
             </li>
             <li class='nav-item'>

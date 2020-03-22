@@ -85,8 +85,8 @@
                                 <td>{{$TableCategorys[$i]->CName}}</td>
                                 <td class="text-center">{{$TableCategorys[$i]->amount}}</td>
                                 <td class="text-center">
-                                    <button type="button" class="btn btn-warning btn-sm tt mr-sm-1 btnedit" data-toggle="tooltip" title="แก้ไขหมวดหมู่อุปกรณ์" data-original-title="แก้ไข"><i class="fas fa-pencil-alt"></i></button>
-                                    <button type="button" class="btn btn-danger btn-sm tt btndelete" nameitem ="{{$TableCategorys[$i]->CName}}" data-toggle="tooltip" title="ลบหมวดหมู่อุปกรณ์" data-original-title="ลบ"><i class="far fa-trash-alt"></i></button>
+                                    <button type="button" class="btn btn-warning btn-sm tt mr-sm-1 btnedit" data-toggle="tooltip" title="แก้ไขหมวดหมู่อุปกรณ์" cid="{{$TableCategorys[$i]->CID}}" cname ="{{$TableCategorys[$i]->CName}}"data-original-title="แก้ไข"><i class="fas fa-pencil-alt"></i></button>
+                                    <button type="button" class="btn btn-danger btn-sm tt btndelete" cid="{{$TableCategorys[$i]->CID}}" cname ="{{$TableCategorys[$i]->CName}}" token="{{ csrf_token() }}" data-toggle="tooltip" title="ลบหมวดหมู่อุปกรณ์" data-original-title="ลบ"><i class="far fa-trash-alt"></i></button>
                                 </td>
                             </tr>
                             @endfor
@@ -107,28 +107,45 @@ $(document).ready(function() {
         $("#addE").modal();
     });
     $('.btnedit').click(function() {
+        $("#editnameCategory").val($(this).attr('cname'))
+        $("#idCategory").val($(this).attr('cid'))
         $("#editE").modal();
     });
     $(".btndelete").click(function() {
-            var nameitem = $(this).attr('nameitem');
+        var name =  $(this).attr('cname')
+        var id = $(this).attr('cid')
+        var token = $(this).attr('token')
             swal({
                 title: "คุณต้องการลบ",
-                text: nameitem+" หรือไม่ ?",
+                text: name+" หรือไม่ ?",
                 icon: "warning",
                 buttons: true,
                 buttons: ["ยกเลิก", "ยืนยัน"],
                 dangerMode: true,
+
             })
             .then((willDelete) => {
                 if (willDelete) {
-                    swal("ลบรายการสำเร็จเรียบร้อยแล้ว", {
-                        icon: "success",
-                        buttons: false
+                    $.ajax({
+                        url: 'category',
+                        type: 'DELETE',
+                        async : false,
+                        data:{
+                            _method:'delete',
+                            _token:token,
+                            CID:id
+                        },
+                        success: function(result) {
+                            swal("ลบรายการสำเร็จเรียบร้อยแล้ว", {
+                                icon: "success",
+                                buttons: false
+                            });
+                            setTimeout(function() {
+                                location.reload();
+                            }, 1500);
+                        }
                     });
-                    //delete_1(uid);
-                    setTimeout(function() {
-                        location.reload();
-                    }, 1500);
+
                 } else {
                     swal("การลบไม่สำเร็จ ",{
                         icon: "error",
@@ -148,7 +165,7 @@ $(document).ready(function() {
 <div class="modal fade" id="addE" name="addE" tabindex="-1" role="dialog" >
     <div class="modal-dialog modal-lg" role="document" style="width: 50%">
         <div class="modal-content">
-            <form method="post" id="add_E" name="add_E" action="../../category">
+            <form method="post" id="add_E" name="add_E" action="category">
                 <div class="info" style="font-size: 20px">
                     <div class="modal-header header-modal" style="background-color: #66b3ff;">
                         <h4 class="modal-title" style="color: white">เพิ่มหมวดหมู่อุปกรณ์</h4>
@@ -181,26 +198,30 @@ $(document).ready(function() {
 <div class="modal fade" id="editE" name="editE" tabindex="-1" role="dialog" >
     <div class="modal-dialog modal-lg" role="document" style="width: 50%">
         <div class="modal-content">
-            <form method="post" id="edit_E" name="edit_E" action="./equipment">
+            <form method="post" id="add_E" name="add_E" action="category">
                 <div class="info" style="font-size: 20px">
                     <div class="modal-header header-modal" style="background-color: #66b3ff;">
                         <h4 class="modal-title" style="color: white">แก้ไข้หมวดหมู่อุปกรณ์</h4>
                     </div>
                     <div class="modal-body" id="EditEBody">
                         <div class="container">
+                            <input type="hidden" name="_method" value="put" />
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             <div class="row mb-0">
                                 <div class="col-xl-5 col-2 text-right">
                                     <br><span>ชื่อหมวดหมู่อุปกรณ์:</span>
                                 </div>
                                 <div class="col-xl-6 col-6 ">
-                                    <br><input type="search" class="form-control form-control-sm-5"  aria-controls="dataTable">
+                                    <br>
+                                    <input type="text" id="editnameCategory" name="nameCategory" class="form-control form-control-sm-5"  aria-controls="dataTable">
+                                    <input type="hidden" id="idCategory" name="idCategory" class="form-control form-control-sm-5"  aria-controls="dataTable">
                                     <br>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-success submit" id="editE_submit" data-dismiss="modal">ยืนยัน</button>
+                        <button type="submit" class="btn btn-success submit" id="editE_submit" >ยืนยัน</button>
                         <button type="button" class="btn btn-danger cancel" id="editE_cancel" data-dismiss="modal">ยกเลิก</button>
                     </div>
                 </div>
