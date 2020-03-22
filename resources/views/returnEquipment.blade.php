@@ -26,34 +26,56 @@
             <div class="card-body" style="height: 500px" >
                 <div class="col-sm-12" id="historyRequirements" style="overflow-y:auto;">
                     <div class="search" >
-                        <label style="font-size: 18px">หมายเลขคำร้อง : </label>
-                        <input type="text" name="note">
-                        <button type="button" class="btn btn-info btn-sm tt" title='ค้นหา'>
-                            <i class="fas fa-search"></i>
-                        </button>
+                        <div class="row mb-2">
+                            <div class="col-xl-5 col-2 text-right">
+                                <label style="font-size: 18px">หมายเลขคำร้อง : </label>
+                            </div>
+                            <div class="col-xl-3 col-6 ">
+                                <input type="text" name="note">
+                            </div><div class="col-xl-3 col-6 ">
+                                <button type="button" class="btn btn-info btn-sm tt" title='ค้นหา'>
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
                         <br>
-                        <label style="font-size: 20px">หมายเลขคำร้อง : E0163-10000000001</label>
+                        <div class="row mb-2">
+                            <div class="col-xl-10">
+                                <label style="font-size: 20px">หมายเลขคำร้อง : E0163-10000000001</label>
+                            </div>
+                        </div>
+                        <div class="row mb-2">
+                            <div class="col-xl-10">
+                                <label style="font-size: 18px">ข้อมูลผู้ยืม</label>
+                            </div>
+                        </div>
+                        <div class="row mb-2">
+                            <div class="col-xl-10">
+                                <label style="font-size: 18px">ชื่อ-สกุล : นายโสภณ โตใหญ่</label>
+                            </div>
+                        </div>
+                        <div class="row mb-2">
+                            <div class="col-xl-10">
+                                <label style="font-size: 18px">อาจารย์ที่รับผิดชอบ : นางสาวนุชนาฎ สัตยากวี</label>
+                            </div>
+                        </div>
 
                         <br>
-                        <label style="font-size: 18px">ข้อมูลผู้ยืม</label>
-                        <br>
-                        <label style="font-size: 18px">ชื่อ-สกุล : นายโสภณ โตใหญ่</label>
-                        <br>
-                        <label style="font-size: 18px">อาจารย์ที่รับผิดชอบ : นางสาวนุชนาฎ สัตยากวี</label>
-                        <br>
-                        <br>
-
-                        <label style="font-size: 18px">1    เลขครุภัณฑ์ : E0163-10000000001</label>
-                        <br>
-                        <label style="font-size: 18px">2    เลขครุภัณฑ์ : E0163-20000000010</label>
-
-
+                        <div class="row mb-2">
+                            <div class="col-xl-10">
+                                <label style="font-size: 18px">1    เลขครุภัณฑ์ : E0163-10000000001</label>
+                            </div>
+                        </div>
+                        <div class="row mb-2">
+                            <div class="col-xl-10">
+                                <label style="font-size: 18px">2    เลขครุภัณฑ์ : E0163-20000000010</label>
+                            </div>
+                        </div>
                         {{-- <span>
                             <a href=" ">
                                 <button type="button" id="btn_green" class="btn btn-success">ยืนยัน</button>
                             </a>
                         </span> --}}
-                        <br>
                         <br>
                         <button style="text-align: right" type="button" value="ยืนยัน" class="btn btn-danger" >ยืนยัน</button>
                         <button style="text-align: right" type="button" value="ยกเลิก" class="btn btn-danger" >ยกเลิก</button>
@@ -120,25 +142,51 @@
                                 <div class="card"  style="height: 400px">
                                     <div class="col-sm-12" id="historyRequirements" style="overflow-y:auto;">
                                         <div class="search" >
-                                            <label style="font-size: 18px">หมายเลขคำร้อง : </label>
-                                            <input type="text" name="note">
-                                            <button type="button" class="btn btn-info btn-sm tt" title='ค้นหา'>
-                                                <i class="fas fa-search"></i>
-                                            </button>
+                                            <br/>
+                                            <div class="row mb-2">
+                                                <div class="col-xl-4 col-2 text-right">
+                                                    <label style="font-size: 18px">หมายเลขคำร้อง : </label>
+                                                </div>
+                                                <div class="col-xl-5 col-6 ">
+                                                    <input type="text" name="note">
+                                                </div>
+                                                <div class="col-xl-3 col-6 ">
+                                                    <button type="button" class="btn btn-info btn-sm tt" title='ค้นหา'>
+                                                        <i class="fas fa-search"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
                                             <br>
-                                            <label style="font-size: 20px">หมายเลขคำร้อง : E0163-10000000001</label>
-
-                                            <br>
-                                            <label style="font-size: 18px">ข้อมูลผู้ยืม</label>
-                                            <br>
-                                            <label style="font-size: 18px">ชื่อ-สกุล : นายโสภณ โตใหญ่</label>
-                                            <br>
-                                            <label style="font-size: 18px">อาจารย์ที่รับผิดชอบ : นางสาวนุชนาฎ สัตยากวี</label>
-                                            <br>
-                                            <br>
-                                            <label style="font-size: 18px">1    เลขครุภัณฑ์ : E0163-10000000001</label>
-                                            <br>
-                                            <label style="font-size: 18px">2    เลขครุภัณฑ์ : E0163-20000000010</label>
+                                            <div class="row mb-2">
+                                                <div class="col-xl-10">
+                                                    <label style="font-size: 20px">หมายเลขคำร้อง : E0163-10000000001</label>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-2">
+                                                <div class="col-xl-10">
+                                                    <label style="font-size: 18px">ข้อมูลผู้ยืม</label>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-2">
+                                                <div class="col-xl-10">
+                                                    <label style="font-size: 18px">ชื่อ-สกุล : นายโสภณ โตใหญ่</label>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-2">
+                                                <div class="col-xl-10">
+                                                    <label style="font-size: 18px">อาจารย์ที่รับผิดชอบ : นางสาวนุชนาฎ สัตยากวี</label>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-2">
+                                                <div class="col-xl-10">
+                                                    <label style="font-size: 18px">1    เลขครุภัณฑ์ : E0163-10000000001</label>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-2">
+                                                <div class="col-xl-10">
+                                                    <label style="font-size: 18px">2    เลขครุภัณฑ์ : E0163-20000000010</label>
+                                                </div>
+                                            </div>
                                             {{-- <span>
                                                 <a href=" ">
                                                     <button type="button" id="btn_green" class="btn btn-success">ยืนยัน</button>

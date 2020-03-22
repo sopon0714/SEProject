@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
-
     public function indexpageCategory()
     {
         $Categorys = DB::select("SELECT `category`.`CID`,`category`.`CName`,COUNT(`equipmentlist`.`CID`) AS amount FROM `category`

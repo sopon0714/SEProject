@@ -27,7 +27,7 @@
                     <div class="col mr-2">
                         <div class="font-weight-bold  text-uppercase text-right mb-2">จำนวนข้อเสนอแนะ</div>
                         <div class="font-weight-bold  text-uppercase text-right mb-2">ในเดือนปัจจุบัน</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800 text-right">{{$countComment[0]->summ}} ข้อเสนอแนะ</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800 text-right">{{$RC_sum[0]->summ}} ข้อเสนอแนะ</div>
                     </div>
                 </div>
             </div>

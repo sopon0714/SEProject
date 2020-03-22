@@ -12,6 +12,6 @@ class ReadCommentsController extends Controller
         $Comment = DB::select("SELECT requestform.reqID ,user.Title,user.FName,user.LName,requestform.Time,requestform.Detail
                                 FROM user INNER JOIN requestform ON user.UID = requestform.UID");
         $countComment = DB::select("SELECT COUNT(requestform.reqID) as summ FROM requestform");
-        return view("readComments", [$Comment, $countComment]);
+        return view("readComments", ["RComment" => $Comment, "RC_sum" => $countComment]);
     }
 }

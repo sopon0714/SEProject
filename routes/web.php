@@ -24,8 +24,7 @@ Route::get('/userProfile', function () {
 });
 
 
-
-// category  Route
+// category Route
 Route::prefix('category')->group(function () {
     Route::get('', 'CategoryController@indexpageCategory');
     Route::post('', 'CategoryController@insertCategory');
@@ -33,6 +32,7 @@ Route::prefix('category')->group(function () {
     Route::delete('', 'CategoryController@deleteCategory');
 });
 
+// readComments Route
 Route::prefix('readComments')->group(function () {
     Route::get('', 'ReadCommentsController@index');
     // Route::post('', 'CommentController@insertCategory');
@@ -40,13 +40,25 @@ Route::prefix('readComments')->group(function () {
     // Route::delete('', 'CommentController@deleteCategory');
 });
 
+// comment Route
+Route::prefix('comment')->group(function () {
+    Route::get('', 'CommentController@indexpageComment');
+    Route::post('', 'CommentController@insertComment');
+    // Route::put('', 'CategoryController@updateCategory');
+    // Route::delete('', 'CategoryController@deleteCategory');
+});
+// approveRequest Route
+Route::prefix('approveRequest')->group(function () {
+    Route::get('', 'ApproveRequestController@indexpageApproveRequest');
+    //Route::post('', 'ApproveRequestController@insertApproveRequest');
+    // Route::put('', 'ApproveRequestController@updateApproveRequest');
+    // Route::delete('', 'ApproveRequestController@deleteApproveRequest');
+});
 
 Route::get('/requestManagement', function () {
     return view('requestManagement');
 });
-Route::get('/readComments', function () {
-    return view('readComments');
-});
+
 Route::get('/detailEquipment', function () {
     return view('detailEquipment');
 });
@@ -62,15 +74,15 @@ Route::get('layoutAdmin', function () {
 Route::get('receiveEquipment', function () {
     return view('receiveEquipment');
 });
-Route::get('approveRequest', function () {
-    return view('approveRequest');
-});
-Route::get('comment', function () {
-    return view('comment');
-});
 Route::get('returnEquipment', function () {
     return view('returnEquipment');
 });
 Route::get('setting', function () {
     return view('setting');
+});
+Route::get('layoutNisit', function () {
+    return view('layoutNisit');
+});
+Route::get('layoutTeacher', function () {
+    return view('layoutTeacher');
 });

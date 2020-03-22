@@ -42,7 +42,11 @@
                         <div class="h5 mb-0 font-weight-bold text-gray-800">+1 หมวดหมู่</div>
                     </div>
                     <div class="col-auto">
+<<<<<<< HEAD
                         <button class="btn btn-primary " ><i class="fas fa-laptop-medical fa-2x"></i></button>
+=======
+                        <button class="btn btn-primary"><i class="fas fa-plus"></i></button>
+>>>>>>> a2c874eb5f9fda2221e8bec9627f446a31fd23b4
                     </div>
                 </div>
             </div>
@@ -93,7 +97,6 @@
                                 </td>
                             </tr>
                             @endfor
-
                         </tbody>
                     </table>
                 </div>
