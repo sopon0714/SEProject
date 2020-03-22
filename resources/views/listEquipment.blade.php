@@ -164,7 +164,7 @@
                                     </button>
                                 </td>
                                 <td rowspan="1" colspan="1">
-                                    <button type="button" class="btn btn-warning btn-sm tt" data-toggle="tooltip" title="แก้ไขรายการอุปกรณ์" data-original-title="แก้ไข"><i class="fas fa-pencil-alt"></i></button>
+                                    <button type="button" class="btn btn-warning btn-sm tt editbtn" data-toggle="tooltip" title="แก้ไขรายการอุปกรณ์" ELID ="{{$TableListEquipment[$i]->ELID}}" token="{{ csrf_token() }}" data-original-title="แก้ไข"><i class="fas fa-pencil-alt"></i></button>
                                     <button type="button" class="btn btn-danger btn-sm tt delbtn" data-toggle="tooltip" title="ลบรายการอุปกรณ์" ELID ="{{$TableListEquipment[$i]->ELID}}" Ename ="{{$TableListEquipment[$i]->EName}}" token="{{ csrf_token() }}" data-original-title="ลบ"><i class="far fa-trash-alt" aria-hidden="true" ></i></button>
                                 </td>
                             </tr>
@@ -193,7 +193,7 @@
                         <div class="col-sm-12" id="historyRequirements" style="overflow-y:auto;">
                             <div class="row mb-2">
                                 <div class="col-xl-4 col-2 text-right">
-                                    <label style="font-size: 18px">ชื่ออุปกรณ์ : </label>
+                                    <label >ชื่ออุปกรณ์ : </label>
                                 </div>
                                 <div class="col-xl-6 col-6 ">
                                     <input type="text" name="ELName"><br />
@@ -201,7 +201,7 @@
                             </div>
                             <div class="row mb-2">
                                 <div class="col-xl-4 col-2 text-right">
-                                    <label style="font-size: 18px">ยี่ห้ออุปกรณ์ : </label>
+                                    <label >ยี่ห้ออุปกรณ์ : </label>
                                 </div>
                                 <div class="col-xl-6 col-6 ">
                                     <input type="text" name="brand"><br />
@@ -209,7 +209,7 @@
                             </div>
                             <div class="row mb-2">
                                 <div class="col-xl-4 col-2 text-right">
-                                    <label style="font-size: 18px">รายละเอียด : </label>
+                                    <label >รายละเอียด : </label>
                                 </div>
                                 <div class="col-xl-6 col-6 ">
                                     <input type="text" name="note"><br />
@@ -217,10 +217,10 @@
                             </div>
                             <div class="row mb-2">
                                 <div class="col-xl-4 col-2 text-right">
-                                    <label style="font-size: 18px">หมวดหมู่อุปกรณ์ : </label>
+                                    <label >หมวดหมู่อุปกรณ์ : </label>
                                 </div>
                                 <div class="col-xl-6 col-6 ">
-                                    <select id="category" name="category">
+                                    <select  name="category">
                                         @for ($i = 0; $i < count($category); $i++)
                                                 <option value="{{$category[$i]->CID}}">{{$category[$i]->CName}}</option>
                                             @endfor
@@ -229,7 +229,7 @@
                             </div>
                             <div class="row mb-2">
                                 <div class="col-xl-4 col-2 text-right">
-                                    <label for="category" style="font-size: 18px">สถานะอุปกรณ์ : </label>
+                                    <label for="category" >สถานะอุปกรณ์ : </label>
                                 </div>
                                 <div class="col-xl-2 col-6 ">
                                     <input type="radio" name="status" value="ยืมได้" checked> ยืมได้
@@ -240,36 +240,36 @@
                             </div>
                             <div class="row mb-2">
                                 <div class="col-xl-4 col-2 text-right">
-                                    <label for="category" style="font-size: 18px">สิทธิ์การยืมอุปกรณ์ : </label>
+                                    <label for="category" >สิทธิ์การยืมอุปกรณ์ : </label>
                                 </div>
                                 <div class="col-xl-3 col-6 ">
-                                    <input type="checkbox" id="right3" name="right[]" value="3" >
+                                    <input type="checkbox"  name="right[]" value="3" >
                                     <label for="right3">เจ้าหน้าที่</label><br>
                                 </div>
                                 <div class="col-xl-3 col-6 ">
-                                    <input type="checkbox" id="right2" name="right[]" value="2">
+                                    <input type="checkbox"  name="right[]" value="2">
                                     <label for="right2">อาจารย์</label><br>
                                 </div>
                                 <div class="col-xl-2 col-6 ">
-                                    <input type="checkbox" id="right1" name="right[]" value="1">
+                                    <input type="checkbox"  name="right[]" value="1">
                                     <label for="right1">นิสิต</label><br>
                                 </div>
                             </div>
                             <div class="row mb-2" id="statusSN">
                                 <div class="col-xl-4 col-2 text-right">
-                                    <label for="category" style="font-size: 18px">เลขครุภัณฑ์ : </label>
+                                    <label for="category" >เลขครุภัณฑ์ : </label>
                                 </div>
                                 <div class="col-xl-2 col-6 ">
-                                    <input type="radio" id = "" name="statusSN" value="1"> มี
+                                    <input type="radio"  name="statusSN" value="1"> มี
                                 </div>
                                 <div class="col-xl-2 col-6">
-                                    <input type="radio" id = "" name="statusSN" value="0" checked> ไม่มี
+                                    <input type="radio"  name="statusSN" value="0" checked> ไม่มี
                                 </div>
                             </div>
                             <div id="addinfo">
                                 <div class="row mb-2">
                                     <div class="col-xl-4 col-2 text-right">
-                                        <label style="font-size: 18px">จำนวนอุปกรณ์</label>
+                                        <label >จำนวนอุปกรณ์</label>
                                     </div>
                                     <div class="col-xl-2 col-2 ">
                                         <input type="number" name="number" min="1" max = "100" ><br />
@@ -288,7 +288,94 @@
         </div>
     </div>
 </div>
-
+{{-- modal แก้ไขการเพิ่มอุปกรณ์ --}}
+<div class="modal fade" id="editModal" name="editModal" tabindex="-1" role="dialog" >
+    <div class="modal-dialog modal-lg" role="document" style="width: 50%">
+        <div class="modal-content">
+            <form method="post"  name="addEqui" action="listEquipment">
+                <div class="info" style="font-size: 20px">
+                    <div class="modal-header header-modal" style="background-color: #66b3ff;">
+                        <h4 class="modal-title" style="color: white">แก้ไขรายการอุปกรณ์</h4>
+                    </div>
+                    <div class="modal-body" id="ChangeModalBody">
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                        <input type="hidden" id="ELID"name="ELID" value="">
+                        <div class="col-sm-12" id="historyRequirements" style="overflow-y:auto;">
+                            <div class="row mb-2">
+                                <div class="col-xl-4 col-2 text-right">
+                                    <label >ชื่ออุปกรณ์ : </label>
+                                </div>
+                                <div class="col-xl-6 col-6 ">
+                                    <input type="text" id="ELName" name="ELName"><br />
+                                </div>
+                            </div>
+                            <div class="row mb-2">
+                                <div class="col-xl-4 col-2 text-right">
+                                    <label >ยี่ห้ออุปกรณ์ : </label>
+                                </div>
+                                <div class="col-xl-6 col-6 ">
+                                    <input type="text" id="brand" name="brand"><br />
+                                </div>
+                            </div>
+                            <div class="row mb-2">
+                                <div class="col-xl-4 col-2 text-right">
+                                    <label >รายละเอียด : </label>
+                                </div>
+                                <div class="col-xl-6 col-6 ">
+                                    <input type="text" id="note" name="note"><br />
+                                </div>
+                            </div>
+                            <div class="row mb-2">
+                                <div class="col-xl-4 col-2 text-right">
+                                    <label >หมวดหมู่อุปกรณ์ : </label>
+                                </div>
+                                <div class="col-xl-6 col-6 ">
+                                    <select id="category" name="category">
+                                        @for ($i = 0; $i < count($category); $i++)
+                                                <option value="{{$category[$i]->CID}}">{{$category[$i]->CName}}</option>
+                                            @endfor
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row mb-2">
+                                <div class="col-xl-4 col-2 text-right">
+                                    <label for="category" >สถานะอุปกรณ์ : </label>
+                                </div>
+                                <div class="col-xl-2 col-6 ">
+                                    <input type="radio" id="status" name="status" value="ยืมได้" > ยืมได้
+                                </div>
+                                <div class="col-xl-3 col-6">
+                                    <input type="radio" id="status2"name="status" value="ยืมไม่ได้"> ยืมไม่ได้
+                                </div>
+                            </div>
+                            <div class="row mb-2">
+                                <div class="col-xl-4 col-2 text-right">
+                                    <label for="category" >สิทธิ์การยืมอุปกรณ์ : </label>
+                                </div>
+                                <div class="col-xl-3 col-6 ">
+                                    <input type="checkbox" id="right3" name="right[]" value="3" >
+                                    <label for="right3">เจ้าหน้าที่</label><br>
+                                </div>
+                                <div class="col-xl-3 col-6 ">
+                                    <input type="checkbox" id="right2" name="right[]" value="2">
+                                    <label for="right2">อาจารย์</label><br>
+                                </div>
+                                <div class="col-xl-2 col-6 ">
+                                    <input type="checkbox" id="right1" name="right[]" value="1">
+                                    <label for="right1">นิสิต</label><br>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-success ok"  >ยืนยัน</button>
+                        <button type="button" class="btn btn-danger cancel"  data-dismiss="modal">ปิด</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 
 
 
@@ -344,13 +431,56 @@
             $("#addinfo").html(" <div class=\"row mb-2\"><div class=\"col-xl-4 col-2 text-right\"><label style=\"font-size: 18px\">จำนวนอุปกรณ์</label></div><div class=\"col-xl-2 col-2 \"><input type=\"number\" name=\"number\" min=\"1\" max = \"100\" ><br /></div></div>");
             $(this).find('form').trigger('reset');
         })
+        $('#editModal').on('hidden.bs.modal', function() {
+            $("#right1").removeAttr('checked');
+            $("#right2").removeAttr('checked');
+            $("#right3").removeAttr('checked');
+        })
         $('#add').click(function() {
-            //alert("5555");
             $("#addModal").modal();
+
        });
-        $('.btninfo').click(function() {
-            //alert("5555");
-            $("#infoModal").modal();
+        $('.editbtn').click(function() {
+            var id =  $(this).attr('ELID')
+            var token = $(this).attr('token')
+            $.ajax({
+                    url: 'listEquipment/byID',
+                    type: 'POST',
+                    async : false,
+                    data:{
+                        _token:token,
+                        ELID:id
+                    },
+                    success: function(result) {
+                        var data= JSON.parse(result)
+                        console.table(data);
+                        $('#ELID').val(id);
+                        $('#ELName').val(data.EName);
+                        $('#brand').val(data.Brand);
+                        $('#note').val(data.Detail);
+                        $('#category').val(data.CID);
+                        if(data.ELStatus=="ยืมได้"){
+                            $('#status').attr("checked", "checked");
+                            $("#status2").removeAttr('checked');
+                        }
+                        else if(data.ELStatus=="ยืมไม่ได้"){
+                            $('#status2').attr("checked", "checked");
+                            $("#status").removeAttr('checked');
+                        }
+
+                        if(data.rights1== true){
+                            $('#right1').attr("checked", "checked");
+                        }
+                        if(data.rights2== true){
+                            $('#right2').attr("checked", "checked");
+                        }
+                        if(data.rights3== true){
+                            $('#right3').attr("checked", "checked");
+                        }
+                        $("#editModal").modal();
+                    }
+                });
+
        });
         $(".delbtn").click(function() {
             var id =  $(this).attr('ELID')
