@@ -165,7 +165,7 @@
                                 </td>
                                 <td rowspan="1" colspan="1">
                                     <button type="button" class="btn btn-warning btn-sm tt" data-toggle="tooltip" title="แก้ไขรายการอุปกรณ์" data-original-title="แก้ไข"><i class="fas fa-pencil-alt"></i></button>
-                                    <button type="button" class="btn btn-danger btn-sm tt delbtn" data-toggle="tooltip" title="ลบรายการอุปกรณ์" ELID ="{{$TableListEquipment[$i]->ELID}}"Ename ="{{$TableListEquipment[$i]->EName}}" token="{{ csrf_token() }}" data-original-title="ลบ"><i class="far fa-trash-alt" aria-hidden="true" ></i></button>
+                                    <button type="button" class="btn btn-danger btn-sm tt delbtn" data-toggle="tooltip" title="ลบรายการอุปกรณ์" ELID ="{{$TableListEquipment[$i]->ELID}}" Ename ="{{$TableListEquipment[$i]->EName}}" token="{{ csrf_token() }}" data-original-title="ลบ"><i class="far fa-trash-alt" aria-hidden="true" ></i></button>
                                 </td>
                             </tr>
                         @endfor
@@ -353,11 +353,12 @@
             $("#infoModal").modal();
        });
         $(".delbtn").click(function() {
-            //alert("5555");
-            var nameitem = $(this).attr('nameitem');
+            var id =  $(this).attr('ELID')
+            var Ename = $(this).attr('Ename')
+            var token = $(this).attr('token')
             swal({
                 title: "คุณต้องการลบ",
-                text: nameitem+" หรือไม่ ?",
+                text: Ename+" หรือไม่ ?",
                 icon: "warning",
                 buttons: true,
                 buttons: ["ยกเลิก", "ยืนยัน"],
@@ -365,14 +366,25 @@
             })
             .then((willDelete) => {
                 if (willDelete) {
-                    swal("ลบรายการสำเร็จเรียบร้อยแล้ว", {
-                        icon: "success",
-                        buttons: false
+                    $.ajax({
+                        url: 'listEquipment',
+                        type: 'DELETE',
+                        async : false,
+                        data:{
+                            _method:'delete',
+                            _token:token,
+                            ELID:id
+                        },
+                        success: function(result) {
+                            swal("ลบรายการสำเร็จเรียบร้อยแล้ว", {
+                                icon: "success",
+                                buttons: false
+                            });
+                            setTimeout(function() {
+                                window.location.replace("listEquipment");
+                            }, 1500);
+                        }
                     });
-                    //delete_1(uid);
-                    setTimeout(function() {
-                        location.reload();
-                    }, 1500);
                 } else {
                     swal("การลบไม่สำเร็จ ",{
                         icon: "error",

@@ -50,6 +50,7 @@ Route::prefix('approveRequest')->group(function () {
 Route::prefix('listEquipment')->group(function () {
     Route::get('', 'ListEquipmentController@indexpageListEquipment');
     Route::post('', 'ListEquipmentController@insertListEquipment');
+    Route::delete('', 'ListEquipmentController@deleteListEquipment');
 });
 
 

@@ -56,4 +56,12 @@ class ListEquipmentController extends Controller
         }
         return $this->indexpageListEquipment();
     }
+    public function deleteListEquipment(Request $req)
+    {
+        $ELID = $req->get('ELID');
+        DB::table('equipmentlist')
+            ->where('ELID', $ELID)
+            ->update(['isDelete' => 1]);
+        return $this->indexpageListEquipment();
+    }
 }

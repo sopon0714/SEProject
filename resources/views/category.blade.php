@@ -140,7 +140,7 @@ $(document).ready(function() {
                                 buttons: false
                             });
                             setTimeout(function() {
-                                location.reload();
+                                window.location.replace("category");
                             }, 1500);
                         }
                     });
