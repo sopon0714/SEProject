@@ -71,9 +71,7 @@ Route::get('layoutAdmin', function () {
 Route::get('receiveEquipment', function () {
     return view('receiveEquipment');
 });
-Route::get('approveRequest', function () {
-    return view('approveRequest');
-});
+
 Route::get('comment', function () {
     return view('comment');
 });
