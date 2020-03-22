@@ -30,4 +30,3 @@ class ApproveRequestController extends Controller
         return $this->indexpageApproveRequest();
     }
 }
-

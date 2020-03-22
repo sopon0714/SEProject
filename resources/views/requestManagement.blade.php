@@ -25,6 +25,9 @@
                         <div class="font-weight-bold  text-uppercase  mb-4">จำนวนคำร้อง</div>
                         <div class="h5 mb-0 font-weight-bold text-gray-800">xxxx คำร้อง</div>
                     </div>
+                    <div class="col-auto">
+                        <i class="fas fa-file-import fa-2x"></i>
+                    </div>
                 </div>
             </div>
         </div>
@@ -38,13 +41,16 @@
                         <div class="font-weight-bold  text-uppercase  mb-4">จำนวนคำร้องที่รอยืนยัน</div>
                         <div class="h5 mb-0 font-weight-bold text-gray-800">xxxx คำร้อง</div>
                     </div>
+                    <div class="col-auto">
+                        <i class="fas fa-file-word fa-2x"></i>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
     <div class="col-xl-3 col-12 mb-4">
-        <div class="card border-left-warning card-color-four shadow h-100 py-2"
-            data-toggle="modal" data-target="#modal-1" >
+        <div class="card border-left-warning card-color-four shadow h-100 py-2  btnadd"
+            data-toggle="modal" data-target="#modal-1" style="cursor:pointer;">
             <div class="card-body">
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
@@ -52,7 +58,7 @@
                         <div class="h5 mb-0 font-weight-bold text-gray-800">+1 คำร้อง</div>
                     </div>
                     <div class="col-auto">
-                        <button class="btn btn-primary btnadd" ><i class="fas fa-plus"></i></button>
+                        <button class="btn btn-primary " ><i class="fas fa-file-medical fa-2x"></i></button>
                     </div>
                 </div>
             </div>
@@ -350,7 +356,7 @@
                                     <br><span>รายละเอียดคำร้อง: </span>
                                 </div>
                                 <div class="col-xl-6 col-6 ">
-                                    <br><h5><span class="text-danger">รอยืนยัน</span></h5>
+                                    <br><h5><span class="text" style="color: #0000cc">รอยืนยัน</span></h5>
                                 </div>
                             </div>
                             <div class="row mb-4">
