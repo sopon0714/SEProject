@@ -31,6 +31,15 @@ Route::prefix('category')->group(function () {
     Route::put('', 'CategoryController@updateCategory');
     Route::delete('', 'CategoryController@deleteCategory');
 });
+
+// readComments Route
+Route::prefix('readComments')->group(function () {
+    Route::get('', 'ReadCommentsController@index');
+    // Route::post('', 'CommentController@insertCategory');
+    // Route::put('', 'CommentController@updateCategory');
+    // Route::delete('', 'CommentController@deleteCategory');
+});
+
 // comment Route
 Route::prefix('comment')->group(function () {
     Route::get('', 'CommentController@indexpageComment');
@@ -38,19 +47,28 @@ Route::prefix('comment')->group(function () {
     // Route::put('', 'CategoryController@updateCategory');
     // Route::delete('', 'CategoryController@deleteCategory');
 });
+// approveRequest Route
+Route::prefix('approveRequest')->group(function () {
+    Route::get('', 'ApproveRequestController@indexpageApproveRequest');
+    //Route::post('', 'ApproveRequestController@insertApproveRequest');
+    // Route::put('', 'ApproveRequestController@updateApproveRequest');
+    // Route::delete('', 'ApproveRequestController@deleteApproveRequest');
+});
+
+// listEquipment  Route
+Route::prefix('listEquipment')->group(function () {
+    Route::get('', 'ListEquipmentController@indexpageListEquipment');
+    Route::post('', 'ListEquipmentController@insertListEquipment');
+    Route::delete('', 'ListEquipmentController@deleteListEquipment');
+});
 
 
 Route::get('/requestManagement', function () {
     return view('requestManagement');
 });
-Route::get('/readComments', function () {
-    return view('readComments');
-});
+
 Route::get('/detailEquipment', function () {
     return view('detailEquipment');
-});
-Route::get('listEquipment', function () {
-    return view('listEquipment');
 });
 Route::get('userManagement', function () {
     return view('userManagement');
