@@ -37,6 +37,7 @@ Route::prefix('category')->group(function () {
 // listEquipment  Route
 Route::prefix('listEquipment')->group(function () {
     Route::get('', 'ListEquipmentController@indexpageListEquipment');
+    Route::post('', 'ListEquipmentController@insertListEquipment');
 });
 
 
