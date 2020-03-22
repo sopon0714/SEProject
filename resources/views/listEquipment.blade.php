@@ -75,27 +75,45 @@
         </div>
         {{-- style="text-align: center" --}}
         <div>
-            <div class="card-body" style="height: 180px" >
+            <div class="card-body" style="height: 200px" >
                 <div class="col-sm-12" id="historyRequirements" style="overflow-y:auto;">
                     <div class="search" >
-                        <label style="font-size: 18px">ชื่ออุปกรณ์ : </label>
-                        <input type="text" name="note"><br />
+                        <div class="row mb-2">
+                            <div class="col-xl-5 col-2 text-right">
+                                <label style="font-size: 18px">ชื่ออุปกรณ์ : </label>
+                            </div>
+                            <div class="col-xl-6 col-6 ">
+                                <input type="text" name="note"><br />
+                            </div>
+                        </div>
+                        <div class="row mb-2">
+                            <div class="col-xl-5 col-2 text-right">
+                                <label for="category" style="font-size: 18px">หมวดหมู่อุปกรณ์ : </label>
+                            </div>
+                            <div class="col-xl-6 col-6 ">
+                                <select id="category">
+                                    <option value="a">อุปกรณ์อิเล็กทรอนิกส์</option>
+                                    <option value="a">อุปกรณ์ทั่วไป</option>
+                                    <option value="c">อุปกรณ์คอมพิวเตอร์</option>
+                                    {{-- <option value="b" selected>ของตกแต่งภายในอาคาร</option> --}}
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row mb-2">
+                            <div class="col-xl-5 col-2 text-right">
+                                <label for="category" style="font-size: 18px">สถานะอุปกรณ์ : </label>
+                            </div>
+                            <div class="col-xl-2">
+                                <input type="radio" name="gender" value="male" checked> ทั้งหมด
+                            </div>
+                            <div class="col-xl-2">
+                                <input type="radio" name="gender" value="female"> ยืมได้
+                            </div>
+                            <div class="col-xl-2">
+                                <input type="radio" name="gender" value="other"> ยืมไม่ได้
+                            </div>
+                        </div>
 
-                        <label for="category" style="font-size: 18px">หมวดหมู่อุปกรณ์ : </label>
-                        <select id="category">
-                            <option value="a">อุปกรณ์อิเล็กทรอนิกส์</option>
-                            <option value="a">อุปกรณ์ทั่วไป</option>
-                            <option value="c">อุปกรณ์คอมพิวเตอร์</option>
-                            {{-- <option value="b" selected>ของตกแต่งภายในอาคาร</option> --}}
-                        </select>
-
-                        <br>
-                        <label for="category" style="font-size: 18px">สถานะอุปกรณ์ : </label>
-                        <input type="radio" name="gender" value="male" checked> ทั้งหมด
-                        <input type="radio" name="gender" value="female"> ยืมได้
-                        <input type="radio" name="gender" value="other"> ยืมไม่ได้
-
-                        <br>
                         {{-- <span>
                             <a href=" ">
                                 <button type="button" id="btn_green" class="btn btn-success">ยืนยัน</button>
@@ -179,27 +197,75 @@
                                     </div> --}}
                                     <div class="card-body" style="height: 150px">
                                         <div class="col-sm-12" id="historyRequirements" style="overflow-y:auto;">
-                                            <label style="font-size: 18px">ชื่ออุปกรณ์ : </label>
-                                            <input type="text" name="note"><br />
-                                            <label style="font-size: 18px">ยี่ห้ออุปกรณ์ : </label>
-                                            <input type="text" name="note"><br />
-                                            <label style="font-size: 18px">รายละเอียด : </label>
-                                            <input type="text" name="note"><br />
-                                            <label style="font-size: 18px">หมวดหมู่อุปกรณ์ : </label>
-                                            <input type="text" name="note"><br />
-
-                                            <label for="category" style="font-size: 18px">สถานะอุปกรณ์ : </label>
-                                            <input type="radio" name="gender" value="female"> ยืมได้
-                                            <input type="radio" name="gender" value="other"> ยืมไม่ได้
-                                            <br />
-                                            <label for="category" style="font-size: 18px">สิทธิ์การยืมอุปกรณ์ : </label>
-                                            <input type="radio" name="gender" value="female"> เจ้าหน้าที่
-                                            <input type="radio" name="gender" value="other"> อาจารย์
-                                            <input type="radio" name="gender" value="other"> นิสิต
-                                            <br />
-                                            <label for="category" style="font-size: 18px">เลขครุภัณฑ์ : </label>
-                                            <input type="radio" name="gender" value="female"> มี
-                                            <input type="radio" name="gender" value="other"> ไม่มี
+                                            <div class="row mb-2">
+                                                <div class="col-xl-5 col-2 text-right">
+                                                    <label style="font-size: 18px">ชื่ออุปกรณ์ : </label>
+                                                </div>
+                                                <div class="col-xl-6 col-6 ">
+                                                    <input type="text" name="note"><br />
+                                                </div>
+                                            </div>
+                                            <div class="row mb-2">
+                                                <div class="col-xl-5 col-2 text-right">
+                                                    <label style="font-size: 18px">ยี่ห้ออุปกรณ์ : </label>
+                                                </div>
+                                                <div class="col-xl-6 col-6 ">
+                                                    <input type="text" name="note"><br />
+                                                </div>
+                                            </div>
+                                            <div class="row mb-2">
+                                                <div class="col-xl-5 col-2 text-right">
+                                                    <label style="font-size: 18px">รายละเอียด : </label>
+                                                </div>
+                                                <div class="col-xl-6 col-6 ">
+                                                    <input type="text" name="note"><br />
+                                                </div>
+                                            </div>
+                                            <div class="row mb-2">
+                                                <div class="col-xl-5 col-2 text-right">
+                                                    <label style="font-size: 18px">หมวดหมู่อุปกรณ์ : </label>
+                                                </div>
+                                                <div class="col-xl-6 col-6 ">
+                                                    <input type="text" name="note"><br />
+                                                </div>
+                                            </div>
+                                            <br/>
+                                            <div class="row mb-2">
+                                                <div class="col-xl-4 col-2 text-right">
+                                                    <label for="category" style="font-size: 18px">สถานะอุปกรณ์ : </label>
+                                                </div>
+                                                <div class="col-xl-2 col-6 ">
+                                                    <input type="radio" name="gender" value="female"> ยืมได้
+                                                </div>
+                                                <div class="col-xl-3 col-6">
+                                                    <input type="radio" name="gender" value="other"> ยืมไม่ได้
+                                                </div>
+                                            </div>
+                                            <div class="row mb-2">
+                                                <div class="col-xl-4 col-2 text-right">
+                                                    <label for="category" style="font-size: 18px">สิทธิ์การยืมอุปกรณ์ : </label>
+                                                </div>
+                                                <div class="col-xl-3 col-6 ">
+                                                    <input type="radio" name="gender" value="female"> เจ้าหน้าที่
+                                                </div>
+                                                <div class="col-xl-3 col-6 ">
+                                                    <input type="radio" name="gender" value="other"> อาจารย์
+                                                </div>
+                                                <div class="col-xl-2 col-6 ">
+                                                    <input type="radio" name="gender" value="other"> นิสิต
+                                                </div>
+                                            </div>
+                                            <div class="row mb-2">
+                                                <div class="col-xl-4 col-2 text-right">
+                                                    <label for="category" style="font-size: 18px">เลขครุภัณฑ์ : </label>
+                                                </div>
+                                                <div class="col-xl-2 col-6 ">
+                                                    <input type="radio" name="gender" value="female"> มี
+                                                </div>
+                                                <div class="col-xl-3 col-6">
+                                                    <input type="radio" name="gender" value="other"> ไม่มี
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -233,10 +299,26 @@
                                     </div> --}}
                                     <div class="card-body" style="height: 150px">
                                         <div class="col-sm-12" id="historyRequirements" style="overflow-y:auto;">
-                                            <label style="font-size: 18px">ชื่อ : เมาส์</label><br>
-                                            <label style="font-size: 18px">เลขครุภัณฑ์ : E0163-10000000001</label><br>
-                                            <label style="font-size: 18px">ยี่ห้อ : logitech</label><br>
-                                            <label style="font-size: 18px">รายละเอียด : xxxxxxxxxxxxxx</label><br>
+                                            <div class="row mb-2">
+                                                <div class="col-xl-10">
+                                                    <label style="font-size: 18px">ชื่อ : เมาส์</label><br>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-2">
+                                                <div class="col-xl-10">
+                                                    <label style="font-size: 18px">เลขครุภัณฑ์ : E0163-10000000001</label><br>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-2">
+                                                <div class="col-xl-10">
+                                                    <label style="font-size: 18px">ยี่ห้อ : logitech</label><br>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-2">
+                                                <div class="col-xl-10">
+                                                    <label style="font-size: 18px">รายละเอียด : xxxxxxxxxxxxxx</label><br>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

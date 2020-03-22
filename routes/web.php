@@ -70,3 +70,9 @@ Route::get('returnEquipment', function () {
 Route::get('setting', function () {
     return view('setting');
 });
+Route::get('layoutNisit', function () {
+    return view('layoutNisit');
+});
+Route::get('layoutTeacher', function () {
+    return view('layoutTeacher');
+});

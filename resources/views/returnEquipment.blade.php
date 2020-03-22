@@ -26,12 +26,20 @@
             <div class="card-body" style="height: 500px" >
                 <div class="col-sm-12" id="historyRequirements" style="overflow-y:auto;">
                     <div class="search" >
-                        <label style="font-size: 18px">หมายเลขคำร้อง : </label>
-                        <input type="text" name="note">
-                        <button type="button" class="btn btn-info btn-sm tt" title='ค้นหา'>
-                            <i class="fas fa-search"></i>
-                        </button>
+                        <div class="row mb-2">
+                            <div class="col-xl-5 col-2 text-right">
+                                <label style="font-size: 18px">หมายเลขคำร้อง : </label>
+                            </div>
+                            <div class="col-xl-3 col-6 ">
+                                <input type="text" name="note">
+                            </div><div class="col-xl-3 col-6 ">
+                                <button type="button" class="btn btn-info btn-sm tt" title='ค้นหา'>
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
                         <br>
+                        
                         <label style="font-size: 20px">หมายเลขคำร้อง : E0163-10000000001</label>
 
                         <br>
