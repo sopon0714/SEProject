@@ -43,7 +43,7 @@ Route::prefix('approveRequest')->group(function () {
     Route::get('', 'ApproveRequestController@indexpageApproveRequest');
     //Route::post('', 'ApproveRequestController@insertApproveRequest');
     // Route::put('', 'ApproveRequestController@updateApproveRequest');
-    // Route::delete('', 'ApproveRequestController@deleteApproveRequest');
+    Route::delete('', 'ApproveRequestController@deleteApproveRequest');
 });
 
 Route::get('/requestManagement', function () {
@@ -66,9 +66,6 @@ Route::get('layoutAdmin', function () {
 });
 Route::get('receiveEquipment', function () {
     return view('receiveEquipment');
-});
-Route::get('approveRequest', function () {
-    return view('approveRequest');
 });
 Route::get('comment', function () {
     return view('comment');

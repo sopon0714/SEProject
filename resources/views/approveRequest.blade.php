@@ -30,7 +30,7 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="font-weight-bold  text-uppercase mb-2 text-right">จำนวนคำร้องขอที่รอยืนยัน</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800 text-right" >xxx คำร้อง</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800 text-right" >{{$amount[0]->R_sum }} คำร้อง</div>
                         </div>
                     </div>
                 </div>
@@ -75,12 +75,18 @@
                                 @for ($i = 0; $i < count($TableApproveRequests); $i++)
                                 <tr>
                                     <td class="text-center">{{$i+1}}</td>
-                                    <td>{{$TableApproveRequests[$i]->RID}}</td>
+                                    <td class="text-center">{{$TableApproveRequests[$i]->RID}}</td>
                                     <td class="text-center">{{$TableApproveRequests[$i]->ReqDate}}</td>
+                                    <td class="text-center">{{$TableApproveRequests[$i]->Title}} {{$TableApproveRequests[$i]->FName}} {{$TableApproveRequests[$i]->LName}}</td>
                                     <td style="text-align: center">
-                                        <button type="button" class="btn btn-info btn-sm tt btninfoapprove" title='รายละเอียดการยืนยันคำร้อง'><i class="fas fa-file-alt"></i></button>
-                                        <button type="button" class="btn btn-danger btn-sm tt btncancelapprove" data-toggle="tooltip" title="ยกเลิกการอนุมัติ" data-original-title="ลบ"><i class="far fa-trash-alt" aria-hidden="true" onclick=""></i></button>
+                                        <button type="button" class="btn btn-info btn-sm tt btninfoapprove" data-toggle="tooltip" title="รายละเอียดการยืนยันคำร้อง" rid="{{$TableApproveRequests[$i]->RID}}" reqdate="{{$TableApproveRequests[$i]->ReqDate}}" nameuser="{{$TableApproveRequests[$i]->Title}} {{$TableApproveRequests[$i]->FName}} {{$TableApproveRequests[$i]->LName}}"  nameaj="{{$TableApproveRequests[$i]->PTitle}} {{$TableApproveRequests[$i]->PFName}} {{$TableApproveRequests[$i]->PLName}}" note="{{$TableApproveRequests[$i]->Reason}}" data-original-title="รายละเอียด"><i class="fas fa-file-alt"></i></i></button>
+
+                                        <button type="button" class="btn btn-danger btn-sm tt btncancelapprove" rid2="{{$TableApproveRequests[$i]->RID}}" token="{{ csrf_token() }}" data-toggle="tooltip" title="ยกเลิกการอนุมัติ" data-original-title="ลบ"><i class="far fa-trash-alt" aria-hidden="true"></i></button>
                                     </td>
+                                    {{-- <td class="text-center">
+                                        <button type="button" class="btn btn-warning btn-sm tt mr-sm-1 btnedit" data-toggle="tooltip" title="แก้ไขหมวดหมู่อุปกรณ์" cid="{{$TableCategorys[$i]->CID}}" cname ="{{$TableCategorys[$i]->CName}}"data-original-title="แก้ไข"><i class="fas fa-pencil-alt"></i></button>
+                                        <button type="button" class="btn btn-danger btn-sm tt btndelete" cid="{{$TableCategorys[$i]->CID}}" cname ="{{$TableCategorys[$i]->CName}}" token="{{ csrf_token() }}" data-toggle="tooltip" title="ลบหมวดหมู่อุปกรณ์" data-original-title="ลบ"><i class="far fa-trash-alt"></i></button>
+                                    </td> --}}
                                 </tr>
                                 @endfor
                             </tbody>
@@ -107,8 +113,8 @@
                                 <div class="col-xl-6 col-2 text-right">
                                     <span>หมายเลขคำร้อง :</span>
                                 </div>
-                                <div class="col-xl-6 col-6 ">
-                                    <span>R00002</span>
+                                <div class="col-xl-6 col-6 " >
+                                    <output id="ridapprove" name="ridapprove"></output>
                                 </div>
                             </div>
                             <div class="row mb-4">
@@ -116,7 +122,7 @@
                                     <span>วันที่ยื่นคำร้อง :</span>
                                 </div>
                                 <div class="col-xl-6 col-6 ">
-                                    <span>15/02/2020</span>
+                                    <output id="reqdateapprove" name="reqdateapprove"></output>
                                 </div>
                             </div>
                             <div class="row mb-4">
@@ -124,7 +130,7 @@
                                     <span>ผู้ยื่นคำร้อง :</span>
                                 </div>
                                 <div class="col-xl-6 col-6 ">
-                                    <span>นายโสภณ โตใหญ่</span>
+                                    <output id="nameuserapprove" name="nameuserapprove"></output>
                                 </div>
                             </div>
                             <div class="row mb-4">
@@ -132,7 +138,7 @@
                                     <span>อาจารย์ที่รับผิดชอบ :</span>
                                 </div>
                                 <div class="col-xl-6 col-6 ">
-                                    <span>นางสาว นุชนาฎ สัตยากวี</span>
+                                    <output id="nameajapprove" name="nameajapprove"></output>
                                 </div>
                             </div>
                             <div class="row mb-4">
@@ -140,7 +146,7 @@
                                     <span>เหตุผลที่ยืม :</span>
                                 </div>
                                 <div class="col-xl-6 col-6 ">
-                                    <span>ใช้ในการทำโปรเจ็ค</span>
+                                    <output id="noteapprove" name="noteapprove"></output>
                                 </div>
                             </div>
                             <div class="row mb-4">
@@ -201,7 +207,7 @@
                                     <span>หมายเลขคำร้อง :</span>
                                 </div>
                                 <div class="col-xl-6 col-6 ">
-                                    <span>R00002</span>
+                                    <output id="ridapprove" name="ridapprove"></output>
                                 </div>
                             </div>
                             <div class="row mb-4">
@@ -230,9 +236,16 @@
     $(document).ready(function() {
        $('.btninfoapprove').click(function() {
             $("#infoapproveModal").modal();
+            $("#ridapprove").val($(this).attr('rid'))
+            $("#reqdateapprove").val($(this).attr('reqdate'))
+            $("#nameuserapprove").val($(this).attr('nameuser'))
+            $("#nameajapprove").val($(this).attr('nameaj'))
+            $("#noteapprove").val($(this).attr('note'))
        });
        $('.btncancelapprove').click(function() {
             $("#cancelapproveModal").modal();
+            $("#rid2approve").val($(this).attr('rid2'))
+
        });
     });
 </script>
