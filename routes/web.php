@@ -35,9 +35,7 @@ Route::prefix('category')->group(function () {
 // readComments Route
 Route::prefix('readComments')->group(function () {
     Route::get('', 'ReadCommentsController@index');
-    // Route::post('', 'CommentController@insertCategory');
-    // Route::put('', 'CommentController@updateCategory');
-    // Route::delete('', 'CommentController@deleteCategory');
+    Route::delete('', 'ReadCommentsController@deleteComment');
 });
 
 // comment Route
