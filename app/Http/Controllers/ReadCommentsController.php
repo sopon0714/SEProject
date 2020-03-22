@@ -14,4 +14,13 @@ class ReadCommentsController extends Controller
         $countComment = DB::select("SELECT COUNT(requestform.reqID) as summ FROM requestform");
         return view("readComments", ["RComment" => $Comment, "RC_sum" => $countComment]);
     }
+
+    public function deleteComment(Request $req)
+    {
+        $reqID = $req->get('reqID');
+        DB::table('requestform')
+            ->where('reqID', $reqID)
+            ->delete();
+        return $this->index();
+    }
 }

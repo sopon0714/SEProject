@@ -59,22 +59,26 @@
                         <thead class="text-center">
                             <tr>
                             <th>ลำดับ</th>
-                            <th>วันที่ส่งข้อเสนอแนะ</th>
+                            <th>วัน-เวลาที่ส่งข้อเสนอแนะ</th>
                             <th>ผู้ส่ง</th>
                             <th>รายละเอียด</th>
                             </tr>
                         </thead>
                         <!-- บอดี้ตาราง -->
                         <tbody>
-                            <td class="text-center">1</td>
-                            <td class="text-center">20/03/2020</td>
-                            <td >นาย โสภณ โตใหญ่</td>
-                            <td class="text-center">
-                                <button type="button" class="btn btn-info btn-sm tt mr-sm-1 btndetail" title='รายละเอียดข้อเสนอแนะ'>
-                                <i class="fas fa-file-alt"></i></button>
-                                <button type="button" class="btn btn-danger btn-sm tt btndelete" nameitem ="IDxxxx" data-toggle="tooltip" title="ลบข้อเสนอแนะ" data-original-title="ลบ">
-                                <i class="far fa-trash-alt" ></i></button>
-                            </td>
+                            @for ($i = 0; $i < count($RComment); $i++)
+                            <tr>
+                                <td class="text-center">{{$i+1}}</td>
+                                <td class="text-center">{{$RComment[$i]->Time}}</td>
+                                <td >{{$RComment[$i]->Title}} {{$RComment[$i]->FName}} {{$RComment[$i]->LName}}</td>
+                                <td class="text-center">
+                                <button type="button" class="btn btn-info btn-sm tt mr-sm-1 btndetail" title='รายละเอียดข้อเสนอแนะ ' name ="{{$RComment[$i]->Title}} {{$RComment[$i]->FName}} {{$RComment[$i]->LName}}" date="{{$RComment[$i]->Time}}" detail="{{$RComment[$i]->Detail}}" >
+                                    <i class="fas fa-file-alt"></i></button>
+                                    <button type="button" class="btn btn-danger btn-sm tt btndelete" nameitem ="{{$RComment[$i]->reqID}}" token="{{ csrf_token() }}" data-toggle="tooltip" title="ลบข้อเสนอแนะ" data-original-title="ลบ">
+                                    <i class="far fa-trash-alt" ></i></button>
+                                </td>
+                            </tr>
+                            @endfor
                         </tbody>
                     </table>
                 </div>
@@ -89,11 +93,14 @@
 $(document).ready(function() {
 
        $('.btndetail').click(function() {
-
+            $("#dname").val($(this).attr('name'));
+            $("#date").val($(this).attr('date'));
+            $("#detail").val($(this).attr('detail'))
             $("#detailRC").modal();
        });
        $(".btndelete").click(function() {
             var nameitem = $(this).attr('nameitem');
+            var token = $(this).attr('token')
             swal({
                 title: "คุณต้องการลบ",
                 text: "ข้อเสนอแนะ: "+nameitem+" หรือไม่ ?",
@@ -104,14 +111,25 @@ $(document).ready(function() {
             })
             .then((willDelete) => {
                 if (willDelete) {
-                    swal("ลบรายการสำเร็จเรียบร้อยแล้ว", {
-                        icon: "success",
-                        buttons: false
+                    $.ajax({
+                        url: 'readComments',
+                        type: 'DELETE',
+                        async : false,
+                        data:{
+                            _method:'delete',
+                            _token:token,
+                            reqID:nameitem
+                        },
+                        success: function(result) {
+                            swal("ลบรายการสำเร็จเรียบร้อยแล้ว", {
+                                icon: "success",
+                                buttons: false
+                            });
+                            setTimeout(function() {
+                                location.reload();
+                            }, 1500);
+                        }
                     });
-                    //delete_1(uid);
-                    setTimeout(function() {
-                        location.reload();
-                    }, 1500);
                 } else {
                     swal("การลบไม่สำเร็จ ",{
                         icon: "error",
@@ -142,15 +160,15 @@ $(document).ready(function() {
                                     <span>ชื่อผู้ส่ง:</span>
                                 </div>
                                 <div class="col-xl-6 col-6 ">
-                                    <span style="font-size: 18px">นายโสภณ โตใหญ่</span>
+                                    <output type="text" name ="dname" id="dname"></output>
                                 </div>
                             </div>
                             <div class="row mb-4">
                                 <div class="col-xl-5 col-2 text-right">
-                                    <span>วันที่ส่ง:</span>
+                                    <span>วัน-เวลาที่ส่ง:</span>
                                 </div>
                                 <div class="col-xl-6 col-6 ">
-                                    <span style="font-size: 17px">20/03/2020</span>
+                                    <output type="text" name ="date" id="date"  ></output>
                                 </div>
                             </div>
                             <div class="row mb-4">
@@ -159,8 +177,8 @@ $(document).ready(function() {
                                 </div>
                                 <div class="col-xl-6 col-6 ">
 
-                                        <input  type="text" class="form-control form-control-sm-5" style="height:200px"  aria-controls="dataTable"
-                                        value="xxxxxxxxxxxxxxxxxx" disabled>
+                                        <output  type="text" class="form-control form-control-sm-5" style="height:200px"  aria-controls="dataTable"
+                                        name ="detail" id="detail" disabled></output>
 
                                 </div>
                             </div>

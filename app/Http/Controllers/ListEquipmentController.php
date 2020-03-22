@@ -64,4 +64,24 @@ class ListEquipmentController extends Controller
             ->update(['isDelete' => 1]);
         return $this->indexpageListEquipment();
     }
+    public function selectByIdListEquipment(Request $req)
+    {
+        header('Content-Type: application/json');
+        $ELID = $req->get('ELID');
+        $Equipment = DB::select("SELECT * FROM equipmentlist WHERE ELID ='$ELID'");
+        $rights = DB::select("SELECT * FROM borrowingrights WHERE ELID ='$ELID'");
+        $INFO = array();
+        $INFO['rights1'] = false;
+        $INFO['rights2'] = false;
+        $INFO['rights3'] = false;
+        for ($i = 0; $i < count($rights); $i++) {
+            $INFO["rights{$rights[$i]->UTID}"] = true;
+        }
+        $INFO['CID'] = $Equipment[0]->CID;
+        $INFO['EName'] = $Equipment[0]->EName;
+        $INFO['Brand'] = $Equipment[0]->Brand;
+        $INFO['Detail'] = $Equipment[0]->Detail;
+        $INFO['ELStatus'] = $Equipment[0]->ELStatus;
+        echo json_encode($INFO);
+    }
 }
