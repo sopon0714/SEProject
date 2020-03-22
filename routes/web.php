@@ -24,13 +24,19 @@ Route::get('/userProfile', function () {
 });
 
 
-
-// category  Route
+// category Route
 Route::prefix('category')->group(function () {
     Route::get('', 'CategoryController@indexpageCategory');
     Route::post('', 'CategoryController@insertCategory');
     Route::put('', 'CategoryController@updateCategory');
     Route::delete('', 'CategoryController@deleteCategory');
+});
+// comment Route
+Route::prefix('comment')->group(function () {
+    Route::get('', 'CommentController@indexpageComment');
+    Route::post('', 'CommentController@insertComment');
+    // Route::put('', 'CategoryController@updateCategory');
+    // Route::delete('', 'CategoryController@deleteCategory');
 });
 
 

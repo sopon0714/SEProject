@@ -134,6 +134,14 @@
                                 </div>
                             </div>
                             <div class="row mb-4">
+                                <div class="col-xl-6 col-2 text-right">
+                                    <span>เหตุผลที่ยืม :</span>
+                                </div>
+                                <div class="col-xl-6 col-6 ">
+                                    <span>ใช้ในการทำโปรเจ็ค</span>
+                                </div>
+                            </div>
+                            <div class="row mb-4">
                                 <div class="col-xl-6 col-2 text-left">
                                     <span>รายการอุปกรณ์ที่ยืม :</span>
                                 </div>

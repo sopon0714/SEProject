@@ -39,7 +39,7 @@
                         <div class="h5 mb-0 font-weight-bold text-gray-800">+1 หมวดหมู่</div>
                     </div>
                     <div class="col-auto">
-                        <button class="btn btn-primary " ><i class="fas fa-plus"></i></button>
+                        <button class="btn btn-primary"><i class="fas fa-plus"></i></button>
                     </div>
                 </div>
             </div>
@@ -90,7 +90,6 @@
                                 </td>
                             </tr>
                             @endfor
-
                         </tbody>
                     </table>
                 </div>

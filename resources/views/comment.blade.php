@@ -21,16 +21,21 @@
         <div class="card-header py-3">
             <h6 class="h5 m-0 font-weight-bold text-dark">ข้อเสนอแนะ</h6>
         </div>
-        <div class="card-body">
-            <div class="col-sm-12 col-md-12">
-                <div>
-                    <textarea rows="6" cols="50" name="comment" class="form-control form-control-sm-5"></textarea><br>
-                </div>
-            </div>
-            {{-- ปุ่มส่ง --}}
-            {{-- style="text-align:right" --}}
-            <div style="margin-left:93%">
-                <button type="button" class="btn btn-info btn-xl tt btnsend" title='ส่งข้อเสนอแนะ'><i class="fas fa-paper-plane" onclick="<?php echo "aaa"?>"></i> ส่ง</button>
+        <div class="card-body" id="AddBody">
+            <div class="container">
+                <form action="comment" method="POST">
+                    <input type="hidden" name="_token" value="<?php echo csrf_token() ?>">
+                    <div class="col-sm-12 col-md-12">
+                        <div>
+                            <textarea rows="6" cols="50" name="detailComment" class="form-control form-control-sm-5"></textarea><br>
+                        </div>
+                    </div>
+                    {{-- ปุ่มส่ง --}}
+                    <div style="margin-left:93%">
+                        <button type="button" class="btn btn-info btn-xl tt btnsend" title='ส่งข้อเสนอแนะ'><i class="fas fa-paper-plane"></i> ส่ง</button>
+                    </div>
+                </form>
+
             </div>
         </div>
     </div>
