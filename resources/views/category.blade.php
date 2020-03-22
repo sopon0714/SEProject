@@ -101,7 +101,6 @@
 @section('Javascript')
 <script>
 $(document).ready(function() {
-
     $('.btnadd').click(function() {
         $("#addE").modal();
     });
@@ -121,7 +120,6 @@ $(document).ready(function() {
                 buttons: true,
                 buttons: ["ยกเลิก", "ยืนยัน"],
                 dangerMode: true,
-
             })
             .then((willDelete) => {
                 if (willDelete) {
