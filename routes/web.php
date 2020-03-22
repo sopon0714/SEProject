@@ -33,6 +33,13 @@ Route::prefix('category')->group(function () {
     Route::delete('', 'CategoryController@deleteCategory');
 });
 
+Route::prefix('readComments')->group(function () {
+    Route::get('', 'ReadCommentsController@index');
+    // Route::post('', 'CommentController@insertCategory');
+    // Route::put('', 'CommentController@updateCategory');
+    // Route::delete('', 'CommentController@deleteCategory');
+});
+
 
 Route::get('/requestManagement', function () {
     return view('requestManagement');

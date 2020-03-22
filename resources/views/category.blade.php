@@ -25,6 +25,9 @@
                         <div class="font-weight-bold  text-uppercase  mb-1">จำนวนหมวดหมู่อุปกรณ์ทั้งหมด</div>
                         <div class="h5 mb-0 font-weight-bold text-gray-800">{{$amount[0]->amount }} หมวดหมู่</div>
                     </div>
+                    <div class="col-auto">
+                        <i class="fas fa-tools fa-2x"></i>
+                    </div>
                 </div>
             </div>
         </div>
@@ -35,11 +38,11 @@
             <div class="card-body">
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                        <div class="font-weight-bold  text-uppercase mb-4">เพิ่มหมวดหมู่อุปกรณ์</div>
+                        <div class="font-weight-bold  text-uppercase mb-2">เพิ่มหมวดหมู่อุปกรณ์</div>
                         <div class="h5 mb-0 font-weight-bold text-gray-800">+1 หมวดหมู่</div>
                     </div>
                     <div class="col-auto">
-                        <button class="btn btn-primary " ><i class="fas fa-plus"></i></button>
+                        <button class="btn btn-primary " ><i class="fas fa-laptop-medical fa-2x"></i></button>
                     </div>
                 </div>
             </div>
