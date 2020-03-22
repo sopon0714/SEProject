@@ -80,8 +80,8 @@
                                     <td class="text-center">{{$TableApproveRequests[$i]->Title}} {{$TableApproveRequests[$i]->FName}} {{$TableApproveRequests[$i]->LName}}</td>
                                     <td style="text-align: center">
                                         <button type="button" class="btn btn-info btn-sm tt btninfoapprove" data-toggle="tooltip" title="รายละเอียดการยืนยันคำร้อง" rid="{{$TableApproveRequests[$i]->RID}}" reqdate="{{$TableApproveRequests[$i]->ReqDate}}" nameuser="{{$TableApproveRequests[$i]->Title}} {{$TableApproveRequests[$i]->FName}} {{$TableApproveRequests[$i]->LName}}"  nameaj="{{$TableApproveRequests[$i]->PTitle}} {{$TableApproveRequests[$i]->PFName}} {{$TableApproveRequests[$i]->PLName}}" note="{{$TableApproveRequests[$i]->Reason}}" data-original-title="รายละเอียด"><i class="fas fa-file-alt"></i></i></button>
-
-                                        <button type="button" class="btn btn-danger btn-sm tt btncancelapprove" rid2="{{$TableApproveRequests[$i]->RID}}" token="{{ csrf_token() }}" data-toggle="tooltip" title="ยกเลิกการอนุมัติ" data-original-title="ลบ"><i class="far fa-trash-alt" aria-hidden="true"></i></button>
+                                        <button type="button" class="btn btn-danger btn-sm tt btncancelapprove" data-toggle="tooltip" title="ยกเลิกการอนุมัติ" data-original-title="ลบ"><i class="far fa-trash-alt" aria-hidden="true"></i></button>
+                                        {{-- rid2="{{$TableApproveRequests[$i]->RID}}" token="{{ csrf_token() }}" --}}
                                     </td>
                                     {{-- <td class="text-center">
                                         <button type="button" class="btn btn-warning btn-sm tt mr-sm-1 btnedit" data-toggle="tooltip" title="แก้ไขหมวดหมู่อุปกรณ์" cid="{{$TableCategorys[$i]->CID}}" cname ="{{$TableCategorys[$i]->CName}}"data-original-title="แก้ไข"><i class="fas fa-pencil-alt"></i></button>
@@ -192,7 +192,7 @@
     </div>
 </div>
 {{-- modal ยกเลิกการอนุมัติ --}}
-<div class="modal fade" id="cancelapproveModal" name="cancelapproveModal" tabindex="-1" role="dialog" >
+{{-- <div class="modal fade" id="cancelapproveModal" name="cancelapproveModal" tabindex="-1" role="dialog" >
     <div class="modal-dialog modal-lg" role="document" style="width: 50%">
         <div class="modal-content">
             <form method="post" id="info" name="info" action="manage.php">
@@ -228,7 +228,7 @@
             </form>
         </div>
     </div>
-</div>
+</div> --}}
 @endsection
 {{-- Javascript --}}
 @section('Javascript')
@@ -243,9 +243,24 @@
             $("#noteapprove").val($(this).attr('note'))
        });
        $('.btncancelapprove').click(function() {
-            $("#cancelapproveModal").modal();
-            $("#rid2approve").val($(this).attr('rid2'))
-
+            swal({
+                title: "ยืนยันการยกเลิกการอนุมัติ",
+                text: "หมายเลขคำร้อง :" + "เหตุผลที่ยกเลิก :",
+                type: "input",
+                showCancelButton: true,
+                closeOnConfirm: false,
+                inputPlaceholder: "กรุณากรอกเหตุผลที่ยกเลิก..."
+                })
+                .then((inputValue)=>{
+                    if (inputValue === false)
+                        return false;
+                    if (inputValue === "")
+                        {
+                            swal.showInputError("คุณต้องกรอกเหตุผลที่ยกเลิก");
+                            return false
+                        }
+                        swal("ยกเลิกการอนุมัติสำเร็จ", "success");
+                });
        });
     });
 </script>

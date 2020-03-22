@@ -79,18 +79,9 @@ Route::get('layoutAdmin', function () {
 Route::get('receiveEquipment', function () {
     return view('receiveEquipment');
 });
-<<<<<<< HEAD
-Route::get('comment', function () {
-    return view('comment');
-});
-=======
-Route::get('approveRequest', function () {
-    return view('approveRequest');
-});
 // Route::get('comment', function () {
 //     return view('comment');
 // });
->>>>>>> 2ee8404acdddfcf4750318fe441f92675f2a6af2
 Route::get('returnEquipment', function () {
     return view('returnEquipment');
 });
