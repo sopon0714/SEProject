@@ -50,8 +50,16 @@ Route::prefix('approveRequest')->group(function () {
     Route::get('', 'ApproveRequestController@indexpageApproveRequest');
     //Route::post('', 'ApproveRequestController@insertApproveRequest');
     // Route::put('', 'ApproveRequestController@updateApproveRequest');
-    // Route::delete('', 'ApproveRequestController@deleteApproveRequest');
+    Route::delete('', 'ApproveRequestController@deleteApproveRequest');
 });
+
+// listEquipment  Route
+Route::prefix('listEquipment')->group(function () {
+    Route::get('', 'ListEquipmentController@indexpageListEquipment');
+    Route::post('', 'ListEquipmentController@insertListEquipment');
+    Route::delete('', 'ListEquipmentController@deleteListEquipment');
+});
+
 
 Route::get('/requestManagement', function () {
     return view('requestManagement');
@@ -59,9 +67,6 @@ Route::get('/requestManagement', function () {
 
 Route::get('/detailEquipment', function () {
     return view('detailEquipment');
-});
-Route::get('listEquipment', function () {
-    return view('listEquipment');
 });
 Route::get('userManagement', function () {
     return view('userManagement');
@@ -72,6 +77,18 @@ Route::get('layoutAdmin', function () {
 Route::get('receiveEquipment', function () {
     return view('receiveEquipment');
 });
+<<<<<<< HEAD
+Route::get('comment', function () {
+    return view('comment');
+});
+=======
+Route::get('approveRequest', function () {
+    return view('approveRequest');
+});
+// Route::get('comment', function () {
+//     return view('comment');
+// });
+>>>>>>> 2ee8404acdddfcf4750318fe441f92675f2a6af2
 Route::get('returnEquipment', function () {
     return view('returnEquipment');
 });
