@@ -21,10 +21,13 @@
             data-toggle="modal" data-target="#modal-1" >
             <div class="card-body">
                 <div class="row no-gutters align-items-center">
+                    <div class="col-auto">
+                        <i class="fab fa-readme fa-3x"></i>
+                    </div>
                     <div class="col mr-2">
                         <div class="font-weight-bold  text-uppercase text-right mb-2">จำนวนข้อเสนอแนะ</div>
                         <div class="font-weight-bold  text-uppercase text-right mb-2">ในเดือนปัจจุบัน</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800 text-right">xxxx ข้อเสนอ</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800 text-right">{{$RC_sum[0]->summ}} ข้อเสนอแนะ</div>
                     </div>
                 </div>
             </div>
@@ -165,7 +168,7 @@ $(document).ready(function() {
                     </div>
                     <div class="modal-footer">
 
-                        <button type="button" class="btn btn-danger cancel" id="detailRC_cancel" >ปิด</button>
+                        <button type="button" class="btn btn-danger cancel" id="detailRC_cancel" data-dismiss="modal" >ปิด</button>
                     </div>
                 </div>
             </form>
