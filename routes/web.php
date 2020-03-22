@@ -38,7 +38,13 @@ Route::prefix('comment')->group(function () {
     // Route::put('', 'CategoryController@updateCategory');
     // Route::delete('', 'CategoryController@deleteCategory');
 });
-
+// approveRequest Route
+Route::prefix('approveRequest')->group(function () {
+    Route::get('', 'ApproveRequestController@indexpageApproveRequest');
+    //Route::post('', 'ApproveRequestController@insertApproveRequest');
+    // Route::put('', 'ApproveRequestController@updateApproveRequest');
+    // Route::delete('', 'ApproveRequestController@deleteApproveRequest');
+});
 
 Route::get('/requestManagement', function () {
     return view('requestManagement');
