@@ -23,19 +23,20 @@
         </div>
         <div class="card-body" id="AddBody">
             <div class="container">
-                <form action="comment" method="POST">
-                    <input type="hidden" name="_token" value="<?php echo csrf_token() ?>">
+                <form method="POST" action="comment">
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <div class="col-sm-12 col-md-12">
                         <div>
                             <textarea rows="6" cols="50" name="detailComment" class="form-control form-control-sm-5"></textarea><br>
                         </div>
                     </div>
                     {{-- ปุ่มส่ง --}}
-                    <div style="margin-left:93%">
-                        <button type="button" class="btn btn-info btn-xl tt btnsend" title='ส่งข้อเสนอแนะ'><i class="fas fa-paper-plane"></i> ส่ง</button>
-                    </div>
+                    @for ($i=0; $i<count($TableComment); $i++)
+                        <div style="margin-left:93%">
+                            <button type="button" class="btn btn-info btn-xl tt btnsend" uid="{{$TableComment[$i]->UID}}" nDetail="{{$TableComment[$i]->Detail}}" token="{{ csrf_token() }}" data-toggle="tooltip" title='ส่งข้อเสนอแนะ'><i class="fas fa-paper-plane"></i> ส่ง</button>
+                        </div>
+                    @endfor
                 </form>
-
             </div>
         </div>
     </div>
@@ -68,11 +69,10 @@
 @section('Javascript')
 <script>
     $(document).ready(function() {
-    //    $('.btnsend').click(function() {
-    //         $("#sendModal").modal();
-    //    });
        $(".btnsend").click(function() {
-            var nameitem = $(this).attr('nameitem');
+            var name = $(this).attr('nDetail')
+            var id = $(this).attr('uid')
+            var token = $(this).attr('token')
                 swal({
                     title: "คุณต้องการส่งข้อเสนอแนะหรือไม่?",
                     icon: "warning",
@@ -80,26 +80,44 @@
                     buttons: ["ยกเลิก", "ยืนยัน"],
                     dangerMode: true,
                 })
-            .then((willDelete) => {
-                if (willDelete) {
-                    swal("ส่งข้อความสำเร็จ", {
-                        icon: "success",
-                        buttons: false
-                    });
-                    //delete_1(uid);
-                    setTimeout(function() {
-                        location.reload();
-                    }, 1500);
-                } else {
-                    swal("ส่งข้อความไม่สำเร็จ",{
-                        icon: "error",
-                        buttons: false
-                    });
-                    setTimeout(function() {
-                        swal.close();
-                    }, 1500);
-                }
-            });
+                .then((willSend) => {
+                    if (willSend) {
+                        alert("aassssssaaa");
+                        $.ajax({
+                            url: 'comment',
+                            type: 'post',
+                            async : false, //เวลาส่งค่าจะรอจนกว่าจะส่งค่ากลับมา
+                            data:{
+                                // _method:'post',
+                                _token:token,
+                                UID:id
+                            },
+                            success: function(result) {
+
+                                alert("aaaaa");
+                                swal("ส่งข้อความสำเร็จ", {
+                                    icon: "success",
+                                    buttons: false
+                                });
+                                setTimeout(function() {
+                                    window.location.replace("commemt"); //โหลดหน้าเดิม
+                                }, 1500);
+                            },
+                            error: function (xhr, ajaxOptions, thrownError) {
+                                alert(xhr.status);
+                                alert(thrownError);
+                            }
+                        });
+                    } else {
+                        swal("ส่งข้อความไม่สำเร็จ",{
+                            icon: "error",
+                            buttons: false
+                        });
+                        setTimeout(function() {
+                            swal.close();
+                        }, 1500);
+                    }
+                });
         });
     });
 </script>

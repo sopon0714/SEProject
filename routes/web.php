@@ -35,9 +35,7 @@ Route::prefix('category')->group(function () {
 // readComments Route
 Route::prefix('readComments')->group(function () {
     Route::get('', 'ReadCommentsController@index');
-    // Route::post('', 'CommentController@insertCategory');
-    // Route::put('', 'CommentController@updateCategory');
-    // Route::delete('', 'CommentController@deleteCategory');
+    Route::delete('', 'ReadCommentsController@deleteComment');
 });
 
 // comment Route
@@ -52,7 +50,7 @@ Route::prefix('approveRequest')->group(function () {
     Route::get('', 'ApproveRequestController@indexpageApproveRequest');
     //Route::post('', 'ApproveRequestController@insertApproveRequest');
     // Route::put('', 'ApproveRequestController@updateApproveRequest');
-    // Route::delete('', 'ApproveRequestController@deleteApproveRequest');
+    Route::delete('', 'ApproveRequestController@deleteApproveRequest');
 });
 
 // listEquipment  Route
@@ -80,6 +78,7 @@ Route::get('layoutAdmin', function () {
 Route::get('receiveEquipment', function () {
     return view('receiveEquipment');
 });
+
 Route::get('returnEquipment', function () {
     return view('returnEquipment');
 });
