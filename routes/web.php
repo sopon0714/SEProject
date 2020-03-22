@@ -24,15 +24,27 @@ Route::get('/userProfile', function () {
 });
 
 
-
-// category  Route
+// category Route
 Route::prefix('category')->group(function () {
     Route::get('', 'CategoryController@indexpageCategory');
     Route::post('', 'CategoryController@insertCategory');
     Route::put('', 'CategoryController@updateCategory');
     Route::delete('', 'CategoryController@deleteCategory');
 });
-
+// comment Route
+Route::prefix('comment')->group(function () {
+    Route::get('', 'CommentController@indexpageComment');
+    Route::post('', 'CommentController@insertComment');
+    // Route::put('', 'CategoryController@updateCategory');
+    // Route::delete('', 'CategoryController@deleteCategory');
+});
+// approveRequest Route
+Route::prefix('approveRequest')->group(function () {
+    Route::get('', 'ApproveRequestController@indexpageApproveRequest');
+    //Route::post('', 'ApproveRequestController@insertApproveRequest');
+    // Route::put('', 'ApproveRequestController@updateApproveRequest');
+    // Route::delete('', 'ApproveRequestController@deleteApproveRequest');
+});
 
 // listEquipment  Route
 Route::prefix('listEquipment')->group(function () {

@@ -71,16 +71,18 @@
                                     <th style="text-align: center">การจัดการ</th>
                                 </tr>
                             </thead>
-                            <tbody class="table table-secondary">
-                                {{-- <td>ตัวอักษรบาง --}}
-                                <td style="text-align: center">1</td>
-                                <td style="text-align: center">R00001</td>
-                                <td style="text-align: center">15/2/2020</td>
-                                <td>นายโสภณ โตใหญ่</td>
-                                <td style="text-align: center">
-                                    <button type="button" class="btn btn-info btn-sm tt btninfoapprove" title='รายละเอียดการยืนยันคำร้อง'><i class="fas fa-file-alt"></i></button>
-                                    <button type="button" class="btn btn-danger btn-sm tt btncancelapprove" data-toggle="tooltip" title="ยกเลิกการอนุมัติ" data-original-title="ลบ"><i class="far fa-trash-alt" aria-hidden="true" onclick=""></i></button>
-                                </td>
+                            <tbody>
+                                @for ($i = 0; $i < count($TableApproveRequests); $i++)
+                                <tr>
+                                    <td class="text-center">{{$i+1}}</td>
+                                    <td>{{$TableApproveRequests[$i]->RID}}</td>
+                                    <td class="text-center">{{$TableApproveRequests[$i]->ReqDate}}</td>
+                                    <td style="text-align: center">
+                                        <button type="button" class="btn btn-info btn-sm tt btninfoapprove" title='รายละเอียดการยืนยันคำร้อง'><i class="fas fa-file-alt"></i></button>
+                                        <button type="button" class="btn btn-danger btn-sm tt btncancelapprove" data-toggle="tooltip" title="ยกเลิกการอนุมัติ" data-original-title="ลบ"><i class="far fa-trash-alt" aria-hidden="true" onclick=""></i></button>
+                                    </td>
+                                </tr>
+                                @endfor
                             </tbody>
                         </table>
                     </div>
@@ -131,6 +133,14 @@
                                 </div>
                                 <div class="col-xl-6 col-6 ">
                                     <span>นางสาว นุชนาฎ สัตยากวี</span>
+                                </div>
+                            </div>
+                            <div class="row mb-4">
+                                <div class="col-xl-6 col-2 text-right">
+                                    <span>เหตุผลที่ยืม :</span>
+                                </div>
+                                <div class="col-xl-6 col-6 ">
+                                    <span>ใช้ในการทำโปรเจ็ค</span>
                                 </div>
                             </div>
                             <div class="row mb-4">
