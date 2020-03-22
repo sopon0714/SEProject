@@ -34,6 +34,12 @@ Route::prefix('category')->group(function () {
 });
 
 
+// listEquipment  Route
+Route::prefix('listEquipment')->group(function () {
+    Route::get('', 'ListEquipmentController@indexpageListEquipment');
+});
+
+
 Route::get('/requestManagement', function () {
     return view('requestManagement');
 });
@@ -42,9 +48,6 @@ Route::get('/readComments', function () {
 });
 Route::get('/detailEquipment', function () {
     return view('detailEquipment');
-});
-Route::get('listEquipment', function () {
-    return view('listEquipment');
 });
 Route::get('userManagement', function () {
     return view('userManagement');
