@@ -1,13 +1,12 @@
 
-@extends(Session::get('userType')===1 ? "./layoutNisit" : Session::get('userType')===2 ?"./layoutTeacher":"./layoutAdmin")
+@extends(Session::get('userType')==1 ? "./layoutNisit" : (Session::get('userType')==2 ?"./layoutTeacher":"./layoutAdmin"))
 @section('title',"User Profile")
 @section('CSS')
 
 @endsection
 
 @section('Content')
-{{ var_dump(session('userType'))}}
-{{ var_dump(session('fullname'))}}
+
     <div class="row">
         <div class="col-xl-12 col-12 mb-4">
             <div class="card">

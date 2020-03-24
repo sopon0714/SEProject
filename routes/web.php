@@ -21,9 +21,7 @@ Route::get('/', 'MemberController@index');
 Route::post('/signinVerify', 'MemberController@login');
 
 
-Route::get('/userProfile', function () {
-    return view('userProfile');
-});
+
 Route::get('/statics', function () {
     return view('statics');
 });
