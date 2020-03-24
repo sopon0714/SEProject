@@ -27,7 +27,7 @@
                 <div class="sidebar-brand-icon ">
                     <i class="fas fa-hotel"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">ระบบยืม-คืน</div>
+                <div class="sidebar-brand-text mx-3">ระบบยืม-คืน<br>นิสิต</div>
             </a>
             <!-- Divider -->
             <hr class="sidebar-divider my-1">
@@ -91,7 +91,7 @@
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">นายโสภณ โตใหญ่<br><span style="color: tomato;float:right;">เจ้าหน้าที่</span></span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{Session::get('fullname')}}<br><span style="color: tomato;float:right;">นิสิต</span></span>
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">

@@ -16,9 +16,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/test', function () {
     return view('test');
 });
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::get('/', 'MemberController@index');
+Route::post('/signinVerify', 'MemberController@login');
+
+
 Route::get('/userProfile', function () {
     return view('userProfile');
 });

@@ -1,4 +1,4 @@
-@extends(Session::get('userType')===1 ? "./layoutNisit" : Session::get('userType')===2 ?"./layoutTeacher":"./layoutAdmin")
+@extends('./layoutAdmin')
 @section('title',"Approve Request")
 @section('CSS')
 
