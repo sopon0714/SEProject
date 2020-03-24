@@ -20,7 +20,7 @@ Route::get('/test', function () {
 Route::get('/', 'MemberController@index');
 Route::post('/signinVerify', 'MemberController@login');
 
-
+Route::get('/logout', 'MemberController@logout');
 
 Route::get('/statics', function () {
     return view('statics');
