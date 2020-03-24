@@ -22,6 +22,9 @@ Route::get('/', function () {
 Route::get('/userProfile', function () {
     return view('userProfile');
 });
+Route::get('/statics', function () {
+    return view('statics');
+});
 
 
 // category Route
