@@ -19,10 +19,14 @@ Route::get('/test', function () {
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/userProfile', function () {
-    return view('userProfile');
-});
 
+// userProfile Route
+Route::prefix('userProfile')->group(function () {
+    Route::get('', 'UserProfileController@getUser');
+    // Route::post('', 'UserProfileController@insertCategory');
+    // Route::put('', 'UserProfileController@updateCategory');
+    // Route::delete('', 'UserProfileController@deleteCategory');
+});
 
 // category Route
 Route::prefix('category')->group(function () {
@@ -78,9 +82,6 @@ Route::get('layoutAdmin', function () {
 Route::get('receiveEquipment', function () {
     return view('receiveEquipment');
 });
-// Route::get('comment', function () {
-//     return view('comment');
-// });
 
 Route::get('returnEquipment', function () {
     return view('returnEquipment');

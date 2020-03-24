@@ -3,6 +3,7 @@
 @section('CSS')
 
 @endsection
+
 @section('Content')
     <div class="row">
         <div class="col-xl-12 col-12 mb-4">
@@ -27,41 +28,42 @@
                                     <div class="row mb-4">
                                         <div class="col-xl-4 col-2 text-right">
                                             <span>คำนำหน้า:</span>
+
                                         </div>
-                                        <div class="col-xl-8 col-8 text-right">
-                                            <input type="text" class="form-control" id="title" value="นาย" disabled>
+                                        <div class="col-xl-8 col-8 ">
+                                            <output type="text" class="form-control" id="title" >{{$User[0]->Title}}
                                         </div>
                                     </div>
                                     <div class="row mb-4">
                                         <div class="col-xl-4 col-2 text-right">
                                             <span>ชื่อ:</span>
                                         </div>
-                                        <div class="col-xl-8 col-8 text-right">
-                                            <input type="text" class="form-control" id="fname" value="โสภณ" disabled>
+                                        <div class="col-xl-8 col-8 ">
+                                            <output type="text" class="form-control" id="fname" >{{$User[0]->FName}}
                                         </div>
                                     </div>
                                     <div class="row mb-4">
                                         <div class="col-xl-4 col-2 text-right">
                                             <span>นามสกุล:</span>
                                         </div>
-                                        <div class="col-xl-8 col-8 text-right">
-                                            <input type="text" class="form-control" id="lname" value="โตใหญ่" disabled>
+                                        <div class="col-xl-8 col-8 ">
+                                            <output type="text" class="form-control" id="lname" >{{$User[0]->LName}}
                                         </div>
                                     </div>
                                     <div class="row mb-4">
                                         <div class="col-xl-4 col-2 text-right">
                                             <span>อีเมล:</span>
                                         </div>
-                                        <div class="col-xl-8 col-8 text-right">
-                                            <input type="text" class="form-control" id="email" value="sopon.to@ku.th" disabled>
+                                        <div class="col-xl-8 col-8 ">
+                                            <output type="text" class="form-control" id="email" >{{$User[0]->GMail}}
                                         </div>
                                     </div>
                                     <div class="row mb-4">
                                         <div class="col-xl-4 col-2 text-right">
                                             <span>ชนิดผู้ใช้:</span>
                                         </div>
-                                        <div class="col-xl-8 col-8 text-right">
-                                            <input type="text" class="form-control" id="type" value="ผู้ดูแลระบบ" disabled>
+                                        <div class="col-xl-8 col-8 ">
+                                            <output type="text" class="form-control" id="type" >{{$User[0]->UTName}}
                                         </div>
                                     </div>
                                 </div>
@@ -83,31 +85,14 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr role="row" >
-                                                    <td rowspan="1" colspan="1">15/02/2019</td>
-                                                    <td rowspan="1" colspan="1">R00003</td>
-                                                    <td rowspan="1" colspan="1"><span style="color: #0000cc">รอยืนยัน</span></td>
-                                                </tr>
-                                                <tr role="row" >
-                                                    <td rowspan="1" colspan="1">12/02/2019</td>
-                                                    <td rowspan="1" colspan="1">R00002</td>
-                                                    <td rowspan="1" colspan="1"><span style="color: #ff0000">ยกเลิก</span></td>
-                                                </tr>
-                                                <tr role="row" >
-                                                    <td rowspan="1" colspan="1">10/02/2019</td>
-                                                    <td rowspan="1" colspan="1">R00001</td>
-                                                    <td rowspan="1" colspan="1"><span style="color: #33cc33">ยืนยันแล้ว</span></td>
-                                                </tr>
-                                                <tr role="row" >
-                                                    <td rowspan="1" colspan="1">10/02/2019</td>
-                                                    <td rowspan="1" colspan="1">R00001</td>
-                                                    <td rowspan="1" colspan="1"><span style="color: #33cc33">ยืนยันแล้ว</span></td>
-                                                </tr>
-                                                <tr role="row" >
-                                                    <td rowspan="1" colspan="1">10/02/2019</td>
-                                                    <td rowspan="1" colspan="1">R00001</td>
-                                                    <td rowspan="1" colspan="1"><span style="color: #33cc33">ยืนยันแล้ว</span></td>
-                                                </tr>
+                                                @for ($i = 0; $i < count($history); $i++)
+                                                    <tr role="row" >
+                                                        <td rowspan="1" colspan="1">{{$history[$i]->ReqDate}}</td>
+                                                        <td rowspan="1" colspan="1">{{$history[$i]->RID}}</td>
+                                                        <td rowspan="1" colspan="1"><span style="color: #0000cc">{{$history[$i]->RStatus}}</span></td>
+                                                    </tr>
+                                                @endfor
+
                                             </tbody>
                                         </table>
                                     </div>
