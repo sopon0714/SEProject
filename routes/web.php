@@ -20,6 +20,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/statics', function () {
+    return view('statics');
+});
+
 // userProfile Route
 Route::prefix('userProfile')->group(function () {
     Route::get('', 'UserProfileController@getUser');
