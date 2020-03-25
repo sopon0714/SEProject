@@ -16,12 +16,11 @@
     <style>
     </style>
     @yield('CSS')
-
 </head>
 <body>
     <div id="wrapper">
         <!-- Sidebar -->
-        <ul class="navbar-nav  sidebar sidebar-dark accordion  " style="background-color: #bf4040" id="accordionSidebar">
+        <ul class="navbar-nav  sidebar sidebar-dark accordion" style="background-color: #bf4040" id="accordionSidebar">
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
                 <div class="sidebar-brand-icon ">
@@ -46,7 +45,7 @@
                 </a>
             </li>
             <li class='nav-item'>
-                <a class='nav-link collapsed' href="../../listEquipment" data-toggle='' data-target='' aria-expanded='true' aria-controls=''>
+                <a class='nav-link collapsed' href="../../requestManagement" data-toggle='' data-target='' aria-expanded='true' aria-controls=''>
                     <i class="fas fa-tasks"></i>
                     <span>การจัดการคำร้อง</span>
                 </a>
@@ -66,7 +65,6 @@
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
         </ul>
-
         <!-- End of Sidebar -->
         <div id="content-wrapper" class="d-flex flex-column">
             <!-- Main Content -->
@@ -77,7 +75,6 @@
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
                         <i class="fa fa-bars"></i>
                     </button>
-
                     <ul>
                         <div class="text-left " style="padding-top:20px;color: #bf4040;">
                             <h5>ระบบยืม-คืนอุปกรณ์ของภาควิชาวิศวกรรมคอมพิวเตอร์</h5>

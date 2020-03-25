@@ -169,7 +169,7 @@
                         <div class="container">
                             <div class="row mb-2">
                                 <div class="col-xl-5 col-2 ">
-                                    <span>อุปกรณ์ที่ต้องการยืม: </span>
+                                    <span>อุปกรณ์ที่ต้องการยืม : </span>
                                 </div>
                             </div>
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -197,7 +197,7 @@
                             </div>
                            <br>
                             <div class="row mb-2">
-                                <div class="col-xl-4 col-2 text-right">
+                                <div class="col-xl-4 col-2 text-left">
                                     <span>เหตุผลในการยืม:</span>
                                 </div>
                                 <div class="col-xl-7 col-7 ">
@@ -206,8 +206,8 @@
                             </div>
                             <br>
                             <div class="row mb-2">
-                                <div class="col-xl-4 col-2 text-right">
-                                    <span>อาจารย์ที่รับผิดชอบ:</span>
+                                <div class="col-xl-4 col-2 text-left">
+                                    <span>อาจารย์ที่รับผิดชอบ :</span>
                                 </div>
                                 <div class="col-xl-7 col-7 ">
                                     <select id="advisor" class="form-control form-control-sm-5" name="advisor">
@@ -312,15 +312,15 @@
                         <div class="container">
                             <div class="row mb-4">
                                 <div class="col-xl-6 col-2 text-right">
-                                    <br><span>สถานะคำร้อง: </span>
+                                    <br><span>สถานะคำร้อง : </span>
                                 </div>
                                 <div class="col-xl-6 col-6">
-                                    <output id="petitionrequest" name="petitionrequest"></output>
+                                    <br><output id="petitionrequest" name="petitionrequest"></output>
                                 </div>
                             </div>
                             <div class="row mb-4">
                                 <div class="col-xl-6 col-2 text-right">
-                                    <span>หมายเลยคำร้อง: </span>
+                                    <span>หมายเลยคำร้อง : </span>
                                 </div>
                                 <div class="col-xl-5 col-6 ">
                                     <output id="ridrequest" name="ridrequest"></output>
@@ -328,7 +328,7 @@
                             </div>
                             <div class="row mb-4">
                                 <div class="col-xl-6 col-2 text-right">
-                                    <span>วันที่ยื่นคำร้อง: </span>
+                                    <span>วันที่ยื่นคำร้อง : </span>
                                 </div>
                                 <div class="col-xl-6 col-6 ">
                                     <output id="reqdaterequest" name="reqdaterequest"></output>
@@ -364,7 +364,7 @@
                             <span>อาจารย์ที่รับผิดชอบ: </span>
                         </div>
                         <div class="col-xl-6 col-6 ">
-                            <span style="font-size: 17px">นางสาวนุชนาฎ สัตนากวี</span>
+                            <span>นางสาวนุชนาฎ สัตยากวี</span>
                         </div>
                     </div>
                     <div class="row mb-4">
@@ -372,7 +372,7 @@
                             <span>วันเวลาที่อนุมัติการยืม: </span>
                         </div>
                         <div class="col-xl-6 col-6 ">
-                            <span style="font-size: 17px">-</span>
+                            <span>-</span>
                             <br>
                         </div>
                     </div>

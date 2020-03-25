@@ -84,7 +84,7 @@
                                     <label>จำนวนวันในการยกเลิกคำร้องหลังมีการอนุมัติ :</label>
                                 </div>
                                 <div class="col-xl-6 col-5 text-center">
-                                    <input type="number" class="form-control text-left" id="day_update" value="{{$detail_setting[0]->coonfig_value}}">
+                                    <input type="number" class="form-control text-left" id="day_update" name="day_update" value="{{$detail_setting[0]->coonfig_value}}">
                                 </div>
                             </div>
                             <div class="row mb-4">
@@ -92,7 +92,7 @@
                                     <label>เบอร์โทรติดต่อ :</label>
                                 </div>
                                 <div class="col-xl-6 col-5 text-center">
-                                    <input type="text" class="form-control" id="tel_update" value="{{$detail_setting[1]->coonfig_value}}">
+                                    <input type="text" class="form-control" id="tel_update" name="tel_update" value="{{$detail_setting[1]->coonfig_value}}">
                                 </div>
                             </div>
                             <div class="row mb-4">
@@ -100,7 +100,7 @@
                                     <label>E-mail ของระบบ :</label>
                                 </div>
                                 <div class="col-xl-6 col-5 text-center">
-                                    <input type="text" class="form-control" id="email_update" value="{{$detail_setting[2]->coonfig_value}}">
+                                    <input type="text" class="form-control" id="email_update" name="email_update" value="{{$detail_setting[2]->coonfig_value}}">
                                 </div>
                             </div>
                             <div class="row mb-4">
@@ -108,7 +108,7 @@
                                     <label>เวลาตรวจสอบคำร้องที่เกินระยะเวลา :</label>
                                 </div>
                                 <div class="col-xl-6 col-5 text-center">
-                                    <input type="text" class="form-control" id="time_update" value="{{$detail_setting[3]->coonfig_value}}">
+                                    <input type="text" class="form-control" id="time_update" name="time_update" value="{{$detail_setting[3]->coonfig_value}}">
                                 </div>
                             </div>
                         </div>
