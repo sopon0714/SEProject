@@ -22,8 +22,10 @@ Route::post('/signinVerify', 'MemberController@login');
 
 Route::get('/logout', 'MemberController@logout');
 
-Route::get('/statics', function () {
-    return view('statics');
+
+// statics  Route
+Route::prefix('statics')->group(function () {
+    Route::get('', 'StaticsController@indexpageStatics');
 });
 
 Route::post('/DetailByEID', 'DetailEquipmentController@DetailEquipmentByEID');
@@ -81,6 +83,7 @@ Route::prefix('listEquipment')->group(function () {
     Route::post('byID', 'ListEquipmentController@selectByIdListEquipment');
     Route::delete('', 'ListEquipmentController@deleteListEquipment');
 });
+
 // userManagement  Route
 Route::prefix('userManagement')->group(function () {
     Route::get('', 'UserManagementController@indexpageUserManagement');
@@ -92,6 +95,8 @@ Route::prefix('userManagement')->group(function () {
 // requestManagement  Route
 Route::prefix('requestManagement')->group(function () {
     Route::get('', 'RequestManagementController@indexpageRequestManagement');
+    Route::post('', 'RequestManagementController@insertRequestManagement');
+    Route::delete('', 'RequestManagementController@deleteRequestManagement');
     // Route::post('', 'RequestManagementController@insertRequestManagement');
     // Route::post('byID', 'RequestManagementController@selectByIdRequestManagement');
     // Route::delete('', 'RequestManagementController@deleteRequestManagement');
@@ -113,15 +118,15 @@ Route::prefix('detailEquipment/{id}')->group(function () {
     Route::delete('', 'DetailEquipmentController@deleteDetailEquipment');
 });
 
-Route::get('layoutAdmin', function () {
-    return view('layoutAdmin');
-});
+
+
 Route::get('receiveEquipment', function () {
     return view('receiveEquipment');
 });
 Route::get('returnEquipment', function () {
     return view('returnEquipment');
 });
+
 Route::get('layoutNisit', function () {
     return view('layoutNisit');
 });

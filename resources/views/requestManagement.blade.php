@@ -97,7 +97,7 @@
                             <th>วันที่ยื่นคำร้อง</th>
                             <th>หมายเลยคำร้อง</th>
                             <th>สถานะ</th>
-                            <th>รายละเอียด</th>
+
                             <th>จัดการ</th>
                             </tr>
                         </thead>
@@ -107,13 +107,13 @@
                             <tr role="row" >
                                 <td class="text-center">{{$i+1}}</td>
                                 <td class="text-center">{{$TableRequestManagement[$i]->ReqDate}}</td>
-                                <td >{{$TableRequestManagement[$i]->RID}}</td>
-                                <td >{{$TableRequestManagement[$i]->petition}}</td>
+                                <td class="text-center">R{{sprintf("%06d", $TableRequestManagement[$i]->RID)}}</td>
+                                <td class="text-center">{{$TableRequestManagement[$i]->petition}}</td>
+
+
                                 <td class="text-center">
-                                    <button type="button" class="btn btn-info btn-sm tt btndetail" title='รายละเอียดการคำร้อง' reqDate="{{$TableRequestManagement[$i]->ReqDate}}" rid="{{$TableRequestManagement[$i]->RID}}" petition="{{$TableRequestManagement[$i]->petition}}"><i class="fas fa-file-alt"></i></button></td>
-                                <td class="text-center">
-                                    <button type="button" class="btn btn-warning btn-sm tt mr-sm-1 btnedit" data-toggle="tooltip" title="แก้ไขคำร้อง" data-original-title="แก้ไข"><i class="fas fa-pencil-alt"></i></button>
-                                    <button type="button" class="btn btn-danger btn-sm tt btndelete" data-toggle="tooltip" title="ลบคำร้อง" data-original-title="ลบ"><i class="far fa-trash-alt" ></i></button>
+                                    <button type="button" class="btn btn-info btn-sm tt btndetail" title='รายละเอียดการคำร้อง' reqDate="{{$TableRequestManagement[$i]->ReqDate}}" rid="{{$TableRequestManagement[$i]->RID}}" petition="{{$TableRequestManagement[$i]->petition}}"><i class="fas fa-file-alt"></i></button>
+                                <button type="button" class="btn btn-danger btn-sm tt btndelete" data-toggle="tooltip" title="ลบคำร้อง" TT="R{{sprintf("%06d", $TableRequestManagement[$i]->RID)}}"RID="{{$TableRequestManagement[$i]->RID}}" data-original-title="ลบ"><i class="far fa-trash-alt" ></i></button>
                                 </td>
                             </tr>
                             @endfor
@@ -127,6 +127,15 @@
 @endsection
 @section('Javascript')
 <script>
+    $("body").delegate(".btnaddEq", "click", function(){
+            $("#mainpoint").clone().appendTo("#addinfo");
+
+        });
+    $('#addRM').on('hidden.bs.modal', function() {
+        $("#addinfo").empty();
+        $("#mainpoint").clone().appendTo("#addinfo");
+        $(this).find('form').trigger('reset');
+    })
     $('.btnadd').click(function() {
         $("#addRM").modal();
     });
@@ -140,35 +149,9 @@
         $("#reqdaterequest").val($(this).attr('reqdate'))
     });
     $(".btndelete").click(function() {
-            var nameitem = $(this).attr('nameitem');
-            swal({
-                title: "คุณต้องการลบ",
-                text: "หมายเลขคำร้อง: "+nameitem+" หรือไม่ ?",
-                icon: "warning",
-                buttons: true,
-                buttons: ["ยกเลิก", "ยืนยัน"],
-                dangerMode: true,
-            })
-            .then((willDelete) => {
-                if (willDelete) {
-                    swal("ลบรายการสำเร็จเรียบร้อยแล้ว", {
-                        icon: "success",
-                        buttons: false
-                    });
-                    //delete_1(uid);
-                    setTimeout(function() {
-                        location.reload();
-                    }, 1500);
-                } else {
-                    swal("การลบไม่สำเร็จ ",{
-                        icon: "error",
-                        buttons: false
-                    });
-                    setTimeout(function() {
-                        swal.close();
-                    }, 1500);
-                }
-            });
+        $('#RIDcancel').val($(this).attr('RID'))
+        $('#TT').html("ยกเลิกคำร้อง "+$(this).attr('TT'))
+        $("#cancelModal").modal();
     });
 </script>
 @endsection
@@ -177,7 +160,7 @@
 <div class="modal fade" id="addRM" name="addRM" tabindex="-1" role="dialog" >
     <div class="modal-dialog modal-lg" role="document" style="width: 50%">
         <div class="modal-content">
-            <form method="post" id="add_RM" name="add_RM" action="./equipment">
+            <form method="post" id="add_RM" name="add_RM" action="./requestManagement">
                 <div class="info" style="font-size: 20px">
                     <div class="modal-header header-modal" style="background-color: #66b3ff;">
                         <h4 class="modal-title" style="color: white">เพิ่มคำร้อง</h4>
@@ -185,78 +168,52 @@
                     <div class="modal-body" id="AddRMBody">
                         <div class="container">
                             <div class="row mb-2">
-                                <div class="col-xl-4 col-2 text-left">
-                                    <br><span>วันที่ยื่นคำร้อง :</span>
-                                </div>
-                                <div class="col-xl-6 col-2 text-left">
-                                    <br><input type="date" class="form-control form-control-sm-5"  aria-controls="dataTable">
-                                </div>
-                            </div>
-                            <div class="row mb-2">
                                 <div class="col-xl-5 col-2 ">
                                     <span>อุปกรณ์ที่ต้องการยืม : </span>
                                 </div>
                             </div>
-                            <div class="row mb-2">
-                                <div class="col-xl-3 col-3 text-right">
-                                    <span>ชื่ออุปกรณ์ :</span>
-                                </div>
-                                <div class="col-xl-3 col-3 ">
-                                    <select id="serialNumber1" class="form-control">
-                                        <option value="a">เมาส์</option>
-                                        <option value="b">กุญแจ</option>
-                                        <option value="c">มัลติมิเตอร์</option>
-                                    </select>
-
-                                </div>
-                                <div class="col-xl-2 col-2 text-right">
-                                    <span>จำนวน :</span>
-                                </div>
-                                <div class="col-xl-3 col-3 ">
-                                    <input type="text" class="form-control form-control-sm-5"  aria-controls="dataTable" disabled>
-                                </div>
-                                <div class="col-xl-1 col-1 ">
-                                    <button class="btn btn btnadd" ><i class="fas fa-minus"></i></button>
-                                </div>
-                            </div>
-                            <div class="row mb-2">
-                                <div class="col-xl-3 col-3 text-right">
-                                    <span>ชื่ออุปกรณ์ :</span>
-                                </div>
-                                <div class="col-xl-3 col-3 ">
-                                    <select id="serialNumber2" class="form-control">
-                                        <option value="a">เมาส์</option>
-                                        <option value="b">กุญแจ</option>
-                                        <option value="c">มัลติมิเตอร์</option>
-                                    </select>
-
-                                </div>
-                                <div class="col-xl-2 col-2 text-right">
-                                    <span>จำนวน :</span>
-                                </div>
-                                <div class="col-xl-3 col-3 ">
-                                    <input type="text" class="form-control form-control-sm-5"  aria-controls="dataTable" disabled>
-                                </div>
-                                <div class="col-xl-1 col-1 ">
-                                    <button class="btn btn btnadd" ><i class="fas fa-plus"></i></button>
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                            <div id="addinfo">
+                                <div class="row mb-2">
+                                    <div class="col-xl-6 col-2 ">
+                                        <select  class="form-control form-control-sm-5" name="eq[]">
+                                            @for ($i = 0; $i < count($EQ); $i++)
+                                                <option value="{{$EQ[$i]->ELID}}">{{$EQ[$i]->EName}}({{$EQ[$i]->totalall}})</option>
+                                            @endfor
+                                        </select>
+                                    </div>
+                                    <div class="col-xl-2 col-2 text-right">
+                                        <span>จำนวน: </span>
+                                    </div>
+                                    <div class="col-xl-2 col-2 ">
+                                        <input class="form-control" name="Number[]" type="Number" min="1"/>
+                                    </div>
+                                    <div class="col-xl-2 col-2 ">
+                                        <button class="btn btn-success btnaddEq" type="button">
+                                            <i class="fas fa-plus"></i>
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
-
+                           <br>
                             <div class="row mb-2">
                                 <div class="col-xl-4 col-2 text-left">
                                     <span>เหตุผลในการยืม:</span>
                                 </div>
-                                <div class="col-xl-6 col-7 text-left">
-                                    <textarea class="form-control form-control-sm-5"  style="height:150px" aria-controls="dataTable"></textarea>
+                                <div class="col-xl-7 col-7 ">
+                                    <input type="text" class="form-control form-control-sm-5" name="reason" style="height:150px" aria-controls="dataTable" >
                                 </div>
                             </div>
+                            <br>
                             <div class="row mb-2">
                                 <div class="col-xl-4 col-2 text-left">
                                     <span>อาจารย์ที่รับผิดชอบ :</span>
                                 </div>
-                                <div class="col-xl-6 col-3 ">
-                                    <select id="serialNumber2" class="form-control">
-                                        <option value="a">นางสาวนุชนาฎ สัตยากวี</option>
+                                <div class="col-xl-7 col-7 ">
+                                    <select id="advisor" class="form-control form-control-sm-5" name="advisor">
+                                        @for ($i = 0; $i < count($Advisor); $i++)
+                                                <option value="{{$Advisor[$i]->UID}}">อาจารย์ {{$Advisor[$i]->FName}} {{$Advisor[$i]->LName}}</option>
+                                        @endfor
                                     </select>
                                 </div>
                             </div>
@@ -271,103 +228,77 @@
         </div>
     </div>
 </div>
-{{-- modal แก้ไขคำร้อง --}}
-<div class="modal fade" id="editRM" name="editRM" tabindex="-1" role="dialog" >
+{{-- modal ยกเลิกคำร้อง --}}
+<div class="modal fade" id="cancelModal"  style="margin-top: 10%" tabindex="-1" role="dialog" >
     <div class="modal-dialog modal-lg" role="document" style="width: 50%">
         <div class="modal-content">
-            <form method="post" id="edit_RM" name="edit_RM" action="./equipment">
+            <form method="post"   name="cancelModal" action="./requestManagement">
                 <div class="info" style="font-size: 20px">
-                    <div class="modal-header header-modal" style="background-color: #FF9900;">
-                        <h4 class="modal-title" style="color: white">แก้ไขคำร้อง</h4>
+                    <div class="modal-header header-modal" style="background-color: red;">
+                        <h4 class="modal-title" id="TT" style="color: white">ยกเลิกคำร้อง</h4>
                     </div>
-                    <div class="modal-body" id="EditRMBody">
+                    <div class="modal-body" >
                         <div class="container">
                             <div class="row mb-2">
-                                <div class="col-xl-4 col-2 text-left">
-                                    <br><span>วันที่ยื่นคำร้อง :</span>
+                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                <input type="hidden" name="_method" value="delete">
+                                <input type="hidden" id="RIDcancel" name="RID" value="">
+                                <div class="col-xl-4 col-2 text-right">
+                                    <span>เหตุผลในการยกเลิก:</span>
                                 </div>
-                                <div class="col-xl-6 col-6 ">
-                                    <br><input type="date" class="form-control form-control-sm-5"  aria-controls="dataTable" disabled>
-                                </div>
-                            </div>
-                            <div class="row mb-2">
-                                <div class="col-xl-5 col-2 ">
-                                    <span>อุปกรณ์ที่ต้องการยืม : </span>
-                                </div>
-                            </div>
-                            <div class="row mb-2">
-                                <div class="col-xl-3 col-3 text-right">
-                                    <span>ชื่ออุปกรณ์ :</span>
-                                </div>
-                                <div class="col-xl-3 col-3 ">
-                                    <select id="serialNumber1" class="form-control">
-                                        <option value="a">เมาส์</option>
-                                        <option value="b">กุญแจ</option>
-                                        <option value="c">มัลติมิเตอร์</option>
-                                    </select>
-
-                                </div>
-                                <div class="col-xl-2 col-2 text-right">
-                                    <span>จำนวน :</span>
-                                </div>
-                                <div class="col-xl-3 col-3 ">
-                                    <input type="text" class="form-control form-control-sm-5"  aria-controls="dataTable" disabled>
-                                </div>
-                                <div class="col-xl-1 col-1 ">
-                                    <button class="btn btn btnadd" ><i class="fas fa-minus"></i></button>
-                                </div>
-                            </div>
-                            <div class="row mb-2">
-                                <div class="col-xl-3 col-3 text-right">
-                                    <span>ชื่ออุปกรณ์ :</span>
-                                </div>
-                                <div class="col-xl-3 col-3 ">
-                                    <select id="serialNumber2" class="form-control">
-                                        <option value="a">เมาส์</option>
-                                        <option value="b">กุญแจ</option>
-                                        <option value="c">มัลติมิเตอร์</option>
-                                    </select>
-
-                                </div>
-                                <div class="col-xl-2 col-2 text-right">
-                                    <span>จำนวน :</span>
-                                </div>
-                                <div class="col-xl-3 col-3 ">
-                                    <input type="text" class="form-control form-control-sm-5"  aria-controls="dataTable" disabled>
-                                </div>
-                                <div class="col-xl-1 col-1 ">
-                                    <button class="btn btn btnadd" ><i class="fas fa-plus"></i></button>
-                                </div>
-                            </div>
-                            <div class="row mb-2">
-                                <div class="col-xl-4 col-2 text-left">
-                                    <span>เหตุผลในการยืม :</span>
-                                </div>
-                                <div class="col-xl-6 col-7 text-left">
-                                    <input type="text" class="form-control form-control-sm-5"  style="height:150px" aria-controls="dataTable" >
-                                </div>
-                            </div>
-                            <div class="row mb-2">
-                                <div class="col-xl-4 col-2 text-left">
-                                    <span>อาจารย์ที่รับผิดชอบ :</span>
-                                </div>
-                                <div class="col-xl-6 col-3 ">
-                                    <select id="serialNumber2" class="form-control">
-                                        <option value="a">นางสาวนุชนาฎ สัตยากวี</option>
-                                    </select>
+                                <div class="col-xl-7 col-7 ">
+                                    <input type="text" class="form-control " name="reasoncancel"  aria-controls="dataTable" >
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-success submit" id="editRM_submit">ยืนยัน</button>
-                        <button type="button" class="btn btn-danger cancel" id="editRM_cancel" data-dismiss="modal">ยกเลิก</button>
+                        <button type="submit" class="btn btn-success submit" id="cancelRM_submit">ยืนยัน</button>
+                        <button type="button" class="btn btn-danger cancel" id="cancelRM_cancel" data-dismiss="modal">ยกเลิก</button>
                     </div>
                 </div>
             </form>
         </div>
     </div>
 </div>
+{{-- modal แก้ไขคำร้อง --}}
+<form method="post" id="test" name="test" action="./equipment">
+    <div class="info" style="font-size: 20px">
+        <div class="modal-header header-modal" style="background-color: #66b3ff;">
+            <h4 class="modal-title" style="color: white">เพิ่มคำร้อง</h4>
+        </div>
+        <div class="modal-body" id="test">
+            <div class="container">
+                <div id="mainpoint">
+                    <div class="row mb-2">
+                        <div class="col-xl-6 col-2 ">
+                            <select  class="form-control form-control-sm-5" name="eq[]">
+                                @for ($i = 0; $i < count($EQ); $i++)
+                                    <option value="{{$EQ[$i]->ELID}}">{{$EQ[$i]->EName}}({{$EQ[$i]->totalall}})</option>
+                                @endfor
+                            </select>
+                        </div>
+                        <div class="col-xl-2 col-2 text-right">
+                            <span>จำนวน: </span>
+                        </div>
+                        <div class="col-xl-2 col-2 ">
+                            <input class="form-control" name="Number[]" type="Number" min="1"/>
+                        </div>
+                        <div class="col-xl-2 col-2 ">
+                            <button class="btn btn-success btnaddEq" type="button">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="submit" class="btn btn-success submit" id="addRM_submit">ยืนยัน</button>
+            <button type="button" class="btn btn-danger cancel" id="addRM_cancel" data-dismiss="modal">ยกเลิก</button>
+        </div>
+    </div>
+</form>
 {{-- modal แสดงรายละเอียดคำร้อง --}}
 <div class="modal fade" id="detailRM" name="detailRM" tabindex="-1" role="dialog" >
     <div class="modal-dialog modal-lg" role="document" style="width: 50%">
