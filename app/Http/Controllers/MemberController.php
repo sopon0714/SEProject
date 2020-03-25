@@ -58,9 +58,10 @@ class MemberController extends Controller
         $USER = DB::select("SELECT * FROM `user` WHERE `Username`='$username' AND isDelete=0");
         if (isset($USER[0]->Username)) {
             $userType = $USER[0]->UTID;
+            $userid = $USER[0]->UID;
             $fullname = $USER[0]->Title . $USER[0]->FName . " " . $USER[0]->LName;
-            session(['USER' => $USER, 'userType' => $userType, "fullname" => $fullname]);
-            return redirect('/userProfile');
+            session(['USER' => $USER, 'userType' => $userType, "fullname" => $fullname, "userid" => $userid]);
+            return redirect('/userProfile/' . $userid);
             // } else {
             //     $title = $info[0]["thaiprename"][0];
             //     $fname = $info[0]["first-name"][0];
