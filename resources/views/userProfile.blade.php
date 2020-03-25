@@ -74,7 +74,7 @@
                         <div class="col-xl-8 col-5 mb-4">
                             <div class="card"  style="height: 400px">
                                 <div class="card-header card-bg " style="background-color: #bf4040">
-                                    <span class="link-active " style="font-size: 15px; color:white;">ประวัติคำร้องขอของตนเอง</span>
+                                    <span class="link-active " style="font-size: 15px; color:white;">ประวัติคำร้องขอของผู้ใช้</span>
                                 </div>
                                 <div class="card-body" style="height: 400px">
                                     <div class="col-sm-12" id="historyRequirements" style="overflow-y:auto;">
@@ -90,8 +90,8 @@
                                                 @for ($i = 0; $i < count($history); $i++)
                                                     <tr role="row" >
                                                         <td rowspan="1" colspan="1">{{$history[$i]->ReqDate}}</td>
-                                                        <td rowspan="1" colspan="1">{{$history[$i]->RID}}</td>
-                                                        <td rowspan="1" colspan="1"><span style="color: #0000cc">{{$history[$i]->RStatus}}</span></td>
+                                                        <td rowspan="1" colspan="1">R{{sprintf("%06d", $history[$i]->RID)}}</td>
+                                                        <td rowspan="1" colspan="1">{{$history[$i]->RStatus}}</td>
                                                     </tr>
                                                 @endfor
 
@@ -106,7 +106,7 @@
                         <div class="col-xl-12 col-12 mb-4">
                             <div class="card"  >
                                 <div class="card-header card-bg " style="background-color: #bf4040">
-                                    <span class="link-active " style="font-size: 15px; color:white;">ประวัติการยืมอุปกรณ์ของตนเอง</span>
+                                    <span class="link-active " style="font-size: 15px; color:white;">ประวัติการยืมอุปกรณ์ของผู้ใช้</span>
                                 </div>
                                 <div class="card-body">
                                     <div class="col-sm-12" id="historyRequirements" style="overflow-y:auto;">
@@ -123,56 +123,22 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr role="row" >
-                                                    <td rowspan="1" colspan="1">R00001</td>
-                                                    <td rowspan="1" colspan="1">11/02/2019</td>
-                                                    <td rowspan="1" colspan="1">นางสาว พิมพิลา ทองแท้</td>
-                                                    <td rowspan="1" colspan="1">-</td>
-                                                    <td rowspan="1" colspan="1">-</td>
-                                                    <td rowspan="1" colspan="1">รับอุปกรณ์แล้ว</td>
-                                                    <td rowspan="1" colspan="1">
-                                                        <button type="button" class="btn btn-info btn-sm tt btninfo" title='รายละเอียดการยืม'>
-                                                            <i class="fas fa-file-alt"></i>
-                                                        </button>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row" style="margin-top: 20px">
-                        <div class="col-xl-12 col-12 mb-4">
-                            <div class="card"  >
-                                <div class="card-header card-bg " style="background-color: #bf4040">
-                                    <span class="link-active " style="font-size: 15px; color:white;">ประวัติการยืมอุปกรณ์ของตนเอง</span>
-                                </div>
-                                <div class="card-body">
-                                    <div class="col-sm-12" id="historyRequirements" style="overflow-y:auto;" >
-                                        <table class="table table-bordered" id="historyRequirementsTable" style="text-align:center;font-size: 14px"  swidth="100%"  cellspacing="0">
-                                            <thead>
-                                                <tr role="row">
-                                                    <th rowspan="1" colspan="1">หมายเลขคำร้อง</th>
-                                                    <th rowspan="1" colspan="1">วันที่รับอุปกรณ์</th>
-                                                    <th rowspan="1" colspan="1">ผู้ยืมอุปกรณ์</th>
-                                                    <th rowspan="1" colspan="1">สถานะการยืม</th>
-                                                    <th rowspan="1" colspan="1">รายละเอียด</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr role="row" >
-                                                    <td rowspan="1" colspan="1">R00001</td>
-                                                    <td rowspan="1" colspan="1">11/02/2019</td>
-                                                    <td rowspan="1" colspan="1">นายโสภณ โตใหญ่</td>
-                                                    <td rowspan="1" colspan="1">รับอุปกรณ์แล้ว</td>
-                                                    <td rowspan="1" colspan="1">
-                                                            <button type="button" class="btn btn-info btn-sm tt btninfo"  title='รายละเอียดการยืม'>
+                                                @for ($i = 0; $i < count($HistoryO); $i++)
+                                                    <tr role="row" >
+                                                        <td rowspan="1" colspan="1">R{{sprintf("%06d", $HistoryO[$i]->RID)}}</td>
+                                                        <td rowspan="1" colspan="1">{{$HistoryO[$i]->getDate}}</td>
+                                                        <td rowspan="1" colspan="1">{{$HistoryO[$i]->fullname1}}</td>
+                                                        <td rowspan="1" colspan="1">{{$HistoryO[$i]->returnDate}}</td>
+                                                        <td rowspan="1" colspan="1">{{$HistoryO[$i]->fullname2}}</td>
+                                                        <td rowspan="1" colspan="1">{{$HistoryO[$i]->Ostatus}}</td>
+                                                        <td rowspan="1" colspan="1">
+                                                            <button type="button" class="btn btn-info btn-sm tt btninfo" token="{{ csrf_token() }}" OID="{{$HistoryO[$i]->OID}}" title='รายละเอียดการยืม'>
                                                                 <i class="fas fa-file-alt"></i>
                                                             </button>
-                                                    </td>
-                                                </tr>
+                                                        </td>
+                                                    </tr>
+                                            @endfor
+
                                             </tbody>
                                         </table>
                                     </div>
@@ -202,7 +168,7 @@
                                     <span>หมายเลขคำร้อง:</span>
                                 </div>
                                 <div class="col-xl-6 col-6 ">
-                                    <span>R00001</span>
+                                    <span id="dt1"></span>
                                 </div>
                             </div>
                             <div class="row mb-4">
@@ -210,7 +176,7 @@
                                     <span>ชื่อ-นามสกุลผู้ยืม:</span>
                                 </div>
                                 <div class="col-xl-6 col-6 ">
-                                    <span>นายโสภณ โตใหญ่</span>
+                                    <span id="dt2">นายโสภณ โตใหญ่</span>
                                 </div>
                             </div>
                             <div class="row mb-4">
@@ -218,7 +184,7 @@
                                     <span>ผู้รับผิดชอบการยืม:</span>
                                 </div>
                                 <div class="col-xl-6 col-6 ">
-                                    <span>นางสาว นุชนาฎ สัตยากวี</span>
+                                    <span id="dt3">นางสาว นุชนาฎ สัตยากวี</span>
                                 </div>
                             </div>
                             <div class="row mb-4">
@@ -226,23 +192,23 @@
                                     <span>วันเวลาที่รับอุปกรณ์:</span>
                                 </div>
                                 <div class="col-xl-6 col-6 ">
-                                    <span>15:10:41  11/03/2019</span>
+                                    <span id="dt4">15:10:41  11/03/2019</span>
                                 </div>
                             </div>
                             <div class="row mb-4">
                                 <div class="col-xl-6 col-2 text-right">
-                                    <span>เจ้าหน้าที่ที่มอบอุปกรณ์:</span>
+                                    <span >เจ้าหน้าที่ที่มอบอุปกรณ์:</span>
                                 </div>
                                 <div class="col-xl-6 col-6 ">
-                                    <span>นางสาว พิมพิลา ทองแท้</span>
+                                    <span id="dt5">นางสาว พิมพิลา ทองแท้</span>
                                 </div>
                             </div>
                             <div class="row mb-4">
                                 <div class="col-xl-6 col-2 text-right">
-                                    <span>วันเวลาที่คืนอุปกรณ์:</span>
+                                    <span >วันเวลาที่คืนอุปกรณ์:</span>
                                 </div>
                                 <div class="col-xl-6 col-6 ">
-                                    <span>-</span>
+                                    <span id="dt6">-</span>
                                 </div>
                             </div>
                             <div class="row mb-4">
@@ -250,7 +216,7 @@
                                     <span>เจ้าหน้าที่ที่รับอุปกรณ์:</span>
                                 </div>
                                 <div class="col-xl-6 col-6 ">
-                                    <span>-</span>
+                                    <span id="dt7">-</span>
                                 </div>
                             </div>
                             <div class="row mb-4">
@@ -268,22 +234,8 @@
                                                 <th rowspan="1" colspan="1">เลขครุภัณฑ์</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
-                                            <tr role="row" >
-                                                <td rowspan="1" colspan="1">1</td>
-                                                <td rowspan="1" colspan="1">เมาส์</td>
-                                                <td rowspan="1" colspan="1">602050-14442/60</td>
-                                            </tr>
-                                            <tr role="row" >
-                                                <td rowspan="1" colspan="1">2</td>
-                                                <td rowspan="1" colspan="1">เมาส์</td>
-                                                <td rowspan="1" colspan="1">602050-14443/60</td>
-                                            </tr>
-                                            <tr role="row" >
-                                                <td rowspan="1" colspan="1">3</td>
-                                                <td rowspan="1" colspan="1">จอคอมพิวเตอร์</td>
-                                                <td rowspan="1" colspan="1">602051-14441/60</td>
-                                            </tr>
+                                        <tbody id="dt8">
+
                                         </tbody>
                                     </table>
                                 </div>
@@ -305,7 +257,31 @@
 <script>
     $(document).ready(function() {
        $('.btninfo').click(function() {
-            $("#infoModal").modal();
+        var id = $(this).attr('OID');
+        var token = $(this).attr('token');
+        $.ajax({
+                    url: '../DetailByOID',
+                    type: 'POST',
+                    async : false,
+                    data:{
+                        _token:token,
+                        OID:id
+                    },
+                    success: function(result) {
+                        var data= JSON.parse(result)
+                        console.table(data);
+                        $('#dt1').text("R"+('000000' + data.InfoO.RID).substr(-6));
+                        $('#dt2').text(data.InfoO.fullnameMe);
+                        $('#dt3').text(data.InfoO.fullnameAdv);
+                        $('#dt4').text(data.InfoO.timeget);
+                        $('#dt5').text(data.InfoO.fullname1);
+                        $('#dt6').text(data.InfoO.timere);
+                        $('#dt7').text(data.InfoO.fullname2);
+                        $('#dt8').html(data.datatable);
+                        $("#infoModal").modal();
+                    }
+                });
+
        });
     });
 </script>

@@ -26,8 +26,11 @@ Route::get('/statics', function () {
     return view('statics');
 });
 
+Route::post('/DetailByEID', 'DetailEquipmentController@DetailEquipmentByEID');
+
+Route::post('/DetailByOID', 'UserProfileController@DetailByOID');
 // userProfile Route
-Route::prefix('userProfile')->group(function () {
+Route::prefix('userProfile/{id}')->group(function () {
     Route::get('', 'UserProfileController@getUser');
     // Route::post('', 'UserProfileController@insertCategory');
     // Route::put('', 'UserProfileController@updateCategory');
@@ -78,13 +81,20 @@ Route::prefix('listEquipment')->group(function () {
     Route::post('byID', 'ListEquipmentController@selectByIdListEquipment');
     Route::delete('', 'ListEquipmentController@deleteListEquipment');
 });
-
 // userManagement  Route
 Route::prefix('userManagement')->group(function () {
     Route::get('', 'UserManagementController@indexpageUserManagement');
     // Route::post('', 'UserManagementController@insertUserManagement');
     // Route::post('byID', 'UserManagementController@selectByIdUserManagement');
     // Route::delete('', 'UserManagementController@deleteUserManagement');
+});
+
+// requestManagement  Route
+Route::prefix('requestManagement')->group(function () {
+    Route::get('', 'RequestManagementController@indexpageRequestManagement');
+    // Route::post('', 'RequestManagementController@insertRequestManagement');
+    // Route::post('byID', 'RequestManagementController@selectByIdRequestManagement');
+    // Route::delete('', 'RequestManagementController@deleteRequestManagement');
 });
 
 // setting  Route
@@ -104,10 +114,6 @@ Route::prefix('detailEquipment/{id}')->group(function () {
 });
 
 
-Route::get('/requestManagement', function () {
-    return view('requestManagement');
-});
-
 Route::get('layoutAdmin', function () {
     return view('layoutAdmin');
 });
@@ -117,6 +123,10 @@ Route::get('receiveEquipment', function () {
 Route::get('returnEquipment', function () {
     return view('returnEquipment');
 });
+<<<<<<< HEAD
+=======
+
+>>>>>>> 3b8dbf22ddf350235df2055820b4568e0a3cae2b
 Route::get('layoutNisit', function () {
     return view('layoutNisit');
 });

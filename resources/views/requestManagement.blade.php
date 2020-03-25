@@ -1,5 +1,5 @@
 @extends(Session::get('userType')==1 ? "./layoutNisit" : (Session::get('userType')==2 ?"./layoutTeacher":"./layoutAdmin"))
-@section('title',"Request Management")
+@section('title',"requestManagement")
 @section('CSS')
 <style>
 
@@ -23,7 +23,7 @@
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="font-weight-bold  text-uppercase  mb-4">จำนวนคำร้อง</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">xxxx คำร้อง</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{$amountAll[0]->petition}}</div>
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-file-import fa-2x"></i>
@@ -39,7 +39,7 @@
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="font-weight-bold  text-uppercase  mb-4">จำนวนคำร้องที่รอยืนยัน</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">xxxx คำร้อง</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{$amountWait[0]->petition}}</div>
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-file-word fa-2x"></i>
@@ -103,17 +103,20 @@
                         </thead>
                         <!-- บอดี้ตาราง -->
                         <tbody>
-                            <td class="text-center">1</td>
-                            <td class="text-center">15/02/2020</td>
-                            <td >R00001</td>
-                            <td >รอยืนยัน</td>
-                            <td class="text-center">
-                                <button type="button" class="btn btn-info btn-sm tt btndetail" title='รายละเอียดการคำร้อง'>
-                                <i class="fas fa-file-alt"></i></button></td>
-                            <td class="text-center">
-                                <button type="button" class="btn btn-warning btn-sm tt mr-sm-1 btnedit" data-toggle="tooltip" title="แก้ไขคำร้อง" data-original-title="แก้ไข"><i class="fas fa-pencil-alt"></i></button>
-                                <button type="button" class="btn btn-danger btn-sm tt btndelete" data-toggle="tooltip" title="ลบคำร้อง" data-original-title="ลบ"><i class="far fa-trash-alt" ></i></button>
-                            </td>
+                            @for ($i = 0; $i < count($TableRequestManagement); $i++)
+                            <tr role="row" >
+                                <td class="text-center">{{$i+1}}</td>
+                                <td class="text-center">{{$TableRequestManagement[$i]->ReqDate}}</td>
+                                <td >{{$TableRequestManagement[$i]->RID}}</td>
+                                <td >{{$TableRequestManagement[$i]->petition}}</td>
+                                <td class="text-center">
+                                    <button type="button" class="btn btn-info btn-sm tt btndetail" title='รายละเอียดการคำร้อง' reqDate="{{$TableRequestManagement[$i]->ReqDate}}" rid="{{$TableRequestManagement[$i]->RID}}" petition="{{$TableRequestManagement[$i]->petition}}"><i class="fas fa-file-alt"></i></button></td>
+                                <td class="text-center">
+                                    <button type="button" class="btn btn-warning btn-sm tt mr-sm-1 btnedit" data-toggle="tooltip" title="แก้ไขคำร้อง" data-original-title="แก้ไข"><i class="fas fa-pencil-alt"></i></button>
+                                    <button type="button" class="btn btn-danger btn-sm tt btndelete" data-toggle="tooltip" title="ลบคำร้อง" data-original-title="ลบ"><i class="far fa-trash-alt" ></i></button>
+                                </td>
+                            </tr>
+                            @endfor
                         </tbody>
                     </table>
                 </div>
@@ -132,6 +135,9 @@
     });
     $('.btndetail').click(function() {
         $("#detailRM").modal();
+        $("#petitionrequest").val($(this).attr('petition'))
+        $("#ridrequest").val($(this).attr('rid'))
+        $("#reqdaterequest").val($(this).attr('reqdate'))
     });
     $(".btndelete").click(function() {
             var nameitem = $(this).attr('nameitem');
@@ -353,10 +359,10 @@
                         <div class="container">
                             <div class="row mb-4">
                                 <div class="col-xl-6 col-2 text-right">
-                                    <br><span>รายละเอียดคำร้อง: </span>
+                                    <br><span>สถานะคำร้อง: </span>
                                 </div>
-                                <div class="col-xl-6 col-6 ">
-                                    <br><h5><span class="text" style="color: #0000cc">รอยืนยัน</span></h5>
+                                <div class="col-xl-6 col-6">
+                                    <output id="petitionrequest" name="petitionrequest"></output>
                                 </div>
                             </div>
                             <div class="row mb-4">
@@ -364,7 +370,7 @@
                                     <span>หมายเลยคำร้อง: </span>
                                 </div>
                                 <div class="col-xl-5 col-6 ">
-                                    <span style="font-size: 17px">R00002</span>
+                                    <output id="ridrequest" name="ridrequest"></output>
                                 </div>
                             </div>
                             <div class="row mb-4">
@@ -372,7 +378,7 @@
                                     <span>วันที่ยื่นคำร้อง: </span>
                                 </div>
                                 <div class="col-xl-6 col-6 ">
-                                    <span style="font-size: 17px">15/02/2020</span>
+                                    <output id="reqdaterequest" name="reqdaterequest"></output>
                                 </div>
                             </div>
                             <div class="row mb-4">
