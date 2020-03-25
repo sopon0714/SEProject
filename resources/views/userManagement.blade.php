@@ -84,11 +84,11 @@
 
 
 <div class="col-xl-15 col-15 mb-4">
-    <div class="card"  style="height: 200px">
+    <div class="card"  >
         <div class="card-header card-bg " style="background-color: #bf4040">
             <span class="link-active " style="font-size: 15px; color:white;">เจ้าหน้าที่</span>
         </div>
-        <div class="card-body" style="height: 300px">
+        <div class="card-body" >
             <div class="col-sm-12" id="historyRequirements" style="overflow-y:auto;">
                     <table class="table table-bordered" id="historyRequirementsTable" style="text-align:center;"  swidth="100%"  cellspacing="0">
                                         <thead>
@@ -125,11 +125,11 @@
 
 
 <div class="col-xl-15 col-15 mb-4">
-    <div class="card"  style="height: 800px">
+    <div class="card"  >
         <div class="card-header card-bg " style="background-color: #bf4040">
             <span class="link-active " style="font-size: 15px; color:white;">อาจารย์และนิสิต</span>
         </div>
-        <div class="card-body" style="height: 1500px">
+        <div class="card-body" >
             <div class="col-sm-12" id="historyRequirements" style="overflow-y:auto;">
                     <table class="table table-bordered" id="historyRequirementsTable" style="text-align:center;"  swidth="100%"  cellspacing="0">
                                         <thead>
@@ -178,11 +178,11 @@
                     <div class="modal-body" id="ChangeModalBody">
                         <div class="container">
                             <div class="col-xl-15 col-15 mb-4">
-                                <div class="card"  style="height: 300px">
+                                <div class="card"  >
                                     {{-- <div class="card-header card-bg " style="background-color: #bf4040">
                                         <span class="link-active " style="font-size: 15px; color:white;">ค้นหา</span>
                                     </div> --}}
-                                    <div class="card-body" style="height: 150px">
+                                    <div class="card-body" >
                                         <div class="col-sm-12" id="historyRequirements" style="overflow-y:auto;">
                                             <label style="font-size: 18px">Username : </label>
                                             <input type="text" name="note">

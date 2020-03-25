@@ -99,11 +99,11 @@
 
 
 <div class="col-xl-15 col-15 mb-4">
-    <div class="card"  style="height: 300px">
+    <div class="card"  >
         <div class="card-header card-bg " style="background-color: #bf4040">
             <span class="link-active " style="font-size: 15px; color:white;">ตารางแสดงคำร้องขอที่อนุมัติแล้ว</span>
         </div>
-        <div class="card-body" style="height: 300px">
+        <div class="card-body" >
             <div class="col-sm-12" id="historyRequirements" style="overflow-y:auto;">
                     <table class="table table-bordered" id="historyRequirementsTable" style="text-align:center;"  swidth="100%"  cellspacing="0">
                                         <thead>
@@ -150,7 +150,7 @@
                     <div class="modal-body" id="ChangeModalBody">
                         <div class="container">
                             <div class="col-xl-15 col-15 mb-4">
-                                <div class="card"  style="height: 400px">
+                                <div class="card"  >
                                     <div class="col-sm-12" id="historyRequirements" style="overflow-y:auto;">
                                         <div class="search" >
                                             <br>
