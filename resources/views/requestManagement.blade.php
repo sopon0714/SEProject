@@ -387,7 +387,7 @@
                                     <br><span>สถานะคำร้อง: </span>
                                 </div>
                                 <div class="col-xl-6 col-6">
-                                    <output id="petitionrequest" name="petitionrequest"></output>
+                                    <br><output id="petitionrequest" name="petitionrequest"></output>
                                 </div>
                             </div>
                             <div class="row mb-4">
