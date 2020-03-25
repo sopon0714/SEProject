@@ -10,7 +10,7 @@
     <div class="col-xl-12 col-12 mb-4">
         <div class="card">
             <div class="card-header card-bg " style="background-color: #bf4040">
-                <span class="link-active " style="font-size: 15px; color:white;"><h5>หมวดหมู่อุปกรณ์</h5></span>
+                <span class="link-active " style="font-size: 18px; color:white;">หมวดหมู่อุปกรณ์</span>
             </div>
         </div>
     </div>
@@ -200,7 +200,7 @@ $(document).ready(function() {
         <div class="modal-content">
             <form method="post" id="add_E" name="add_E" action="category">
                 <div class="info" style="font-size: 20px">
-                    <div class="modal-header header-modal" style="background-color: #66b3ff;">
+                    <div class="modal-header header-modal" style="background-color: #FF9900;">
                         <h4 class="modal-title" style="color: white">แก้ไข้หมวดหมู่อุปกรณ์</h4>
                     </div>
                     <div class="modal-body" id="EditEBody">

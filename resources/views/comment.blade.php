@@ -10,7 +10,7 @@
         <div class="col-xl-12 col-12 mb-4">
             <div class="card">
                 <div class="card-header card-bg " style="background-color: #bf4040">
-                    <span class="link-active " style="font-size: 15px; color:white;"><h5>แสดงความคิดเห็น</h5></span>
+                    <span class="link-active" style="font-size: 18px; color:white;">แสดงความคิดเห็น</span>
                 </div>
             </div>
         </div>
@@ -18,8 +18,8 @@
     {{-- ปิดแสดงความคิดเห็น --}}
     {{-- เปิด txt --}}
     <div class="card shadow mb-4">
-        <div class="card-header py-3">
-            <h6 class="h5 m-0 font-weight-bold text-dark">ข้อเสนอแนะ</h6>
+        <div class="card-header py-3" style="background-color: #bf4040">
+            <span class="link-active" style="font-size: 17px; color:white">ข้อเสนอแนะ</span>
         </div>
         <div class="card-body" id="AddBody">
             <div class="container">
@@ -33,7 +33,7 @@
                     {{-- ปุ่มส่ง --}}
                     @for ($i=0; $i<count($TableComment); $i++)
                         <div style="margin-left:93%">
-                            <button type="submit" id ="detailComment_1" class="btn btn-info btn-xl tt btnsend" uid="{{$TableComment[$i]->UID}}" nDetail="{{$TableComment[$i]->Detail}}" token="{{ csrf_token() }}" data-toggle="tooltip" title='ส่งข้อเสนอแนะ'><i class="fas fa-paper-plane"></i> ส่ง</button>
+                            <button type="submit" id ="detailComment_1" class="btn btn-success btn-xl tt btnsend" uid="{{$TableComment[$i]->UID}}" nDetail="{{$TableComment[$i]->Detail}}" token="{{ csrf_token() }}" data-toggle="tooltip" title='ส่งข้อเสนอแนะ'><i class="fas fa-paper-plane"></i> ส่ง</button>
                         </div>
                     @endfor
                 </form>

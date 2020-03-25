@@ -2,8 +2,6 @@
 @section('title',"userManagement")
 @section('Content')
 
-
-
 <div class="row">
     <div class="col-xl-12 col-12 mb-4">
         <div class="card">
@@ -13,8 +11,6 @@
         </div>
     </div>
 </div>
-
-
 
 <div class="row">
     <div class="col-xl-3 col-12 mb-4">
@@ -124,8 +120,6 @@
     </div>
 </div>
 
-
-
 <div class="col-xl-15 col-15 mb-4">
     <div class="card"  >
         <div class="card-header card-bg " style="background-color: #bf4040">
@@ -165,8 +159,6 @@
         </div>
     </div>
 </div>
-
-
 @endsection
 
 @section('modal')
@@ -182,26 +174,62 @@
                     <div class="modal-body" id="ChangeModalBody">
                         <div class="container">
                             <div class="col-xl-15 col-15 mb-4">
-                                <div class="card"  >
-                                    {{-- <div class="card-header card-bg " style="background-color: #bf4040">
-                                        <span class="link-active " style="font-size: 15px; color:white;">ค้นหา</span>
-                                    </div> --}}
+                                <div>
                                     <div class="card-body" >
                                         <div class="col-sm-12" id="historyRequirements" style="overflow-y:auto;">
-                                            <label style="font-size: 18px">Username : </label>
-                                            <input type="text" name="note">
-                                            <button type="button" class="btn btn-info btn-sm tt" title='ค้นหา'>
-                                                <i class="fas fa-search"></i>
-                                            </button><br><br>
-
-                                            <label style="font-size: 18px">คำนำหน้า : </label>
-                                            <input type="text" name="note"><br />
-                                            <label style="font-size: 18px">ชื่อ : </label>
-                                            <input type="text" name="note"><br />
-                                            <label style="font-size: 18px">นามสกุล : </label>
-                                            <input type="text" name="note"><br />
-                                            <label style="font-size: 18px">E-mail : </label>
-                                            <input type="text" name="note"><br />
+                                            <div class="row mb-2">
+                                                <div class="col-xl-4 col-2 text-right">
+                                                    <label style="font-size: 18px">Username : </label>
+                                                </div>
+                                                <div class="col-xl-6 col-6 ">
+                                                    <input  class="form-control" type="text" name="note">
+                                                </div>
+                                                <div class="col-xl-2 col-6 ">
+                                                    <button type="button" class="btn btn-info btn-sm tt" title='ค้นหา'>
+                                                        <i class="fas fa-search"></i>
+                                                    </button><br>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-2">
+                                                <div class="col-xl-4 col-2 text-right">
+                                                    <label style="font-size: 18px">คำนำหน้า : </label>
+                                                </div>
+                                                <div class="col-xl-6 col-6 ">
+                                                    <input  class="form-control" type="text" name="note">
+                                                </div>
+                                            </div>
+                                            <div class="row mb-2">
+                                                <div class="col-xl-4 col-2 text-right">
+                                                    <label style="font-size: 18px">คำนำหน้า : </label>
+                                                </div>
+                                                <div class="col-xl-6 col-6 ">
+                                                    <input  class="form-control" type="text" name="note">
+                                                </div>
+                                            </div>
+                                            <div class="row mb-2">
+                                                <div class="col-xl-4 col-2 text-right">
+                                                    <label style="font-size: 18px">ชื่อ : </label>
+                                                </div>
+                                                <div class="col-xl-6 col-6 ">
+                                                    <input class="form-control" type="text" name="note">
+                                                </div>
+                                            </div>
+                                            <div class="row mb-2">
+                                                <div class="col-xl-4 col-2 text-right">
+                                                    <label style="font-size: 18px">นามสกุล : </label>
+                                                </div>
+                                                <div class="col-xl-6 col-6 ">
+                                                    <input class="form-control" type="text" name="note">
+                                                </div>
+                                            </div>
+                                            <div class="row mb-2">
+                                                <div class="col-xl-4 col-2 text-right">
+                                                    <label style="font-size: 18px">E-mail : </label>
+                                                </div>
+                                                <div class="col-xl-6 col-6 ">
+                                                    <input class="form-control" type="text" name="note">
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -209,8 +237,8 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-danger ok" id="a_okInfo" data-dismiss="modal">ยืนยัน</button>
-                        <button type="button" class="btn btn-danger cancel" id="a_cancelInfo" data-dismiss="modal">ปิด</button>
+                        <button type="button" class="btn btn-success ok" id="a_okInfo" data-dismiss="modal">ยืนยัน</button>
+                        <button type="button" class="btn btn-danger cancel" id="a_cancelInfo" data-dismiss="modal">ยกเลิก</button>
                     </div>
                 </div>
             </form>

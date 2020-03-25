@@ -201,7 +201,7 @@
                                     <span>เหตุผลในการยืม:</span>
                                 </div>
                                 <div class="col-xl-7 col-7 ">
-                                    <input type="text" class="form-control form-control-sm-5" name="reason" style="height:150px" aria-controls="dataTable" >
+                                    <textarea class="form-control form-control-sm-5" name="reason" style="height:150px" aria-controls="dataTable"></textarea>
                                 </div>
                             </div>
                             <br>
@@ -234,8 +234,8 @@
         <div class="modal-content">
             <form method="post"   name="cancelModal" action="./requestManagement">
                 <div class="info" style="font-size: 20px">
-                    <div class="modal-header header-modal" style="background-color: red;">
-                        <h4 class="modal-title" id="TT" style="color: white">ยกเลิกคำร้อง</h4>
+                    <div class="modal-header header-modal" style="background-color: #CC0000;">
+                        <h4 class="modal-title" id="TT" style="color: white">ยืนยันการยกเลิกคำร้อง</h4>
                     </div>
                     <div class="modal-body" >
                         <div class="container">

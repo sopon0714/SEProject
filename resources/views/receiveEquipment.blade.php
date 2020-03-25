@@ -2,19 +2,15 @@
 @section('title',"receiveEquipment")
 @section('Content')
 
-
-
 <div class="row">
     <div class="col-xl-12 col-12 mb-4">
         <div class="card">
             <div class="card-header card-bg " style="background-color: #bf4040">
-                <span class="link-active " style="font-size: 15px; color:white;"><h5>การรับอุปกรณ์</h5></span>
+                <span class="link-active " style="font-size: 18px; color:white;">การรับอุปกรณ์</span>
             </div>
         </div>
     </div>
 </div>
-
-
 
 <div class="row">
     <div class="col-xl-3 col-12 mb-4">
@@ -35,12 +31,10 @@
     </div>
 </div>
 
-
-
 <div class="col-xl-15 col-15 mb-4">
     <div class="card"  >
         <div class="card-header card-bg " style="background-color: #bf4040">
-            <span class="link-active " style="font-size: 15px; color:white;">ตารางแสดงคำร้องขอที่อนุมัติแล้ว</span>
+            <span class="link-active " style="font-size: 17px; color:white;">ตารางแสดงคำร้องขอที่อนุมัติแล้ว</span>
         </div>
         <div class="card-body" >
             <div class="col-sm-12" id="historyRequirements" style="overflow-y:auto;">

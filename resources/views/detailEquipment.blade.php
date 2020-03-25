@@ -7,24 +7,17 @@
 @endsection
 @section('Content')
 
-{{-- <div class=" col-12 mb-4" style="text-align: right">
-    <a href="../listEquipment" >
-        <button type="button" id="btn_info" class="btn btn-warning">ย้อนกลับ</button>
-    </a>
-</div> --}}
-
 <div class="row">
     <div class="col-xl-12 col-12 mb-4">
-        <div class="card">
-            <div class="card-header card-bg "  style="background-color: #bf4040;height: 50px">
-                <div class="row">
-                    <span class="link-active " style="font-size: 15px; color:white;"><h5>รายละเอียดอุปกรณ์</h5></span>
+        <div class="row">
+            <div class="col-xl-12 col-12 mb-4">
+                <div class="card-header card-bg "  style="background-color: #bf4040;height: 50px">
+                    <span class="link-active" style="font-size: 18px; color:white;"> รายละเอียดอุปกรณ์</span>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
 <div class="row">
     <div class="col-xl-3 col-12 mb-4">
         <div class="card border-left-warning card-color-four shadow h-100 py-2"
@@ -81,7 +74,7 @@
                 <div class="col-xl-12 col-12 mb-4">
                     <div class="card">
                         <div class="card-header card-bg " style="background-color: #bf4040">
-                            <span class="link-active " style="font-size: 17px; color:white;">ตารางการจัดการอุปกรณ์</span>
+                            <span class="link-active " style="font-size: 18px; color:white;">ตารางการจัดการอุปกรณ์</span>
                         </div>
                     </div>
                 </div>
@@ -328,7 +321,7 @@
                         <div class="container">
                             <div class="row mb-4">
                                 <div class="col-xl-4 col-2 text-right">
-                                    <br><span>ชื่อ: </span>
+                                    <br><span>ชื่อ : </span>
                                 </div>
                                 <div class="col-xl-8 col-6 ">
                                     <br><span id="dt1">เมาส์</span>
@@ -336,7 +329,7 @@
                             </div>
                             <div class="row mb-4">
                                 <div class="col-xl-4 col-2 text-right">
-                                    <span>เลขครุภัณฑ์: </span>
+                                    <span>เลขครุภัณฑ์ : </span>
                                 </div>
                                 <div class="col-xl-8 col-6 ">
                                     <span id="dt2">xxxxxxxxxxx-xxxxxxx/60</span>
@@ -344,7 +337,7 @@
                             </div>
                             <div class="row mb-4">
                                 <div class="col-xl-4 col-2 text-right">
-                                    <span>ยี่ห้อ: </span>
+                                    <span>ยี่ห้อ : </span>
                                 </div>
                                 <div class="col-xl-8 col-6 ">
                                     <span id="dt3">logitech</span>
@@ -352,7 +345,7 @@
                             </div>
                             <div class="row mb-4">
                                 <div class="col-xl-4 col-2 text-right">
-                                    <span>รายละเอียด: </span>
+                                    <span>รายละเอียด : </span>
                                 </div>
                                 <div class="col-xl-8 col-6 ">
                                     <textarea id="dt4" class="form-control form-control-sm-5" style="height:120px"  aria-controls="dataTable"

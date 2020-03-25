@@ -5,7 +5,7 @@
 <div class="col-xl-15 col-15 mb-4">
     <div class="card"  style="height: 800px">
         <div class="card-header card-bg " style="background-color: #bf4040">
-            <span class="link-active " style="font-size: 15px; color:white;">สถิติการยืมอุปกรณ์ มากที่สุด 10 อันดับแรก</span>
+            <span class="link-active " style="font-size: 18px; color:white;">สถิติการยืมอุปกรณ์ มากที่สุด 10 อันดับแรก</span>
         </div>
         <div class="card-body" >
             <div class="col-sm-12" id="historyRequirements" style="overflow-y:auto;">

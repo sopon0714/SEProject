@@ -6,7 +6,7 @@
     <div class="col-xl-12 col-12 mb-4">
         <div class="card">
             <div class="card-header card-bg " style="background-color: #bf4040">
-                <span class="link-active " style="font-size: 15px; color:white;"><h5>รายการอุปกรณ์</h5></span>
+                <span class="link-active " style="font-size: 18px; color:white;">รายการอุปกรณ์</span>
             </div>
         </div>
     </div>
@@ -62,7 +62,7 @@
 <div class="col-xl-15 col-15 mb-4">
     <div class="card">
         <div class="card-header card-bg " style="background-color: #bf4040">
-            <span class="link-active " style="font-size: 20px; color:white;">ค้นหา</span>
+            <span class="link-active " style="font-size: 17px; color:white;">ค้นหา</span>
         </div>
         {{-- style="text-align: center" --}}
         <div>
@@ -287,20 +287,20 @@
         <div class="modal-content">
             <form method="post"  name="addEqui" action="listEquipment">
                 <div class="info" style="font-size: 20px">
-                    <div class="modal-header header-modal" style="background-color: #66b3ff;">
+                    <div class="modal-header header-modal" style="background-color: #FF9900;">
                         <h4 class="modal-title" style="color: white">แก้ไขรายการอุปกรณ์</h4>
                     </div>
                     <div class="modal-body" id="ChangeModalBody">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <input type="hidden" name="_method" value="put">
-                        <input type="hidden" id="ELID"name="ELID" value="">:
+                        <input type="hidden" id="ELID"name="ELID" value="">
                         <div class="col-sm-12" id="historyRequirements" style="overflow-y:auto;">
                             <div class="row mb-2">
                                 <div class="col-xl-4 col-2 text-right">
                                     <label >ชื่ออุปกรณ์ : </label>
                                 </div>
                                 <div class="col-xl-6 col-6 ">
-                                    <input type="text" id="ELName" name="ELName"><br />
+                                    <input class="form-control" type="text" id="ELName" name="ELName">
                                 </div>
                             </div>
                             <div class="row mb-2">
@@ -308,7 +308,7 @@
                                     <label >ยี่ห้ออุปกรณ์ : </label>
                                 </div>
                                 <div class="col-xl-6 col-6 ">
-                                    <input type="text" id="brand" name="brand"><br />
+                                    <input class="form-control" type="text" id="brand" name="brand">
                                 </div>
                             </div>
                             <div class="row mb-2">
@@ -316,7 +316,7 @@
                                     <label >รายละเอียด : </label>
                                 </div>
                                 <div class="col-xl-6 col-6 ">
-                                    <input type="text" id="note" name="note"><br />
+                                    <textarea class="form-control" id="note" name="note"></textarea>
                                 </div>
                             </div>
                             <div class="row mb-2">
@@ -324,7 +324,7 @@
                                     <label >หมวดหมู่อุปกรณ์ : </label>
                                 </div>
                                 <div class="col-xl-6 col-6 ">
-                                    <select id="category" name="category">
+                                    <select id="category" name="category" class="form-control">
                                         @for ($i = 0; $i < count($category); $i++)
                                                 <option value="{{$category[$i]->CID}}">{{$category[$i]->CName}}</option>
                                             @endfor
@@ -363,7 +363,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-success ok"  >ยืนยัน</button>
-                        <button type="button" class="btn btn-danger cancel"  data-dismiss="modal">ปิด</button>
+                        <button type="button" class="btn btn-danger cancel"  data-dismiss="modal">ยกเลิก</button>
                     </div>
                 </div>
             </form>
