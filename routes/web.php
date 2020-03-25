@@ -88,6 +88,15 @@ Route::prefix('userManagement')->group(function () {
     // Route::post('byID', 'UserManagementController@selectByIdUserManagement');
     // Route::delete('', 'UserManagementController@deleteUserManagement');
 });
+
+// requestManagement  Route
+Route::prefix('requestManagement')->group(function () {
+    Route::get('', 'RequestManagementController@indexpageRequestManagement');
+    // Route::post('', 'RequestManagementController@insertRequestManagement');
+    // Route::post('byID', 'RequestManagementController@selectByIdRequestManagement');
+    // Route::delete('', 'RequestManagementController@deleteRequestManagement');
+});
+
 // setting  Route
 Route::prefix('setting')->group(function () {
     Route::get('', 'SettingController@indexpageSetting');
@@ -105,11 +114,9 @@ Route::prefix('detailEquipment/{id}')->group(function () {
 });
 
 
-Route::get('/requestManagement', function () {
-    return view('requestManagement');
+Route::get('layoutAdmin', function () {
+    return view('layoutAdmin');
 });
-
-
 Route::get('receiveEquipment', function () {
     return view('receiveEquipment');
 });
