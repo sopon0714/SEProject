@@ -361,7 +361,7 @@
                                 <div class="col-xl-6 col-2 text-right">
                                     <br><span>สถานะคำร้อง: </span>
                                 </div>
-                                <div class="col-xl-6 col-6 ">
+                                <div class="col-xl-6 col-6">
                                     <output id="petitionrequest" name="petitionrequest"></output>
                                 </div>
                             </div>
