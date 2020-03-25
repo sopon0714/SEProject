@@ -51,7 +51,7 @@
                         <div class="h5 mb-0 font-weight-bold text-xl text-info">เพิ่มรายการอุปกรณ์</div>
                     </div>
                     <div class="col-auto">
-                        <button class="btn btn-warning " onclick=""><i class="fas fa-plus"></i></button>
+                        <button class="btn btn-warning" onclick=""><i class="fas fa-plus"></i></button>
                     </div>
                 </div>
             </div>
@@ -73,16 +73,16 @@
                             <div class="col-xl-5 col-2 text-right">
                                 <label style="font-size: 18px">ชื่ออุปกรณ์ : </label>
                             </div>
-                            <div class="col-xl-6 col-6 ">
-                                <input type="text" class="form-control-sm" name="note"><br />
+                            <div class="col-xl-3 col-6 ">
+                                <input type="text" class="form-control" name="note">
                             </div>
                         </div>
                         <div class="row mb-2">
                             <div class="col-xl-5 col-2 text-right">
                                 <label for="category" style="font-size: 18px">หมวดหมู่อุปกรณ์ : </label>
                             </div>
-                            <div class="col-xl-6 col-6 ">
-                                <select id="categorySearch">
+                            <div class="col-xl-3 col-6 ">
+                                <select id="categorySearch" class="form-control">
                                     <option value="">ทั้งหมด</option>
                                     @for ($i = 0; $i < count($category); $i++)
                                          <option value="{{$category[$i]->CID}}">{{$category[$i]->CName}}</option>
@@ -110,15 +110,15 @@
                                 <button type="button" id="btn_green" class="btn btn-success">ยืนยัน</button>
                             </a>
                         </span> --}}
-                        <button style="text-align: right" type="button" value="ค้นหา" class="btn btn-danger" >ค้นหา</button>
+                        <div style="text-align: center">
+                            <button style="text-align: center" type="button" value="ค้นหา" class="btn btn-success" >ค้นหา</button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-
 
 <div class="col-xl-15 col-15 mb-4">
     <div class="card"  style="height: 400px">
@@ -189,7 +189,7 @@
                                     <label >ชื่ออุปกรณ์ : </label>
                                 </div>
                                 <div class="col-xl-6 col-6 ">
-                                    <input type="text" name="ELName"><br />
+                                    <input type="text" class="form-control" name="ELName">
                                 </div>
                             </div>
                             <div class="row mb-2">
@@ -197,7 +197,7 @@
                                     <label >ยี่ห้ออุปกรณ์ : </label>
                                 </div>
                                 <div class="col-xl-6 col-6 ">
-                                    <input type="text" name="brand"><br />
+                                    <input type="text" class="form-control" name="brand">
                                 </div>
                             </div>
                             <div class="row mb-2">
@@ -205,7 +205,7 @@
                                     <label >รายละเอียด : </label>
                                 </div>
                                 <div class="col-xl-6 col-6 ">
-                                    <input type="text" name="note"><br />
+                                    <input type="text" class="form-control" name="note">
                                 </div>
                             </div>
                             <div class="row mb-2">
@@ -213,7 +213,7 @@
                                     <label >หมวดหมู่อุปกรณ์ : </label>
                                 </div>
                                 <div class="col-xl-6 col-6 ">
-                                    <select  name="category">
+                                    <select  name="category" class="form-control">
                                         @for ($i = 0; $i < count($category); $i++)
                                                 <option value="{{$category[$i]->CID}}">{{$category[$i]->CName}}</option>
                                             @endfor
@@ -265,7 +265,7 @@
                                         <label >จำนวนอุปกรณ์</label>
                                     </div>
                                     <div class="col-xl-2 col-2 ">
-                                        <input type="number" name="number" min="1" max = "100" ><br />
+                                        <input type="number" class="form-control" name="number" min="1" max = "100" ><br />
                                     </div>
                                 </div>
                             </div>
@@ -274,7 +274,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-success ok"  >ยืนยัน</button>
-                        <button type="button" class="btn btn-danger cancel"  data-dismiss="modal">ปิด</button>
+                        <button type="button" class="btn btn-danger cancel"  data-dismiss="modal">ยกเลิก</button>
                     </div>
                 </div>
             </form>

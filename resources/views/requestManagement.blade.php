@@ -185,27 +185,27 @@
                     <div class="modal-body" id="AddRMBody">
                         <div class="container">
                             <div class="row mb-2">
-                                <div class="col-xl-4 col-2 text-right">
-                                    <br><span>วันที่:</span>
+                                <div class="col-xl-4 col-2 text-left">
+                                    <br><span>วันที่ยื่นคำร้อง :</span>
                                 </div>
-                                <div class="col-xl-6 col-6 ">
-                                    <br><input type="text" class="form-control form-control-sm-5"  aria-controls="dataTable" disabled>
+                                <div class="col-xl-6 col-2 text-left">
+                                    <br><input type="date" class="form-control form-control-sm-5"  aria-controls="dataTable">
                                 </div>
                             </div>
                             <div class="row mb-2">
                                 <div class="col-xl-5 col-2 ">
-                                    <span>อุปกรณ์ที่ต้องการยืม: </span>
+                                    <span>อุปกรณ์ที่ต้องการยืม : </span>
                                 </div>
                             </div>
                             <div class="row mb-2">
                                 <div class="col-xl-3 col-3 text-right">
-                                    <span>ชื่ออุปกรณ์:</span>
+                                    <span>ชื่ออุปกรณ์ :</span>
                                 </div>
                                 <div class="col-xl-3 col-3 ">
                                     <input type="text" class="form-control form-control-sm-5"  aria-controls="dataTable" value="drop down" disabled>
                                 </div>
                                 <div class="col-xl-2 col-2 text-right">
-                                    <span>จำนวน:</span>
+                                    <span>จำนวน :</span>
                                 </div>
                                 <div class="col-xl-3 col-3 ">
                                     <input type="text" class="form-control form-control-sm-5"  aria-controls="dataTable" disabled>
@@ -216,13 +216,13 @@
                             </div>
                             <div class="row mb-2">
                                 <div class="col-xl-3 col-3 text-right">
-                                    <span>ชื่ออุปกรณ์:</span>
+                                    <span>ชื่ออุปกรณ์ :</span>
                                 </div>
                                 <div class="col-xl-3 col-3 ">
                                     <input type="text" class="form-control form-control-sm-5"  aria-controls="dataTable" value="drop down" disabled>
                                 </div>
                                 <div class="col-xl-2 col-2 text-right">
-                                    <span>จำนวน:</span>
+                                    <span>จำนวน :</span>
                                 </div>
                                 <div class="col-xl-3 col-3 ">
                                     <input type="text" class="form-control form-control-sm-5"  aria-controls="dataTable" disabled>
@@ -232,18 +232,18 @@
                                 </div>
                             </div>
                             <div class="row mb-2">
-                                <div class="col-xl-4 col-2 text-right">
+                                <div class="col-xl-4 col-2 text-left">
                                     <span>เหตุผลในการยืม:</span>
                                 </div>
-                                <div class="col-xl-7 col-7 ">
-                                    <input type="text" class="form-control form-control-sm-5"  style="height:150px" aria-controls="dataTable" >
+                                <div class="col-xl-6 col-7 text-left">
+                                    <textarea class="form-control form-control-sm-5"  style="height:150px" aria-controls="dataTable"></textarea>
                                 </div>
                             </div>
                             <div class="row mb-2">
-                                <div class="col-xl-4 col-2 text-right">
-                                    <span>อาจารย์ที่รับผิดชอบ:</span>
+                                <div class="col-xl-4 col-2 text-left">
+                                    <span>อาจารย์ที่รับผิดชอบ :</span>
                                 </div>
-                                <div class="col-xl-7 col-7 ">
+                                <div class="col-xl-6 col-7 text-left">
                                     <input type="text" class="form-control form-control-sm-5"  aria-controls="dataTable" value="drop down" disabled>
                                 </div>
                             </div>
@@ -258,40 +258,39 @@
         </div>
     </div>
 </div>
-
 {{-- modal แก้ไขคำร้อง --}}
 <div class="modal fade" id="editRM" name="editRM" tabindex="-1" role="dialog" >
     <div class="modal-dialog modal-lg" role="document" style="width: 50%">
         <div class="modal-content">
             <form method="post" id="edit_RM" name="edit_RM" action="./equipment">
                 <div class="info" style="font-size: 20px">
-                    <div class="modal-header header-modal" style="background-color: #66b3ff;">
+                    <div class="modal-header header-modal" style="background-color: #FF9900;">
                         <h4 class="modal-title" style="color: white">แก้ไขคำร้อง</h4>
                     </div>
                     <div class="modal-body" id="EditRMBody">
                         <div class="container">
                             <div class="row mb-2">
-                                <div class="col-xl-4 col-2 text-right">
-                                    <br><span>วันที่:</span>
+                                <div class="col-xl-4 col-2 text-left">
+                                    <br><span>วันที่ยื่นคำร้อง :</span>
                                 </div>
                                 <div class="col-xl-6 col-6 ">
-                                    <br><input type="text" class="form-control form-control-sm-5"  aria-controls="dataTable" disabled>
+                                    <br><input type="date" class="form-control form-control-sm-5"  aria-controls="dataTable" disabled>
                                 </div>
                             </div>
                             <div class="row mb-2">
                                 <div class="col-xl-5 col-2 ">
-                                    <span>อุปกรณ์ที่ต้องการยืม: </span>
+                                    <span>อุปกรณ์ที่ต้องการยืม : </span>
                                 </div>
                             </div>
                             <div class="row mb-2">
                                 <div class="col-xl-3 col-3 text-right">
-                                    <span>ชื่ออุปกรณ์:</span>
+                                    <span>ชื่ออุปกรณ์ :</span>
                                 </div>
                                 <div class="col-xl-3 col-3 ">
                                     <input type="text" class="form-control form-control-sm-5"  aria-controls="dataTable" value="drop down" disabled>
                                 </div>
                                 <div class="col-xl-2 col-2 text-right">
-                                    <span>จำนวน:</span>
+                                    <span>จำนวน :</span>
                                 </div>
                                 <div class="col-xl-3 col-3 ">
                                     <input type="text" class="form-control form-control-sm-5"  aria-controls="dataTable" disabled>
@@ -302,13 +301,13 @@
                             </div>
                             <div class="row mb-2">
                                 <div class="col-xl-3 col-3 text-right">
-                                    <span>ชื่ออุปกรณ์:</span>
+                                    <span>ชื่ออุปกรณ์ :</span>
                                 </div>
                                 <div class="col-xl-3 col-3 ">
                                     <input type="text" class="form-control form-control-sm-5"  aria-controls="dataTable" value="drop down" disabled>
                                 </div>
                                 <div class="col-xl-2 col-2 text-right">
-                                    <span>จำนวน:</span>
+                                    <span>จำนวน :</span>
                                 </div>
                                 <div class="col-xl-3 col-3 ">
                                     <input type="text" class="form-control form-control-sm-5"  aria-controls="dataTable" disabled>
@@ -318,18 +317,18 @@
                                 </div>
                             </div>
                             <div class="row mb-2">
-                                <div class="col-xl-4 col-2 text-right">
-                                    <span>เหตุผลในการยืม:</span>
+                                <div class="col-xl-4 col-2 text-left">
+                                    <span>เหตุผลในการยืม :</span>
                                 </div>
-                                <div class="col-xl-7 col-7 ">
+                                <div class="col-xl-6 col-7 text-left">
                                     <input type="text" class="form-control form-control-sm-5"  style="height:150px" aria-controls="dataTable" >
                                 </div>
                             </div>
                             <div class="row mb-2">
-                                <div class="col-xl-4 col-2 text-right">
-                                    <span>อาจารย์ที่รับผิดชอบ:</span>
+                                <div class="col-xl-4 col-2 text-left">
+                                    <span>อาจารย์ที่รับผิดชอบ :</span>
                                 </div>
-                                <div class="col-xl-7 col-7 ">
+                                <div class="col-xl-6 col-7 text-left">
                                     <input type="text" class="form-control form-control-sm-5"  aria-controls="dataTable" value="drop down" disabled>
                                 </div>
                             </div>
@@ -344,8 +343,6 @@
         </div>
     </div>
 </div>
-
-
 {{-- modal แสดงรายละเอียดคำร้อง --}}
 <div class="modal fade" id="detailRM" name="detailRM" tabindex="-1" role="dialog" >
     <div class="modal-dialog modal-lg" role="document" style="width: 50%">
@@ -359,15 +356,15 @@
                         <div class="container">
                             <div class="row mb-4">
                                 <div class="col-xl-6 col-2 text-right">
-                                    <br><span>สถานะคำร้อง: </span>
+                                    <br><span>สถานะคำร้อง : </span>
                                 </div>
                                 <div class="col-xl-6 col-6">
-                                    <output id="petitionrequest" name="petitionrequest"></output>
+                                    <br><output id="petitionrequest" name="petitionrequest"></output>
                                 </div>
                             </div>
                             <div class="row mb-4">
                                 <div class="col-xl-6 col-2 text-right">
-                                    <span>หมายเลยคำร้อง: </span>
+                                    <span>หมายเลยคำร้อง : </span>
                                 </div>
                                 <div class="col-xl-5 col-6 ">
                                     <output id="ridrequest" name="ridrequest"></output>
@@ -375,7 +372,7 @@
                             </div>
                             <div class="row mb-4">
                                 <div class="col-xl-6 col-2 text-right">
-                                    <span>วันที่ยื่นคำร้อง: </span>
+                                    <span>วันที่ยื่นคำร้อง : </span>
                                 </div>
                                 <div class="col-xl-6 col-6 ">
                                     <output id="reqdaterequest" name="reqdaterequest"></output>
@@ -411,7 +408,7 @@
                             <span>อาจารย์ที่รับผิดชอบ: </span>
                         </div>
                         <div class="col-xl-6 col-6 ">
-                            <span style="font-size: 17px">นางสาวนุชนาฎ สัตนากวี</span>
+                            <span>นางสาวนุชนาฎ สัตยากวี</span>
                         </div>
                     </div>
                     <div class="row mb-4">
@@ -419,7 +416,7 @@
                             <span>วันเวลาที่อนุมัติการยืม: </span>
                         </div>
                         <div class="col-xl-6 col-6 ">
-                            <span style="font-size: 17px">-</span>
+                            <span>-</span>
                             <br>
                         </div>
                     </div>
