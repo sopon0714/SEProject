@@ -68,4 +68,32 @@ class RequestManagementController extends Controller
 
         return $this->indexpageRequestManagement();
     }
+    public function DetailByRID(Request $req)
+    {
+        header('Content-Type: application/json');
+        $RID = $req->get('RID');
+        $InfoR = DB::selectOne("SELECT CONCAT(`user`.`Title`, `user`.`FName`, ' ',`user`.`LName`) as fullnameAdv ,
+        IF(`requirement`.`AcceptTime` IS NULL,'-',from_unixtime(`requirement`.`AcceptTime`,' %H:%i:%s %Y-%m-%d ') ) AS timeac,
+        IF(`requirement`.`Reason`IS NULL,'-',`requirement`.`Reason`) as  Reason
+        FROM `requirement`INNER JOIN `user`
+        ON `requirement`.`ProfessorID`=`user`.`UID`
+        WHERE RID =$RID");
+        $InfoR2 = DB::select("SELECT `equipmentlist`.`EName`,`requirementdetail`.`Amount` FROM `requirement`
+        INNER JOIN `requirementdetail` ON `requirementdetail`.`RID` = `requirement`.`RID`
+        INNER JOIN  `equipmentlist` ON `equipmentlist`.`ELID` = `requirementdetail`.`ELID`
+        WHERE `requirement`.`RID` = $RID
+        ORDER BY  `equipmentlist`.`CID`,`equipmentlist`.`EName`");
+        $content = "";
+        for ($i = 0; $i < count($InfoR2); $i++) {
+            $content .= " <tr role=\"row\" >
+                             <td rowspan=\"1\" colspan=\"1\">" . ($i + 1) . "</td>
+                             <td rowspan=\"1\" colspan=\"1\">{$InfoR2[$i]->EName}</td>
+                             <td rowspan=\"1\" colspan=\"1\">{$InfoR2[$i]->Amount}</td>
+                         </tr>";
+        }
+        $INFO = array();
+        $INFO['InfoO'] = $InfoR;
+        $INFO['datatable'] = $content;
+        echo json_encode($INFO);
+    }
 }

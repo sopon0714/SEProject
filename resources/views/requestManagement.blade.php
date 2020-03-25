@@ -112,7 +112,7 @@
 
 
                                 <td class="text-center">
-                                    <button type="button" class="btn btn-info btn-sm tt btndetail" title='รายละเอียดการคำร้อง' reqDate="{{$TableRequestManagement[$i]->ReqDate}}" rid="{{$TableRequestManagement[$i]->RID}}" petition="{{$TableRequestManagement[$i]->petition}}"><i class="fas fa-file-alt"></i></button>
+                                <button type="button" class="btn btn-info btn-sm tt btndetail" title='รายละเอียดการคำร้อง' token ="{{csrf_token()}}"reqDate="{{$TableRequestManagement[$i]->ReqDate}}" rid="{{$TableRequestManagement[$i]->RID}}" petition="{{$TableRequestManagement[$i]->petition}}"><i class="fas fa-file-alt"></i></button>
                                 <button type="button" class="btn btn-danger btn-sm tt btndelete" data-toggle="tooltip" title="ลบคำร้อง" TT="R{{sprintf("%06d", $TableRequestManagement[$i]->RID)}}"RID="{{$TableRequestManagement[$i]->RID}}" data-original-title="ลบ"><i class="far fa-trash-alt" ></i></button>
                                 </td>
                             </tr>
@@ -143,10 +143,27 @@
         $("#editRM").modal();
     });
     $('.btndetail').click(function() {
-        $("#detailRM").modal();
+        var token = $(this).attr('token')
         $("#petitionrequest").val($(this).attr('petition'))
-        $("#ridrequest").val($(this).attr('rid'))
+        $("#ridrequest").val("R"+('000000' + $(this).attr('rid')).substr(-6))
         $("#reqdaterequest").val($(this).attr('reqdate'))
+        $.ajax({
+                    url: '../DetailByRID',
+                    type: 'POST',
+                    async : false,
+                    data:{
+                        _token:token,
+                        RID:$(this).attr('rid')
+                    },
+                    success: function(result) {
+                        var data= JSON.parse(result)
+                        $('#dt1').html(data.datatable);
+                        $('#dt2').text(data.InfoO.fullnameAdv);
+                        $('#dt3').text(data.InfoO.timeac);
+                        $('#dt4').text(data.InfoO.Reason);
+                        $("#detailRM").modal();
+                    }
+                });
     });
     $(".btndelete").click(function() {
         $('#RIDcancel').val($(this).attr('RID'))
@@ -262,43 +279,49 @@
     </div>
 </div>
 {{-- modal แก้ไขคำร้อง --}}
-<form method="post" id="test" name="test" action="./equipment">
-    <div class="info" style="font-size: 20px">
-        <div class="modal-header header-modal" style="background-color: #66b3ff;">
-            <h4 class="modal-title" style="color: white">เพิ่มคำร้อง</h4>
-        </div>
-        <div class="modal-body" id="test">
-            <div class="container">
-                <div id="mainpoint">
-                    <div class="row mb-2">
-                        <div class="col-xl-6 col-2 ">
-                            <select  class="form-control form-control-sm-5" name="eq[]">
-                                @for ($i = 0; $i < count($EQ); $i++)
-                                    <option value="{{$EQ[$i]->ELID}}">{{$EQ[$i]->EName}}({{$EQ[$i]->totalall}})</option>
-                                @endfor
-                            </select>
-                        </div>
-                        <div class="col-xl-2 col-2 text-right">
-                            <span>จำนวน: </span>
-                        </div>
-                        <div class="col-xl-2 col-2 ">
-                            <input class="form-control" name="Number[]" type="Number" min="1"/>
-                        </div>
-                        <div class="col-xl-2 col-2 ">
-                            <button class="btn btn-success btnaddEq" type="button">
-                                <i class="fas fa-plus"></i>
-                            </button>
+<div class="modal fade" id="ss" name="ss" tabindex="-1" role="dialog" >
+    <div class="modal-dialog modal-lg" role="document" style="width: 50%">
+        <div class="modal-content">
+            <form method="post" id="test" name="test" action="./equipment">
+                <div class="info" style="font-size: 20px">
+                    <div class="modal-header header-modal" style="background-color: #66b3ff;">
+                        <h4 class="modal-title" style="color: white">เพิ่มคำร้อง</h4>
+                    </div>
+                    <div class="modal-body" id="test">
+                        <div class="container">
+                            <div id="mainpoint">
+                                <div class="row mb-2">
+                                    <div class="col-xl-6 col-2 ">
+                                        <select  class="form-control form-control-sm-5" name="eq[]">
+                                            @for ($i = 0; $i < count($EQ); $i++)
+                                                <option value="{{$EQ[$i]->ELID}}">{{$EQ[$i]->EName}}({{$EQ[$i]->totalall}})</option>
+                                            @endfor
+                                        </select>
+                                    </div>
+                                    <div class="col-xl-2 col-2 text-right">
+                                        <span>จำนวน: </span>
+                                    </div>
+                                    <div class="col-xl-2 col-2 ">
+                                        <input class="form-control" name="Number[]" type="Number" min="1"/>
+                                    </div>
+                                    <div class="col-xl-2 col-2 ">
+                                        <button class="btn btn-success btnaddEq" type="button">
+                                            <i class="fas fa-plus"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-success submit" id="addRM_submit">ยืนยัน</button>
+                        <button type="button" class="btn btn-danger cancel" id="addRM_cancel" data-dismiss="modal">ยกเลิก</button>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <div class="modal-footer">
-            <button type="submit" class="btn btn-success submit" id="addRM_submit">ยืนยัน</button>
-            <button type="button" class="btn btn-danger cancel" id="addRM_cancel" data-dismiss="modal">ยกเลิก</button>
+            </form>
         </div>
     </div>
-</form>
+</div>
 {{-- modal แสดงรายละเอียดคำร้อง --}}
 <div class="modal fade" id="detailRM" name="detailRM" tabindex="-1" role="dialog" >
     <div class="modal-dialog modal-lg" role="document" style="width: 50%">
@@ -306,7 +329,7 @@
             <form method="post" id="detail_RM" name="detail_RM" action="./requestManagement.php">
                 <div class="info" style="font-size: 20px">
                     <div class="modal-header header-modal" style="background-color: #66b3ff;">
-                        <h4 class="modal-title" style="color: white">รายละเอียดอุปกรณ์ </h4>
+                        <h4 class="modal-title" style="color: white">รายละเอียดคำร้อง </h4>
                     </div>
                     <div class="modal-body" id="DetailDEBody">
                         <div class="container">
@@ -342,7 +365,14 @@
                             <div class="row mb-4">
                                 <div class="col-xl-12 col-2 text-right">
                                     <table class="table table-bordered" id="listEquipmentTable" style="text-align:center;font-size: 14px"  swidth="100%"  cellspacing="0">
-                                        <tbody>
+                                        <thead>
+                                            <tr role="row">
+                                                <th rowspan="1" colspan="1">ลำดับ</th>
+                                                <th rowspan="1" colspan="1">รายการอุปกรณ์</th>
+                                                <th rowspan="1" colspan="1">จำนวน</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="dt1">
                                             <tr role="row" style="font-size: 17px">
                                                 <td rowspan="1" colspan="1">1</td>
                                                 <td rowspan="1" colspan="1">เมาส์</td>
@@ -364,7 +394,7 @@
                             <span>อาจารย์ที่รับผิดชอบ: </span>
                         </div>
                         <div class="col-xl-6 col-6 ">
-                            <span>นางสาวนุชนาฎ สัตยากวี</span>
+                            <span id="dt2">นางสาวนุชนาฎ สัตยากวี</span>
                         </div>
                     </div>
                     <div class="row mb-4">
@@ -372,7 +402,16 @@
                             <span>วันเวลาที่อนุมัติการยืม: </span>
                         </div>
                         <div class="col-xl-6 col-6 ">
-                            <span>-</span>
+                            <span id="dt3">-</span>
+                            <br>
+                        </div>
+                    </div>
+                    <div class="row mb-4">
+                        <div class="col-xl-6 col-2 text-right">
+                            <span>เหตุผลในการยกเลิก: </span>
+                        </div>
+                        <div class="col-xl-6 col-6 ">
+                            <span id="dt4">-</span>
                             <br>
                         </div>
                     </div>

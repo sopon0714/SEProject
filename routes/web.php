@@ -29,6 +29,8 @@ Route::get('/statics', function () {
 Route::post('/DetailByEID', 'DetailEquipmentController@DetailEquipmentByEID');
 
 Route::post('/DetailByOID', 'UserProfileController@DetailByOID');
+
+Route::post('/DetailByRID', 'RequestManagementController@DetailByRID');
 // userProfile Route
 Route::prefix('userProfile/{id}')->group(function () {
     Route::get('', 'UserProfileController@getUser');
