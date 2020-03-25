@@ -21,7 +21,7 @@
                         <div class="h5 mb-0 font-weight-bold text-gray-800">{{$amount[0]->totalall}} รายการ</div>
                     </div>
                     <div class="col-auto">
-                        <i class="fas fa-home fa-2x"></i>
+                        <i class="fas fa-list-ul fa-2x"></i>
                     </div>
                 </div>
             </div>
@@ -36,7 +36,7 @@
                         <div class="h5 mb-0 font-weight-bold text-gray-800">{{$amount[0]->totaluse}} รายการ</div>
                     </div>
                     <div class="col-auto">
-                        <i class="fas fa-home fa-2x"></i>
+                        <i class="fas fa-list-ol fa-2x"></i>
                     </div>
                 </div>
             </div>
@@ -47,11 +47,11 @@
         <div class="card border-left-primary card-color-add shadow h-100 py-2" id="add" style="cursor:pointer;">
             <div class="card-body">
                 <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                        <div class="h5 mb-0 font-weight-bold text-xl text-info">เพิ่มรายการอุปกรณ์</div>
+                    <div class="col mb-2">
+                        <div class="h5 mb-2 font-weight-bold text-xl text-info">เพิ่มรายการอุปกรณ์</div>
                     </div>
-                    <div class="col-auto">
-                        <button class="btn btn-warning " onclick=""><i class="fas fa-plus"></i></button>
+                    <div class="col-auto ">
+                        <button class="btn btn-success " onclick=""><i class="far fa-calendar-plus fa-2x"></i></button>
                     </div>
                 </div>
             </div>

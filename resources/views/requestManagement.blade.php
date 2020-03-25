@@ -10,47 +10,44 @@
     <div class="col-xl-12 col-12 mb-4">
         <div class="card">
             <div class="card-header card-bg " style="background-color: #bf4040">
-                <span class="link-active " style="font-size: 15px; color:white;"><h5>การจัดการคำร้อง</h5></span>
+                <span class="link-active " style="font-size: 15px; color:white;"><h5>การจัดการคำร้องทั้งหมด</h5></span>
             </div>
         </div>
     </div>
 </div>
 <div class="row">
     <div class="col-xl-3 col-12 mb-4">
-        <div class="card border-left-warning card-color-four shadow h-100 py-2"
-            data-toggle="modal" data-target="#modal-1" >
+        <div class="card border-left-warning card-color-four shadow h-100 py-2">
             <div class="card-body">
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                        <div class="font-weight-bold  text-uppercase  mb-4">จำนวนคำร้อง</div>
+                        <div class="font-weight-bold  text-uppercase  mb-4">จำนวนคำร้องทั้งหมด</div>
                         <div class="h5 mb-0 font-weight-bold text-gray-800">{{$amountAll[0]->petition}}</div>
                     </div>
                     <div class="col-auto">
-                        <i class="fas fa-file-import fa-2x"></i>
+                        <i class="fas fa-scroll fa-2x"></i>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <div class="col-xl-3 col-12 mb-4">
-        <div class="card border-left-warning card-color-four shadow h-100 py-2"
-            data-toggle="modal" data-target="#modal-1" >
+        <div class="card border-left-warning card-color-four shadow h-100 py-2">
             <div class="card-body">
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                        <div class="font-weight-bold  text-uppercase  mb-4">จำนวนคำร้องที่รอยืนยัน</div>
+                        <div class="font-weight-bold  text-uppercase  mb-1">จำนวนคำร้องที่รอยืนยัน</div>
                         <div class="h5 mb-0 font-weight-bold text-gray-800">{{$amountWait[0]->petition}}</div>
                     </div>
                     <div class="col-auto">
-                        <i class="fas fa-file-word fa-2x"></i>
+                        <i class="fas fa-envelope-open-text fa-3x"></i>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <div class="col-xl-3 col-12 mb-4">
-        <div class="card border-left-warning card-color-four shadow h-100 py-2  btnadd"
-            data-toggle="modal" data-target="#modal-1" style="cursor:pointer;">
+        <div class="card border-left-warning card-color-four shadow h-100 py-2  btnadd">
             <div class="card-body">
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
@@ -58,7 +55,7 @@
                         <div class="h5 mb-0 font-weight-bold text-gray-800">+1 คำร้อง</div>
                     </div>
                     <div class="col-auto">
-                        <button class="btn btn-primary " ><i class="fas fa-file-medical fa-2x"></i></button>
+                        <button class="btn btn-success " ><i class="fas fa-file-medical fa-2x"></i></button>
                     </div>
                 </div>
             </div>

@@ -29,8 +29,12 @@
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
-                            <div class="font-weight-bold  text-uppercase mb-2 text-right">จำนวนคำร้องขอที่รอยืนยัน</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800 text-right" >{{$amount[0]->R_sum }} คำร้อง</div>
+                            <div class="font-weight-bold  text-uppercase mb-1 ">จำนวนคำร้องขอ</div>
+                            <div class="font-weight-bold  text-uppercase mb-1 ">ที่รอยืนยัน</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800 " >{{$amount[0]->R_sum }} คำร้อง</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-envelope-open-text fa-3x"></i>
                         </div>
                     </div>
                 </div>
