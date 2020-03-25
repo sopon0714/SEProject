@@ -110,6 +110,7 @@
                             <col width="100">
                             <col width="100">
                             <col width="100">
+                            <col width="100">
                         </colgroup>
                         <!-- หัวตาราง -->
                         <thead class="text-center">
@@ -117,6 +118,7 @@
                             <th>ลำดับ</th>
                             <th>เลขครุภัณฑ์</th>
                             <th>สถานะอุปกรณ์</th>
+                            <th>รายละเอียด</th>
                             <th>จัดการ</th>
                             </tr>
                         </thead>
@@ -129,7 +131,9 @@
                                     <td class="text-center">{{$DATA[$i]->EStatus}}</td>
                                     <td class="text-center">
                                         <button type="button" class="btn btn-info btn-sm tt mr-sm-1 btndetail" EID="{{$DATA[$i]->EID}}" token="{{ csrf_token() }}"title='รายละเอียดอุปกรณ์'>
-                                    <i class="fas fa-file-alt"></i></button>
+                                        <i class="fas fa-file-alt"></i></button>
+                                    </td>
+                                    <td class="text-center">
                                         <button type="button" class="btn btn-warning btn-sm tt mr-sm-1 btnedit" EID="{{$DATA[$i]->EID}}" Snumber="{{$DATA[$i]->SNumber=='' ? '':$DATA[$i]->SNumber}}"data-toggle="tooltip" title="แก้ไขข้อมูลอุปกรณ์" data-original-title="แก้ไข">
                                     <i class="fas fa-pencil-alt"></i></button>
                                         <button type="button" class="btn btn-danger btn-sm tt btndelete" EID="{{$DATA[$i]->EID}}" Snumber="{{$DATA[$i]->SNumber=='' ? '(ไม่มีเลขครุภัณฑ์)':$DATA[$i]->SNumber}}" token="{{ csrf_token() }}" data-toggle="tooltip" title="ลบอุปกรณ์" data-original-title="ลบ">
@@ -363,8 +367,8 @@
                                                 <th rowspan="1" colspan="1">สถานะ</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
-                                            <div id="dataInfo2" style="display: inline-block; white-space: nowrap">
+                                        <tbody id="dataInfo2">
+
                                         </tbody>
                                     </table>
                                 </div>

@@ -36,6 +36,14 @@ Route::prefix('userProfile')->group(function () {
     // Route::delete('', 'UserProfileController@deleteCategory');
 });
 
+// detailEquipment Route
+Route::prefix('detailEquipment/{id}')->group(function () {
+    Route::get('', 'DetailEquipmentController@indexpageDetailEquipment');
+    Route::post('', 'DetailEquipmentController@insertDetailEquipment');
+    Route::put('', 'DetailEquipmentController@updateDetailEquipment');
+    Route::delete('', 'DetailEquipmentController@deleteDetailEquipment');
+});
+
 // category Route
 Route::prefix('category')->group(function () {
     Route::get('', 'CategoryController@indexpageCategory');
@@ -84,10 +92,6 @@ Route::prefix('userManagement')->group(function () {
 
 Route::get('/requestManagement', function () {
     return view('requestManagement');
-});
-
-Route::get('/detailEquipment', function () {
-    return view('detailEquipment');
 });
 
 Route::get('layoutAdmin', function () {
