@@ -95,6 +95,8 @@ Route::prefix('userManagement')->group(function () {
 // requestManagement  Route
 Route::prefix('requestManagement')->group(function () {
     Route::get('', 'RequestManagementController@indexpageRequestManagement');
+    Route::post('', 'RequestManagementController@insertRequestManagement');
+    Route::delete('', 'RequestManagementController@deleteRequestManagement');
     // Route::post('', 'RequestManagementController@insertRequestManagement');
     // Route::post('byID', 'RequestManagementController@selectByIdRequestManagement');
     // Route::delete('', 'RequestManagementController@deleteRequestManagement');
@@ -117,9 +119,7 @@ Route::prefix('detailEquipment/{id}')->group(function () {
 });
 
 
-Route::get('layoutAdmin', function () {
-    return view('layoutAdmin');
-});
+
 Route::get('receiveEquipment', function () {
     return view('receiveEquipment');
 });

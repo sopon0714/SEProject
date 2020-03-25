@@ -7,7 +7,7 @@
         <div class="card-header card-bg " style="background-color: #bf4040">
             <span class="link-active " style="font-size: 15px; color:white;">สถิติการยืมอุปกรณ์ มากที่สุด 10 อันดับแรก</span>
         </div>
-        <div class="card-body" style="height: 300px">
+        <div class="card-body" >
             <div class="col-sm-12" id="historyRequirements" style="overflow-y:auto;">
             <!DOCTYPE html>
             <html lang="en">
