@@ -114,12 +114,8 @@ Route::get('layoutAdmin', function () {
 Route::get('receiveEquipment', function () {
     return view('receiveEquipment');
 });
-
 Route::get('returnEquipment', function () {
     return view('returnEquipment');
-});
-Route::get('setting', function () {
-    return view('setting');
 });
 Route::get('layoutNisit', function () {
     return view('layoutNisit');
