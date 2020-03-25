@@ -34,7 +34,7 @@
 
             </li>
             <li class='nav-item'>
-                <a class='nav-link collapsed' href="../../userProfile" data-toggle='' data-target='' aria-expanded='true' aria-controls=''>
+                <a class='nav-link collapsed' href="../../userProfile/{{Session::get('userid')}}" data-toggle='' data-target='' aria-expanded='true' aria-controls=''>
                     <i class="fas fa-user-alt"></i>
                     <span>บัญชีผู้ใช้</span>
                 </a>
@@ -95,7 +95,7 @@
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="./userProfile">
+                                <a class="dropdown-item" href="./{{Session::get('userid')}}">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     บัญชีผู้ใช้
                                 </a>
