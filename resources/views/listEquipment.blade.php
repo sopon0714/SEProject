@@ -111,7 +111,7 @@
                             </a>
                         </span> --}}
                         <div style="text-align: center">
-                            <button style="text-align: center" type="button" value="ค้นหา" class="btn btn-success" >ค้นหา</button>
+                            <button style="text-align: center" type="button" value="ค้นหา" class="btn btn-primary" >ค้นหา</button>
                         </div>
                     </div>
                 </div>
