@@ -81,6 +81,14 @@ Route::prefix('listEquipment')->group(function () {
     Route::delete('', 'ListEquipmentController@deleteListEquipment');
 });
 
+// userManagement  Route
+Route::prefix('userManagement')->group(function () {
+    Route::get('', 'UserManagementController@indexpageUserManagement');
+    // Route::post('', 'UserManagementController@insertUserManagement');
+    // Route::post('byID', 'UserManagementController@selectByIdUserManagement');
+    // Route::delete('', 'UserManagementController@deleteUserManagement');
+});
+
 // setting  Route
 Route::prefix('setting')->group(function () {
     Route::get('', 'SettingController@indexpageSetting');
