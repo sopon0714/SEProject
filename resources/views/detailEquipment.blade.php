@@ -9,8 +9,18 @@
 <div class="row">
     <div class="col-xl-12 col-12 mb-4">
         <div class="card">
-            <div class="card-header card-bg " style="background-color: #bf4040">
-                <span class="link-active " style="font-size: 15px; color:white;"><h5>รายละเอียดอุปกรณ์</h5></span>
+            <div class="card-header card-bg "  style="background-color: #bf4040;height: 50px">
+                <div class="row">
+                    <span class="link-active " style="font-size: 15px; color:white;"><h5>รายละเอียดอุปกรณ์</h5></span>
+                   <div style="padding-left: 70%">
+                       <a href="../listEquipment" >
+                            <button type="button" id="btn_info" class="btn btn-warning btn-sm" >
+                                ย้อนกลับ
+                            </button>
+                        </a>
+                   </div>
+
+                </div>
             </div>
         </div>
     </div>
@@ -23,10 +33,11 @@
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="font-weight-bold  text-uppercase  mb-2">ข้อมูลอุปกรณ์</div>
-                        <div class="font-weight-bold  text-uppercase  mb-2">ชื่อ เมาส์</div>
-                        <div class="font-weight-bold  text-uppercase  mb-2">ยี่ห้อ logitech</div>
-                        <div class="font-weight-bold  text-uppercase  mb-2">หมวดหมู่ คอมพิวเตอร์</div>
-                        <div class="font-weight-bold  text-uppercase  ">รายละเอียด xxxxxxxxxxxxxx</div>
+                        <div class="font-weight-bold  text-uppercase  mb-2">ชื่อ {{$InfoEL->EName}}</div>
+                        <div class="font-weight-bold  text-uppercase  mb-2">ยี่ห้อ {{$InfoEL->Brand}}</div>
+                        <div class="font-weight-bold  text-uppercase  mb-2">สถานะ {{$InfoEL->ELStatus}}</div>
+                        <div class="font-weight-bold  text-uppercase  mb-2">หมวดหมู่ {{$InfoEL->CName}}</div>
+                        <div class="font-weight-bold  text-uppercase  ">รายละเอียด<br> {{$InfoEL->Detail}}</div>
                     </div>
                 </div>
             </div>
@@ -42,7 +53,7 @@
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="font-weight-bold  text-uppercase  mb-4">จำนวนอุปกรณ์ทั้งหมด</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">xxx ชิ้น</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{$amount->totalall}} ชิ้น</div>
                     </div>
                 </div>
             </div>
@@ -55,7 +66,7 @@
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="font-weight-bold  text-uppercase  mb-4">จำนวนอุปกรณ์ที่ยืมได้</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">xxx ชิ้น</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{$InfoEL->ELStatus!='ยืมไม่ได้'?$amount->totaluse:0}} ชิ้น</div>
                     </div>
                 </div>
             </div>
@@ -110,19 +121,22 @@
                         </thead>
                         <!-- บอดี้ตาราง -->
                         <tbody>
-                            <td class="text-center">1</td>
-                            <td >xxxxxxxxxxx-xxxxxxx/60</td>
-                            <td class="text-center">ถูกยืม</td>
-                            <td class="text-center">
-                                <button type="button" class="btn btn-success btn-sm tt mr-sm-1" title='เปิด-ปิด สถานะการยืม'>
-                                <i class="fas fa-ban"></i></button>
-                                <button type="button" class="btn btn-info btn-sm tt mr-sm-1 btndetail" title='รายละเอียดอุปกรณ์'>
-                                <i class="fas fa-file-alt"></i></button>
-                                <button type="button" class="btn btn-warning btn-sm tt mr-sm-1 btnedit" data-toggle="tooltip" title="แก้ไขข้อมูลอุปกรณ์" data-original-title="แก้ไข">
-                                <i class="fas fa-pencil-alt"></i></button>
-                                <button type="button" class="btn btn-danger btn-sm tt btndelete" nameitem ="xxxxxxxxxxx-xxxxxxx/60" data-toggle="tooltip" title="ลบอุปกรณ์" data-original-title="ลบ">
-                                <i class="far fa-trash-alt" ></i></button>
-                            </td>
+                            @for ($i = 0; $i < count($DATA); $i++)
+                                <tr>
+                                    <td class="text-center">{{$i+1}}</td>
+                                    <td >{{$DATA[$i]->SNumber==""?"(ไม่มีเลขครุภัณฑ์)":$DATA[$i]->SNumber}}</td>
+                                    <td class="text-center">{{$DATA[$i]->EStatus}}</td>
+                                    <td class="text-center">
+                                        <button type="button" class="btn btn-info btn-sm tt mr-sm-1 btndetail" title='รายละเอียดอุปกรณ์'>
+                                    <i class="fas fa-file-alt"></i></button>
+                                        <button type="button" class="btn btn-warning btn-sm tt mr-sm-1 btnedit" EID="{{$DATA[$i]->EID}}" Snumber="{{$DATA[$i]->SNumber=='' ? '':$DATA[$i]->SNumber}}"data-toggle="tooltip" title="แก้ไขข้อมูลอุปกรณ์" data-original-title="แก้ไข">
+                                    <i class="fas fa-pencil-alt"></i></button>
+                                        <button type="button" class="btn btn-danger btn-sm tt btndelete" EID="{{$DATA[$i]->EID}}" Snumber="{{$DATA[$i]->SNumber=='' ? '(ไม่มีเลขครุภัณฑ์)':$DATA[$i]->SNumber}}" token="{{ csrf_token() }}" data-toggle="tooltip" title="ลบอุปกรณ์" data-original-title="ลบ">
+                                    <i class="far fa-trash-alt" ></i></button>
+                                    </td>
+                                </tr>
+                            @endfor
+
                         </tbody>
                     </table>
                 </div>
@@ -137,16 +151,22 @@
         $("#addDE").modal();
     });
     $('.btndetail').click(function() {
-        $("#detailDE").modal();
+
     });
     $('.btnedit').click(function() {
+        var id = $(this).attr('EID');
+        var Snumber = $(this).attr('Snumber');
+        $('#Snumber').val(Snumber);
+        $('#EID').val(id);
         $("#editDE").modal();
     });
     $(".btndelete").click(function() {
-            var nameitem = $(this).attr('nameitem');
+            var id = $(this).attr('EID');
+            var Snumber = $(this).attr('Snumber');
+            var token = $(this).attr('token');
             swal({
                 title: "คุณต้องการลบ",
-                text: "เลขครุภัณฑ์: "+nameitem+" หรือไม่ ?",
+                text: "เลขครุภัณฑ์: "+Snumber+" หรือไม่ ?",
                 icon: "warning",
                 buttons: true,
                 buttons: ["ยกเลิก", "ยืนยัน"],
@@ -154,14 +174,27 @@
             })
             .then((willDelete) => {
                 if (willDelete) {
-                    swal("ลบรายการสำเร็จเรียบร้อยแล้ว", {
-                        icon: "success",
-                        buttons: false
+
+                     $.ajax({
+                        url: './{{$ELID}}',
+                        type: 'DELETE',
+                        async : false,
+                        data:{
+                            _method:'delete',
+                            _token:token,
+                            EID:id,
+                            ELID:{{$ELID}}
+                        },
+                        success: function(result) {
+                            swal("ลบรายการสำเร็จเรียบร้อยแล้ว", {
+                                icon: "success",
+                                buttons: false
+                            });
+                            setTimeout(function() {
+                                window.location.replace("./{{$ELID}}");
+                            }, 1500);
+                        }
                     });
-                    //delete_1(uid);
-                    setTimeout(function() {
-                        location.reload();
-                    }, 1500);
                 } else {
                     swal("การลบไม่สำเร็จ ",{
                         icon: "error",
@@ -180,11 +213,15 @@
 <div class="modal fade" id="editDE" name="editDE" tabindex="-1" role="dialog" >
     <div class="modal-dialog modal-lg" role="document" style="width: 50%">
         <div class="modal-content">
-            <form method="post" id="edit_DE" name="edit_DE" action="./equipment">
+            <form method="post" id="edit_DE" name="edit_DE" action="./{{$ELID}}">
                 <div class="info" style="font-size: 20px">
                     <div class="modal-header header-modal" style="background-color: #66b3ff;">
                         <h4 class="modal-title" style="color: white">แก้ไขข้อมูลอุปกรณ์</h4>
                     </div>
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                    <input type="hidden" name="_method" value="put">
+                    <input type="hidden" name="EID" id="EID" value="">
+                    <input type="hidden" name="ELID" value="{{$ELID}}">
                     <div class="modal-body" id="EditDEBody">
                         <div class="container">
                             <div class="row mb-0">
@@ -192,7 +229,7 @@
                                     <br><span>เลขครุภัณฑ์:</span>
                                 </div>
                                 <div class="col-xl-6 col-6 ">
-                                    <br><input type="search" class="form-control form-control-sm-5"  aria-controls="dataTable">
+                                    <br><input type="text" class="form-control form-control-sm-5" id="Snumber" name="Snumber"  aria-controls="dataTable">
                                 </div>
                                 <div class="col-xl-12 col-12 text-center">
                                     <br><span class="text-danger" style="font-size: 16px" >*หากไม่มีเลขครุภัณฑ์ กด ยืนยันเพื่อเพิ่มได้ทันที</span>
@@ -214,7 +251,7 @@
 <div class="modal fade" id="addDE" name="addDE" tabindex="-1" role="dialog" >
     <div class="modal-dialog modal-lg" role="document" style="width: 50%">
         <div class="modal-content">
-            <form method="post" id="add_DE" name="add_DE" action="./detailEquipment">
+            <form method="post" id="add_DE" name="add_DE" action="./{{$ELID}}">
                 <div class="info" style="font-size: 20px">
                     <div class="modal-header header-modal" style="background-color: #66b3ff;">
                         <h4 class="modal-title" style="color: white">เพิ่มอุปกรณ์</h4>
@@ -225,11 +262,13 @@
                                 <div class="col-xl-5 col-2 text-right">
                                     <br><span>เลขครุภัณฑ์:</span>
                                 </div>
+                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                <input type="hidden" name="ELID" value="{{$ELID}}">
                                 <div class="col-xl-6 col-6 ">
-                                    <br><input type="search" class="form-control form-control-sm-5"  aria-controls="dataTable">
+                                    <br><input type="text" class="form-control form-control-sm-5" name="EName" aria-controls="dataTable">
                                 </div>
                                 <div class="col-xl-12 col-12 text-center">
-                                    <br><span class="text-danger" style="font-size: 16px" >*หากไม่มีเลขครุภัณฑ์ กด ยืนยันเพื่อเพิ่มได้ทันที</span>
+                                    <br><span class="text-danger" style="font-size: 16px" >*หากไม่มีเลขครุภัณฑ์ไม่ต้องทำการกรอกค่าใดๆ</span>
                                 </div>
                             </div>
                         </div>

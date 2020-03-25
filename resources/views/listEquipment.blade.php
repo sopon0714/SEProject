@@ -131,10 +131,10 @@
 
 <div class="col-xl-15 col-15 mb-4">
     <div class="card"  style="height: 400px">
-        {{-- <div class="card-header card-bg " style="background-color: #bf4040">
-            <span class="link-active " style="font-size: 15px; color:white;">ค้นหา</span>
-        </div> --}}
-        <div class="card-body" style="height: 300px">
+        <div class="card-header card-bg " style="background-color: #bf4040">
+            <span class="link-active " style="font-size: 15px; color:white;">ตารางแสดงรายการอุปกรณ์ทั้งหมด</span>
+        </div>
+        <div class="card-body" >
             <div class="col-sm-12" id="historyRequirements" style="overflow-y:auto;">
                 <table class="table table-bordered" id="historyRequirementsTable " style="text-align:center;"  swidth="100%"  cellspacing="0">
                     <thead>
@@ -159,9 +159,11 @@
                                 <td rowspan="1" colspan="1">{{$TableListEquipment[$i]->totalall}}</td>
                                 <td rowspan="1" colspan="1">{{$TableListEquipment[$i]->totaluse}}</td>
                                 <td rowspan="1" colspan="1">
-                                    <button type="button" class="btn btn-info btn-sm tt btninfo" title='รายละเอียดรายการอุปกรณ์'>
-                                        <i class="fas fa-file-alt"></i>
-                                    </button>
+                                    <a href="/detailEquipment/{{$TableListEquipment[$i]->ELID}}">
+                                        <button type="button" class="btn btn-info btn-sm tt btninfo" title='รายละเอียดรายการอุปกรณ์'>
+                                            <i class="fas fa-file-alt"></i>
+                                        </button>
+                                    </a>
                                 </td>
                                 <td rowspan="1" colspan="1">
                                     <button type="button" class="btn btn-warning btn-sm tt editbtn" data-toggle="tooltip" title="แก้ไขรายการอุปกรณ์" ELID ="{{$TableListEquipment[$i]->ELID}}" token="{{ csrf_token() }}" data-original-title="แก้ไข"><i class="fas fa-pencil-alt"></i></button>
@@ -299,7 +301,8 @@
                     </div>
                     <div class="modal-body" id="ChangeModalBody">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                        <input type="hidden" id="ELID"name="ELID" value="">
+                        <input type="hidden" name="_method" value="put">
+                        <input type="hidden" id="ELID"name="ELID" value="">:
                         <div class="col-sm-12" id="historyRequirements" style="overflow-y:auto;">
                             <div class="row mb-2">
                                 <div class="col-xl-4 col-2 text-right">
