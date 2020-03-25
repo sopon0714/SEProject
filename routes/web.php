@@ -16,13 +16,23 @@ use Illuminate\Support\Facades\Route;
 Route::get('/test', function () {
     return view('test');
 });
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('/userProfile', function () {
-    return view('userProfile');
+
+Route::get('/', 'MemberController@index');
+Route::post('/signinVerify', 'MemberController@login');
+
+Route::get('/logout', 'MemberController@logout');
+
+Route::get('/statics', function () {
+    return view('statics');
 });
 
+// userProfile Route
+Route::prefix('userProfile')->group(function () {
+    Route::get('', 'UserProfileController@getUser');
+    // Route::post('', 'UserProfileController@insertCategory');
+    // Route::put('', 'UserProfileController@updateCategory');
+    // Route::delete('', 'UserProfileController@deleteCategory');
+});
 
 // category Route
 Route::prefix('category')->group(function () {
@@ -59,6 +69,7 @@ Route::prefix('listEquipment')->group(function () {
     Route::get('', 'ListEquipmentController@indexpageListEquipment');
     Route::post('', 'ListEquipmentController@insertListEquipment');
     Route::post('byID', 'ListEquipmentController@selectByIdListEquipment');
+    Route::put('', 'ListEquipmentController@updateListEquipment');
     Route::delete('', 'ListEquipmentController@deleteListEquipment');
 });
 
@@ -68,6 +79,13 @@ Route::prefix('setting')->group(function () {
     // Route::post('', 'SettingController@insertSetting');
     //Route::put('', 'SettingController@updateSetting');
     // Route::delete('', 'SettingController@deleteSetting');
+
+// detailEquipment  Route
+Route::prefix('detailEquipment/{id}')->group(function () {
+    Route::get('', 'DetailEquipmentController@indexpageDetailEquipment');
+    Route::post('', 'DetailEquipmentController@insertDetailEquipment');
+    Route::put('', 'DetailEquipmentController@updateDetailEquipment');
+    Route::delete('', 'DetailEquipmentController@deleteDetailEquipment');
 });
 
 Route::get('/requestManagement', function () {

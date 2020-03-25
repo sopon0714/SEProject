@@ -1,4 +1,4 @@
-@extends('./layoutAdmin')
+@extends(Session::get('userType')==1 ? "./layoutNisit" : (Session::get('userType')==2 ?"./layoutTeacher":"./layoutAdmin"))
 @section('title',"userManagement")
 @section('Content')
 

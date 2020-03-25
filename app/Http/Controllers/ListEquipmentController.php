@@ -84,4 +84,25 @@ class ListEquipmentController extends Controller
         $INFO['ELStatus'] = $Equipment[0]->ELStatus;
         echo json_encode($INFO);
     }
+    public function updateListEquipment(Request $req)
+    {
+        $ELID = $req->get('ELID');
+        $ELName = $req->get('ELName');
+        $brand = $req->get('brand');
+        $note = $req->get('note');
+        $categoryID = $req->get('category');
+        $status = $req->get('status');
+        $Arrayright = $req->get('right');
+        DB::table('equipmentlist')
+            ->where('ELID', $ELID)
+            ->update(['CID' => $categoryID, 'EName' => $ELName, 'Brand' => $brand, 'Detail' => $note, 'ELStatus' =>  $status]);
+        DB::table('borrowingrights')
+            ->where('ELID', $ELID)->delete();
+        for ($i = 0; $i < count($Arrayright); $i++) {
+            DB::table('borrowingrights')->insert(
+                ['ELID' => $ELID, 'UTID' => $Arrayright[$i]]
+            );
+        }
+        return $this->indexpageListEquipment();
+    }
 }

@@ -1,4 +1,4 @@
-@extends(Session::get('userType')==1 ? "./layoutNisit" : (Session::get('userType')==2 ?"./layoutTeacher":"./layoutAdmin"))
+@extends('./layoutAdmin')
 @section('title',"Approve Request")
 @section('CSS')
 
@@ -81,11 +81,11 @@
                                     <td style="text-align: center">
                                         <button type="button" class="btn btn-info btn-sm tt btninfoapprove" data-toggle="tooltip" title="รายละเอียดการยืนยันคำร้อง" rid="{{$TableApproveRequests[$i]->RID}}" reqdate="{{$TableApproveRequests[$i]->ReqDate}}" nameuser="{{$TableApproveRequests[$i]->Title}} {{$TableApproveRequests[$i]->FName}} {{$TableApproveRequests[$i]->LName}}"  nameaj="{{$TableApproveRequests[$i]->PTitle}} {{$TableApproveRequests[$i]->PFName}} {{$TableApproveRequests[$i]->PLName}}" note="{{$TableApproveRequests[$i]->Reason}}" data-original-title="รายละเอียด"><i class="fas fa-file-alt"></i></i></button>
 <<<<<<< HEAD
-                                        <button type="button" class="btn btn-danger btn-sm tt btncancelapprove" data-toggle="tooltip" title="ยกเลิกการอนุมัติ"  rid2="{{$TableApproveRequests[$i]->RID}}" token="{{ csrf_token() }}" data-original-title="ลบ"><i class="far fa-trash-alt" aria-hidden="true"></i></button>
+                                        <button type="button" class="btn btn-danger btn-sm tt btncancelapprove" data-toggle="tooltip" title="ยกเลิกการอนุมัติ" data-original-title="ลบ"><i class="far fa-trash-alt" aria-hidden="true"></i></button>
                                         {{-- rid2="{{$TableApproveRequests[$i]->RID}}" token="{{ csrf_token() }}" --}}
 =======
                                         <button type="button" class="btn btn-danger btn-sm tt btncancelapprove" rid2="{{$TableApproveRequests[$i]->RID}}" token="{{ csrf_token() }}" data-toggle="tooltip" title="ยกเลิกการอนุมัติ" data-original-title="ลบ"><i class="far fa-trash-alt" aria-hidden="true"></i></button>
->>>>>>> 5e6e2a1ce729c3c43d013f0262a17aa766f730dd
+>>>>>>> b339c66414f1c302e59ae545afba05427140378c
                                     </td>
                                     {{-- <td class="text-center">
                                         <button type="button" class="btn btn-warning btn-sm tt mr-sm-1 btnedit" data-toggle="tooltip" title="แก้ไขหมวดหมู่อุปกรณ์" cid="{{$TableCategorys[$i]->CID}}" cname ="{{$TableCategorys[$i]->CName}}"data-original-title="แก้ไข"><i class="fas fa-pencil-alt"></i></button>
@@ -193,22 +193,22 @@
     </div>
 </div>
 {{-- modal ยกเลิกการอนุมัติ --}}
-<div class="modal fade" id="cancelapproveModal" name="cancelapproveModal" tabindex="-1" role="dialog" >
+{{-- <div class="modal fade" id="cancelapproveModal" name="cancelapproveModal" tabindex="-1" role="dialog" >
     <div class="modal-dialog modal-lg" role="document" style="width: 50%">
         <div class="modal-content">
-            <form method="post" id="cancel" name="cancel" action="manage.php">
-                <div class="cancel" style="font-size: 17px">
+            <form method="post" id="info" name="info" action="manage.php">
+                <div class="info" style="font-size: 17px">
                     <div class="modal-header header-modal" style="background-color: #66b3ff;">
                         <h4 class="modal-title" style="color: white">ยืนยันการยกเลิกการอนุมัติ</h4>
                     </div>
-                    <div class="modal-body" id="CancelModalBody">
+                    <div class="modal-body" id="ChangeModalBody">
                         <div class="container">
                             <div class="row mb-4">
                                 <div class="col-xl-6 col-2 text-right">
                                     <span>หมายเลขคำร้อง :</span>
                                 </div>
-                                <div class="col-xl-6 col-6">
-                                    <output id="ridapprove2" name="ridapprove2"></output>
+                                <div class="col-xl-6 col-6 ">
+                                    <output id="ridapprove" name="ridapprove"></output>
                                 </div>
                             </div>
                             <div class="row mb-4">
@@ -229,7 +229,7 @@
             </form>
         </div>
     </div>
-</div>
+</div> --}}
 @endsection
 {{-- Javascript --}}
 @section('Javascript')
@@ -244,30 +244,25 @@
             $("#noteapprove").val($(this).attr('note'))
        });
        $('.btncancelapprove').click(function() {
+            swal({
+                title: "ยืนยันการยกเลิกการอนุมัติ",
+                text: "หมายเลขคำร้อง :" + "เหตุผลที่ยกเลิก :",
+                type: "input",
+                showCancelButton: true,
+                closeOnConfirm: false,
+                inputPlaceholder: "กรุณากรอกเหตุผลที่ยกเลิก..."
+                })
+                .then((inputValue)=>{
+                    if (inputValue === false)
+                        return false;
+                    if (inputValue === "")
+                        {
+                            swal.showInputError("คุณต้องกรอกเหตุผลที่ยกเลิก");
+                            return false
+                        }
+                        swal("ยกเลิกการอนุมัติสำเร็จ", "success");
+                });
             $("#cancelapproveModal").modal();
-            $("#ridapprove2").val($(this).attr('rid2'))
-
-            // var item = $(this).attr('item')
-            // var token = $(this).attr('token')
-            // swal({
-            //     title: "ยืนยันการยกเลิกการอนุมัติ",
-            //     text: "หมายเลขคำร้อง :" + "เหตุผลที่ยกเลิก :",
-            //     type: "input",
-            //     showCancelButton: true,
-            //     closeOnConfirm: false,
-            //     inputPlaceholder: "กรุณากรอกเหตุผลที่ยกเลิก..."
-            //     })
-            //     .then((inputValue)=>{
-            //         if (inputValue === false)
-            //             return false;
-            //         if (inputValue === "")
-            //             {
-            //                 swal.showInputError("คุณต้องกรอกเหตุผลที่ยกเลิก");
-            //                 return false
-            //             }
-            //             swal("ยกเลิกการอนุมัติสำเร็จ", "success");
-            //     });
-            // $("#cancelapproveModal").modal();
        });
     });
 </script>
