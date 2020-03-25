@@ -40,10 +40,9 @@
                             datasets: [{
                                 label: '# of Votes',
                                 data: [19, 17, 3, 5, 2, 3, 12, 19, 3, 5],
-                                // labels: <?=json_encode($labels)?>,
-                                // datasets: [{
-                                //     label: 'Report',
-                                //     data: <?=json_encode($data, JSON_NUMERIC_CHECK);?>,
+
+
+
                                 backgroundColor: [
                                         'rgba(255, 99, 132, 0.2)',
                                         'rgba(54, 162, 235, 0.2)',
