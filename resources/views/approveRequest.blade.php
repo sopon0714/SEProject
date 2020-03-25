@@ -61,7 +61,7 @@
                                 <col width="100">
                                 <col width="100">
                             </colgroup>
-                            <thead class="table table-secondary">
+                            <thead >
                                 <tr>
                                     {{-- <th>ตัวอักษรหนา --}}
                                     <th style="text-align: center">ลำดับ</th>

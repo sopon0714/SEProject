@@ -41,11 +41,11 @@
                         </div>
                         <br>
                         <div class="row mb-3">
-                            <div class="col-xl-12 col-12 text-danger text-center">
+                            <div class="col-xl-12 col-12 text-primary text-center">
                                 <br><label style="font-size: 20px">ข้อมูลผู้ยืม</label>
                             </div>
                         </div>
-                        <div class="row mb-3">
+                        <div class="row mb-2">
                             <div class="col-xl-5 col-2 text-right">
                                 <label style="font-size: 20px">หมายเลขคำร้อง : </label>
                             </div>
@@ -53,7 +53,7 @@
                                 <output type="text" class="form-control"  >E0163-10000000001
                             </div>
                         </div>
-                        <div class="row mb-3">
+                        <div class="row mb-2">
                             <div class="col-xl-5 col-2 text-right">
                                 <label style="font-size: 18px">ชื่อ-สกุล : </label>
                             </div>
@@ -61,7 +61,7 @@
                                 <output type="text" class="form-control"  >นายโสภณ โตใหญ่
                             </div>
                         </div>
-                        <div class="row mb-3">
+                        <div class="row mb-2">
                             <div class="col-xl-5 col-2 text-right">
                                 <label style="font-size: 18px">อาจารย์ที่รับผิดชอบ : </label>
                             </div>
@@ -71,7 +71,7 @@
                         </div>
 
                         <br>
-                        <div class="row mb-3">
+                        <div class="row mb-2">
                             <div class="col-xl-5 col-2 text-right">
                                 <label style="font-size: 18px">1    เลขครุภัณฑ์ : </label>
                             </div>
@@ -79,7 +79,7 @@
                                 <output type="text" class="form-control"  >E0163-10000000001
                             </div>
                         </div>
-                        <div class="row mb-3">
+                        <div class="row mb-2">
                             <div class="col-xl-5 col-2 text-right">
                                 <label style="font-size: 18px">2    เลขครุภัณฑ์ : </label>
                             </div>
@@ -155,52 +155,69 @@
                     <div class="modal-body" id="ChangeModalBody">
                         <div class="container">
                             <div class="col-xl-15 col-15 mb-4">
-                                <div class="card"  style="height: 400px">
+                                <div class="card"  >
                                     <div class="col-sm-12" id="historyRequirements" style="overflow-y:auto;">
                                         <div class="search" >
 
                                             <div class="row mb-2">
                                                 <div class="col-xl-4 col-2 text-right">
-                                                    <label style="font-size: 18px">หมายเลขคำร้อง : </label>
+                                                    <br><label style="font-size: 18px">หมายเลขคำร้อง : </label>
                                                 </div>
-                                                <div class="col-xl-5 col-6 ">
-                                                    <input type="text" name="note">
+                                                <div class="col-xl-5 col-3 ">
+                                                    <br><input type="text" class="form-control" name="note">
                                                 </div>
-                                                <div class="col-xl-3 col-6 ">
-                                                    <button type="button" class="btn btn-info btn-sm tt" title='ค้นหา'>
+                                                <div class="col-xl-3 col-3 ">
+                                                    <br><button type="button" class="btn btn-info btn-sm tt" title='ค้นหา'>
                                                         <i class="fas fa-search"></i>
                                                     </button>
                                                 </div>
                                             </div>
+
+                                            <div class="row mb-3">
+                                                <div class="col-xl-12 col-12 text-primary text-center">
+                                                    <br><label style="font-size: 20px ;">ข้อมูลผู้ยืม</label>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-2">
+                                                <div class="col-xl-5 col-2 text-right">
+                                                    <label style="font-size: 20px">หมายเลขคำร้อง : </label>
+                                                </div>
+                                                <div class="col-xl-5 col-3 ">
+                                                    <output type="text" class="form-control"  >E0163-10000000001
+                                                </div>
+                                            </div>
+                                            <div class="row mb-2">
+                                                <div class="col-xl-5 col-2 text-right">
+                                                    <label style="font-size: 18px">ชื่อ-สกุล : </label>
+                                                </div>
+                                                <div class="col-xl-5 col-3 ">
+                                                    <output type="text" class="form-control"  >นายโสภณ โตใหญ่
+                                                </div>
+                                            </div>
+                                            <div class="row mb-2">
+                                                <div class="col-xl-5 col-2 text-right">
+                                                    <label style="font-size: 18px">อาจารย์ที่รับผิดชอบ : </label>
+                                                </div>
+                                                <div class="col-xl-5 col-3 ">
+                                                    <output type="text" class="form-control"  >นางสาวนุชนาฎ สัตยากวี
+                                                </div>
+                                            </div>
+
                                             <br>
                                             <div class="row mb-2">
-                                                <div class="col-xl-10">
-                                                    <label style="font-size: 20px">หมายเลขคำร้อง : E0163-10000000001</label>
+                                                <div class="col-xl-5 col-2 text-right">
+                                                    <label style="font-size: 18px">1    เลขครุภัณฑ์ : </label>
+                                                </div>
+                                                <div class="col-xl-5 col-3 ">
+                                                    <output type="text" class="form-control"  >E0163-10000000001
                                                 </div>
                                             </div>
                                             <div class="row mb-2">
-                                                <div class="col-xl-10">
-                                                    <label style="font-size: 18px">ข้อมูลผู้ยืม</label>
+                                                <div class="col-xl-5 col-2 text-right">
+                                                    <label style="font-size: 18px">2    เลขครุภัณฑ์ : </label>
                                                 </div>
-                                            </div>
-                                            <div class="row mb-2">
-                                                <div class="col-xl-10">
-                                                    <label style="font-size: 18px">ชื่อ-สกุล : นายโสภณ โตใหญ่</label>
-                                                </div>
-                                            </div>
-                                            <div class="row mb-2">
-                                                <div class="col-xl-10">
-                                                    <label style="font-size: 18px">อาจารย์ที่รับผิดชอบ : นางสาวนุชนาฎ สัตยากวี</label>
-                                                </div>
-                                            </div>
-                                            <div class="row mb-2">
-                                                <div class="col-xl-10">
-                                                    <label style="font-size: 18px">1    เลขครุภัณฑ์ : E0163-10000000001</label>
-                                                </div>
-                                            </div>
-                                            <div class="row mb-2">
-                                                <div class="col-xl-10">
-                                                    <label style="font-size: 18px">2    เลขครุภัณฑ์ : E0163-20000000010</label>
+                                                <div class="col-xl-5 col-3 ">
+                                                    <output type="text" class="form-control"  >E0163-20000000010
                                                 </div>
                                             </div>
                                             {{-- <span>

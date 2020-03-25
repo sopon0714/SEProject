@@ -23,41 +23,50 @@
         </div>
         {{-- style="text-align: center" --}}
         <div>
-            <div class="card-body" style="height: 420px" >
+            <div class="card-body" >
                 <div class="col-sm-12" id="historyRequirements" style="overflow-y:auto;">
                     <div class="search" >
                         <div class="row mb-2">
-                            <div class="col-xl-4 col-2 text-right">
-                                <label style="font-size: 18px">หมายเลขคำร้อง : </label>
+                            <div class="col-xl-5 col-2 text-right">
+                                <br><label style="font-size: 18px">หมายเลขคำร้อง : </label>
                             </div>
                             <div class="col-xl-3 col-6 ">
-                                <input type="text" name="note">
+                                <br><input type="text" name="note">
                             </div>
                             <div class="col-xl-2 col-6 ">
-                                <button type="button" class="btn btn-info btn-sm tt" title='ค้นหา'>
+                                <br><button type="button" class="btn btn-info btn-sm tt" title='ค้นหา'>
                                     <i class="fas fa-search"></i>
                                 </button>
                             </div>
                         </div>
                         <div class="row mb-2">
-                            <div class="col-xl-10">
-                                <label style="font-size: 20px"><br>หมายเลขคำร้อง : E0163-10000000001</label>
+                            <div class="col-xl-5 col-2 text-right">
+                                <br><label style="font-size: 20px">หมายเลขคำร้อง : </label>
+                            </div>
+                            <div class="col-xl-3 col-3 ">
+                                <br><output type="text" class="form-control"  >E0163-10000000001
                             </div>
                         </div>
                         <div class="row mb-2">
-                            <div class="col-xl-10">
-                                <label style="font-size: 18px">ชื่อ-สกุล : นายโสภณ โตใหญ่</label>
+                            <div class="col-xl-5 col-2 text-right">
+                                <label style="font-size: 18px">ชื่อ-สกุล : </label>
+                            </div>
+                            <div class="col-xl-3 col-3 ">
+                                <output type="text" class="form-control"  >นายโสภณ โตใหญ่
                             </div>
                         </div>
                         <div class="row mb-2">
-                            <div class="col-xl-10">
-                                <label style="font-size: 18px">อาจารย์ที่รับผิดชอบ : นางสาวนุชนาฎ สัตยากวี</label>
+                            <div class="col-xl-5 col-2 text-right">
+                                <label style="font-size: 18px">อาจารย์ที่รับผิดชอบ : </label>
+                            </div>
+                            <div class="col-xl-3 col-3 ">
+                                <output type="text" class="form-control"  >นางสาวนุชนาฎ สัตยากวี
                             </div>
                         </div>
                         <br>
                         <div class="row mb-2">
-                            <div class="col-xl-2 col-2 text-right">
-                                <label for="serialNumber" style="font-size: 18px">1    เลขครุภัณฑ์ : </label>
+                            <div class="col-xl-5 col-2 text-right">
+                                <label style="font-size: 18px">1    เลขครุภัณฑ์ : </label>
                             </div>
                             <div class="col-xl-2 ">
                                 <select id="serialNumber">
@@ -69,8 +78,8 @@
                             </div>
                         </div>
                         <div class="row mb-2">
-                            <div class="col-xl-2 col-2 text-right">
-                                <label for="serialNumber" style="font-size: 18px">2    เลขครุภัณฑ์ : </label>
+                            <div class="col-xl-5 col-2 text-right">
+                                <label style="font-size: 18px">2    เลขครุภัณฑ์ : </label>
                             </div>
                             <div class="col-xl-2 ">
                                 <select id="serialNumber">
@@ -153,46 +162,50 @@
                                 <div class="card"  >
                                     <div class="col-sm-12" id="historyRequirements" style="overflow-y:auto;">
                                         <div class="search" >
-                                            <br>
+
                                             <div class="row mb-2">
-                                                <div class="col-xl-4 col-2 text-right">
-                                                    <label style="font-size: 18px">หมายเลขคำร้อง : </label>
+                                                <div class="col-xl-5 col-2 text-right">
+                                                    <br><label style="font-size: 18px">หมายเลขคำร้อง : </label>
                                                 </div>
                                                 <div class="col-xl-5 col-6 ">
-                                                    <input type="text" name="note">
+                                                    <br><input type="text" class="form-control" name="note">
                                                 </div>
-                                                <div class="col-xl-3 col-6 ">
-                                                    <button type="button" class="btn btn-info btn-sm tt" title='ค้นหา'>
+                                                <div class="col-xl-2 col-6 ">
+                                                    <br><button type="button" class="btn btn-info btn-sm tt" title='ค้นหา'>
                                                         <i class="fas fa-search"></i>
                                                     </button>
                                                 </div>
                                             </div>
                                             <div class="row mb-2">
-                                                <div class="col-xl-10">
-                                                    <label style="font-size: 20px">หมายเลขคำร้อง : R00002</label>
+                                                <div class="col-xl-5 col-2 text-right">
+                                                    <br><label style="font-size: 20px">หมายเลขคำร้อง : </label>
+                                                </div>
+                                                <div class="col-xl-5 col-3 ">
+                                                    <br><output type="text" class="form-control"  >E0163-10000000001
                                                 </div>
                                             </div>
                                             <div class="row mb-2">
-                                                <div class="col-xl-10">
-                                                    <label style="font-size: 18px">ข้อมูลผู้ยืม</label>
+                                                <div class="col-xl-5 col-2 text-right">
+                                                    <label style="font-size: 18px">ชื่อ-สกุล : </label>
+                                                </div>
+                                                <div class="col-xl-5 col-3 ">
+                                                    <output type="text" class="form-control"  >นายโสภณ โตใหญ่
                                                 </div>
                                             </div>
                                             <div class="row mb-2">
-                                                <div class="col-xl-10">
-                                                    <label style="font-size: 18px">ชื่อ-สกุล : นายโสภณ โตใหญ่</label>
+                                                <div class="col-xl-5 col-2 text-right">
+                                                    <label style="font-size: 18px">อาจารย์ที่รับผิดชอบ : </label>
                                                 </div>
-                                            </div>
-                                            <div class="row mb-2">
-                                                <div class="col-xl-10">
-                                                    <label style="font-size: 18px">อาจารย์ที่รับผิดชอบ : นางสาวนุชนาฎ สัตยากวี</label>
+                                                <div class="col-xl-5 col-3 ">
+                                                    <output type="text" class="form-control"  >นางสาวนุชนาฎ สัตยากวี
                                                 </div>
                                             </div>
                                             <br>
                                             <div class="row mb-2">
-                                                <div class="col-xl-3 col-2 text-right">
-                                                    <label for="serialNumber" style="font-size: 18px">1    เลขครุภัณฑ์ : </label>
+                                                <div class="col-xl-5 col-2 text-right">
+                                                    <label style="font-size: 18px">1    เลขครุภัณฑ์ : </label>
                                                 </div>
-                                                <div class="col-xl-2 ">
+                                                <div class="col-xl-5 ">
                                                     <select id="serialNumber">
                                                         <option value="a">E0163-10000000001</option>
                                                         <option value="a">E0163-20000000010</option>
@@ -202,10 +215,10 @@
                                                 </div>
                                             </div>
                                             <div class="row mb-2">
-                                                <div class="col-xl-3 col-2 text-right">
-                                                    <label for="serialNumber" style="font-size: 18px">2    เลขครุภัณฑ์ : </label>
+                                                <div class="col-xl-5 col-2 text-right">
+                                                    <label style="font-size: 18px">2    เลขครุภัณฑ์ : </label>
                                                 </div>
-                                                <div class="col-xl-2 ">
+                                                <div class="col-xl-5 ">
                                                     <select id="serialNumber">
                                                         <option value="a">E0163-10000000001</option>
                                                         <option value="a">E0163-20000000010</option>
