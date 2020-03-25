@@ -202,7 +202,12 @@
                                     <span>ชื่ออุปกรณ์ :</span>
                                 </div>
                                 <div class="col-xl-3 col-3 ">
-                                    <input type="text" class="form-control form-control-sm-5"  aria-controls="dataTable" value="drop down" disabled>
+                                    <select id="serialNumber1" class="form-control">
+                                        <option value="a">เมาส์</option>
+                                        <option value="b">กุญแจ</option>
+                                        <option value="c">มัลติมิเตอร์</option>
+                                    </select>
+
                                 </div>
                                 <div class="col-xl-2 col-2 text-right">
                                     <span>จำนวน :</span>
@@ -219,7 +224,12 @@
                                     <span>ชื่ออุปกรณ์ :</span>
                                 </div>
                                 <div class="col-xl-3 col-3 ">
-                                    <input type="text" class="form-control form-control-sm-5"  aria-controls="dataTable" value="drop down" disabled>
+                                    <select id="serialNumber2" class="form-control">
+                                        <option value="a">เมาส์</option>
+                                        <option value="b">กุญแจ</option>
+                                        <option value="c">มัลติมิเตอร์</option>
+                                    </select>
+
                                 </div>
                                 <div class="col-xl-2 col-2 text-right">
                                     <span>จำนวน :</span>
@@ -231,6 +241,7 @@
                                     <button class="btn btn btnadd" ><i class="fas fa-plus"></i></button>
                                 </div>
                             </div>
+
                             <div class="row mb-2">
                                 <div class="col-xl-4 col-2 text-left">
                                     <span>เหตุผลในการยืม:</span>
@@ -243,8 +254,10 @@
                                 <div class="col-xl-4 col-2 text-left">
                                     <span>อาจารย์ที่รับผิดชอบ :</span>
                                 </div>
-                                <div class="col-xl-6 col-7 text-left">
-                                    <input type="text" class="form-control form-control-sm-5"  aria-controls="dataTable" value="drop down" disabled>
+                                <div class="col-xl-6 col-3 ">
+                                    <select id="serialNumber2" class="form-control">
+                                        <option value="a">นางสาวนุชนาฎ สัตยากวี</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>
@@ -287,7 +300,12 @@
                                     <span>ชื่ออุปกรณ์ :</span>
                                 </div>
                                 <div class="col-xl-3 col-3 ">
-                                    <input type="text" class="form-control form-control-sm-5"  aria-controls="dataTable" value="drop down" disabled>
+                                    <select id="serialNumber1" class="form-control">
+                                        <option value="a">เมาส์</option>
+                                        <option value="b">กุญแจ</option>
+                                        <option value="c">มัลติมิเตอร์</option>
+                                    </select>
+
                                 </div>
                                 <div class="col-xl-2 col-2 text-right">
                                     <span>จำนวน :</span>
@@ -304,7 +322,12 @@
                                     <span>ชื่ออุปกรณ์ :</span>
                                 </div>
                                 <div class="col-xl-3 col-3 ">
-                                    <input type="text" class="form-control form-control-sm-5"  aria-controls="dataTable" value="drop down" disabled>
+                                    <select id="serialNumber2" class="form-control">
+                                        <option value="a">เมาส์</option>
+                                        <option value="b">กุญแจ</option>
+                                        <option value="c">มัลติมิเตอร์</option>
+                                    </select>
+
                                 </div>
                                 <div class="col-xl-2 col-2 text-right">
                                     <span>จำนวน :</span>
@@ -328,8 +351,10 @@
                                 <div class="col-xl-4 col-2 text-left">
                                     <span>อาจารย์ที่รับผิดชอบ :</span>
                                 </div>
-                                <div class="col-xl-6 col-7 text-left">
-                                    <input type="text" class="form-control form-control-sm-5"  aria-controls="dataTable" value="drop down" disabled>
+                                <div class="col-xl-6 col-3 ">
+                                    <select id="serialNumber2" class="form-control">
+                                        <option value="a">นางสาวนุชนาฎ สัตยากวี</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>

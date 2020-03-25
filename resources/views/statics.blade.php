@@ -3,11 +3,11 @@
 @section('Content')
 
 <div class="col-xl-15 col-15 mb-4">
-    <div class="card"  style="height: 1200px">
+    <div class="card"  >
         <div class="card-header card-bg " style="background-color: #bf4040">
             <span class="link-active " style="font-size: 15px; color:white;">สถิติการยืมอุปกรณ์</span>
         </div>
-        <div class="card-body" style="height: 300px">
+        <div class="card-body" >
             <div class="col-sm-12" id="historyRequirements" style="overflow-y:auto;">
 
 

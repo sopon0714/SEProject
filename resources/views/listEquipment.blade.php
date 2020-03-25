@@ -66,7 +66,7 @@
         </div>
         {{-- style="text-align: center" --}}
         <div>
-            <div class="card-body" style="height: 200px" >
+            <div class="card-body"  >
                 <div class="col-sm-12" id="historyRequirements" style="overflow-y:auto;">
                     <div class="search" >
                         <div class="row mb-2">
@@ -121,9 +121,9 @@
 </div>
 
 <div class="col-xl-15 col-15 mb-4">
-    <div class="card"  style="height: 400px">
+    <div class="card"  >
         <div class="card-header card-bg " style="background-color: #bf4040">
-            <span class="link-active " style="font-size: 15px; color:white;">ตารางแสดงรายการอุปกรณ์ทั้งหมด</span>
+            <span class="link-active " style="font-size: 17px; color:white;">ตารางแสดงรายการอุปกรณ์ทั้งหมด</span>
         </div>
         <div class="card-body" >
             <div class="col-sm-12" id="historyRequirements" style="overflow-y:auto;">
