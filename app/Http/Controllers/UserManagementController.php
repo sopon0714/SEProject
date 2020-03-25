@@ -9,7 +9,7 @@ class UserManagementController extends Controller
 {
     public function indexpageUserManagement()
     {
-        $UserManagementStaff = DB::select("SELECT H.Title, H.FName, H.LName, H.UTName, COUNT(requirement.UID)as amount FROM
+        $UserManagementStaff = DB::select("SELECT H.UID,H.Title, H.FName, H.LName, H.UTName, COUNT(requirement.UID)as amount FROM
         (SELECT user.UID, user.Title, user.FName, user.LName, user.GMail, usertype.UTName FROM user
         INNER JOIN usertype ON user.UTID = usertype.UTID)as H
         LEFT JOIN requirement
@@ -17,7 +17,7 @@ class UserManagementController extends Controller
         WHERE H.UTName = 'เจ้าหน้าที่'
         GROUP BY H.Title, H.FName, H.LName, H.UTName");
 
-        $UserManagementAjNisit = DB::select("SELECT H.Title, H.FName, H.LName, H.UTName, COUNT(requirement.UID)as amount FROM
+        $UserManagementAjNisit = DB::select("SELECT H.UID,H.Title, H.FName, H.LName, H.UTName, COUNT(requirement.UID)as amount FROM
         (SELECT user.UID, user.Title, user.FName, user.LName, user.GMail, usertype.UTName FROM user
         INNER JOIN usertype ON user.UTID = usertype.UTID)as H
         LEFT JOIN requirement
@@ -35,5 +35,4 @@ class UserManagementController extends Controller
         //$category = DB::select("SELECT * FROM `category` WHERE `category`.`isDelete`=0 ORDER BY CName");
         return view("userManagement", ["TableUserManagementStaff" => $UserManagementStaff, "TableUserManagementAjNisit" => $UserManagementAjNisit, "amount" => $countListEquipment]);
     }
-
 }
