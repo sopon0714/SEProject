@@ -33,6 +33,8 @@ Route::post('/DetailByEID', 'DetailEquipmentController@DetailEquipmentByEID');
 Route::post('/DetailByOID', 'UserProfileController@DetailByOID');
 
 Route::post('/DetailByRID', 'RequestManagementController@DetailByRID');
+
+Route::post('/DetailByReceive', 'ReceiveEquipmentController@DetailByReceive');
 // userProfile Route
 Route::prefix('userProfile/{id}')->group(function () {
     Route::get('', 'UserProfileController@getUser');
@@ -120,18 +122,14 @@ Route::prefix('detailEquipment/{id}')->group(function () {
     Route::delete('', 'DetailEquipmentController@deleteDetailEquipment');
 });
 
-
-
-Route::get('receiveEquipment', function () {
-    return view('receiveEquipment');
+// receiveEquipment  Route
+Route::prefix('receiveEquipment')->group(function () {
+    Route::get('', 'ReceiveEquipmentController@indexpagereceiveEquipment');
+    Route::post('', 'ReceiveEquipmentController@insertreceiveEquipment');
+    // Route::put('', 'DetailEquipmentController@updateDetailEquipment');
+    // Route::delete('', 'DetailEquipmentController@deleteDetailEquipment');
 });
+
 Route::get('returnEquipment', function () {
     return view('returnEquipment');
-});
-
-Route::get('layoutNisit', function () {
-    return view('layoutNisit');
-});
-Route::get('layoutTeacher', function () {
-    return view('layoutTeacher');
 });
