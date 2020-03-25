@@ -26,7 +26,7 @@
                         <div class="h5 mb-0 font-weight-bold text-gray-800">{{$amount[0]->person}}</div>
                     </div>
                     <div class="col-auto">
-                        <i class="fas fa-user-tie fa-2x"></i>
+                        <i class="fas fa-user-tie fa-3x"></i>
                     </div>
                 </div>
             </div>
