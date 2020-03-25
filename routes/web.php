@@ -26,6 +26,8 @@ Route::get('/statics', function () {
     return view('statics');
 });
 
+Route::post('/DetailByEID', 'DetailEquipmentController@DetailEquipmentByEID');
+
 // userProfile Route
 Route::prefix('userProfile')->group(function () {
     Route::get('', 'UserProfileController@getUser');

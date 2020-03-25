@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class DetailEquipmentController extends Controller
 {
@@ -59,5 +60,32 @@ class DetailEquipmentController extends Controller
             ->where('EID', $EID)
             ->update(["isDelete" => 1]);
         return $this->indexpageDetailEquipment($ELID);
+    }
+    public function DetailEquipmentByEID(Request $req)
+    {
+        header('Content-Type: application/json');
+        $EID = $req->get('EID') ?? "";
+        $InfoE = DB::selectOne("SELECT `equipmentlist`.*,IFNULL(`equipment`.`SNumber`,'ไม่มีเลขครุภัณฑ์')  as SNumber FROM `equipment` INNER JOIN `equipmentlist` ON `equipment`.`ELID` =`equipmentlist`.`ELID` WHERE `equipment`.`EID`=$EID");
+        $arrHis = DB::select("SELECT `orderitem`.`getDate`,`orderitem`.`RID`, CONCAT(`user`.`Title`, `user`.`FName`, ' ', `user`.`LName`) as fullname
+        ,IF(`orderitem`.`returnStaffID` IS NULL ,'รับอุปกรณ์แล้ว','คืนอุปกรณ์แล้ว') as OStatus FROM `orderitem`
+                INNER JOIN `orderdetail` ON`orderitem`.`OID`=`orderdetail`.`OID`
+                INNER JOIN `equipment` ON `equipment`.`EID` = `orderdetail`.`EID`
+                INNER JOIN `requirement` ON `requirement`.`RID`=`orderitem`.`RID`
+                INNER JOIN `user` ON `user`.`UID`=`requirement`.`UID`
+                WHERE `equipment`.`EID`=$EID
+                ORDER BY `orderitem`.`getDate` DESC,`orderitem`.`RID` DESC");
+        $content = "";
+        for ($i = 0; $i < count($arrHis); $i++) {
+            $content .= " <tr role=\"row\" >
+                            <td rowspan=\"1\" colspan=\"1\">{$arrHis[$i]->getDate}</td>
+                            <td rowspan=\"1\" colspan=\"1\">R" . sprintf("%06d", $arrHis[$i]->RID) . "</td>
+                            <td rowspan=\"1\" colspan=\"1\">{$arrHis[$i]->fullname}</td>
+                            <td rowspan=\"1\" colspan=\"1\">{$arrHis[$i]->OStatus}</td>
+                        </tr>";
+        }
+        $INFO = array();
+        $INFO['InfoE'] = $InfoE;
+        $INFO['datatable'] = $content;
+        echo json_encode($INFO);
     }
 }
