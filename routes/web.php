@@ -31,6 +31,8 @@ Route::prefix('statics')->group(function () {
 Route::post('/DetailByEID', 'DetailEquipmentController@DetailEquipmentByEID');
 
 Route::post('/DetailByOID', 'UserProfileController@DetailByOID');
+
+Route::post('/DetailByRID', 'RequestManagementController@DetailByRID');
 // userProfile Route
 Route::prefix('userProfile/{id}')->group(function () {
     Route::get('', 'UserProfileController@getUser');
@@ -71,7 +73,7 @@ Route::prefix('comment')->group(function () {
 // approveRequest Route
 Route::prefix('approveRequest')->group(function () {
     Route::get('', 'ApproveRequestController@indexpageApproveRequest');
-    //Route::post('', 'ApproveRequestController@insertApproveRequest');
+    Route::post('', 'ApproveRequestController@AcceptApproveRequest');
     // Route::put('', 'ApproveRequestController@updateApproveRequest');
     Route::delete('', 'ApproveRequestController@deleteApproveRequest');
 });

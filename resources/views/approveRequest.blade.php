@@ -29,8 +29,12 @@
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
-                            <div class="font-weight-bold  text-uppercase mb-2 text-right">จำนวนคำร้องขอที่รอยืนยัน</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800 text-right" >{{$amount[0]->R_sum }} คำร้อง</div>
+                            <div class="font-weight-bold  text-uppercase mb-1 ">จำนวนคำร้องขอ</div>
+                            <div class="font-weight-bold  text-uppercase mb-1 ">ที่รอยืนยัน</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800 " >{{$amount[0]->R_sum }} คำร้อง</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-envelope-open-text fa-3x"></i>
                         </div>
                     </div>
                 </div>
@@ -55,11 +59,11 @@
                     <div class="table-responsive">
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" style="width: 90%" align="center">
                             <colgroup>
-                                <col width="100">
-                                <col width="100">
-                                <col width="100">
-                                <col width="100">
-                                <col width="100">
+                                <col width="15%">
+                                <col width="20%">
+                                <col width="20%">
+                                <col width="30%">
+                                <col width="25%">
                             </colgroup>
                             <thead >
                                 <tr>
@@ -75,11 +79,11 @@
                                 @for ($i = 0; $i < count($TableApproveRequests); $i++)
                                 <tr>
                                     <td class="text-center">{{$i+1}}</td>
-                                    <td class="text-center">{{$TableApproveRequests[$i]->RID}}</td>
+                                    <td class="text-center">R{{sprintf("%06d", $TableApproveRequests[$i]->RID)}}</td>
                                     <td class="text-center">{{$TableApproveRequests[$i]->ReqDate}}</td>
                                     <td class="text-center">{{$TableApproveRequests[$i]->Title}} {{$TableApproveRequests[$i]->FName}} {{$TableApproveRequests[$i]->LName}}</td>
                                     <td style="text-align: center">
-                                        <button type="button" class="btn btn-info btn-sm tt btninfoapprove" data-toggle="tooltip" title="รายละเอียดการยืนยันคำร้อง" rid="{{$TableApproveRequests[$i]->RID}}" reqdate="{{$TableApproveRequests[$i]->ReqDate}}" nameuser="{{$TableApproveRequests[$i]->Title}} {{$TableApproveRequests[$i]->FName}} {{$TableApproveRequests[$i]->LName}}"  nameaj="{{$TableApproveRequests[$i]->PTitle}} {{$TableApproveRequests[$i]->PFName}} {{$TableApproveRequests[$i]->PLName}}" note="{{$TableApproveRequests[$i]->Reason}}" data-original-title="รายละเอียด"><i class="fas fa-file-alt"></i></i></button>
+                                        <button type="button" class="btn btn-info btn-sm tt btninfoapprove"  token ="{{csrf_token()}}" data-toggle="tooltip" title="รายละเอียดการยืนยันคำร้อง" rid="{{$TableApproveRequests[$i]->RID}}" reqdate="{{$TableApproveRequests[$i]->ReqDate}}" nameuser="{{$TableApproveRequests[$i]->Title}} {{$TableApproveRequests[$i]->FName}} {{$TableApproveRequests[$i]->LName}}"  nameaj="{{$TableApproveRequests[$i]->PTitle}} {{$TableApproveRequests[$i]->PFName}} {{$TableApproveRequests[$i]->PLName}}" note="{{$TableApproveRequests[$i]->Reason}}" data-original-title="รายละเอียด"><i class="fas fa-file-alt"></i></i></button>
                                         <button type="button" class="btn btn-danger btn-sm tt btncancelapprove" data-toggle="tooltip" title="ยกเลิกการอนุมัติ"  rid2="{{$TableApproveRequests[$i]->RID}}" token="{{ csrf_token() }}" data-original-title="ลบ"><i class="far fa-trash-alt" aria-hidden="true"></i></button>
                                         {{-- rid2="{{$TableApproveRequests[$i]->RID}}" token="{{ csrf_token() }}" --}}
                                     </td>
@@ -99,13 +103,15 @@
 <div class="modal fade" id="infoapproveModal" name="infoapproveModal" tabindex="-1" role="dialog" >
     <div class="modal-dialog modal-lg" role="document" style="width: 50%">
         <div class="modal-content">
-            <form method="post" id="info" name="info" action="manage.php">
+            <form method="post" id="info" name="info" action="./approveRequest">
                 <div class="info" style="font-size: 17px">
                     <div class="modal-header header-modal" style="background-color: #66b3ff;">
                         <h4 class="modal-title" style="color: white">รายละเอียดการการยืนยันคำร้อง</h4>
                     </div>
                     <div class="modal-body" id="ChangeModalBody">
                         <div class="container">
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                            <input type="hidden" name="RID" id="RID" value="">
                             <div class="row mb-4">
                                 <div class="col-xl-6 col-2 text-right">
                                     <span>หมายเลขคำร้อง :</span>
@@ -162,7 +168,7 @@
                                             </tr>
                                         </thead>
 
-                                        <tbody>
+                                        <tbody id="dt1">
                                             <tr role="row" >
                                                 <td rowspan="1" colspan="1">1</output></td>
                                                 <td rowspan="1" colspan="1">เมาส์</output></td>
@@ -177,7 +183,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-success cancel" id="a_cancelInfo" data-dismiss="modal">อนุมัติ</button>
+                        <button type="submit" class="btn btn-success cancel" id="a_cancelInfo" >อนุมัติ</button>
                         <button type="button" class="btn btn-danger cancel" id="a_cancelInfo" data-dismiss="modal">ยกเลิก</button>
                     </div>
                 </div>
@@ -186,16 +192,19 @@
     </div>
 </div>
 {{-- modal ยกเลิกการอนุมัติ --}}
-<div class="modal fade" id="cancelapproveModal" name="cancelapproveModal" tabindex="-1" role="dialog" >
+<div class="modal fade" id="cancelapproveModal" style="margin-top: 10%" name="cancelapproveModal" tabindex="-1" role="dialog" >
     <div class="modal-dialog modal-lg" role="document" style="width: 50%">
         <div class="modal-content">
-            <form method="post" id="cancel" name="cancel" action="manage.php">
+            <form method="post" id="cancel" name="cancel" action="./approveRequest">
                 <div class="cancel" style="font-size: 17px">
                     <div class="modal-header header-modal" style="background-color: #CC0000;">
                         <h4 class="modal-title" style="color: white">ยืนยันการยกเลิกการอนุมัติ</h4>
                     </div>
                     <div class="modal-body" id="CancelModalBody">
                         <div class="container">
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                            <input type="hidden" name="_method" value="delete">
+                            <input type="hidden" name="RID" id="RID2" value="">
                             <div class="row mb-4">
                                 <div class="col-xl-5 col-2 text-right">
                                     <span>หมายเลขคำร้อง :</span>
@@ -208,14 +217,14 @@
                                 <div class="col-xl-5 col-2 text-right">
                                     <span>เหตุผลที่ยกเลิก :</span>
                                 </div>
-                                <div class="col-xl-5 col-6 ">
-                                    <input type="text" class="form-control" id="reasoncancel" value="">
+                                <div class="col-xl-4 col-6 ">
+                                    <input type="text" class="form-control" name="reasoncancel" value="">
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-success cancel" id="a_cancelInfo" data-dismiss="modal">ยืนยัน</button>
+                        <button type="submit" class="btn btn-success cancel" id="a_cancelInfo" >ยืนยัน</button>
                         <button type="button" class="btn btn-danger cancel" id="a_cancelInfo" data-dismiss="modal">ยกเลิก</button>
                     </div>
                 </div>
@@ -229,17 +238,33 @@
 <script>
     $(document).ready(function() {
        $('.btninfoapprove').click(function() {
-            $("#infoapproveModal").modal();
-            $("#ridapprove").val($(this).attr('rid'))
+            var token = $(this).attr('token')
+            $("#ridapprove").val("R"+('000000' + $(this).attr('rid')).substr(-6))
             $("#reqdateapprove").val($(this).attr('reqdate'))
             $("#nameuserapprove").val($(this).attr('nameuser'))
             $("#nameajapprove").val($(this).attr('nameaj'))
             $("#noteapprove").val($(this).attr('note'))
+            $("#RID").val($(this).attr('rid'))
+            $.ajax({
+                    url: '../DetailByRID',
+                    type: 'POST',
+                    async : false,
+                    data:{
+                        _token:token,
+                        RID:$(this).attr('rid')
+                    },
+                    success: function(result) {
+                        var data= JSON.parse(result)
+                        $('#dt1').html(data.datatable);
+                        $("#infoapproveModal").modal();
+
+                    }
+                });
        });
        $('.btncancelapprove').click(function() {
             $("#cancelapproveModal").modal();
-            $("#ridapprove2").val($(this).attr('rid2'))
-
+            $("#ridapprove2").val("R"+('000000' + $(this).attr('rid2')).substr(-6))
+            $("#RID2").val($(this).attr('rid2'))
             // var item = $(this).attr('item')
             // var token = $(this).attr('token')
             // swal({
