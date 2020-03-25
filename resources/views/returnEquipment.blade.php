@@ -16,15 +16,39 @@
 
 
 
-
+<div class="row">
+    <div class="col-xl-3 col-12 mb-4">
+        <div class="card border-left-warning card-color-four shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="font-weight-bold  text-uppercase  mb-1">จำนวนคำร้องทั้งหมด</div>
+                        <div class="font-weight-bold  text-uppercase  mb-1">ที่รับอุปกรณ์แล้ว</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">xxxx คำร้อง</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-calendar-check fa-3x"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 
 <div class="col-xl-15 col-15 mb-4">
-    <div class="card"  >
-        {{-- <div class="card-header card-bg " style="background-color: #bf4040">
-            <span class="link-active " style="font-size: 15px; color:white;">ตารางแสดงคำร้องขอที่อนุมัติแล้ว</span>
-        </div> --}}
+    <div class="col-xl-12 col-12 mb-4">
+        <div class="card">
+            <div class="row">
+                <div class="col-xl-12 col-12 mb-4">
+                    <div class="card">
+                        <div class="card-header card-bg " style="background-color: #bf4040">
+                            <span class="link-active " style="font-size: 17px; color:white;">ตารางแสดงคำร้องที่รับอุปกรณ์แล้ว</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         <div class="card-body" >
             <div class="col-sm-12" id="historyRequirements" style="overflow-y:auto;">
                     <table class="table table-bordered" id="historyRequirementsTable" style="text-align:center;"  swidth="100%"  cellspacing="0">

@@ -16,6 +16,28 @@
 
 
 
+<<<<<<< HEAD
+=======
+<div class="row">
+    <div class="col-xl-3 col-12 mb-4">
+        <div class="card border-left-warning card-color-four shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="font-weight-bold  text-uppercase  mb-1">จำนวนคำร้องทั้งหมด</div>
+                        <div class="font-weight-bold  text-uppercase  mb-1">ที่อนุมัติแล้ว</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">xxxx คำร้อง</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-envelope fa-3x"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+>>>>>>> 84a21eebe3ee45ec30ea1b144fe278f51783b7f3
 
 
 <div class="col-xl-15 col-15 mb-4">
@@ -54,6 +76,7 @@
         </div>
     </div>
 </div>
+
 
 @endsection
 
