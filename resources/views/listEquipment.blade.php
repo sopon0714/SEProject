@@ -2,8 +2,6 @@
 @section('title',"listEquipment")
 @section('Content')
 
-
-
 <div class="row">
     <div class="col-xl-12 col-12 mb-4">
         <div class="card">
@@ -13,9 +11,6 @@
         </div>
     </div>
 </div>
-
-
-
 <div class="row">
     <div class="col-xl-3 col-12 mb-4">
         <div class="card border-left-primary card-color-info shadow h-100 py-2">
@@ -47,7 +42,6 @@
             </div>
         </div>
     </div>
-
     <div class="col-xl-3 col-12 mb-4">
         <a style="text-decoration: none">
         <div class="card border-left-primary card-color-add shadow h-100 py-2" id="add" style="cursor:pointer;">
@@ -65,9 +59,6 @@
         </a>
     </div>
 </div>
-
-
-
 <div class="col-xl-15 col-15 mb-4">
     <div class="card">
         <div class="card-header card-bg " style="background-color: #bf4040">
@@ -83,7 +74,7 @@
                                 <label style="font-size: 18px">ชื่ออุปกรณ์ : </label>
                             </div>
                             <div class="col-xl-6 col-6 ">
-                                <input type="text" name="note"><br />
+                                <input type="text" class="form-control-sm" name="note"><br />
                             </div>
                         </div>
                         <div class="row mb-2">

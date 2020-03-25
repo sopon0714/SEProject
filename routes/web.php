@@ -113,7 +113,6 @@ Route::prefix('detailEquipment/{id}')->group(function () {
     Route::delete('', 'DetailEquipmentController@deleteDetailEquipment');
 });
 
-
 Route::get('layoutAdmin', function () {
     return view('layoutAdmin');
 });

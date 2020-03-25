@@ -77,7 +77,7 @@
                 </div>
             </li>
             <li class='nav-item'>
-                <a class='nav-link' href='../../logout.php'>
+                <a class='nav-link' href='../../statics'>
                     <i class="fas fa-chart-bar"></i>
                     <span>สถิติการยืมอุปกรณ์</span>
                 </a>

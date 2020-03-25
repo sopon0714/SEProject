@@ -37,19 +37,19 @@
 
                         <div class="card-body " style="margin-right: 10px">
                             <form class="form-signin" method="POST" action='signinVerify'>
-                                <h6>ล็อกอินเข้าสู่ระบบโดยใช้ระบบนนทรี</h6>
+                                <h6 style="text-align: center">ล็อกอินเข้าสู่ระบบโดยใช้บัญชีนนทรี</h6>
                                 <br>
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                 <div class="form-label-group">
                                     <label for="inputEmail">ชื่อผู้ใช้</label>
-                                    <div class="col-11">
+                                    <div class="col-12">
                                         <input type="text" name="username" id="username" class="form-control" placeholder="username" value="" autofocus>
                                     </div>
                                 </div>
                                 <br>
                                 <div class="form-label-group">
                                     <label for="inputPassword">รหัสผ่าน</label>
-                                    <div class="col-11">
+                                    <div class="col-12">
                                         <input class="form-control" type="password" name="password" id="password" placeholder="Password" value="">
                                     </div>
                                 </div>
