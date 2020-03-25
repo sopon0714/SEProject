@@ -78,7 +78,7 @@
         <!-- End of Sidebar -->
         <div id="content-wrapper" class="d-flex flex-column">
             <!-- Main Content -->
-            <div id="content" style="background-color: #555555;">
+            <div id="content" style="background-color: #BEBEBE;">
                 <!-- Topbar -->
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
                     <!-- Sidebar Toggle (Topbar) -->

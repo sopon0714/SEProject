@@ -7,39 +7,18 @@
 @endsection
 @section('Content')
 
+{{-- <div class=" col-12 mb-4" style="text-align: right">
+    <a href="../listEquipment" >
+        <button type="button" id="btn_info" class="btn btn-warning">ย้อนกลับ</button>
+    </a>
+</div> --}}
+
 <div class="row">
     <div class="col-xl-12 col-12 mb-4">
         <div class="card">
             <div class="card-header card-bg "  style="background-color: #bf4040;height: 50px">
                 <div class="row">
                     <span class="link-active " style="font-size: 15px; color:white;"><h5>รายละเอียดอุปกรณ์</h5></span>
-                   <div style="padding-left: 70%">
-                       <a href="../listEquipment" >
-                            <button type="button" id="btn_info" class="btn btn-warning btn-sm" >
-                                ย้อนกลับ
-                            </button>
-                        </a>
-                   </div>
-
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="row">
-    <div class="col-xl-12 col-12 mb-4">
-        <div class="card border-left-warning card-color-four shadow h-100 py-2"
-            data-toggle="modal" data-target="#modal-1" >
-            <div class="card-body">
-                <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                        <div class="font-weight-bold  text-uppercase  mb-2">ข้อมูลอุปกรณ์</div>
-                        <div class="font-weight-bold  text-uppercase  mb-2">ชื่อ {{$InfoEL->EName}}</div>
-                        <div class="font-weight-bold  text-uppercase  mb-2">ยี่ห้อ {{$InfoEL->Brand}}</div>
-                        <div class="font-weight-bold  text-uppercase  mb-2">สถานะ {{$InfoEL->ELStatus}}</div>
-                        <div class="font-weight-bold  text-uppercase  mb-2">หมวดหมู่ {{$InfoEL->CName}}</div>
-                        <div class="font-weight-bold  text-uppercase  ">รายละเอียด<br> {{$InfoEL->Detail}}</div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -88,6 +67,11 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div class=" col-3 mb-4" style="text-align: right">
+        <a href="../listEquipment" >
+            <button type="button" id="btn_info" class="btn btn-warning">ย้อนกลับ</button>
+        </a>
     </div>
 </div>
 <div class="row">
@@ -144,6 +128,26 @@
 
                         </tbody>
                     </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{-- รายละเอียดอุปกรณ์ --}}
+<div class="row">
+    <div class="col-xl-12 col-12 mb-4">
+        <div class="card border-left-warning card-color-four shadow h-100 py-2"
+            data-toggle="modal" data-target="#modal-1" >
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="font-weight-bold  text-uppercase  mb-2">ข้อมูลอุปกรณ์</div>
+                        <div class="font-weight-bold  text-uppercase  mb-2">ชื่อ : {{$InfoEL->EName}}</div>
+                        <div class="font-weight-bold  text-uppercase  mb-2">ยี่ห้อ : {{$InfoEL->Brand}}</div>
+                        <div class="font-weight-bold  text-uppercase  mb-2">สถานะ : {{$InfoEL->ELStatus}}</div>
+                        <div class="font-weight-bold  text-uppercase  mb-2">หมวดหมู่ : {{$InfoEL->CName}}</div>
+                        <div class="font-weight-bold  text-uppercase textarea ">รายละเอียด<br> {{$InfoEL->Detail}}</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -244,7 +248,7 @@
         <div class="modal-content">
             <form method="post" id="edit_DE" name="edit_DE" action="./{{$ELID}}">
                 <div class="info" style="font-size: 20px">
-                    <div class="modal-header header-modal" style="background-color: #66b3ff;">
+                    <div class="modal-header header-modal" style="background-color: #FF9900;">
                         <h4 class="modal-title" style="color: white">แก้ไขข้อมูลอุปกรณ์</h4>
                     </div>
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -254,15 +258,15 @@
                     <div class="modal-body" id="EditDEBody">
                         <div class="container">
                             <div class="row mb-0">
-                                <div class="col-xl-5 col-2 text-right">
-                                    <br><span>เลขครุภัณฑ์:</span>
+                                <div class="col-xl-4 col-2 text-right">
+                                    <br><span>เลขครุภัณฑ์ :</span>
                                 </div>
-                                <div class="col-xl-6 col-6 ">
+                                <div class="col-xm-8 col-6 ">
                                     <br><input type="text" class="form-control form-control-sm-5" id="Snumber" name="Snumber"  aria-controls="dataTable">
                                 </div>
-                                <div class="col-xl-12 col-12 text-center">
+                                {{-- <div class="col-xl-12 col-12 text-center">
                                     <br><span class="text-danger" style="font-size: 16px" >*หากไม่มีเลขครุภัณฑ์ กด ยืนยันเพื่อเพิ่มได้ทันที</span>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     </div>
@@ -323,36 +327,36 @@
                     <div class="modal-body" id="DetailDEBody">
                         <div class="container">
                             <div class="row mb-4">
-                                <div class="col-xl-5 col-2 text-right">
+                                <div class="col-xl-4 col-2 text-right">
                                     <br><span>ชื่อ: </span>
                                 </div>
-                                <div class="col-xl-6 col-6 ">
+                                <div class="col-xl-8 col-6 ">
                                     <br><span id="dt1">เมาส์</span>
                                 </div>
                             </div>
                             <div class="row mb-4">
-                                <div class="col-xl-5 col-2 text-right">
+                                <div class="col-xl-4 col-2 text-right">
                                     <span>เลขครุภัณฑ์: </span>
                                 </div>
-                                <div class="col-xl-5 col-6 ">
+                                <div class="col-xl-8 col-6 ">
                                     <span id="dt2">xxxxxxxxxxx-xxxxxxx/60</span>
                                 </div>
                             </div>
                             <div class="row mb-4">
-                                <div class="col-xl-5 col-2 text-right">
+                                <div class="col-xl-4 col-2 text-right">
                                     <span>ยี่ห้อ: </span>
                                 </div>
-                                <div class="col-xl-6 col-6 ">
+                                <div class="col-xl-8 col-6 ">
                                     <span id="dt3">logitech</span>
                                 </div>
                             </div>
                             <div class="row mb-4">
-                                <div class="col-xl-5 col-2 text-right">
+                                <div class="col-xl-4 col-2 text-right">
                                     <span>รายละเอียด: </span>
                                 </div>
-                                <div class="col-xl-6 col-6 ">
-                                    <input type="text" id="dt4" class="form-control form-control-sm-5" style="height:120px"  aria-controls="dataTable"
-                                        value="xxxxxxxxxxxxxxxxxx" disabled>
+                                <div class="col-xl-8 col-6 ">
+                                    <textarea id="dt4" class="form-control form-control-sm-5" style="height:120px"  aria-controls="dataTable"
+                                        value="xxxxxxxxxxxxxxxxxx" disabled></textarea>
                                 </div>
                             </div>
 
@@ -385,8 +389,5 @@
         </div>
     </div>
 </div>
-
-
-
 </div>
 @endsection

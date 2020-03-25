@@ -68,7 +68,6 @@
                     <div class=' py-2 collapse-inner rounded' style='border-left: 2px solid white; border-radius: 0% !important;'>
                         <div class="background-color-sideber" style="background-color: #bf4040" id="accordionSidebar">
                             <a class='nav-link' href="../../requestManagement">การจัดการคำร้อง</a>
-                            <a class='nav-link' href='../../approveRequest'>การอนุมัติคำร้อง</a>
                             <a class='nav-link' href='../../receiveEquipment'>การรับอุปกรณ์</a>
                             <a class='nav-link' href='../../returnEquipment'>การคืนอุปกรณ์</a>
 
@@ -107,7 +106,7 @@
         <!-- End of Sidebar -->
         <div id="content-wrapper" class="d-flex flex-column">
             <!-- Main Content -->
-            <div id="content" style="background-color: #555555;">
+            <div id="content" style="background-color: #FFE4E1;">
                 <!-- Topbar -->
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
                     <!-- Sidebar Toggle (Topbar) -->
