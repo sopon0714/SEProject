@@ -22,8 +22,10 @@ Route::post('/signinVerify', 'MemberController@login');
 
 Route::get('/logout', 'MemberController@logout');
 
-Route::get('/statics', function () {
-    return view('statics');
+
+// statics  Route
+Route::prefix('statics')->group(function () {
+    Route::get('', 'StaticsController@indexpageStatics');
 });
 
 Route::post('/DetailByEID', 'DetailEquipmentController@DetailEquipmentByEID');
@@ -83,6 +85,7 @@ Route::prefix('listEquipment')->group(function () {
     Route::post('byID', 'ListEquipmentController@selectByIdListEquipment');
     Route::delete('', 'ListEquipmentController@deleteListEquipment');
 });
+
 // userManagement  Route
 Route::prefix('userManagement')->group(function () {
     Route::get('', 'UserManagementController@indexpageUserManagement');
@@ -124,4 +127,11 @@ Route::get('receiveEquipment', function () {
 });
 Route::get('returnEquipment', function () {
     return view('returnEquipment');
+});
+
+Route::get('layoutNisit', function () {
+    return view('layoutNisit');
+});
+Route::get('layoutTeacher', function () {
+    return view('layoutTeacher');
 });
