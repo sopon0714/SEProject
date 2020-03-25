@@ -113,7 +113,6 @@ Route::prefix('detailEquipment/{id}')->group(function () {
     Route::delete('', 'DetailEquipmentController@deleteDetailEquipment');
 });
 
-
 Route::get('layoutAdmin', function () {
     return view('layoutAdmin');
 });
@@ -123,10 +122,6 @@ Route::get('receiveEquipment', function () {
 Route::get('returnEquipment', function () {
     return view('returnEquipment');
 });
-<<<<<<< HEAD
-=======
-
->>>>>>> 3b8dbf22ddf350235df2055820b4568e0a3cae2b
 Route::get('layoutNisit', function () {
     return view('layoutNisit');
 });

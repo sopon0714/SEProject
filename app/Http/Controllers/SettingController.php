@@ -18,8 +18,8 @@ class SettingController extends Controller
         $tel_update = $req->get('tel_update');
         $email_update = $req->get('email_update');
         $time_update = $req->get('time_update');
-        $config_key = $req->get('config_key');
-        $coonfig_value = $req->get('coonfig_value');
+        // $config_key = $req->get('config_key');
+        // $coonfig_value = $req->get('coonfig_value');
             DB::table('config')
             ->where('config_key', "day_cancelapprove")
             ->update(['coonfig_value' => $day_update]);
