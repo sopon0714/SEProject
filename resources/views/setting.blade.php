@@ -10,7 +10,7 @@
         <div class="col-xl-12 col-12 mb-4">
             <div class="card">
                 <div class="card-header card-bg " style="background-color: #bf4040">
-                    <span class="link-active " style="font-size: 15px; color:white;"><h5>ตั้งค่าระบบ</h5></span>
+                    <span class="link-active " style="font-size: 18px; color:white;">ตั้งค่าระบบ</span>
                 </div>
             </div>
         </div>
@@ -74,7 +74,7 @@
         <div class="modal-content">
             <form method="post" id="edit_setting" name="edit_setting" action="manage.php">
                 <div class="info" style="font-size: 20px">
-                    <div class="modal-header header-modal" style="background-color: #66b3ff;">
+                    <div class="modal-header header-modal" style="background-color: #FF9900;">
                         <h4 class="modal-title" style="color: white">แก้ไขการตั้งค่า</h4>
                     </div>
                     <div class="modal-body" id="editsettingBody">
