@@ -70,16 +70,17 @@ Route::prefix('listEquipment')->group(function () {
     Route::get('', 'ListEquipmentController@indexpageListEquipment');
     Route::post('', 'ListEquipmentController@insertListEquipment');
     Route::post('byID', 'ListEquipmentController@selectByIdListEquipment');
-    Route::put('', 'ListEquipmentController@updateListEquipment');
     Route::delete('', 'ListEquipmentController@deleteListEquipment');
 });
-// detailEquipment  Route
-Route::prefix('detailEquipment/{id}')->group(function () {
-    Route::get('', 'DetailEquipmentController@indexpageDetailEquipment');
-    Route::post('', 'DetailEquipmentController@insertDetailEquipment');
-    Route::put('', 'DetailEquipmentController@updateDetailEquipment');
-    Route::delete('', 'DetailEquipmentController@deleteDetailEquipment');
+
+// userManagement  Route
+Route::prefix('userManagement')->group(function () {
+    Route::get('', 'UserManagementController@indexpageUserManagement');
+    Route::post('', 'UserManagementController@insertUserManagement');
+    Route::post('byID', 'UserManagementController@selectByIdUserManagement');
+    Route::delete('', 'UserManagementController@deleteUserManagement');
 });
+
 
 Route::get('/requestManagement', function () {
     return view('requestManagement');
@@ -88,9 +89,7 @@ Route::get('/requestManagement', function () {
 Route::get('/detailEquipment', function () {
     return view('detailEquipment');
 });
-Route::get('userManagement', function () {
-    return view('userManagement');
-});
+
 Route::get('layoutAdmin', function () {
     return view('layoutAdmin');
 });

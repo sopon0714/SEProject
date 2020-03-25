@@ -23,7 +23,7 @@
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="font-weight-bold  text-uppercase mb-1">เจ้าหน้าที่ในระบบ</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">xxxx คน</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{$amount[0]->person}}</div>
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-home fa-2x"></i>
@@ -38,7 +38,7 @@
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="font-weight-bold  text-uppercase mb-1">อาจารย์ในระบบ</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">xxxx คน</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{$amount[1]->person}}</div>
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-home fa-2x"></i>
@@ -53,7 +53,7 @@
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="font-weight-bold  text-uppercase mb-1">นิสิตในระบบ</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">xxxx คน</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{$amount[2]->person}}</div>
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-home fa-2x"></i>
@@ -101,11 +101,12 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            @for ($i = 0; $i < count($TableUserManagementStaff); $i++)
                                             <tr role="row" >
-                                                <td rowspan="1" colspan="1">1</td>
-                                                <td rowspan="1" colspan="1">นางสาวศศิธร ชลรัตน์อมฤต</td>
-                                                <td rowspan="1" colspan="1">เจ้าหน้าที่</td>
-                                                <td rowspan="1" colspan="1">2</td>
+                                                <td rowspan="1" colspan="1">{{$i+1}}</td>
+                                                <td rowspan="1" colspan="1">{{$TableUserManagementStaff[$i]->Title}} {{$TableUserManagementStaff[$i]->FName}} {{$TableUserManagementStaff[$i]->LName}}</td>
+                                                <td rowspan="1" colspan="1">{{$TableUserManagementStaff[$i]->UTName}}</td>
+                                                <td rowspan="1" colspan="1">{{$TableUserManagementStaff[$i]->amount}}</td>
                                                 <td rowspan="1" colspan="1">
                                                     <button type="button" class="btn btn-info btn-sm tt" title='รายละเอียด'>
                                                         <i class="fas fa-file-alt"></i>
@@ -113,6 +114,7 @@
                                                     <button type="button" class="btn btn-danger btn-sm tt delbtn" data-toggle="tooltip" nameitem="เจ้าหน้าที่ : พี่บิ๊ก" title="ลบเจ้าหน้าที่" data-original-title="ลบ"><i class="far fa-trash-alt" aria-hidden="true" onclick=""></i></button>
                                                 </td>
                                             </tr>
+                                            @endfor
                                         </tbody>
                     </table>
             </div>
@@ -123,11 +125,11 @@
 
 
 <div class="col-xl-15 col-15 mb-4">
-    <div class="card"  style="height: 300px">
+    <div class="card"  style="height: 800px">
         <div class="card-header card-bg " style="background-color: #bf4040">
             <span class="link-active " style="font-size: 15px; color:white;">อาจารย์และนิสิต</span>
         </div>
-        <div class="card-body" style="height: 400px">
+        <div class="card-body" style="height: 1500px">
             <div class="col-sm-12" id="historyRequirements" style="overflow-y:auto;">
                     <table class="table table-bordered" id="historyRequirementsTable" style="text-align:center;"  swidth="100%"  cellspacing="0">
                                         <thead>
@@ -140,28 +142,19 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            @for ($i = 0; $i < count($TableUserManagementAjNisit); $i++)
                                             <tr role="row" >
-                                                <td rowspan="1" colspan="1">1</td>
-                                                <td rowspan="1" colspan="1">นายโสภณ โตใหญ่</td>
-                                                <td rowspan="1" colspan="1">นิสิต</td>
-                                                <td rowspan="1" colspan="1">2</td>
+                                                <td rowspan="1" colspan="1">{{$i+1}}</td>
+                                                <td rowspan="1" colspan="1">{{$TableUserManagementAjNisit[$i]->Title}} {{$TableUserManagementAjNisit[$i]->FName}} {{$TableUserManagementAjNisit[$i]->LName}}</td>
+                                                <td rowspan="1" colspan="1">{{$TableUserManagementAjNisit[$i]->UTName}}</td>
+                                                <td rowspan="1" colspan="1">{{$TableUserManagementAjNisit[$i]->amount}}</td>
                                                 <td rowspan="1" colspan="1">
                                                     <button type="button" class="btn btn-info btn-sm tt" title='รายละเอียด'>
                                                         <i class="fas fa-file-alt"></i>
                                                     </button>
                                                 </td>
                                             </tr>
-                                            <tr role="row" >
-                                                <td rowspan="1" colspan="1">2</td>
-                                                <td rowspan="1" colspan="1">นางสาวนุชนาฏ สัตยากวี</td>
-                                                <td rowspan="1" colspan="1">อาจารย์</td>
-                                                <td rowspan="1" colspan="1">1</td>
-                                                <td rowspan="1" colspan="1">
-                                                    <button type="button" class="btn btn-info btn-sm tt" title='รายละเอียด'>
-                                                        <i class="fas fa-file-alt"></i>
-                                                    </button>
-                                                </td>
-                                            </tr>
+                                            @endfor
                                         </tbody>
                     </table>
             </div>
