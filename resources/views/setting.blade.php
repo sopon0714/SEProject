@@ -32,7 +32,7 @@
                                         <label>จำนวนวันในการยกเลิกคำร้องหลังมีการอนุมัติ :</label>
                                     </div>
                                     <div class="col-xl-5 col-5 text-center">
-                                        <input type="text" class="form-control text-left" id="day" value="{{$detail_setting[0]->coonfig_value}}" disabled>
+                                        <input type="text" class="form-control" id="day" value="{{$detail_setting[0]->coonfig_value}}" disabled>
                                     </div>
                                 </div>
                                 <div class="row mb-4">
