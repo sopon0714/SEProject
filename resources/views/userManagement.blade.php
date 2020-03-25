@@ -26,7 +26,7 @@
                         <div class="h5 mb-0 font-weight-bold text-gray-800">{{$amount[0]->person}}</div>
                     </div>
                     <div class="col-auto">
-                        <i class="fas fa-home fa-2x"></i>
+                        <i class="fas fa-user-tie fa-2x"></i>
                     </div>
                 </div>
             </div>
@@ -41,7 +41,7 @@
                         <div class="h5 mb-0 font-weight-bold text-gray-800">{{$amount[1]->person}}</div>
                     </div>
                     <div class="col-auto">
-                        <i class="fas fa-home fa-2x"></i>
+                        <i class="fab fa-jenkins fa-3x"></i>
                     </div>
                 </div>
             </div>
@@ -56,7 +56,7 @@
                         <div class="h5 mb-0 font-weight-bold text-gray-800">{{$amount[2]->person}}</div>
                     </div>
                     <div class="col-auto">
-                        <i class="fas fa-home fa-2x"></i>
+                        <i class="fas fa-user-graduate fa-3x"></i>
                     </div>
                 </div>
             </div>
@@ -69,10 +69,10 @@
             <div class="card-body">
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                        <div class="h5 mb-0 font-weight-bold text-xl text-info">เพิ่มเจ้าหน้าที่</div>
+                        <div class="h5 mb-0 font-weight-bold text-xl ">เพิ่มเจ้าหน้าที่</div>
                     </div>
                     <div class="col-auto">
-                        <button class="btn btn-warning" onclick=" "><i class="fas fa-plus"></i></button>
+                        <button class="btn btn-success" ><i class="fas fa-user-plus fa-2x"></i></button>
                     </div>
                 </div>
             </div>
