@@ -55,7 +55,6 @@ Route::prefix('comment')->group(function () {
     // Route::put('', 'CategoryController@updateCategory');
     // Route::delete('', 'CategoryController@deleteCategory');
 });
-
 // approveRequest Route
 Route::prefix('approveRequest')->group(function () {
     Route::get('', 'ApproveRequestController@indexpageApproveRequest');
@@ -69,24 +68,17 @@ Route::prefix('listEquipment')->group(function () {
     Route::get('', 'ListEquipmentController@indexpageListEquipment');
     Route::post('', 'ListEquipmentController@insertListEquipment');
     Route::post('byID', 'ListEquipmentController@selectByIdListEquipment');
-    Route::put('', 'ListEquipmentController@updateListEquipment');
     Route::delete('', 'ListEquipmentController@deleteListEquipment');
 });
 
-// setting  Route
-Route::prefix('setting')->group(function () {
-    Route::get('', 'SettingController@indexpageSetting');
-    // Route::post('', 'SettingController@insertSetting');
-    //Route::put('', 'SettingController@updateSetting');
-    // Route::delete('', 'SettingController@deleteSetting');
-
-// detailEquipment  Route
-Route::prefix('detailEquipment/{id}')->group(function () {
-    Route::get('', 'DetailEquipmentController@indexpageDetailEquipment');
-    Route::post('', 'DetailEquipmentController@insertDetailEquipment');
-    Route::put('', 'DetailEquipmentController@updateDetailEquipment');
-    Route::delete('', 'DetailEquipmentController@deleteDetailEquipment');
+// userManagement  Route
+Route::prefix('userManagement')->group(function () {
+    Route::get('', 'UserManagementController@indexpageUserManagement');
+    Route::post('', 'UserManagementController@insertUserManagement');
+    Route::post('byID', 'UserManagementController@selectByIdUserManagement');
+    Route::delete('', 'UserManagementController@deleteUserManagement');
 });
+
 
 Route::get('/requestManagement', function () {
     return view('requestManagement');
@@ -95,17 +87,19 @@ Route::get('/requestManagement', function () {
 Route::get('/detailEquipment', function () {
     return view('detailEquipment');
 });
-Route::get('userManagement', function () {
-    return view('userManagement');
-});
+
 Route::get('layoutAdmin', function () {
     return view('layoutAdmin');
 });
 Route::get('receiveEquipment', function () {
     return view('receiveEquipment');
 });
+
 Route::get('returnEquipment', function () {
     return view('returnEquipment');
+});
+Route::get('setting', function () {
+    return view('setting');
 });
 Route::get('layoutNisit', function () {
     return view('layoutNisit');
