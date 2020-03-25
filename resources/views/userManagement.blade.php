@@ -91,31 +91,33 @@
         <div class="card-body" >
             <div class="col-sm-12" id="historyRequirements" style="overflow-y:auto;">
                     <table class="table table-bordered" id="historyRequirementsTable" style="text-align:center;"  swidth="100%"  cellspacing="0">
-                                        <thead>
-                                            <tr role="row" >
-                                                <th rowspan="1" colspan="1">ลำดับ</th>
-                                                <th rowspan="1" colspan="1">ชื่อ-นามสกุล</th>
-                                                <th rowspan="1" colspan="1">สถานะ</th>
-                                                <th rowspan="1" colspan="1">จำนวนการยืม</th>
-                                                <th rowspan="1" colspan="1">รายละเอียด</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            @for ($i = 0; $i < count($TableUserManagementStaff); $i++)
-                                            <tr role="row" >
-                                                <td rowspan="1" colspan="1">{{$i+1}}</td>
-                                                <td rowspan="1" colspan="1">{{$TableUserManagementStaff[$i]->Title}} {{$TableUserManagementStaff[$i]->FName}} {{$TableUserManagementStaff[$i]->LName}}</td>
-                                                <td rowspan="1" colspan="1">{{$TableUserManagementStaff[$i]->UTName}}</td>
-                                                <td rowspan="1" colspan="1">{{$TableUserManagementStaff[$i]->amount}}</td>
-                                                <td rowspan="1" colspan="1">
-                                                    <button type="button" class="btn btn-info btn-sm tt" title='รายละเอียด'>
-                                                        <i class="fas fa-file-alt"></i>
-                                                    </button>
-                                                    <button type="button" class="btn btn-danger btn-sm tt delbtn" data-toggle="tooltip" nameitem="เจ้าหน้าที่ : พี่บิ๊ก" title="ลบเจ้าหน้าที่" data-original-title="ลบ"><i class="far fa-trash-alt" aria-hidden="true" onclick=""></i></button>
-                                                </td>
-                                            </tr>
-                                            @endfor
-                                        </tbody>
+                        <thead>
+                            <tr role="row" >
+                                <th rowspan="1" colspan="1">ลำดับ</th>
+                                <th rowspan="1" colspan="1">ชื่อ-นามสกุล</th>
+                                <th rowspan="1" colspan="1">สถานะ</th>
+                                <th rowspan="1" colspan="1">จำนวนการยืม</th>
+                                <th rowspan="1" colspan="1">รายละเอียด</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @for ($i = 0; $i < count($TableUserManagementStaff); $i++)
+                            <tr role="row" >
+                                <td rowspan="1" colspan="1">{{$i+1}}</td>
+                                <td rowspan="1" colspan="1">{{$TableUserManagementStaff[$i]->Title}}{{$TableUserManagementStaff[$i]->FName}} {{$TableUserManagementStaff[$i]->LName}}</td>
+                                <td rowspan="1" colspan="1">{{$TableUserManagementStaff[$i]->UTName}}</td>
+                                <td rowspan="1" colspan="1">{{$TableUserManagementStaff[$i]->amount}}</td>
+                                <td rowspan="1" colspan="1">
+                                    <a href="../userProfile/{{$TableUserManagementStaff[$i]->UID}}">
+                                        <button type="button" class="btn btn-info btn-sm tt" title='รายละเอียด'>
+                                            <i class="fas fa-file-alt"></i>
+                                        </button>
+                                    </a>
+                                    <button type="button" class="btn btn-danger btn-sm tt delbtn" data-toggle="tooltip" nameitem="เจ้าหน้าที่ : พี่บิ๊ก" title="ลบเจ้าหน้าที่" data-original-title="ลบ"><i class="far fa-trash-alt" aria-hidden="true" onclick=""></i></button>
+                                </td>
+                            </tr>
+                            @endfor
+                        </tbody>
                     </table>
             </div>
         </div>
@@ -132,30 +134,32 @@
         <div class="card-body" >
             <div class="col-sm-12" id="historyRequirements" style="overflow-y:auto;">
                     <table class="table table-bordered" id="historyRequirementsTable" style="text-align:center;"  swidth="100%"  cellspacing="0">
-                                        <thead>
-                                            <tr role="row" >
-                                                <th rowspan="1" colspan="1">ลำดับ</th>
-                                                <th rowspan="1" colspan="1">ชื่อ-นามสกุล</th>
-                                                <th rowspan="1" colspan="1">สถานะ</th>
-                                                <th rowspan="1" colspan="1">จำนวนการยืม</th>
-                                                <th rowspan="1" colspan="1">รายละเอียด</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            @for ($i = 0; $i < count($TableUserManagementAjNisit); $i++)
-                                            <tr role="row" >
-                                                <td rowspan="1" colspan="1">{{$i+1}}</td>
-                                                <td rowspan="1" colspan="1">{{$TableUserManagementAjNisit[$i]->Title}} {{$TableUserManagementAjNisit[$i]->FName}} {{$TableUserManagementAjNisit[$i]->LName}}</td>
-                                                <td rowspan="1" colspan="1">{{$TableUserManagementAjNisit[$i]->UTName}}</td>
-                                                <td rowspan="1" colspan="1">{{$TableUserManagementAjNisit[$i]->amount}}</td>
-                                                <td rowspan="1" colspan="1">
-                                                    <button type="button" class="btn btn-info btn-sm tt" title='รายละเอียด'>
-                                                        <i class="fas fa-file-alt"></i>
-                                                    </button>
-                                                </td>
-                                            </tr>
-                                            @endfor
-                                        </tbody>
+                        <thead>
+                            <tr role="row" >
+                                <th rowspan="1" colspan="1">ลำดับ</th>
+                                <th rowspan="1" colspan="1">ชื่อ-นามสกุล</th>
+                                <th rowspan="1" colspan="1">สถานะ</th>
+                                <th rowspan="1" colspan="1">จำนวนการยืม</th>
+                                <th rowspan="1" colspan="1">รายละเอียด</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @for ($i = 0; $i < count($TableUserManagementAjNisit); $i++)
+                            <tr role="row" >
+                                <td rowspan="1" colspan="1">{{$i+1}}</td>
+                                <td rowspan="1" colspan="1">{{$TableUserManagementAjNisit[$i]->Title}}{{$TableUserManagementAjNisit[$i]->FName}} {{$TableUserManagementAjNisit[$i]->LName}}</td>
+                                <td rowspan="1" colspan="1">{{$TableUserManagementAjNisit[$i]->UTName}}</td>
+                                <td rowspan="1" colspan="1">{{$TableUserManagementAjNisit[$i]->amount}}</td>
+                                <td rowspan="1" colspan="1">
+                                    <a href="../userProfile/{{$TableUserManagementAjNisit[$i]->UID}}">
+                                        <button type="button" class="btn btn-info btn-sm tt" title='รายละเอียด'>
+                                            <i class="fas fa-file-alt"></i>
+                                        </button>
+                                    </a>
+                                </td>
+                            </tr>
+                            @endfor
+                        </tbody>
                     </table>
             </div>
         </div>
@@ -170,10 +174,10 @@
 <div class="modal fade" id="addModal" name="addModal" tabindex="-1" role="dialog" >
     <div class="modal-dialog modal-lg" role="document" style="width: 50%">
         <div class="modal-content">
-            <form method="post" id="info" name="info" action="manage.php">
+            <form method="post" id="addstaff" name="addstaff" action="manage.php">
                 <div class="info" style="font-size: 20px">
                     <div class="modal-header header-modal" style="background-color: #66b3ff;">
-                        <h4 class="modal-title" style="color: white">เพิ่มรายการอุปกรณ์</h4>
+                        <h4 class="modal-title" style="color: white">เพิ่มเจ้าหน้าที่</h4>
                     </div>
                     <div class="modal-body" id="ChangeModalBody">
                         <div class="container">
