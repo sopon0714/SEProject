@@ -26,12 +26,22 @@ Route::get('/statics', function () {
     return view('statics');
 });
 
+Route::post('/DetailByEID', 'DetailEquipmentController@DetailEquipmentByEID');
+
 // userProfile Route
 Route::prefix('userProfile')->group(function () {
     Route::get('', 'UserProfileController@getUser');
     // Route::post('', 'UserProfileController@insertCategory');
     // Route::put('', 'UserProfileController@updateCategory');
     // Route::delete('', 'UserProfileController@deleteCategory');
+});
+
+// detailEquipment Route
+Route::prefix('detailEquipment/{id}')->group(function () {
+    Route::get('', 'DetailEquipmentController@indexpageDetailEquipment');
+    Route::post('', 'DetailEquipmentController@insertDetailEquipment');
+    Route::put('', 'DetailEquipmentController@updateDetailEquipment');
+    Route::delete('', 'DetailEquipmentController@deleteDetailEquipment');
 });
 
 // category Route
@@ -71,6 +81,14 @@ Route::prefix('listEquipment')->group(function () {
     Route::delete('', 'ListEquipmentController@deleteListEquipment');
 });
 
+// userManagement  Route
+Route::prefix('userManagement')->group(function () {
+    Route::get('', 'UserManagementController@indexpageUserManagement');
+    // Route::post('', 'UserManagementController@insertUserManagement');
+    // Route::post('byID', 'UserManagementController@selectByIdUserManagement');
+    // Route::delete('', 'UserManagementController@deleteUserManagement');
+});
+
 // setting  Route
 Route::prefix('setting')->group(function () {
     Route::get('', 'SettingController@indexpageSetting');
@@ -90,10 +108,6 @@ Route::prefix('detailEquipment/{id}')->group(function () {
 
 Route::get('/requestManagement', function () {
     return view('requestManagement');
-});
-
-Route::get('/detailEquipment', function () {
-    return view('detailEquipment');
 });
 
 Route::get('layoutAdmin', function () {

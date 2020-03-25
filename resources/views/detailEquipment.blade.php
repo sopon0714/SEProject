@@ -6,6 +6,7 @@
 </style>
 @endsection
 @section('Content')
+
 <div class="row">
     <div class="col-xl-12 col-12 mb-4">
         <div class="card">
@@ -109,6 +110,7 @@
                             <col width="100">
                             <col width="100">
                             <col width="100">
+                            <col width="100">
                         </colgroup>
                         <!-- หัวตาราง -->
                         <thead class="text-center">
@@ -116,6 +118,7 @@
                             <th>ลำดับ</th>
                             <th>เลขครุภัณฑ์</th>
                             <th>สถานะอุปกรณ์</th>
+                            <th>รายละเอียด</th>
                             <th>จัดการ</th>
                             </tr>
                         </thead>
@@ -127,8 +130,10 @@
                                     <td >{{$DATA[$i]->SNumber==""?"(ไม่มีเลขครุภัณฑ์)":$DATA[$i]->SNumber}}</td>
                                     <td class="text-center">{{$DATA[$i]->EStatus}}</td>
                                     <td class="text-center">
-                                        <button type="button" class="btn btn-info btn-sm tt mr-sm-1 btndetail" title='รายละเอียดอุปกรณ์'>
-                                    <i class="fas fa-file-alt"></i></button>
+                                        <button type="button" class="btn btn-info btn-sm tt mr-sm-1 btndetail" EID="{{$DATA[$i]->EID}}" token="{{ csrf_token() }}"title='รายละเอียดอุปกรณ์'>
+                                        <i class="fas fa-file-alt"></i></button>
+                                    </td>
+                                    <td class="text-center">
                                         <button type="button" class="btn btn-warning btn-sm tt mr-sm-1 btnedit" EID="{{$DATA[$i]->EID}}" Snumber="{{$DATA[$i]->SNumber=='' ? '':$DATA[$i]->SNumber}}"data-toggle="tooltip" title="แก้ไขข้อมูลอุปกรณ์" data-original-title="แก้ไข">
                                     <i class="fas fa-pencil-alt"></i></button>
                                         <button type="button" class="btn btn-danger btn-sm tt btndelete" EID="{{$DATA[$i]->EID}}" Snumber="{{$DATA[$i]->SNumber=='' ? '(ไม่มีเลขครุภัณฑ์)':$DATA[$i]->SNumber}}" token="{{ csrf_token() }}" data-toggle="tooltip" title="ลบอุปกรณ์" data-original-title="ลบ">
@@ -151,6 +156,30 @@
         $("#addDE").modal();
     });
     $('.btndetail').click(function() {
+        var id = $(this).attr('EID');
+        var token = $(this).attr('token');
+        $.ajax({
+                    url: '../DetailByEID',
+                    type: 'POST',
+                    async : false,
+                    data:{
+                        _token:token,
+                        EID:id
+                    },
+                    success: function(result) {
+                        var data= JSON.parse(result)
+                        // console.table(data);
+                        // console.log(data.InfoE.EName)
+                        $('#dt1').text(data.InfoE.EName);
+                        $('#dt2').text(data.InfoE.SNumber);
+                        $('#dt3').text(data.InfoE.Brand);
+                        $('#dt4').val(data.InfoE.Detail);
+                        // console.log(data.datatable)
+                        $('#dataInfo2').empty();
+                        $('#dataInfo2').append(data.datatable);
+                         $("#detailDE").modal();
+                    }
+                });
 
     });
     $('.btnedit').click(function() {
@@ -298,7 +327,7 @@
                                     <br><span>ชื่อ: </span>
                                 </div>
                                 <div class="col-xl-6 col-6 ">
-                                    <br><span>เมาส์</span>
+                                    <br><span id="dt1">เมาส์</span>
                                 </div>
                             </div>
                             <div class="row mb-4">
@@ -306,7 +335,7 @@
                                     <span>เลขครุภัณฑ์: </span>
                                 </div>
                                 <div class="col-xl-5 col-6 ">
-                                    <span>xxxxxxxxxxx-xxxxxxx/60</span>
+                                    <span id="dt2">xxxxxxxxxxx-xxxxxxx/60</span>
                                 </div>
                             </div>
                             <div class="row mb-4">
@@ -314,7 +343,7 @@
                                     <span>ยี่ห้อ: </span>
                                 </div>
                                 <div class="col-xl-6 col-6 ">
-                                    <span>logitech</span>
+                                    <span id="dt3">logitech</span>
                                 </div>
                             </div>
                             <div class="row mb-4">
@@ -322,7 +351,7 @@
                                     <span>รายละเอียด: </span>
                                 </div>
                                 <div class="col-xl-6 col-6 ">
-                                    <input type="text" class="form-control form-control-sm-5" style="height:120px"  aria-controls="dataTable"
+                                    <input type="text" id="dt4" class="form-control form-control-sm-5" style="height:120px"  aria-controls="dataTable"
                                         value="xxxxxxxxxxxxxxxxxx" disabled>
                                 </div>
                             </div>
@@ -338,13 +367,7 @@
                                                 <th rowspan="1" colspan="1">สถานะ</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
-                                            <tr role="row" >
-                                                <td rowspan="1" colspan="1">15/02/2020</td>
-                                                <td rowspan="1" colspan="1">R00001</td>
-                                                <td rowspan="1" colspan="1">นายโสภณ โตใหญ่</td>
-                                                <td rowspan="1" colspan="1">ยืนยันแล้ว</td>
-                                            </tr>
+                                        <tbody id="dataInfo2">
 
                                         </tbody>
                                     </table>
