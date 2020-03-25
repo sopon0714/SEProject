@@ -59,7 +59,7 @@
                                 <button type="button" class="btn btn-info btn-sm tt btninfo" RID="{{$requirement[$i]->RID}}" Mname="{{$requirement[$i]->fullnameMe}}" Anname="{{$requirement[$i]->fullnameAdv}}" token="{{csrf_token()}}"title='รายละเอียดคำร้อง'>
                                         <i class="fas fa-file-alt"></i>
                                     </button>
-                                    <button type="button" class="btn btn-danger btn-sm tt delbtn" nameitem="1" data-toggle="tooltip" title="ลบคำร้อง" data-original-title="ลบ"><i class="far fa-trash-alt" aria-hidden="true" onclick=""></i></button>
+                                    <button type="button" class="btn btn-danger btn-sm tt btncancel"rid2="{{$requirement[$i]->RID}}" nameitem="1" data-toggle="tooltip" title="ลบคำร้อง" data-original-title="ลบ"><i class="far fa-trash-alt" aria-hidden="true" onclick=""></i></button>
                                 </td>
                             </tr>
                             @endfor
@@ -129,6 +129,46 @@
         </div>
     </div>
 </div>
+<div class="modal fade" id="cancelapproveModal" style="margin-top: 10%" name="cancelapproveModal" tabindex="-1" role="dialog" >
+    <div class="modal-dialog modal-lg" role="document" style="width: 50%">
+        <div class="modal-content">
+            <form method="post" id="cancel" name="cancel" action="./approveRequest">
+                <div class="cancel" style="font-size: 17px">
+                    <div class="modal-header header-modal" style="background-color: #CC0000;">
+                        <h4 class="modal-title" style="color: white">ยืนยันการยกเลิกการอนุมัติ</h4>
+                    </div>
+                    <div class="modal-body" id="CancelModalBody">
+                        <div class="container">
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                            <input type="hidden" name="_method" value="delete">
+                            <input type="hidden" name="RID" id="RID2" value="">
+                            <div class="row mb-4">
+                                <div class="col-xl-5 col-2 text-right">
+                                    <span>หมายเลขคำร้อง :</span>
+                                </div>
+                                <div class="col-xl-7 col-6">
+                                    <output id="ridapprove2" name="ridapprove2"></output>
+                                </div>
+                            </div>
+                            <div class="row mb-4">
+                                <div class="col-xl-5 col-2 text-right">
+                                    <span>เหตุผลที่ยกเลิก :</span>
+                                </div>
+                                <div class="col-xl-4 col-6 ">
+                                    <input type="text" class="form-control" name="reasoncancel" value="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-success cancel" id="a_cancelInfo" >ยืนยัน</button>
+                        <button type="button" class="btn btn-danger cancel" id="a_cancelInfo" data-dismiss="modal">ยกเลิก</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 @endsection
 @section('Javascript')
 <script>
@@ -136,6 +176,11 @@
 // . หมายถึง อ้างจาก class   $('.btninfo').click(function()
 
     $(document).ready(function() {
+        $('.btncancel').click(function() {
+            $("#cancelapproveModal").modal();
+            $("#ridapprove2").val("R"+('000000' + $(this).attr('rid2')).substr(-6))
+            $("#RID2").val($(this).attr('rid2'))
+        });
         $('.btninfo').click(function() {
 
             $('#dt1').text("R"+('000000' + $(this).attr('RID')).substr(-6))
