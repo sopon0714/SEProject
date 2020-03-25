@@ -72,13 +72,13 @@
                                 <td class="text-center">{{$RComment[$i]->Time}}</td>
                                 <td >{{$RComment[$i]->Title}} {{$RComment[$i]->FName}} {{$RComment[$i]->LName}}</td>
                                 <td class="text-center">
-                                <button type="button" class="btn btn-info btn-sm tt mr-sm-1 btndetail" title='รายละเอียดข้อเสนอแนะ ' name ="{{$RComment[$i]->Title}} {{$RComment[$i]->FName}} {{$RComment[$i]->LName}}" date="{{$RComment[$i]->Time}}" detail="{{$RComment[$i]->Detail}}" >
+                                    <button type="button" class="btn btn-info btn-sm tt mr-sm-1 btndetail" title='รายละเอียดข้อเสนอแนะ ' name ="{{$RComment[$i]->Title}} {{$RComment[$i]->FName}} {{$RComment[$i]->LName}}" date="{{$RComment[$i]->Time}}" detail="{{$RComment[$i]->Detail}}" >
                                     <i class="fas fa-file-alt"></i></button>
                                     <button type="button" class="btn btn-danger btn-sm tt btndelete" nameitem ="{{$RComment[$i]->reqID}}" token="{{ csrf_token() }}" data-toggle="tooltip" title="ลบข้อเสนอแนะ" data-original-title="ลบ">
                                     <i class="far fa-trash-alt" ></i></button>
                                 </td>
                             </tr>
-                                            
+                            @endfor
                         </tbody>
                     </table>
                 </div>
