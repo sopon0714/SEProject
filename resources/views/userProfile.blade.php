@@ -11,7 +11,7 @@
         <div class="col-xl-12 col-12 mb-4">
             <div class="card">
                 <div class="card-header card-bg " style="background-color: #bf4040">
-                    <span class="link-active " style="font-size: 15px; color:white;"><h5>บัญชีผู้ใช้</h5></span>
+                    <span class="link-active " style="font-size: 18px; color:white;"><h5>บัญชีผู้ใช้</h5></span>
                 </div>
             </div>
         </div>
@@ -24,7 +24,7 @@
                         <div class="col-xl-4 col-5 mb-4">
                             <div class="card"  style="height: 400px">
                                 <div class="card-header card-bg " style="background-color: #bf4040">
-                                    <span class="link-active " style="font-size: 15px; color:white;">ข้อมูลผู้ใช้</span>
+                                    <span class="link-active " style="font-size: 17px; color:white;">ข้อมูลผู้ใช้</span>
                                 </div>
                                 <div class="card-body">
                                     <div class="row mb-4">
@@ -74,7 +74,7 @@
                         <div class="col-xl-8 col-5 mb-4">
                             <div class="card"  style="height: 400px">
                                 <div class="card-header card-bg " style="background-color: #bf4040">
-                                    <span class="link-active " style="font-size: 15px; color:white;">ประวัติคำร้องขอของผู้ใช้</span>
+                                    <span class="link-active " style="font-size: 17px; color:white;">ประวัติคำร้องขอของผู้ใช้</span>
                                 </div>
                                 <div class="card-body" style="height: 400px">
                                     <div class="col-sm-12" id="historyRequirements" style="overflow-y:auto;">
@@ -106,7 +106,7 @@
                         <div class="col-xl-12 col-12 mb-4">
                             <div class="card"  >
                                 <div class="card-header card-bg " style="background-color: #bf4040">
-                                    <span class="link-active " style="font-size: 15px; color:white;">ประวัติการยืมอุปกรณ์ของผู้ใช้</span>
+                                    <span class="link-active " style="font-size: 17px; color:white;">ประวัติการยืมอุปกรณ์ของผู้ใช้</span>
                                 </div>
                                 <div class="card-body">
                                     <div class="col-sm-12" id="historyRequirements" style="overflow-y:auto;">

@@ -2,24 +2,20 @@
 @section('title',"returnEquipment")
 @section('Content')
 
-
-
 <div class="row">
     <div class="col-xl-12 col-12 mb-4">
         <div class="card">
             <div class="card-header card-bg " style="background-color: #bf4040">
-                <span class="link-active " style="font-size: 15px; color:white;"><h5>การคืนอุปกรณ์</h5></span>
+                <span class="link-active " style="font-size: 18px; color:white;">การคืนอุปกรณ์</span>
             </div>
         </div>
     </div>
 </div>
 
-
-
 <div class="col-xl-15 col-15 mb-4">
     <div class="card">
         <div class="card-header card-bg " style="background-color: #bf4040">
-            <span class="link-active " style="font-size: 20px; color:white;">ค้นหา</span>
+            <span class="link-active " style="font-size: 17px; color:white;">ค้นหา</span>
         </div>
         {{-- style="text-align: center" --}}
         <div>
@@ -31,19 +27,13 @@
                                 <br><label style="font-size: 18px">หมายเลขคำร้อง : </label>
                             </div>
                             <div class="col-xl-3 col-3 ">
-                                <br><input type="text" name="note">
+                                <br><input class="form-control" type="text" name="note">
                             </div>
                             <div class="col-xl-3 col-6 ">
                                 <br><button type="button" class="btn btn-info btn-sm tt" title='ค้นหา'>
                                     <i class="fas fa-search"></i>
                                 </button>
-                            </div>
-                        </div>
-                        <br>
-                        <div class="row mb-3">
-                            <div class="col-xl-12 col-12 text-primary text-center">
-                                <br><label style="font-size: 20px">ข้อมูลผู้ยืม</label>
-                            </div>
+                            </div><br>
                         </div>
                         <div class="row mb-2">
                             <div class="col-xl-5 col-2 text-right">
@@ -69,11 +59,9 @@
                                 <output type="text" class="form-control"  >นางสาวนุชนาฎ สัตยากวี
                             </div>
                         </div>
-
-                        <br>
                         <div class="row mb-2">
                             <div class="col-xl-5 col-2 text-right">
-                                <label style="font-size: 18px">1    เลขครุภัณฑ์ : </label>
+                                <label style="font-size: 18px">1.    เลขครุภัณฑ์ : </label>
                             </div>
                             <div class="col-xl-3 col-3 ">
                                 <output type="text" class="form-control"  >E0163-10000000001
@@ -81,7 +69,7 @@
                         </div>
                         <div class="row mb-2">
                             <div class="col-xl-5 col-2 text-right">
-                                <label style="font-size: 18px">2    เลขครุภัณฑ์ : </label>
+                                <label style="font-size: 18px">2.    เลขครุภัณฑ์ : </label>
                             </div>
                             <div class="col-xl-3 col-3 ">
                                 <output type="text" class="form-control"  >E0163-20000000010
@@ -92,17 +80,12 @@
                                 <button type="button" id="btn_green" class="btn btn-success">ยืนยัน</button>
                             </a>
                         </span> --}}
-                        <br>
-                        <button style="text-align: right" type="button" value="ยืนยัน" class="btn btn-danger" >ยืนยัน</button>
-                        <button style="text-align: right" type="button" value="ยกเลิก" class="btn btn-danger" >ยกเลิก</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-
 
 <div class="col-xl-15 col-15 mb-4">
     <div class="card"  >
@@ -155,27 +138,20 @@
                     <div class="modal-body" id="ChangeModalBody">
                         <div class="container">
                             <div class="col-xl-15 col-15 mb-4">
-                                <div class="card"  >
+                                <div>
                                     <div class="col-sm-12" id="historyRequirements" style="overflow-y:auto;">
                                         <div class="search" >
-
                                             <div class="row mb-2">
-                                                <div class="col-xl-4 col-2 text-right">
+                                                <div class="col-xl-5 col-2 text-right">
                                                     <br><label style="font-size: 18px">หมายเลขคำร้อง : </label>
                                                 </div>
                                                 <div class="col-xl-5 col-3 ">
                                                     <br><input type="text" class="form-control" name="note">
                                                 </div>
-                                                <div class="col-xl-3 col-3 ">
+                                                <div class="col-xl-2 col-3 ">
                                                     <br><button type="button" class="btn btn-info btn-sm tt" title='ค้นหา'>
                                                         <i class="fas fa-search"></i>
                                                     </button>
-                                                </div>
-                                            </div>
-
-                                            <div class="row mb-3">
-                                                <div class="col-xl-12 col-12 text-primary text-center">
-                                                    <br><label style="font-size: 20px ;">ข้อมูลผู้ยืม</label>
                                                 </div>
                                             </div>
                                             <div class="row mb-2">
@@ -202,11 +178,9 @@
                                                     <output type="text" class="form-control"  >นางสาวนุชนาฎ สัตยากวี
                                                 </div>
                                             </div>
-
-                                            <br>
                                             <div class="row mb-2">
                                                 <div class="col-xl-5 col-2 text-right">
-                                                    <label style="font-size: 18px">1    เลขครุภัณฑ์ : </label>
+                                                    <label style="font-size: 18px">1.    เลขครุภัณฑ์ : </label>
                                                 </div>
                                                 <div class="col-xl-5 col-3 ">
                                                     <output type="text" class="form-control"  >E0163-10000000001
@@ -214,7 +188,7 @@
                                             </div>
                                             <div class="row mb-2">
                                                 <div class="col-xl-5 col-2 text-right">
-                                                    <label style="font-size: 18px">2    เลขครุภัณฑ์ : </label>
+                                                    <label style="font-size: 18px">2.    เลขครุภัณฑ์ : </label>
                                                 </div>
                                                 <div class="col-xl-5 col-3 ">
                                                     <output type="text" class="form-control"  >E0163-20000000010
@@ -232,8 +206,8 @@
                         </div>
                     </div>
                     <div class="modal-footer">
+                        <button type="button" class="btn btn-success cancel" id="a_cancelInfo" data-dismiss="modal">ยืนยัน</button>
                         <button type="button" class="btn btn-danger cancel" id="a_cancelInfo" data-dismiss="modal">ยกเลิก</button>
-                        <button type="button" class="btn btn-danger cancel" id="a_cancelInfo" data-dismiss="modal">ยืนยัน</button>
                     </div>
                 </div>
             </form>

@@ -10,7 +10,7 @@
     <div class="col-xl-12 col-12 mb-4">
         <div class="card">
             <div class="card-header card-bg " style="background-color: #bf4040">
-                <span class="link-active " style="font-size: 15px; color:white;"><h5>การจัดการคำร้อง</h5></span>
+                <span class="link-active " style="font-size: 18px; color:white;">การจัดการคำร้อง</span>
             </div>
         </div>
     </div>
@@ -104,18 +104,16 @@
                         <!-- บอดี้ตาราง -->
                         <tbody>
                             @for ($i = 0; $i < count($TableRequestManagement); $i++)
-                            <tr role="row" >
-                                <td class="text-center">{{$i+1}}</td>
-                                <td class="text-center">{{$TableRequestManagement[$i]->ReqDate}}</td>
-                                <td class="text-center">R{{sprintf("%06d", $TableRequestManagement[$i]->RID)}}</td>
-                                <td class="text-center">{{$TableRequestManagement[$i]->petition}}</td>
-
-
-                                <td class="text-center">
+                                <tr role="row" >
+                                    <td class="text-center">{{$i+1}}</td>
+                                    <td class="text-center">{{$TableRequestManagement[$i]->ReqDate}}</td>
+                                    <td class="text-center">R{{sprintf("%06d", $TableRequestManagement[$i]->RID)}}</td>
+                                    <td class="text-center">{{$TableRequestManagement[$i]->petition}}</td>
+                                    <td class="text-center">
                                     <button type="button" class="btn btn-info btn-sm tt btndetail" title='รายละเอียดการคำร้อง' reqDate="{{$TableRequestManagement[$i]->ReqDate}}" rid="{{$TableRequestManagement[$i]->RID}}" petition="{{$TableRequestManagement[$i]->petition}}"><i class="fas fa-file-alt"></i></button>
-                                <button type="button" class="btn btn-danger btn-sm tt btndelete" data-toggle="tooltip" title="ลบคำร้อง" TT="R{{sprintf("%06d", $TableRequestManagement[$i]->RID)}}"RID="{{$TableRequestManagement[$i]->RID}}" data-original-title="ลบ"><i class="far fa-trash-alt" ></i></button>
-                                </td>
-                            </tr>
+                                    <button type="button" class="btn btn-danger btn-sm tt btndelete" data-toggle="tooltip" title="ลบคำร้อง" TT="R{{sprintf("%06d", $TableRequestManagement[$i]->RID)}}"RID="{{$TableRequestManagement[$i]->RID}}" data-original-title="ลบ"><i class="far fa-trash-alt" ></i></button>
+                                    </td>
+                                </tr>
                             @endfor
                         </tbody>
                     </table>
@@ -201,7 +199,7 @@
                                     <span>เหตุผลในการยืม:</span>
                                 </div>
                                 <div class="col-xl-7 col-7 ">
-                                    <input type="text" class="form-control form-control-sm-5" name="reason" style="height:150px" aria-controls="dataTable" >
+                                    <textarea class="form-control form-control-sm-5" name="reason" style="height:150px" aria-controls="dataTable"></textarea>
                                 </div>
                             </div>
                             <br>
@@ -234,8 +232,8 @@
         <div class="modal-content">
             <form method="post"   name="cancelModal" action="./requestManagement">
                 <div class="info" style="font-size: 20px">
-                    <div class="modal-header header-modal" style="background-color: red;">
-                        <h4 class="modal-title" id="TT" style="color: white">ยกเลิกคำร้อง</h4>
+                    <div class="modal-header header-modal" style="background-color: #CC0000;">
+                        <h4 class="modal-title" id="TT" style="color: white">ยืนยันการยกเลิกคำร้อง</h4>
                     </div>
                     <div class="modal-body" >
                         <div class="container">

@@ -155,28 +155,27 @@ $(document).ready(function() {
                     <div class="modal-body" id="DetailRCBody">
                         <div class="container">
                             <div class="row mb-4">
-                                <div class="col-xl-5 col-2 text-right">
-                                    <span>ชื่อผู้ส่ง:</span>
+                                <div class="col-xl-4 col-2 text-right">
+                                    <span>ชื่อผู้ส่ง :</span>
                                 </div>
-                                <div class="col-xl-6 col-6 ">
+                                <div class="col-xl-7 col-6 ">
                                     <output type="text" name ="dname" id="dname"></output>
                                 </div>
                             </div>
                             <div class="row mb-4">
-                                <div class="col-xl-5 col-2 text-right">
-                                    <span>วัน-เวลาที่ส่ง:</span>
+                                <div class="col-xl-4 col-2 text-right">
+                                    <span>วัน-เวลาที่ส่ง :</span>
                                 </div>
-                                <div class="col-xl-6 col-6 ">
+                                <div class="col-xl-7 col-6 ">
                                     <output type="text" name ="date" id="date"  ></output>
                                 </div>
                             </div>
                             <div class="row mb-4">
-                                <div class="col-xl-5 col-2 text-right">
-                                    <span>รายละเอียด:</span>
+                                <div class="col-xl-4 col-2 text-right">
+                                    <span>รายละเอียด :</span>
                                 </div>
-                                <div class="col-xl-6 col-6 ">
-
-                                        <output  type="text" class="form-control form-control-sm-5" style="height:200px"  aria-controls="dataTable"
+                                <div class="col-xl-7 col-6 ">
+                                        <output  type="textarea" class="form-control form-control-sm-5" style="height:200px"  aria-controls="dataTable"
                                         name ="detail" id="detail" disabled></output>
 
                                 </div>

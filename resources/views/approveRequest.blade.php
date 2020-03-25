@@ -15,7 +15,7 @@
         <div class="col-xl-12 col-12 mb-4">
             <div class="card">
                 <div class="card-header card-bg " style="background-color: #bf4040">
-                    <span class="link-active " style="font-size: 15px; color:white;"><h5>อนุมัติคำร้องขอ</h5></span>
+                    <span class="link-active " style="font-size: 18px; color:white;">อนุมัติคำร้องขอ</span>
                 </div>
             </div>
         </div>
@@ -45,7 +45,7 @@
                     <div class="col-xl-12 col-12 mb-4">
                         <div class="card">
                             <div class="card-header card-bg " style="background-color: #bf4040">
-                                <span class="link-active " style="font-size: 15px; color:white;"><h5>ตารางอนุมัติคำร้องขอ</h5></span>
+                                <span class="link-active " style="font-size: 17px; color:white;">ตารางอนุมัติคำร้องขอ</span>
                             </div>
                         </div>
                     </div>
@@ -191,24 +191,24 @@
         <div class="modal-content">
             <form method="post" id="cancel" name="cancel" action="manage.php">
                 <div class="cancel" style="font-size: 17px">
-                    <div class="modal-header header-modal" style="background-color: #66b3ff;">
+                    <div class="modal-header header-modal" style="background-color: #CC0000;">
                         <h4 class="modal-title" style="color: white">ยืนยันการยกเลิกการอนุมัติ</h4>
                     </div>
                     <div class="modal-body" id="CancelModalBody">
                         <div class="container">
                             <div class="row mb-4">
-                                <div class="col-xl-6 col-2 text-right">
+                                <div class="col-xl-5 col-2 text-right">
                                     <span>หมายเลขคำร้อง :</span>
                                 </div>
-                                <div class="col-xl-6 col-6">
+                                <div class="col-xl-7 col-6">
                                     <output id="ridapprove2" name="ridapprove2"></output>
                                 </div>
                             </div>
                             <div class="row mb-4">
-                                <div class="col-xl-6 col-2 text-right">
+                                <div class="col-xl-5 col-2 text-right">
                                     <span>เหตุผลที่ยกเลิก :</span>
                                 </div>
-                                <div class="col-xl-4 col-6 ">
+                                <div class="col-xl-5 col-6 ">
                                     <input type="text" class="form-control" id="reasoncancel" value="">
                                 </div>
                             </div>
