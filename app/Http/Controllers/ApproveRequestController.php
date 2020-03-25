@@ -36,9 +36,19 @@ class ApproveRequestController extends Controller
     public function deleteApproveRequest(Request $req)
     {
         $RID = $req->get('RID');
-        DB::table('approveRequest')
+        $reasoncancel = $req->get('reasoncancel');
+        DB::table('requirement')
             ->where('RID', $RID)
-            ->update(['RStatus' => 'ยกเลิก']);
+            ->update(['RStatus' => 'ยกเลิก', 'DetailCancel' =>  $reasoncancel]);
+        return $this->indexpageApproveRequest();
+    }
+    public function AcceptApproveRequest(Request $req)
+    {
+        date_default_timezone_set('Asia/Bangkok');
+        $RID = $req->get('RID');
+        DB::table('requirement')
+            ->where('RID', $RID)
+            ->update(['RStatus' => 'ยืนยันแล้ว', 'AcceptTime' => date("Y-m-d H:i:s")]);
         return $this->indexpageApproveRequest();
     }
 }

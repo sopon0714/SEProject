@@ -73,7 +73,7 @@ Route::prefix('comment')->group(function () {
 // approveRequest Route
 Route::prefix('approveRequest')->group(function () {
     Route::get('', 'ApproveRequestController@indexpageApproveRequest');
-    //Route::post('', 'ApproveRequestController@insertApproveRequest');
+    Route::post('', 'ApproveRequestController@AcceptApproveRequest');
     // Route::put('', 'ApproveRequestController@updateApproveRequest');
     Route::delete('', 'ApproveRequestController@deleteApproveRequest');
 });
