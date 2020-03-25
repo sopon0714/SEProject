@@ -78,7 +78,7 @@
                                     <i class="far fa-trash-alt" ></i></button>
                                 </td>
                             </tr>
-                            @endfor
+                                            
                         </tbody>
                     </table>
                 </div>
@@ -89,7 +89,6 @@
 @endsection
 @section('Javascript')
 <script>
-
 $(document).ready(function() {
 
        $('.btndetail').click(function() {

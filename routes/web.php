@@ -45,6 +45,7 @@ Route::prefix('comment')->group(function () {
     // Route::put('', 'CategoryController@updateCategory');
     // Route::delete('', 'CategoryController@deleteCategory');
 });
+
 // approveRequest Route
 Route::prefix('approveRequest')->group(function () {
     Route::get('', 'ApproveRequestController@indexpageApproveRequest');
@@ -61,6 +62,13 @@ Route::prefix('listEquipment')->group(function () {
     Route::delete('', 'ListEquipmentController@deleteListEquipment');
 });
 
+// setting  Route
+Route::prefix('setting')->group(function () {
+    Route::get('', 'SettingController@indexpageSetting');
+    // Route::post('', 'SettingController@insertSetting');
+    //Route::put('', 'SettingController@updateSetting');
+    // Route::delete('', 'SettingController@deleteSetting');
+});
 
 Route::get('/requestManagement', function () {
     return view('requestManagement');
@@ -78,15 +86,8 @@ Route::get('layoutAdmin', function () {
 Route::get('receiveEquipment', function () {
     return view('receiveEquipment');
 });
-// Route::get('comment', function () {
-//     return view('comment');
-// });
-
 Route::get('returnEquipment', function () {
     return view('returnEquipment');
-});
-Route::get('setting', function () {
-    return view('setting');
 });
 Route::get('layoutNisit', function () {
     return view('layoutNisit');

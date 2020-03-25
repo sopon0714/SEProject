@@ -9,8 +9,7 @@ class CommentController extends Controller
 {
     public function indexpageComment()
     {
-        $Comment = DB::select("SELECT * FROM `requestform`
-        LEFT JOIN `user` ON `requestform`.`UID` = `user`.`UID`");
+        $Comment = DB::select("SELECT * FROM `requestform` LEFT JOIN `user` ON `requestform`.`UID` = `user`.`UID`");
         return view("comment", ["TableComment"=>$Comment]);
     }
     public function insertComment(Request $req)
@@ -19,6 +18,5 @@ class CommentController extends Controller
         DB::table('requestform')->insert(
             ['Detail' => $detailComment,'UID'=>1]
         );
-        // return $this->indexpageComment();
     }
 }
