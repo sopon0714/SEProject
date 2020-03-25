@@ -114,7 +114,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-success cancel" id="submit_editset" data-dismiss="modal">ยืนยัน</button>
+                        <button type="button" class="btn btn-success btnsubmit cancel" id="submit_editset" data-dismiss="modal">ยืนยัน</button>
                         <button type="button" class="btn btn-danger cancel" id="calcel_editset" data-dismiss="modal">ยกเลิก</button>
                     </div>
                 </div>
@@ -125,53 +125,50 @@
 @endsection
 @section('Javascript')
 <script>
-$(document).ready(function() {
-       $('.btnedit').click(function() {
-            $("#editsetting").modal();
-       });
-       $(".btndelete").click(function() {
-            var nameitem = $(this).attr('nameitem');
-            var token = $(this).attr('token')
-            swal({
-                title: "คุณต้องการลบ",
-                text: "ข้อเสนอแนะ: "+nameitem+" หรือไม่ ?",
-                icon: "warning",
-                buttons: true,
-                buttons: ["ยกเลิก", "ยืนยัน"],
-                dangerMode: true,
-            })
-            .then((willDelete) => {
-                if (willDelete) {
-                    $.ajax({
-                        url: 'readComments',
-                        type: 'DELETE',
-                        async : false,
-                        data:{
-                            _method:'delete',
-                            _token:token,
-                            reqID:nameitem
-                        },
-                        success: function(result) {
-                            swal("ลบรายการสำเร็จเรียบร้อยแล้ว", {
-                                icon: "success",
-                                buttons: false
-                            });
-                            setTimeout(function() {
-                                location.reload();
-                            }, 1500);
-                        }
-                    });
-                } else {
-                    swal("การลบไม่สำเร็จ ",{
-                        icon: "error",
-                        buttons: false
-                    });
-                    setTimeout(function() {
-                        swal.close();
-                    }, 1500);
-                }
-            });
-    });
+    $(document).ready(function() {
+        // แก้ไข
+        $('.btnedit').click(function() {
+                $("#editsetting").modal();
+        });
+        // ยืนยัน
+        $(".btnsubmit").click(function() {
+                swal({
+                    title: "คุณต้องการแก้ไขการตั้งค่าหรือไม่?",
+                    icon: "warning",
+                    buttons: true,
+                    buttons: ["ยกเลิก", "ยืนยัน"],
+                    dangerMode: true,
+                })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        $.ajax({
+                            url: 'setting',
+                            type: 'EDIT',
+                            async : false,
+                            data:{
+                                _method:'edit',
+                            },
+                            success: function(result) {
+                                swal("แก้ไขการตั้งค่าสำเร็จ", {
+                                    icon: "success",
+                                    buttons: false
+                                });
+                                setTimeout(function() {
+                                    location.reload();
+                                }, 1500);
+                            }
+                        });
+                    } else {
+                        swal("แก้ไขการตั้งค่าไม่สำเร็จ ",{
+                            icon: "error",
+                            buttons: false
+                        });
+                        setTimeout(function() {
+                            swal.close();
+                        }, 1500);
+                    }
+                });
+        });
     });
 </script>
 @endsection
