@@ -110,7 +110,7 @@
                                 </div>
                                 <div class="card-body">
                                     <div class="col-sm-12" id="historyRequirements" style="overflow-y:auto;">
-                                        <table class="table table-bordered" id="historyRequirementsTable" style="text-align:center;font-size: 14px"  swidth="100%"  cellspacing="0">
+                                        <table class="table table-bordered TableFilter" id="historyRequirementsTable" style="text-align:center;font-size: 14px"  swidth="100%"  cellspacing="0">
                                             <thead>
                                                 <tr role="row">
                                                     <th rowspan="1" colspan="1">หมายเลขคำร้อง</th>

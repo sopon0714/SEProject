@@ -11,7 +11,9 @@
         </div>
     </div>
 </div>
+
 <div class="row">
+    @if (Session::get('userType')==3)
     <div class="col-xl-3 col-12 mb-4">
         <div class="card border-left-primary card-color-info shadow h-100 py-2">
             <div class="card-body">
@@ -27,6 +29,7 @@
             </div>
         </div>
     </div>
+    @endif
     <div class="col-xl-3 col-12 mb-4">
         <div class="card border-left-primary card-color-info shadow h-100 py-2">
             <div class="card-body">
@@ -42,6 +45,7 @@
             </div>
         </div>
     </div>
+    @if (Session::get('userType')==3)
     <div class="col-xl-3 col-12 mb-4">
         <a style="text-decoration: none">
         <div class="card border-left-primary card-color-add shadow h-100 py-2" id="add" style="cursor:pointer;">
@@ -58,68 +62,9 @@
         </div>
         </a>
     </div>
-</div>
-<div class="col-xl-15 col-15 mb-4">
-    <div class="card">
-        <div class="card-header card-bg " style="background-color: #bf4040">
-            <span class="link-active " style="font-size: 17px; color:white;">ค้นหา</span>
-        </div>
-        {{-- style="text-align: center" --}}
-        <div>
-            <div class="card-body"  >
-                <div class="col-sm-12" id="historyRequirements" style="overflow-y:auto;">
-                    <div class="search" >
-                        <div class="row mb-2">
-                            <div class="col-xl-5 col-2 text-right">
-                                <label style="font-size: 18px">ชื่ออุปกรณ์ : </label>
-                            </div>
-                            <div class="col-xl-3 col-6 ">
-                                <input type="text" class="form-control" name="note">
-                            </div>
-                        </div>
-                        <div class="row mb-2">
-                            <div class="col-xl-5 col-2 text-right">
-                                <label for="category" style="font-size: 18px">หมวดหมู่อุปกรณ์ : </label>
-                            </div>
-                            <div class="col-xl-3 col-6 ">
-                                <select id="categorySearch" class="form-control">
-                                    <option value="">ทั้งหมด</option>
-                                    @for ($i = 0; $i < count($category); $i++)
-                                         <option value="{{$category[$i]->CID}}">{{$category[$i]->CName}}</option>
-                                     @endfor
-                                </select>
-                            </div>
-                        </div>
-                        <div class="row mb-2">
-                            <div class="col-xl-5 col-2 text-right">
-                                <label for="category" style="font-size: 18px">สถานะอุปกรณ์ : </label>
-                            </div>
-                            <div class="col-xl-2">
-                                <input type="radio" name="gender" value="male" checked> ทั้งหมด
-                            </div>
-                            <div class="col-xl-2">
-                                <input type="radio" name="gender" value="female"> ยืมได้
-                            </div>
-                            <div class="col-xl-2">
-                                <input type="radio" name="gender" value="other"> ยืมไม่ได้
-                            </div>
-                        </div>
+    @endif
 
-                        {{-- <span>
-                            <a href=" ">
-                                <button type="button" id="btn_green" class="btn btn-success">ยืนยัน</button>
-                            </a>
-                        </span> --}}
-                        <div style="text-align: center">
-                            <button style="text-align: center" type="button" value="ค้นหา" class="btn btn-primary" >ค้นหา</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 </div>
-
 <div class="col-xl-15 col-15 mb-4">
     <div class="card"  >
         <div class="card-header card-bg " style="background-color: #bf4040">
@@ -127,7 +72,7 @@
         </div>
         <div class="card-body" >
             <div class="col-sm-12" id="historyRequirements" style="overflow-y:auto;">
-                <table class="table table-bordered" id="historyRequirementsTable " style="text-align:center;"  swidth="100%"  cellspacing="0">
+                <table class="table table-bordered TableFilter" id="historyRequirementsTable " style="text-align:center;"  swidth="100%"  cellspacing="0">
                     <thead>
                         <tr role="row" >
                             <th rowspan="1" colspan="1">ลำดับ</th>
@@ -137,7 +82,9 @@
                             <th rowspan="1" colspan="1">จำนวนทั้งหมด</th>
                             <th rowspan="1" colspan="1">จำนวนที่ยืมได้</th>
                             <th rowspan="1" colspan="1">รายละเอียด</th>
-                            <th rowspan="1" colspan="1">จัดการ</th>
+                            @if (Session::get('userType')==3)
+                                <th rowspan="1" colspan="1">จัดการ</th>
+                            @endif
                         </tr>
                     </thead>
                     <tbody>
@@ -156,10 +103,12 @@
                                         </button>
                                     </a>
                                 </td>
-                                <td rowspan="1" colspan="1">
-                                    <button type="button" class="btn btn-warning btn-sm tt editbtn" data-toggle="tooltip" title="แก้ไขรายการอุปกรณ์" ELID ="{{$TableListEquipment[$i]->ELID}}" token="{{ csrf_token() }}" data-original-title="แก้ไข"><i class="fas fa-pencil-alt"></i></button>
-                                    <button type="button" class="btn btn-danger btn-sm tt delbtn" data-toggle="tooltip" title="ลบรายการอุปกรณ์" ELID ="{{$TableListEquipment[$i]->ELID}}" Ename ="{{$TableListEquipment[$i]->EName}}" token="{{ csrf_token() }}" data-original-title="ลบ"><i class="far fa-trash-alt" aria-hidden="true" ></i></button>
-                                </td>
+                                @if (Session::get('userType')==3)
+                                    <td rowspan="1" colspan="1">
+                                        <button type="button" class="btn btn-warning btn-sm tt editbtn" data-toggle="tooltip" title="แก้ไขรายการอุปกรณ์" ELID ="{{$TableListEquipment[$i]->ELID}}" token="{{ csrf_token() }}" data-original-title="แก้ไข"><i class="fas fa-pencil-alt"></i></button>
+                                        <button type="button" class="btn btn-danger btn-sm tt delbtn" data-toggle="tooltip" title="ลบรายการอุปกรณ์" ELID ="{{$TableListEquipment[$i]->ELID}}" Ename ="{{$TableListEquipment[$i]->EName}}" token="{{ csrf_token() }}" data-original-title="ลบ"><i class="far fa-trash-alt" aria-hidden="true" ></i></button>
+                                    </td>
+                                @endif
                             </tr>
                         @endfor
                     </tbody>

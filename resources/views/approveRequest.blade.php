@@ -57,7 +57,7 @@
                 {{-- เริ่มตาราง --}}
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" style="width: 90%" align="center">
+                        <table class="table table-bordered TableFilter" id="dataTable" width="100%" cellspacing="0" style="width: 90%" align="center">
                             <colgroup>
                                 <col width="15%">
                                 <col width="20%">

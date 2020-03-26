@@ -63,7 +63,7 @@
             </div>
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class="table table-bordered" id="Table_RM" width="100%" cellspacing="0" style="width: 90%" align="center">
+                    <table class="table table-bordered TableFilter" id="Table_RM" width="100%" cellspacing="0" style="width: 90%" align="center">
                         <colgroup>
                             <col width="100">
                             <col width="100">
@@ -205,18 +205,23 @@
                                 </div>
                             </div>
                             <br>
-                            <div class="row mb-2">
-                                <div class="col-xl-4 col-2 text-left">
-                                    <span>อาจารย์ที่รับผิดชอบ :</span>
+
+                            @if (Session::get('userType')==1)
+                                <div class="row mb-2">
+                                    <div class="col-xl-4 col-2 text-left">
+                                        <span>อาจารย์ที่รับผิดชอบ :</span>
+                                    </div>
+                                    <div class="col-xl-7 col-7 ">
+                                        <select id="advisor" class="form-control form-control-sm-5" name="advisor">
+                                            @for ($i = 0; $i < count($Advisor); $i++)
+                                                    <option value="{{$Advisor[$i]->UID}}">อาจารย์ {{$Advisor[$i]->FName}} {{$Advisor[$i]->LName}}</option>
+                                            @endfor
+                                        </select>
+                                    </div>
                                 </div>
-                                <div class="col-xl-7 col-7 ">
-                                    <select id="advisor" class="form-control form-control-sm-5" name="advisor">
-                                        @for ($i = 0; $i < count($Advisor); $i++)
-                                                <option value="{{$Advisor[$i]->UID}}">อาจารย์ {{$Advisor[$i]->FName}} {{$Advisor[$i]->LName}}</option>
-                                        @endfor
-                                    </select>
-                                </div>
-                            </div>
+                            @else
+                                <input type="hidden" name="advisor" value="-">
+                            @endif
                         </div>
                     </div>
                     <div class="modal-footer">

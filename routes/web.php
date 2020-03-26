@@ -84,6 +84,7 @@ Route::prefix('approveRequest')->group(function () {
 Route::prefix('listEquipment')->group(function () {
     Route::get('', 'ListEquipmentController@indexpageListEquipment');
     Route::post('', 'ListEquipmentController@insertListEquipment');
+    Route::put('', 'ListEquipmentController@updateListEquipment');
     Route::post('byID', 'ListEquipmentController@selectByIdListEquipment');
     Route::delete('', 'ListEquipmentController@deleteListEquipment');
 });
@@ -130,6 +131,10 @@ Route::prefix('receiveEquipment')->group(function () {
     // Route::delete('', 'DetailEquipmentController@deleteDetailEquipment');
 });
 
-Route::get('returnEquipment', function () {
-    return view('returnEquipment');
+// returnEquipment  Route
+Route::prefix('returnEquipment')->group(function () {
+    Route::get('', 'ReturnEquipmentController@indexpagereturnEquipment');
+    Route::post('', 'ReturnEquipmentController@confirmreturnEquipment');
+    // Route::put('', 'DetailEquipmentController@updateDetailEquipment');
+    // Route::delete('', 'DetailEquipmentController@deleteDetailEquipment');
 });

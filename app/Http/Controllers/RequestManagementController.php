@@ -45,6 +45,9 @@ class RequestManagementController extends Controller
         $arrNumber = $req->get('Number');
         $reason = $req->get('reason');
         $advisorid = $req->get('advisor');
+        if ($advisorid == '-') {
+            $advisorid = NULL;
+        }
         $RSatus = $UTID == 1 ? 'รอยืนยัน' : 'ยืนยันแล้ว';
         $idnew = DB::table('requirement')->insertGetId(
             ['UID' => $UID, 'ProfessorID' => $advisorid, 'AcceptTime' => NULL, 'ReqTime' => time(), 'ReqDate' => date("Y-m-d"), 'Reason' =>  $reason, 'RStatus' =>  $RSatus, 'DetailCancel' =>  NULL]

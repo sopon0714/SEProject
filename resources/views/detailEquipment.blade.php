@@ -11,8 +11,15 @@
     <div class="col-xl-12 col-12 mb-4">
         <div class="row">
             <div class="col-xl-12 col-12 mb-4">
-                <div class="card-header card-bg "  style="background-color: #bf4040;height: 50px">
-                    <span class="link-active" style="font-size: 18px; color:white;"> รายละเอียดอุปกรณ์</span>
+                <div class="card-header card-bg "  style="background-color: #bf4040;">
+                    <div class="row">
+                        <span class="link-active" style="font-size: 18px; color:white;"> รายละเอียดอุปกรณ์</span>
+                        <div  style="margin-left: 70%">
+                            <a href="../listEquipment" >
+                                <button type="button" id="btn_info" class="btn btn-warning">ย้อนกลับ</button>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -45,6 +52,7 @@
             </div>
         </div>
     </div>
+    @if (Session::get('userType')==3)
     <div class="col-xl-3 col-12 mb-4">
         <div class="card border-left-warning card-color-four shadow h-100 py-2"
             data-toggle="modal" data-target="#modal-1" >
@@ -61,10 +69,28 @@
             </div>
         </div>
     </div>
-    <div class=" col-3 mb-4" style="text-align: right">
-        <a href="../listEquipment" >
-            <button type="button" id="btn_info" class="btn btn-warning">ย้อนกลับ</button>
-        </a>
+    @endif
+
+</div>
+
+{{-- รายละเอียดอุปกรณ์ --}}
+<div class="row">
+    <div class="col-xl-12 col-12 mb-4">
+        <div class="card border-left-warning card-color-four shadow h-100 py-2"
+            data-toggle="modal" data-target="#modal-1" >
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="font-weight-bold  text-uppercase  mb-2">ข้อมูลอุปกรณ์</div>
+                        <div class="font-weight-bold  text-uppercase  mb-2">ชื่อ : {{$InfoEL->EName}}</div>
+                        <div class="font-weight-bold  text-uppercase  mb-2">ยี่ห้อ : {{$InfoEL->Brand}}</div>
+                        <div class="font-weight-bold  text-uppercase  mb-2">สถานะ : {{$InfoEL->ELStatus}}</div>
+                        <div class="font-weight-bold  text-uppercase  mb-2">หมวดหมู่ : {{$InfoEL->CName}}</div>
+                        <div class="font-weight-bold  text-uppercase textarea ">รายละเอียด<br> {{$InfoEL->Detail}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 <div class="row">
@@ -81,13 +107,15 @@
             </div>
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class="table table-bordered" id="Table_RM" width="100%" cellspacing="0" style="width: 90%" align="center">
+                    <table class="table table-bordered TableFilter" id="Table_RM" width="100%" cellspacing="0" style="width: 90%" align="center">
                         <colgroup>
                             <col width="100">
                             <col width="100">
                             <col width="100">
                             <col width="100">
-                            <col width="100">
+                            @if (Session::get('userType')==3)
+                                <col width="100">
+                            @endif
                         </colgroup>
                         <!-- หัวตาราง -->
                         <thead class="text-center">
@@ -96,7 +124,9 @@
                             <th>เลขครุภัณฑ์</th>
                             <th>สถานะอุปกรณ์</th>
                             <th>รายละเอียด</th>
-                            <th>จัดการ</th>
+                            @if (Session::get('userType')==3)
+                                <th>จัดการ</th>
+                            @endif
                             </tr>
                         </thead>
                         <!-- บอดี้ตาราง -->
@@ -110,37 +140,19 @@
                                         <button type="button" class="btn btn-info btn-sm tt mr-sm-1 btndetail" EID="{{$DATA[$i]->EID}}" token="{{ csrf_token() }}"title='รายละเอียดอุปกรณ์'>
                                         <i class="fas fa-file-alt"></i></button>
                                     </td>
-                                    <td class="text-center">
-                                        <button type="button" class="btn btn-warning btn-sm tt mr-sm-1 btnedit" EID="{{$DATA[$i]->EID}}" Snumber="{{$DATA[$i]->SNumber=='' ? '':$DATA[$i]->SNumber}}"data-toggle="tooltip" title="แก้ไขข้อมูลอุปกรณ์" data-original-title="แก้ไข">
-                                    <i class="fas fa-pencil-alt"></i></button>
-                                        <button type="button" class="btn btn-danger btn-sm tt btndelete" EID="{{$DATA[$i]->EID}}" Snumber="{{$DATA[$i]->SNumber=='' ? '(ไม่มีเลขครุภัณฑ์)':$DATA[$i]->SNumber}}" token="{{ csrf_token() }}" data-toggle="tooltip" title="ลบอุปกรณ์" data-original-title="ลบ">
-                                    <i class="far fa-trash-alt" ></i></button>
-                                    </td>
+                                    @if (Session::get('userType')==3)
+                                        <td class="text-center">
+                                            <button type="button" class="btn btn-warning btn-sm tt mr-sm-1 btnedit" EID="{{$DATA[$i]->EID}}" Snumber="{{$DATA[$i]->SNumber=='' ? '':$DATA[$i]->SNumber}}"data-toggle="tooltip" title="แก้ไขข้อมูลอุปกรณ์" data-original-title="แก้ไข">
+                                        <i class="fas fa-pencil-alt"></i></button>
+                                            <button type="button" class="btn btn-danger btn-sm tt btndelete" EID="{{$DATA[$i]->EID}}" Snumber="{{$DATA[$i]->SNumber=='' ? '(ไม่มีเลขครุภัณฑ์)':$DATA[$i]->SNumber}}" token="{{ csrf_token() }}" data-toggle="tooltip" title="ลบอุปกรณ์" data-original-title="ลบ">
+                                        <i class="far fa-trash-alt" ></i></button>
+                                        </td>
+                                    @endif
                                 </tr>
                             @endfor
 
                         </tbody>
                     </table>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-{{-- รายละเอียดอุปกรณ์ --}}
-<div class="row">
-    <div class="col-xl-12 col-12 mb-4">
-        <div class="card border-left-warning card-color-four shadow h-100 py-2"
-            data-toggle="modal" data-target="#modal-1" >
-            <div class="card-body">
-                <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                        <div class="font-weight-bold  text-uppercase  mb-2">ข้อมูลอุปกรณ์</div>
-                        <div class="font-weight-bold  text-uppercase  mb-2">ชื่อ : {{$InfoEL->EName}}</div>
-                        <div class="font-weight-bold  text-uppercase  mb-2">ยี่ห้อ : {{$InfoEL->Brand}}</div>
-                        <div class="font-weight-bold  text-uppercase  mb-2">สถานะ : {{$InfoEL->ELStatus}}</div>
-                        <div class="font-weight-bold  text-uppercase  mb-2">หมวดหมู่ : {{$InfoEL->CName}}</div>
-                        <div class="font-weight-bold  text-uppercase textarea ">รายละเอียด<br> {{$InfoEL->Detail}}</div>
-                    </div>
                 </div>
             </div>
         </div>

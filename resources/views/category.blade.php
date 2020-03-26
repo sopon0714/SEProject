@@ -64,7 +64,7 @@
             </div>
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class="table table-bordered" id="Table_E" width="100%" cellspacing="0" style="width: 90%" align="center">
+                    <table class="table table-bordered TableFilter" id="Table_E" width="100%" cellspacing="0" style="width: 90%" align="center">
                         <colgroup>
                             <col width="20%">
                             <col width="40%">
