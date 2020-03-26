@@ -47,13 +47,14 @@ class UserProfileController extends Controller
         FROM `orderitem` INNER JOIN `orderdetail` ON `orderitem`.`OID`=`orderdetail`.`OID`
         INNER JOIN `equipment` ON `equipment`.`EID`=`orderdetail`.`EID`
         INNER JOIN `equipmentlist` ON `equipmentlist`.`ELID`= `equipment`.`ELID`
-        WHERE `orderitem`.`OID`=$OID GROUP BY `equipmentlist`.`EName` DESC,`equipment`.`SNumber`");
+        WHERE `orderitem`.`OID`=$OID ORDER BY `equipmentlist`.`EName` DESC,`equipment`.`SNumber`");
         $content = "";
         for ($i = 0; $i < count($arrO); $i++) {
+            $arrO[$i]->SNumber == NULL ? $SN = '-' : $SN = $arrO[$i]->SNumber;
             $content .= " <tr role=\"row\" >
                              <td rowspan=\"1\" colspan=\"1\">" . ($i + 1) . "</td>
                              <td rowspan=\"1\" colspan=\"1\">{$arrO[$i]->EName}</td>
-                             <td rowspan=\"1\" colspan=\"1\">{$arrO[$i]->SNumber}</td>
+                             <td rowspan=\"1\" colspan=\"1\">$SN</td>
                          </tr>";
         }
         $INFO = array();

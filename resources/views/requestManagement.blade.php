@@ -96,7 +96,10 @@
 
                                 <td class="text-center">
                                 <button type="button" class="btn btn-info btn-sm tt btndetail" title='รายละเอียดการคำร้อง' token ="{{csrf_token()}}"reqDate="{{$TableRequestManagement[$i]->ReqDate}}" rid="{{$TableRequestManagement[$i]->RID}}" petition="{{$TableRequestManagement[$i]->petition}}"><i class="fas fa-file-alt"></i></button>
+                                @if ($TableRequestManagement[$i]->petition !='ยกเลิก'&&$TableRequestManagement[$i]->petition !='รับอุปกรณ์แล้ว')
                                 <button type="button" class="btn btn-danger btn-sm tt btndelete" data-toggle="tooltip" title="ลบคำร้อง" TT="R{{sprintf("%06d", $TableRequestManagement[$i]->RID)}}"RID="{{$TableRequestManagement[$i]->RID}}" data-original-title="ลบ"><i class="far fa-trash-alt" ></i></button>
+                                @endif
+
                                 </td>
                             </tr>
                             @endfor
@@ -225,8 +228,8 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-success submit" id="addRM_submit">ยืนยัน</button>
-                        <button type="button" class="btn btn-danger cancel" id="addRM_cancel" data-dismiss="modal">ยกเลิก</button>
+                        <button type="submit" class="btn btn-success submit" >ยืนยัน</button>
+                        <button type="button" class="btn btn-danger cancel"  data-dismiss="modal">ยกเลิก</button>
                     </div>
                 </div>
             </form>
@@ -302,8 +305,8 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-success submit" id="addRM_submit">ยืนยัน</button>
-                        <button type="button" class="btn btn-danger cancel" id="addRM_cancel" data-dismiss="modal">ยกเลิก</button>
+                        <button type="submit" class="btn btn-success submit" >ยืนยัน</button>
+                        <button type="button" class="btn btn-danger cancel"  data-dismiss="modal">ยกเลิก</button>
                     </div>
                 </div>
             </form>
@@ -396,7 +399,7 @@
                     </div>
                     <div class="row mb-4">
                         <div class="col-xl-6 col-2 text-right">
-                            <span>เหตุผลในการยกเลิก: </span>
+                            <span>เหตุผลในการยืม: </span>
                         </div>
                         <div class="col-xl-6 col-6 ">
                             <span id="dt4">-</span>
