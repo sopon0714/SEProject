@@ -57,7 +57,7 @@
                 {{-- เริ่มตาราง --}}
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table table-bordered TableFilter" id="dataTable" width="100%" cellspacing="0" style="width: 90%" align="center">
+                        <table class="table table-bordered TableFilter" id="dataTable" width="100%" cellspacing="0" style="width: 100%" align="center">
                             <colgroup>
                                 <col width="15%">
                                 <col width="20%">
@@ -158,7 +158,7 @@
                                 </div>
                             </div>
                             <div class="row mb-4">
-                                <div class="col-xl-12 col-2 text-right">
+                                <div class="col-xl-12 text-right">
                                     <table class="table table-bordered" id="historyRequirementsTable" style="text-align:center;font-size: 14px"  swidth="100%"  cellspacing="0">
                                         <thead>
                                             <tr role="row">
@@ -167,7 +167,6 @@
                                                 <th rowspan="1" colspan="1">จำนวน(ชิ้น)</th>
                                             </tr>
                                         </thead>
-
                                         <tbody id="dt1">
                                             <tr role="row" >
                                                 <td rowspan="1" colspan="1">1</output></td>
@@ -175,11 +174,9 @@
                                                 <td rowspan="1" colspan="1">2</output></td>
                                             </tr>
                                         </tbody>
-
                                     </table>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                     <div class="modal-footer">
