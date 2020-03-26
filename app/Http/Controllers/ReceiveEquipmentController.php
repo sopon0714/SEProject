@@ -14,7 +14,7 @@ class ReceiveEquipmentController extends Controller
         IF(`requirement`.`ProfessorID` IS NULL,'-',CONCAT(us1.`Title`, us1.`FName`, ' ', us1.`LName`)) As fullnameAdv,
         CONCAT(us2.`Title`, us2.`FName`, ' ', us2.`LName`) As fullnameMe
         FROM `requirement`
-        INNER JOIN `user` as us1 ON us1.`UID` = `requirement`.`ProfessorID`
+        LEFT JOIN `user` as us1 ON us1.`UID` = `requirement`.`ProfessorID`
         INNER JOIN `user` as us2 ON us2.`UID` = `requirement`.`UID`
         WHERE `RStatus`='ยืนยันแล้ว'");
         $countrequirement = DB::selectOne("SELECT COUNT(*) as totalall
