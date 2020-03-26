@@ -27,15 +27,14 @@
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <div class="col-sm-12 col-md-12">
                         <div>
-                            <textarea rows="6" cols="50" id = "detailComment" name="detailComment" class="form-control form-control-sm-5"></textarea><br>
+                            <textarea rows="6" cols="50" name="detailComment" class="form-control form-control-sm-5"></textarea><br>
                         </div>
                     </div>
                     {{-- ปุ่มส่ง --}}
-                    @for ($i=0; $i<count($TableComment); $i++)
-                        <div style="margin-left:93%">
-                            <button type="submit" id ="detailComment_1" class="btn btn-success btn-xl tt btnsend" uid="{{$TableComment[$i]->UID}}" nDetail="{{$TableComment[$i]->Detail}}" token="{{ csrf_token() }}" data-toggle="tooltip" title='ส่งข้อเสนอแนะ'><i class="fas fa-paper-plane"></i> ส่ง</button>
-                        </div>
-                    @endfor
+                    <div style="margin-left:93%">
+                        <button type="submit" id ="detailComment_1" class="btn btn-success btn-xl tt btnsend" data-toggle="tooltip" title='ส่งข้อเสนอแนะ'><i class="fas fa-paper-plane"></i> ส่ง</button>
+                        {{-- uid="{{$TableComment[$i]->UID}}" nDetail="{{$TableComment[$i]->Detail}}" token="{{ csrf_token() }}" --}}
+                    </div>
                 </form>
             </div>
         </div>

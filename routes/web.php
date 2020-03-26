@@ -35,6 +35,7 @@ Route::post('/DetailByOID', 'UserProfileController@DetailByOID');
 Route::post('/DetailByRID', 'RequestManagementController@DetailByRID');
 
 Route::post('/DetailByReceive', 'ReceiveEquipmentController@DetailByReceive');
+
 // userProfile Route
 Route::prefix('userProfile/{id}')->group(function () {
     Route::get('', 'UserProfileController@getUser');

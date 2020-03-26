@@ -106,7 +106,7 @@
         <!-- End of Sidebar -->
         <div id="content-wrapper" class="d-flex flex-column">
             <!-- Main Content -->
-            <div id="content" style="background-color: #CDC9A5;">
+            <div id="content" style="background-color: #FFE4E1;">
                 <!-- Topbar -->
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
                     <!-- Sidebar Toggle (Topbar) -->
