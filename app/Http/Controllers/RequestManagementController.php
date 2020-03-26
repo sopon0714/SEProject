@@ -75,10 +75,10 @@ class RequestManagementController extends Controller
     {
         header('Content-Type: application/json');
         $RID = $req->get('RID');
-        $InfoR = DB::selectOne("SELECT CONCAT(`user`.`Title`, `user`.`FName`, ' ',`user`.`LName`) as fullnameAdv ,
+        $InfoR = DB::selectOne("SELECT IF(`requirement`.`ProfessorID`IS NULL,'-',CONCAT(`user`.`Title`, `user`.`FName`, ' ',`user`.`LName`)) as fullnameAdv ,
         IF(`requirement`.`AcceptTime` IS NULL,'-',from_unixtime(`requirement`.`AcceptTime`,' %H:%i:%s %Y-%m-%d ') ) AS timeac,
         IF(`requirement`.`Reason`IS NULL,'-',`requirement`.`Reason`) as  Reason
-        FROM `requirement`INNER JOIN `user`
+        FROM `requirement`LEFT JOIN `user`
         ON `requirement`.`ProfessorID`=`user`.`UID`
         WHERE RID =$RID");
         $InfoR2 = DB::select("SELECT `equipmentlist`.`EName`,`requirementdetail`.`Amount` FROM `requirement`
